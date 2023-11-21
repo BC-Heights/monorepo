@@ -1,4 +1,58 @@
+"use client"
+
+
 import styles from './page.module.scss';
+
+
+
+import React from 'react';
+import { ApolloClient, InMemoryCache, gql, createHttpLink } from '@apollo/client';
+
+
+//import styles from './page.module.scss';
+
+const httpLink = createHttpLink({
+  uri: 'https://www.bcheights.com/graphql/',
+  fetchOptions: {
+    mode: 'cors',
+  }
+});
+
+const client = new ApolloClient({
+  link: httpLink,
+  cache: new InMemoryCache(),
+  credentials: 'include',
+  headers: {
+    'Content-Type': 'application/graphql/',
+  },
+});
+
+client
+  .query({
+    query: gql`
+      query NewQuery {
+        posts(where: {}) {
+          nodes {
+            date
+            id
+            slug
+            author {
+              node {
+                id
+                name
+              }
+            }
+            categories {
+              nodes {
+                name
+              }
+            }
+          }
+        }
+      }
+    `,
+  })
+  .then((result) => console.log(result));
 
 export default async function Index() {
   /*

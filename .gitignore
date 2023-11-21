@@ -1,6 +1,7 @@
 node_modules
 /.nx/cache
 /.vs
+/.vscode
 
 # React Native
 
@@ -72,4 +73,24 @@ yarn-error.log
 /coverage
 
 
+apps/mobile-e2e/artifacts
+
+# Expo
+node_modules/
+.expo/
+.yarn/
+dist/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+cache/
+
+
+apps/mobile-e2e/artifacts
+apps/mobile-e2e/artifacts
 apps/mobile-e2e/artifacts
