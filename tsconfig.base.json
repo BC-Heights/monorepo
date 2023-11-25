@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@the-heights/apollo-client": ["libs/apollo-client/src/index.ts"],
+      "@the-heights/gql": ["libs/gql/src/lib/index.ts"],
+      "@the-heights/posts": [ "libs/posts/src/index.ts" ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

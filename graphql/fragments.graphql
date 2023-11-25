@@ -1,0 +1,15 @@
+fragment PostFragement on Post {
+  title
+  author {
+    node {
+      name
+    }
+  }
+  id
+  date
+  featuredImage {
+    node {
+      sourceUrl(size: LARGE)
+    }
+  }
+}
