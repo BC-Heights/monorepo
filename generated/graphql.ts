@@ -9481,14 +9481,14 @@ export type WritingSettings = {
   useSmilies?: Maybe<Scalars['Boolean']['output']>;
 };
 
-export type PostFragementFragment = { __typename?: 'Post', title?: string | null, id: string, date?: string | null, excerpt?: string | null, slug?: string | null, author?: { __typename?: 'NodeWithAuthorToUserConnectionEdge', node: { __typename?: 'User', name?: string | null } } | null, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node: { __typename?: 'MediaItem', sourceUrl?: string | null, caption?: string | null } } | null };
+export type PostFragementFragment = { __typename?: 'Post', title?: string | null, id: string, date?: string | null, excerpt?: string | null, slug?: string | null, content?: string | null, author?: { __typename?: 'NodeWithAuthorToUserConnectionEdge', node: { __typename?: 'User', name?: string | null } } | null, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node: { __typename?: 'MediaItem', sourceUrl?: string | null, caption?: string | null } } | null };
 
 export type GetPostsQueryVariables = Exact<{
   first: Scalars['Int']['input'];
 }>;
 
 
-export type GetPostsQuery = { __typename?: 'RootQuery', posts?: { __typename?: 'RootQueryToPostConnection', nodes: Array<{ __typename?: 'Post', title?: string | null, id: string, date?: string | null, excerpt?: string | null, slug?: string | null, author?: { __typename?: 'NodeWithAuthorToUserConnectionEdge', node: { __typename?: 'User', name?: string | null } } | null, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node: { __typename?: 'MediaItem', sourceUrl?: string | null, caption?: string | null } } | null }> } | null };
+export type GetPostsQuery = { __typename?: 'RootQuery', posts?: { __typename?: 'RootQueryToPostConnection', nodes: Array<{ __typename?: 'Post', title?: string | null, id: string, date?: string | null, excerpt?: string | null, slug?: string | null, content?: string | null, author?: { __typename?: 'NodeWithAuthorToUserConnectionEdge', node: { __typename?: 'User', name?: string | null } } | null, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node: { __typename?: 'MediaItem', sourceUrl?: string | null, caption?: string | null } } | null }> } | null };
 
 export type GetPostIDsQueryVariables = Exact<{
   first: Scalars['Int']['input'];
@@ -9502,9 +9502,9 @@ export type GetPostQueryVariables = Exact<{
 }>;
 
 
-export type GetPostQuery = { __typename?: 'RootQuery', post?: { __typename?: 'Post', title?: string | null, id: string, date?: string | null, excerpt?: string | null, slug?: string | null, author?: { __typename?: 'NodeWithAuthorToUserConnectionEdge', node: { __typename?: 'User', name?: string | null } } | null, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node: { __typename?: 'MediaItem', sourceUrl?: string | null, caption?: string | null } } | null } | null };
+export type GetPostQuery = { __typename?: 'RootQuery', post?: { __typename?: 'Post', title?: string | null, id: string, date?: string | null, excerpt?: string | null, slug?: string | null, content?: string | null, author?: { __typename?: 'NodeWithAuthorToUserConnectionEdge', node: { __typename?: 'User', name?: string | null } } | null, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node: { __typename?: 'MediaItem', sourceUrl?: string | null, caption?: string | null } } | null } | null };
 
-export const PostFragementFragmentDoc = /*#__PURE__*/ gql`
+export const PostFragementFragmentDoc = gql`
     fragment PostFragement on Post {
   title
   author {
@@ -9522,9 +9522,10 @@ export const PostFragementFragmentDoc = /*#__PURE__*/ gql`
     }
   }
   slug
+  content(format: RENDERED)
 }
     `;
-export const GetPostsDocument = /*#__PURE__*/ gql`
+export const GetPostsDocument = gql`
     query getPosts($first: Int!) {
   posts(first: $first) {
     nodes {
@@ -9566,7 +9567,7 @@ export type GetPostsQueryHookResult = ReturnType<typeof useGetPostsQuery>;
 export type GetPostsLazyQueryHookResult = ReturnType<typeof useGetPostsLazyQuery>;
 export type GetPostsSuspenseQueryHookResult = ReturnType<typeof useGetPostsSuspenseQuery>;
 export type GetPostsQueryResult = Apollo.QueryResult<GetPostsQuery, GetPostsQueryVariables>;
-export const GetPostIDsDocument = /*#__PURE__*/ gql`
+export const GetPostIDsDocument = gql`
     query getPostIDs($first: Int!) {
   posts(first: $first) {
     nodes {
@@ -9608,7 +9609,7 @@ export type GetPostIDsQueryHookResult = ReturnType<typeof useGetPostIDsQuery>;
 export type GetPostIDsLazyQueryHookResult = ReturnType<typeof useGetPostIDsLazyQuery>;
 export type GetPostIDsSuspenseQueryHookResult = ReturnType<typeof useGetPostIDsSuspenseQuery>;
 export type GetPostIDsQueryResult = Apollo.QueryResult<GetPostIDsQuery, GetPostIDsQueryVariables>;
-export const GetPostDocument = /*#__PURE__*/ gql`
+export const GetPostDocument = gql`
     query getPost($id: ID!) {
   post(id: $id) {
     ...PostFragement

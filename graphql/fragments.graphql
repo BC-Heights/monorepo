@@ -15,4 +15,5 @@ fragment PostFragement on Post {
     }
   }
   slug
+  content(format: RENDERED)
 }

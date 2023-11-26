@@ -28,12 +28,13 @@ export function Posts(props: PostsProps) {
       <div className={styles['container']}>
         <div className={styles['main-post']}>
           <BigCard
-            title={firstPost?.title || 'Default Title'}
             author={firstPost?.author?.node.name || 'Joe Smith'}
             date={firstPost?.date || 'January 10'}
             imageSrc={firstPost?.featuredImage?.node.sourceUrl || 'gif.jpg'}
             imageAlt={firstPost?.featuredImage?.node.caption || 'super cool pic'}
             excerpt={firstPost?.excerpt || 'This is a super cool excerpt'}
+            slug={firstPost?.slug || '/'}
+            title={firstPost?.title || 'Default Title'}
           ></BigCard>
         </div>
         <div className={styles['sub-container']}>

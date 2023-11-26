@@ -1,0 +1,2 @@
+schema: 'https:www.bcheights.com/graphql'
+documents: '**/*.graphql'
