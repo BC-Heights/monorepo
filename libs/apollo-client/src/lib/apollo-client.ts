@@ -6,11 +6,13 @@ const httpLink = createHttpLink({
   fetchOptions: {
     mode: 'cors',
   }
+  
 });
 
 
 export function createApolloClient(): ApolloClient<NormalizedCacheObject> {
   return new ApolloClient({
+    ssrMode: true,
     link: httpLink,
     cache: new InMemoryCache(),
     credentials: 'include',

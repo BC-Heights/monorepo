@@ -1,5 +1,3 @@
-import { createApolloClient } from '@the-heights/apollo-client';
-import { ApolloProvider } from '@apollo/client';
 import { useGetPostsQuery } from 'generated/graphql';
 import { BigCard } from '@the-heights/big-card';
 import Loading from './loading';
@@ -17,6 +15,7 @@ export function Posts(props: PostsProps) {
       first: 5
     }
   });
+
   if (loading) return <Loading />;
   if (error) return <p>Error :(</p>;
   console.log(data);
@@ -24,7 +23,6 @@ export function Posts(props: PostsProps) {
   const firstPost = posts?.nodes?.[0];
   
   return (
-    <ApolloProvider client={createApolloClient()}>
       <div className={styles['container']}>
         <div className={styles['main-post']}>
           <BigCard
@@ -50,9 +48,6 @@ export function Posts(props: PostsProps) {
           </div>))}
         </div>
        </div>
-
-    </ApolloProvider>
-
   );
 }
 

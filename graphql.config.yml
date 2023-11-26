@@ -1,11 +1,23 @@
+overwrite: true
 schema:
   - "https://www.bcheights.com/graphql"
 documents:
   - "./graphql/**/*.graphql"
 generates:
-  ./generated/graphql.ts:
-    plugins:
-      - typescript
-      - typescript-operations
-      - typescript-react-apollo
-
+    generated/graphql.tsx:
+        plugins:
+            - 'typescript'
+            - 'typescript-operations'
+            - 'typescript-react-apollo'
+    generated/page.tsx:
+        config:
+            documentMode: external
+            importDocumentNodeExternallyFrom: ./graphql
+        preset: import-types
+        presetConfig:
+            typesPath: ./graphql
+        plugins:
+            - 'graphql-codegen-apollo-next-ssr'
+hooks:
+    afterAllFileWrite:
+        - prettier --write
