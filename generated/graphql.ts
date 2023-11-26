@@ -9481,16 +9481,30 @@ export type WritingSettings = {
   useSmilies?: Maybe<Scalars['Boolean']['output']>;
 };
 
-export type PostFragementFragment = { __typename?: 'Post', title?: string | null, id: string, date?: string | null, author?: { __typename?: 'NodeWithAuthorToUserConnectionEdge', node: { __typename?: 'User', name?: string | null } } | null, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node: { __typename?: 'MediaItem', sourceUrl?: string | null } } | null };
+export type PostFragementFragment = { __typename?: 'Post', title?: string | null, id: string, date?: string | null, excerpt?: string | null, slug?: string | null, author?: { __typename?: 'NodeWithAuthorToUserConnectionEdge', node: { __typename?: 'User', name?: string | null } } | null, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node: { __typename?: 'MediaItem', sourceUrl?: string | null, caption?: string | null } } | null };
 
 export type GetPostsQueryVariables = Exact<{
   first: Scalars['Int']['input'];
 }>;
 
 
-export type GetPostsQuery = { __typename?: 'RootQuery', posts?: { __typename?: 'RootQueryToPostConnection', nodes: Array<{ __typename?: 'Post', title?: string | null, id: string, date?: string | null, author?: { __typename?: 'NodeWithAuthorToUserConnectionEdge', node: { __typename?: 'User', name?: string | null } } | null, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node: { __typename?: 'MediaItem', sourceUrl?: string | null } } | null }> } | null };
+export type GetPostsQuery = { __typename?: 'RootQuery', posts?: { __typename?: 'RootQueryToPostConnection', nodes: Array<{ __typename?: 'Post', title?: string | null, id: string, date?: string | null, excerpt?: string | null, slug?: string | null, author?: { __typename?: 'NodeWithAuthorToUserConnectionEdge', node: { __typename?: 'User', name?: string | null } } | null, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node: { __typename?: 'MediaItem', sourceUrl?: string | null, caption?: string | null } } | null }> } | null };
 
-export const PostFragementFragmentDoc = gql`
+export type GetPostIDsQueryVariables = Exact<{
+  first: Scalars['Int']['input'];
+}>;
+
+
+export type GetPostIDsQuery = { __typename?: 'RootQuery', posts?: { __typename?: 'RootQueryToPostConnection', nodes: Array<{ __typename?: 'Post', id: string }> } | null };
+
+export type GetPostQueryVariables = Exact<{
+  id: Scalars['ID']['input'];
+}>;
+
+
+export type GetPostQuery = { __typename?: 'RootQuery', post?: { __typename?: 'Post', title?: string | null, id: string, date?: string | null, excerpt?: string | null, slug?: string | null, author?: { __typename?: 'NodeWithAuthorToUserConnectionEdge', node: { __typename?: 'User', name?: string | null } } | null, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node: { __typename?: 'MediaItem', sourceUrl?: string | null, caption?: string | null } } | null } | null };
+
+export const PostFragementFragmentDoc = /*#__PURE__*/ gql`
     fragment PostFragement on Post {
   title
   author {
@@ -9500,14 +9514,17 @@ export const PostFragementFragmentDoc = gql`
   }
   id
   date
+  excerpt
   featuredImage {
     node {
       sourceUrl(size: LARGE)
+      caption
     }
   }
+  slug
 }
     `;
-export const GetPostsDocument = gql`
+export const GetPostsDocument = /*#__PURE__*/ gql`
     query getPosts($first: Int!) {
   posts(first: $first) {
     nodes {
@@ -9549,3 +9566,85 @@ export type GetPostsQueryHookResult = ReturnType<typeof useGetPostsQuery>;
 export type GetPostsLazyQueryHookResult = ReturnType<typeof useGetPostsLazyQuery>;
 export type GetPostsSuspenseQueryHookResult = ReturnType<typeof useGetPostsSuspenseQuery>;
 export type GetPostsQueryResult = Apollo.QueryResult<GetPostsQuery, GetPostsQueryVariables>;
+export const GetPostIDsDocument = /*#__PURE__*/ gql`
+    query getPostIDs($first: Int!) {
+  posts(first: $first) {
+    nodes {
+      id
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetPostIDsQuery__
+ *
+ * To run a query within a React component, call `useGetPostIDsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPostIDsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetPostIDsQuery({
+ *   variables: {
+ *      first: // value for 'first'
+ *   },
+ * });
+ */
+export function useGetPostIDsQuery(baseOptions: Apollo.QueryHookOptions<GetPostIDsQuery, GetPostIDsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetPostIDsQuery, GetPostIDsQueryVariables>(GetPostIDsDocument, options);
+      }
+export function useGetPostIDsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPostIDsQuery, GetPostIDsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetPostIDsQuery, GetPostIDsQueryVariables>(GetPostIDsDocument, options);
+        }
+export function useGetPostIDsSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetPostIDsQuery, GetPostIDsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<GetPostIDsQuery, GetPostIDsQueryVariables>(GetPostIDsDocument, options);
+        }
+export type GetPostIDsQueryHookResult = ReturnType<typeof useGetPostIDsQuery>;
+export type GetPostIDsLazyQueryHookResult = ReturnType<typeof useGetPostIDsLazyQuery>;
+export type GetPostIDsSuspenseQueryHookResult = ReturnType<typeof useGetPostIDsSuspenseQuery>;
+export type GetPostIDsQueryResult = Apollo.QueryResult<GetPostIDsQuery, GetPostIDsQueryVariables>;
+export const GetPostDocument = /*#__PURE__*/ gql`
+    query getPost($id: ID!) {
+  post(id: $id) {
+    ...PostFragement
+  }
+}
+    ${PostFragementFragmentDoc}`;
+
+/**
+ * __useGetPostQuery__
+ *
+ * To run a query within a React component, call `useGetPostQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPostQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetPostQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useGetPostQuery(baseOptions: Apollo.QueryHookOptions<GetPostQuery, GetPostQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetPostQuery, GetPostQueryVariables>(GetPostDocument, options);
+      }
+export function useGetPostLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPostQuery, GetPostQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetPostQuery, GetPostQueryVariables>(GetPostDocument, options);
+        }
+export function useGetPostSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetPostQuery, GetPostQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<GetPostQuery, GetPostQueryVariables>(GetPostDocument, options);
+        }
+export type GetPostQueryHookResult = ReturnType<typeof useGetPostQuery>;
+export type GetPostLazyQueryHookResult = ReturnType<typeof useGetPostLazyQuery>;
+export type GetPostSuspenseQueryHookResult = ReturnType<typeof useGetPostSuspenseQuery>;
+export type GetPostQueryResult = Apollo.QueryResult<GetPostQuery, GetPostQueryVariables>;

@@ -1,0 +1,42 @@
+.container {
+
+}
+
+.large-image {
+    width: 100%;
+}
+
+.entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.entry-divider {
+  display: block;
+  width: 90px;
+  border: 2px dotted black;
+  margin: 0 auto 15px;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Arbitus Slab';
+    margin: 16px 0;
+    padding: 0 16px;
+    width: fit-content;
+    text-align: center;
+}
+
+.excerpt {
+    margin: 25px 0;
+}
+
+.footer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    color: #AAAAAA;
+    font-size: 12px;
+}

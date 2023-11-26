@@ -742,40 +742,6 @@
         "async": false
       }
     },
-    "(app-client)/./app/layout.tsx": {
-      "*": {
-        "id": "(sc_client)/./app/layout.tsx",
-        "name": "*",
-        "chunks": [
-          "app/layout:static/chunks/app/layout.js"
-        ],
-        "async": false
-      },
-      "": {
-        "id": "(sc_client)/./app/layout.tsx",
-        "name": "",
-        "chunks": [
-          "app/layout:static/chunks/app/layout.js"
-        ],
-        "async": false
-      },
-      "default": {
-        "id": "(sc_client)/./app/layout.tsx",
-        "name": "default",
-        "chunks": [
-          "app/layout:static/chunks/app/layout.js"
-        ],
-        "async": false
-      },
-      "metadata": {
-        "id": "(sc_client)/./app/layout.tsx",
-        "name": "metadata",
-        "chunks": [
-          "app/layout:static/chunks/app/layout.js"
-        ],
-        "async": false
-      }
-    },
     "(app-client)/./app/page.tsx": {
       "*": {
         "id": "(sc_client)/./app/page.tsx",
@@ -2516,39 +2482,28 @@
         "static/css/app/layout.css"
       ]
     },
-    "C:\\Users\\atshi\\source\\repos\\the-heights\\apps\\web\\app\\layout.tsx": {
-      "id": "(app-client)/./app/layout.tsx",
-      "name": "*",
-      "chunks": [
-        "app/layout:static/chunks/app/layout.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\atshi\\source\\repos\\the-heights\\apps\\web\\app\\layout.tsx#": {
-      "id": "(app-client)/./app/layout.tsx",
-      "name": "",
-      "chunks": [
-        "app/layout:static/chunks/app/layout.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\atshi\\source\\repos\\the-heights\\apps\\web\\app\\layout.tsx#default": {
-      "id": "(app-client)/./app/layout.tsx",
+    "C:\\Users\\atshi\\source\\repos\\the-heights\\apps\\web\\app\\page.module.scss#": {
+      "id": "null",
       "name": "default",
       "chunks": [
-        "app/layout:static/chunks/app/layout.js"
-      ],
-      "async": false
+        "static/css/app/page.css"
+      ]
     },
-    "C:\\Users\\atshi\\source\\repos\\the-heights\\apps\\web\\app\\layout.tsx#metadata": {
-      "id": "(app-client)/./app/layout.tsx",
-      "name": "metadata",
+    "C:\\Users\\atshi\\source\\repos\\the-heights\\libs\\big-card\\src\\lib\\big-card.module.scss#": {
+      "id": "null",
+      "name": "default",
       "chunks": [
-        "app/layout:static/chunks/app/layout.js"
-      ],
-      "async": false
+        "static/css/app/page.css"
+      ]
     },
-    "C:\\Users\\atshi\\source\\repos\\the-heights\\apps\\web\\app\\page.module.scss#": {
+    "C:\\Users\\atshi\\source\\repos\\the-heights\\libs\\posts\\src\\lib\\loading.module.scss#": {
+      "id": "null",
+      "name": "default",
+      "chunks": [
+        "static/css/app/page.css"
+      ]
+    },
+    "C:\\Users\\atshi\\source\\repos\\the-heights\\libs\\posts\\src\\lib\\posts.module.scss#": {
       "id": "null",
       "name": "default",
       "chunks": [

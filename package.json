@@ -9,6 +9,8 @@
   "dependencies": {
     "@apollo/client": "^3.8.7",
     "@nx/next": "17.1.2",
+    "@types/dompurify": "^3.0.5",
+    "dompurify": "^3.0.6",
     "graphql": "^16.8.1",
     "next": "13.4.1",
     "react": "18.2.0",

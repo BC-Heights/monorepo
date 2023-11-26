@@ -1,0 +1,24 @@
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[2].oneOf[10].use[2]!../../node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[2].oneOf[10].use[3]!../../node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[2].oneOf[10].use[4]!../../node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[2].oneOf[10].use[5]!./app/loading.module.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.loading_container__sqcON {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+  justify-content: center;
+  margin: 0 16px;
+  background-color: #aaaaaa;
+  border-radius: 32px;
+}
+
+.loading_sub-container__nLNzm {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  padding: 0 16px;
+}
+
+.loading_main-post__QrM_I {
+  width: 670px;
+  padding: 0 16px;
+}

@@ -7,9 +7,12 @@ fragment PostFragement on Post {
   }
   id
   date
+  excerpt
   featuredImage {
     node {
       sourceUrl(size: LARGE)
+      caption
     }
   }
+  slug
 }

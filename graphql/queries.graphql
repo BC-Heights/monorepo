@@ -5,3 +5,17 @@ query getPosts($first: Int!) {
     }
   }
 }
+
+query getPostIDs($first: Int!) {
+  posts(first: $first) {
+    nodes {
+      id
+    }
+  }
+}
+
+query getPost($id: ID!) {
+  post(id: $id) {
+    ...PostFragement
+  }
+}
