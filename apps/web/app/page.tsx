@@ -1,19 +1,16 @@
-"use client"
-
 import styles from './page.module.scss';
-
 import React from 'react';
+import Loading from './loading'
 import { Posts } from '@the-heights/posts';
-import { ApolloProvider } from '@apollo/client';
-import { createApolloClient } from '@the-heights/apollo-client';
+import { Suspense } from 'react';
 
 
 export default async function Index() {
   return (
-      <div className={styles.page}>
-        <ApolloProvider client={createApolloClient()}>
-          <Posts></Posts>
-        </ApolloProvider>
+    <div className={styles.page}>
+      <Suspense fallback={<Loading /> }>
+        <Posts></Posts>
+      </Suspense>
       </div>
   );
 }
