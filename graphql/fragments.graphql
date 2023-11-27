@@ -1,19 +1,19 @@
-fragment PostFragement on Post {
-  title
-  author {
-    node {
-      name
+fragment PostFragment on Post {
+    title
+    author {
+      node {
+        name
+      }
     }
-  }
-  id
-  date
-  excerpt
-  featuredImage {
-    node {
-      sourceUrl(size: LARGE)
-      caption
+    id
+    date
+    featuredImage {
+      node {
+        caption
+        sourceUrl(size: ALM_THUMBNAIL)
+      }
     }
+    excerpt
+    slug
+    content(format: RENDERED)
   }
-  slug
-  content(format: RENDERED)
-}

@@ -1,21 +1,21 @@
-query getPosts($first: Int!) {
-  posts(first: $first) {
-    nodes {
-      ...PostFragement
+ query GetPosts($first: Int!) {
+    posts(first: $first, where: {}) {
+      nodes {
+        ...PostFragment
+      }
     }
   }
-}
 
-query getPostIDs($first: Int!) {
-  posts(first: $first) {
-    nodes {
-      id
+  query GetPostBySlug($slug: String!) {
+    postBy(slug: $slug) {
+      ...PostFragment
     }
   }
-}
 
-query getPost($id: ID!) {
-  post(id: $id) {
-    ...PostFragement
+  query GetPostsByCat($first: Int!, $categoryName: String!) {
+    posts(where: {categoryName: $categoryName}, first: $first) {
+      nodes {
+       ...PostFragment
+      }
+    }
   }
-}

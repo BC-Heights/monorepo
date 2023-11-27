@@ -1,19 +1,20 @@
-import { CodegenConfig } from '@graphql-codegen/cli';
+import type { CodegenConfig } from "@graphql-codegen/cli";
 
 const config: CodegenConfig = {
-  schema: "https://rickandmortyapi.com/graphql",
-  // this assumes that all your source files are in a top-level `src/` directory - you might need to adjust this to your file structure
-  documents: ['graphql/*.graphql'],
+  overwrite: true,
+  schema: "https://www.bcheights.com/graphql",
+  documents: ["graphql/**/*.graphql"],
   generates: {
-    './libs/gql/src/lib/': {
-      preset: 'client',
-      plugins: [],
+    "graphql/types.generated.ts": { plugins: ["typescript"] },
+    "components/": {
+      preset: "near-operation-file",
       presetConfig: {
-        gqlTagName: 'gql',
-      }
-    }
+        extension: ".generated.ts",
+        baseTypesPath: "types.generated.ts",
+      },
+      plugins: ["typescript-operations", "typed-document-node"],
+    },
   },
-  ignoreNoDocuments: true,
 };
 
 export default config;
