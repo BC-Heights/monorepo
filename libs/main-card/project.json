@@ -1,7 +1,7 @@
 {
-  "name": "posts",
+  "name": "main-card",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/posts/src",
+  "sourceRoot": "libs/main-card/src",
   "projectType": "library",
   "tags": [],
   "targets": {
@@ -9,7 +9,7 @@
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/posts/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["libs/main-card/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
@@ -17,7 +17,7 @@
       "outputs": ["{options.reportsDirectory}"],
       "options": {
         "passWithNoTests": true,
-        "reportsDirectory": "../../coverage/libs/posts"
+        "reportsDirectory": "../../coverage/libs/main-card"
       }
     }
   }

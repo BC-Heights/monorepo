@@ -1,7 +1,8 @@
-/*
- * Replace this with your own classes
- *
- * e.g.
- * .container {
- * }
-*/
+
+
+.limited-width {
+  max-width: 80%; /* Set your desired maximum width */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

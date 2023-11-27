@@ -1,0 +1,22 @@
+.container {
+    width: 400px;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+align-items: center;
+  gap: 16px
+}
+
+.line {
+  border-top: 4px solid #eee;
+  width: 100%;
+}
+
+.title {
+    font-size: 24px;
+font-weight: 600;
+font-family: "arbitus slab"
+}

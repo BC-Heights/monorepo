@@ -1,3 +1,4 @@
+// @ts-expect-error ts-migrate(2307): nx monorepo issue, compiles fine but IDE complains
 import styles from './big-card.module.scss';
 import Link from 'next/link';
 import { formatDate } from '@the-heights/format-date';
@@ -25,7 +26,7 @@ export function BigCard(props: BigCardProps) {
         <Link href={`/${props.slug}`}>
           <h1 className={styles['title']}>{props.title}</h1>
         </Link>
-        <span className={styles['entry-divider']}></span>
+        <div className={styles['entry-divider']}></div>
         <div className={styles['excerpt']} dangerouslySetInnerHTML={{ __html: props.excerpt}}></div>
         <div className={styles['footer']}>
           <i>{formatDate(props.date)}</i>

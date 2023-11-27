@@ -19,9 +19,10 @@
       "@the-heights/big-card": ["libs/big-card/src/index.ts"],
       "@the-heights/format-date": ["libs/format-date/src/index.ts"],
       "@the-heights/gql": ["libs/gql/src/lib/index.ts"],
+      "@the-heights/main-card": ["libs/main-card/src/index.ts"],
       "@the-heights/medium-card": ["libs/medium-card/src/index.ts"],
-      "@the-heights/posts": ["libs/posts/src/index.js"],
-      "@the-heights/small-card": ["libs/small-card/src/index.ts"]
+      "@the-heights/small-card": ["libs/small-card/src/index.ts"],
+      "@the-heights/topic-card": ["libs/topic-card/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

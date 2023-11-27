@@ -1,13 +1,17 @@
 import styles from './small-card.module.scss';
+import Link from 'next/link';
 
 /* eslint-disable-next-line */
-export interface SmallCardProps {}
+export interface SmallCardProps {
+  title: string;
+  slug: string;
+}
 
 export function SmallCard(props: SmallCardProps) {
   return (
-    <div className={styles['container']}>
-      <h1>Welcome to SmallCard!</h1>
-    </div>
+   <Link href={`/${props.slug}`}>
+      <h1 className={styles['limited-width']}>{props.title}</h1>
+  </Link>
   );
 }
 

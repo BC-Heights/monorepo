@@ -1,5 +1,7 @@
 .container {
-
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee
 }
 
 .large-image {
@@ -13,10 +15,9 @@
 }
 
 .entry-divider {
-  display: block;
-  width: 90px;
+  width: 100px;
   border: 2px dotted black;
-  margin: 0 auto 15px;
+  margin: 8px 0;
 }
 
 .title {
@@ -30,7 +31,7 @@
 }
 
 .excerpt {
-    margin: 25px 0;
+    margin: 16px 0;
 }
 
 .footer {

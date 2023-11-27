@@ -12,7 +12,7 @@
 //} from 'react-native';
 //import Svg, { G, Path } from 'react-native-svg';
 
-import { Posts } from '@the-heights/posts';
+import { Posts } from '@the-heights/main-card';
 import { ApolloProvider } from '@apollo/client';
 import { createApolloClient } from '@the-heights/apollo-client';
 
@@ -21,9 +21,9 @@ export const App = () => {
   //const scrollViewRef = useRef<null | ScrollView>(null);
 
   return (
-   <ApolloProvider client={createApolloClient()}>
+    <ApolloProvider client={createApolloClient()}>
       <Posts></Posts>
-   </ApolloProvider>
+    </ApolloProvider>
   );
 };
 //const styles = StyleSheet.create({

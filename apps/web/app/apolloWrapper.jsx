@@ -1,5 +1,4 @@
 "use client";
-// ^ this file needs the "use client" pragma
 
 import { ApolloLink, HttpLink } from "@apollo/client";
 import {
@@ -9,10 +8,8 @@ import {
   SSRMultipartLink,
 } from "@apollo/experimental-nextjs-app-support/ssr";
 
-// have a function to create a client for you
 function makeClient() {
   const httpLink = new HttpLink({
-    // this needs to be an absolute url, as relative urls cannot be used in SSR
     uri: "https://www.bcheights.com/graphql",
     // you can disable result caching here if you want to
     // (this does not work if you are rendering your page with `export const dynamic = "force-static"`)
