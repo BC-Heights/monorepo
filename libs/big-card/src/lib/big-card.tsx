@@ -1,7 +1,5 @@
 import styles from './big-card.module.scss';
 import Link from 'next/link';
-
-import DOMpurify from 'dompurify';
 import { formatDate } from '@the-heights/format-date';
 
 /* eslint-disable-next-line */
@@ -28,7 +26,7 @@ export function BigCard(props: BigCardProps) {
           <h1 className={styles['title']}>{props.title}</h1>
         </Link>
         <span className={styles['entry-divider']}></span>
-        <div className={styles['excerpt']} dangerouslySetInnerHTML={{ __html: DOMpurify.sanitize(props.excerpt) }}></div>
+        <div className={styles['excerpt']} dangerouslySetInnerHTML={{ __html: props.excerpt}}></div>
         <div className={styles['footer']}>
           <i>{formatDate(props.date)}</i>
           <Link href={`/${props.slug}`}>
