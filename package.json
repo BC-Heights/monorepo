@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "codegen": "graphql-codegen --config graphql.config.yml"
+    "codegen": "graphql-codegen --config codegen.ts"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +24,7 @@
     "@graphql-codegen/cli": "^5.0.0",
     "@graphql-codegen/client-preset": "^4.1.0",
     "@graphql-codegen/import-types-preset": "^3.0.0",
+    "@graphql-codegen/near-operation-file-preset": "^3.0.0",
     "@graphql-codegen/typescript-react-apollo": "^4.1.0",
     "@graphql-typed-document-node/core": "^3.2.0",
     "@nx/cypress": "17.1.2",

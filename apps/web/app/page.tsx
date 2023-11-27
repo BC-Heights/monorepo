@@ -8,19 +8,41 @@ import { TopicCard } from '@the-heights/topic-card';
 
 
 export default async function Index() {
-  const cats = ['News' , 'Sports', 'Newton', 'Arts', 'Opinions', 'Multimedia']
+  const cats = ['Sports' , 'News', 'Features' /*Magazine*/, 'Newton', 'Arts', 'Opinions', 'Multimedia']
   return (
     <div className={styles.page}>
-      <Suspense fallback={<Loading />}>
-        <MainCard></MainCard>
-      </Suspense>
+      <MainCard></MainCard>
       <Suspense fallback={<Loading />}>
         <div className={styles['topics-container']}>
-          {cats.map((category, index) => (
+          {cats.slice(0, 2).map((category, index) => (
             <TopicCard
               key={index}
               category={category}
-              numMedium={2}
+              numBig={2}
+              numSmall={3}
+            />
+          ))}
+        </div>
+      </Suspense>
+      <Suspense fallback={<Loading />}>
+        <div className={styles['topics-container']}>
+          {cats.slice(2, 4).map((category, index) => (
+            <TopicCard
+              key={index}
+              category={category}
+              numBig={2}
+              numSmall={3}
+            />
+          ))}
+        </div>
+      </Suspense>
+      <Suspense fallback={<Loading />}>
+        <div className={styles['topics-container']}>
+          {cats.slice(4).map((category, index) => (
+            <TopicCard
+              key={index}
+              category={category}
+              numBig={2}
               numSmall={3}
             />
           ))}

@@ -5,7 +5,6 @@ import { formatDate } from '@the-heights/format-date';
 
 /* eslint-disable-next-line */
 export interface BigCardProps {
-  author: string;
   date: string;
   excerpt: string;
   imageSrc: string;
