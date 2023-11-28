@@ -1,4 +1,4 @@
-import * as Types from '../components/types.generated';
+import * as Types from './types.generated';
 
 import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 export type PostFragmentFragment = { __typename?: 'Post', title?: string | null, id: string, date?: string | null, excerpt?: string | null, slug?: string | null, content?: string | null, author?: { __typename?: 'NodeWithAuthorToUserConnectionEdge', node: { __typename?: 'User', name?: string | null } } | null, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node: { __typename?: 'MediaItem', caption?: string | null, sourceUrl?: string | null } } | null };
