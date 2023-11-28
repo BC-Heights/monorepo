@@ -20,7 +20,13 @@ export function TopicCard(props: TopicCardProps) {
   const numTotal = props.numBig + props.numSmall;
 
   const [queryRef] = useBackgroundQuery(GetPostsByCatDocument, {
-    variables: { first: numTotal, categoryName: props.category }
+    variables: { first: numTotal, categoryName: props.category },
+    context: {
+      fetchOptions: {
+        next: { revalidate: 10 }
+      }
+    }
+    
   })
 
   const { posts } = useReadQuery(queryRef).data || {};

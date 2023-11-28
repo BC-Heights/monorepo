@@ -1,0 +1,14 @@
+mutation LoginUser {
+  login( input: {
+    clientMutationId: "uniqueId",
+    username: "alanshipman",
+    password: "$4Monkeybread"
+  } ) {
+    authToken
+    refreshToken
+    user {
+      id
+      name
+    }
+  }
+}

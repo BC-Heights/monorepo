@@ -1,6 +1,7 @@
 "use client";
 
 import { ApolloLink, HttpLink } from "@apollo/client";
+
 import {
   NextSSRApolloClient,
   ApolloNextAppProvider,
@@ -21,6 +22,7 @@ function makeClient() {
     uri: "https://www.bcheights.com/graphql",
   });
 
+ 
   return new NextSSRApolloClient({
     cache: new NextSSRInMemoryCache(),
     link:
@@ -34,7 +36,7 @@ function makeClient() {
           }),
           httpLink,
         ])
-        : httpLink,
+          : httpLink,
   });
 }
 
