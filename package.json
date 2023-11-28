@@ -8,6 +8,7 @@
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.8.7",
+    "@apollo/experimental-nextjs-app-support": "^0.5.1",
     "@nx/next": "17.1.2",
     "@types/dompurify": "^3.0.5",
     "graphql": "^16.8.1",
