@@ -1,6 +1,5 @@
 "use client"
 
-// @ts-expect-error TS7016: Importing jsx file
 import styles from './main-card.module.scss';
 
 import { MediumCard } from '@the-heights/medium-card';

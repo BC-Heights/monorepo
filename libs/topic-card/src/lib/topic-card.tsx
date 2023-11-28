@@ -30,7 +30,7 @@ export function TopicCard(props: TopicCardProps) {
       <div className={styles['title-container']}>
         <span></span>
         <span className={styles['line']} />
-        <h1 className={styles['title']}>{props.category=='Features'? 'Magazine': props.category}</h1>
+        <h1 className={styles['title']}>{props.category==='Features'? 'Magazine': props.category}</h1>
         <span className={styles['line']} />
         <span></span>
       </div>

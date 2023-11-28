@@ -1,4 +1,3 @@
-// @ts-expect-error ts-migrate(2307): nx monorepo issue, compiles fine but IDE complains
 import styles from './medium-card.module.scss';
 import Link from 'next/link';
 import { formatDate } from '@the-heights/format-date';
