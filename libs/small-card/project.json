@@ -7,17 +7,9 @@
   "targets": {
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [ "{options.outputFile}" ],
       "options": {
-        "lintFilePatterns": ["libs/small-card/**/*.{ts,tsx,js,jsx}"]
-      }
-    },
-    "test": {
-      "executor": "@nx/vite:test",
-      "outputs": ["{options.reportsDirectory}"],
-      "options": {
-        "passWithNoTests": true,
-        "reportsDirectory": "../../coverage/libs/small-card"
+        "lintFilePatterns": [ "libs/small-card/**/*.{ts,tsx,js,jsx}" ]
       }
     }
   }

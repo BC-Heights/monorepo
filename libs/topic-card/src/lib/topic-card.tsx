@@ -1,6 +1,5 @@
 "use client"
 
-// @ts-expect-error ts-migrate(2307): nx monorepo issue, compiles fine but IDE complains
 import styles from './topic-card.module.scss';
 
 import { SmallCard } from '@the-heights/small-card';
