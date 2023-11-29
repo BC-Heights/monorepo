@@ -13,42 +13,46 @@ export default async function Index() {
   return (
     <div className={styles.page}>
       <MainCard></MainCard>
-      <Suspense fallback={<Loading />}>
-        <div className={styles['topics-container']}>
-          {cats.slice(0, 2).map((category, index) => (
-            <TopicCard
-              key={index}
-              category={category}
-              numBig={2}
-              numSmall={3}
-            />
-          ))}
-        </div>
-      </Suspense>
-      <Suspense fallback={<Loading />}>
-        <div className={styles['topics-container']}>
-          {cats.slice(2, 4).map((category, index) => (
-            <TopicCard
-              key={index}
-              category={category}
-              numBig={2}
-              numSmall={3}
-            />
-          ))}
-        </div>
-      </Suspense>
-      <Suspense fallback={<Loading />}>
-        <div className={styles['topics-container']}>
-          {cats.slice(4).map((category, index) => (
-            <TopicCard
-              key={index}
-              category={category}
-              numBig={2}
-              numSmall={3}
-            />
-          ))}
-        </div>
-      </Suspense>
+      <div className={styles['dom-topics-container']}>
+        <Suspense fallback={<Loading />}>
+          <div className={styles['topics-container']}>
+            {cats.slice(0, 2).map((category, index) => (
+              <TopicCard
+                key={index}
+                category={category}
+                numBig={2}
+                numSmall={3}
+              />
+            ))}
+            <div className={styles['filler']}></div>
+          </div>
+        </Suspense>
+        <Suspense fallback={<Loading />}>
+          <div className={styles['topics-container']}>
+            {cats.slice(2, 4).map((category, index) => (
+              <TopicCard
+                key={index}
+                category={category}
+                numBig={2}
+                numSmall={3}
+              />
+            ))}
+            <div className={styles['filler']}></div>
+          </div>
+        </Suspense>
+        <Suspense fallback={<Loading />}>
+          <div className={styles['topics-container']}>
+            {cats.slice(4).map((category, index) => (
+              <TopicCard
+                key={index}
+                category={category}
+                numBig={2}
+                numSmall={3}
+              />
+            ))}
+          </div>
+        </Suspense>
+      </div>
     </div>
   );
 }
