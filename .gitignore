@@ -2,7 +2,6 @@ node_modules
 /.nx/cache
 /.vs
 /.vscode
-/apps/web/.next/
 
 
 # React Native
