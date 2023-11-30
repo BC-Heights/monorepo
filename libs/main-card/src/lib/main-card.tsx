@@ -9,10 +9,8 @@ import { Suspense } from 'react'
 import Loading from './loading'
 
 import { GetPostsDocument } from 'graphql/queries.generated'
-import { LoginUserDocument } from 'graphql/mutations.generated'
 import { useReadQuery, useBackgroundQuery } from '@apollo/experimental-nextjs-app-support/ssr'
 
-import { useMutation } from '@apollo/client'
 
 export interface MainCardProps {
 
@@ -29,10 +27,6 @@ export function MainCard(props: MainCardProps) {
     }
   })
 
-  const [login, { data }] = useMutation(LoginUserDocument);
-  login();
-
-  console.log(data);
 
   const { posts } = useReadQuery(queryRef).data || {};
 
