@@ -8,7 +8,8 @@ import { BigCard } from '@the-heights/big-card';
 import { Suspense } from 'react'
 import Loading from './loading'
 
-import { GetPostsDocument } from 'graphql/queries.generated'
+import { GetPostsByCatDocument } from 'graphql/queries.generated'
+
 import { useReadQuery, useBackgroundQuery } from '@apollo/experimental-nextjs-app-support/ssr'
 
 
@@ -18,11 +19,13 @@ export interface MainCardProps {
 
 
 export function MainCard(props: MainCardProps) {
-  const [queryRef] = useBackgroundQuery(GetPostsDocument, {
-    variables: { first: 5 },
+  
+
+  const [queryRef] = useBackgroundQuery(GetPostsByCatDocument, {
+    variables: { first: 5, categoryName: "top story" },
     context: {
       fetchOptions: {
-        next: { revalidate: 10 }
+        next: { revalidate: 60 }
       }
     }
   })
