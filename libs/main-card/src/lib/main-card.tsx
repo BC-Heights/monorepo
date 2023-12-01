@@ -22,7 +22,7 @@ export function MainCard(props: MainCardProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const subContainerRef = useRef<HTMLDivElement | null>(null);
   
-  const [isWindowWide, setIsWindowWide] = useState(false);
+  const [isWindowWide, setIsWindowWide] = useState(window.innerWidth > 1136);
   
   useEffect(() => {
     const handleResize = () => {
