@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   flex-direction: row-reverse;
   justify-content: center;
+  margin: 0 8px;
 }
 
 .sub-container {
@@ -11,7 +12,17 @@
   flex-direction: column;
   padding: 0 16px;
   width: 100%;
+
+  @media (min-width: 1136px) {
+    max-width: 432px;
+  }
+
+  @media (max-width: 1136px) {
+    max-width: 670px;
+  }
 }
+
+
 
 
 .main-post {

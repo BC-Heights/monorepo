@@ -19,7 +19,7 @@ export function MediumCard(props: MediumCardProps) {
     <div className={styles['container']}>
       <div className={styles['sub-container']}>
         <Link href={`/${props.slug}`}>
-          <img
+          <Image
             className={styles['small-image']}
             src={props.imageSrc}
             alt={props.imageAlt}
