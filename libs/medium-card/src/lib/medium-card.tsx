@@ -1,12 +1,15 @@
 import styles from './medium-card.module.scss';
 import Link from 'next/link';
 import { formatDate } from '@the-heights/format-date';
+import Image from 'next/image';
 
 /* eslint-disable-next-line */
 export interface MediumCardProps {
   date: string;
   imageSrc: string;
   imageAlt: string;
+  imgW: number;
+  imgH: number;
   slug: string;
   title: string;
 }
@@ -20,6 +23,8 @@ export function MediumCard(props: MediumCardProps) {
             className={styles['small-image']}
             src={props.imageSrc}
             alt={props.imageAlt}
+            width={props.imgW}
+            height={props.imgH}
           />
         </Link>
         <div className={styles['title-container']}>

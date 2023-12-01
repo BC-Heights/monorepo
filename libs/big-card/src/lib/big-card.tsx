@@ -1,6 +1,8 @@
 import styles from './big-card.module.scss';
 import Link from 'next/link';
 import { formatDate } from '@the-heights/format-date';
+import Image from 'next/image';
+import { relative } from 'path';
 
 /* eslint-disable-next-line */
 export interface BigCardProps {
@@ -8,6 +10,8 @@ export interface BigCardProps {
   excerpt: string;
   imageSrc: string;
   imageAlt: string;
+  imgW: number;
+  imgH: number;
   slug: string;
   title: string;
 }
@@ -16,9 +20,11 @@ export function BigCard(props: BigCardProps) {
   return (
     <div className={styles['container']}>
       <Link href={`/${props.slug}`}>
-        <img className={styles['large-image']}
+        <Image className={styles['large-image']}
           src={props.imageSrc}
-          alt={props.imageAlt} />
+          alt={props.imageAlt}
+          width={props.imgW}
+          height={props.imgH} />
       </Link>
       <div className={styles["entry"]}>
         <Link href={`/${props.slug}`}>

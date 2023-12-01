@@ -26,7 +26,6 @@ export function TopicCard(props: TopicCardProps) {
         next: { revalidate: 10 }
       }
     }
-    
   })
 
   const { posts } = useReadQuery(queryRef).data || {};
@@ -50,6 +49,8 @@ export function TopicCard(props: TopicCardProps) {
                 imageSrc={post.featuredImage?.node?.sourceUrl || '/default-image.jpg'}
                 excerpt={post.excerpt || 'No Excerpt'}
                 imageAlt={post.featuredImage?.node?.caption || 'No Caption'} 
+                imgW={370}
+                imgH={202.91}
                 slug={post.slug || 'default-slug'} 
                 title={post.title || 'Untitled'}
               />

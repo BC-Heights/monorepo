@@ -1,6 +1,7 @@
+"use client"
+
 import styles from './page.module.scss';
-import React from 'react';
-import { Suspense } from 'react';
+import React, { Suspense } from 'react';
 
 import Loading from './loading';
 import { MainCard } from '@the-heights/main-card';
@@ -9,10 +10,12 @@ import { TopicCard } from '@the-heights/topic-card';
 export const dynamic = 'force-dynamic';
 
 export default async function Index() {
-  const cats = ['Sports' , 'News', 'Features' /*Magazine*/, 'Newton', 'Arts', 'Opinions', 'Multimedia']
+  
+
+  const cats = ['Sports', 'News', 'Features' /*Magazine*/, 'Newton', 'Arts', 'Opinions', 'Multimedia'];
   return (
     <div className={styles.page}>
-      <MainCard></MainCard>
+      <MainCard/>
       <div className={styles['dom-topics-container']}>
         <Suspense fallback={<Loading />}>
           <div className={styles['topics-container']}>

@@ -1,6 +1,7 @@
 .container {
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
   flex-direction: row-reverse;
   justify-content: center;
   margin: 0 16px;

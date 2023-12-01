@@ -1,6 +1,7 @@
 .container {
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
   flex-direction: row-reverse;
   justify-content: center;
 }
@@ -8,9 +9,10 @@
 .sub-container {
   display: flex;
   flex-direction: column;
-  width: fit-content;
   padding: 0 16px;
+  width: 100%;
 }
+
 
 .main-post {
   width: 670px;
