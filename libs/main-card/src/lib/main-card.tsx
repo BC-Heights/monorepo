@@ -9,8 +9,9 @@ import { Suspense, useRef, useEffect, useState } from 'react'
 import Loading from './loading'
 
 import { GetPostsByCatDocument } from 'graphql/queries.generated'
-
-import { useReadQuery, useBackgroundQuery } from '@apollo/experimental-nextjs-app-support/ssr'
+import { useSuspenseQuery } from '@apollo/experimental-nextjs-app-support/ssr';
+import { isDesktop} from 'react-device-detect'
+import { useWindowSize } from 'rooks';
 
 
 export interface MainCardProps {
@@ -22,8 +23,13 @@ export function MainCard(props: MainCardProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const subContainerRef = useRef<HTMLDivElement | null>(null);
   
-  const [isWindowWide, setIsWindowWide] = useState<boolean | null>(true);
-  
+ 
+
+  const { innerWidth } = useWindowSize();
+
+  //@ts-expect-error innerWidth will not be null
+  const [isWindowWide, setIsWindowWide] = useState<boolean | null>(innerWidth > 1136);
+
   
   useEffect(() => {
     const handleResize = () => {
@@ -34,30 +40,32 @@ export function MainCard(props: MainCardProps) {
     if (typeof window !== 'undefined') {
       handleResize();
 
-      window.addEventListener('load', handleResize);
+      window.addEventListener('onload', handleResize);
       window.addEventListener('resize', handleResize);
     }
-  
+
+    
     return () => {
       if (typeof window !== 'undefined') {
-        window.removeEventListener('load', handleResize);
+        window.removeEventListener('onload', handleResize);
         window.removeEventListener('resize', handleResize);
       }
     };
   }, []);
 
 
-  const [queryRef] = useBackgroundQuery(GetPostsByCatDocument, {
-    variables: { first: 5, categoryName: "top story" },
+  const { data } = useSuspenseQuery(GetPostsByCatDocument, {
+    variables: {first: 5 , categoryName: "top story"},
     context: {
       fetchOptions: {
-        next: { revalidate: 60 }
+        next: {revalidate: 10 }
       }
     }
   })
 
-  const { posts } = useReadQuery(queryRef).data || {};
+  const posts = data.posts;
   const firstPost = posts?.nodes?.[0];
+
 
   return (
     <Suspense fallback={<Loading />}>
