@@ -1,0 +1,59 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sub-container {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 370px;
+}
+
+.big,
+.small {
+    border-radius: 12px;
+    margin-top: 10px;
+    position: relative; /* Ensure the absolute positioning works correctly */
+    animation-duration: 2.2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: shimmer;
+    animation-timing-function: linear;
+    background: #ddd;
+    background: linear-gradient(to right, #F6F6F6 8%, #F0F0F0 18%, #F6F6F6 33%);
+    background-size: 1200px 100%;
+  }
+
+  .big {
+    height: 450px
+  }
+
+  .small {
+    height: 20px;
+  }
+
+  @-webkit-keyframes shimmer {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+  }
+  
+  @keyframes shimmer {
+    0% {
+        background-position: -1200px 0;
+    }
+    100% {
+        background-position: 1200px 0;
+    }
+  }

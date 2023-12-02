@@ -1,19 +1,9 @@
-import styles from './loading.module.scss';
 
-export default function Loading() {
-  return (
-    <div className={styles['container']}>
-      <div className={styles['main-post']}>
-        <div className={styles['skeleton-image']}></div>
+export { default as MainLoading } from 'libs/main-card/src/lib/loading';
+export { default as TopicLoading } from 'libs/topic-card/src/lib/loading';
 
-      </div>
-      <div className={styles['sub-container']}>
-        {[1, 2, 3, 4, 5].map((index) => (
-          <div className={styles['skeleton-small-card']} key={index}>
-          </div>
-        ))}
-            
-      </div>
-    </div>
-  );
+export function Loading() {
+  return <div>loading...</div>
 }
+
+export default Loading;

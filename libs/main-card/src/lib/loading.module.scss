@@ -1,7 +1,6 @@
 .container {
   display: flex;
   align-items: flex-start;
-  flex-wrap: wrap;
   flex-direction: row-reverse;
   justify-content: center;
   margin: 0 16px;
@@ -11,7 +10,7 @@
 .sub-container {
   display: flex;
   flex-direction: column;
-  width: 320px;
+  width: fit-content;
   padding: 0 16px;
 }
 
@@ -23,30 +22,20 @@
 .skeleton,
 .skeleton-image,
 .skeleton-small-card,
-.skeleton-small-card-title {
+.skeleton-small-card-title,
+.skeleton-big-card-title {
   border-radius: 6px;
-  background: #E5E4E2;
   margin-top: 10px;
   position: relative; /* Ensure the absolute positioning works correctly */
-
-  // &::after {
-  //   position: absolute;
-  //   top: 0;
-  //   right: 0;
-  //   bottom: 0;
-  //   left: 0;
-  //   transform: translateX(-100%);
-  //   background-image: linear-gradient(90deg, rgba(#fff, 0) 0, rgba(#fff, 0.2) 20%, rgba(#fff, 0.5) 60%, rgba(#fff, 0));
-  //   animation: shimmer 5s infinite;
-  //   content: '';
-  // }
+  animation-duration: 2.2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: shimmer;
+  animation-timing-function: linear;
+  background: #ddd;
+  background: linear-gradient(to right, #F6F6F6 8%, #F0F0F0 18%, #F6F6F6 33%);
+  background-size: 1200px 100%;
 }
-
-// @keyframes shimmer {
-//   100% {
-//     transform: translateX(100%);
-//   }
-// }
 
 
 .skeleton-image {
@@ -55,6 +44,30 @@
 }
 
 .skeleton-small-card {
-    width: 300px;
-    height: 100px;
+    width: 380px;
+    height: 135px;
+    padding-bottom: 40px;
+}
+
+.skeleton-big-card-title {
+  width: 670px;
+  height: 210px;
+}
+
+@-webkit-keyframes shimmer {
+  0% {
+      background-position: -100% 0;
+  }
+  100% {
+      background-position: 100% 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+      background-position: -1200px 0;
+  }
+  100% {
+      background-position: 1200px 0;
+  }
 }

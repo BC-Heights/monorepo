@@ -1,19 +1,19 @@
 import styles from './loading.module.scss';
 
-export default function Loading() {
+export function Loading() {
   return (
     <div className={styles['container']}>
       <div className={styles['main-post']}>
         <div className={styles['skeleton-image']}></div>
-
+        <div className={styles['skeleton-big-card-title']}></div>
       </div>
       <div className={styles['sub-container']}>
-        {[1, 2, 3, 4, 5].map((index) => (
-          <div className={styles['skeleton-small-card']} key={index}>
-          </div>
+      {[...Array(4)].map((_, index) => (
+          <div className={styles['skeleton-small-card']} key={index}></div>
         ))}
-            
       </div>
     </div>
   );
 }
+
+export default Loading;
