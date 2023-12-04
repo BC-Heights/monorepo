@@ -17,13 +17,15 @@ export interface MainCardProps {
 
 export function MainCard(props: MainCardProps) {
   const { data } = useSuspenseQuery(GetPostsByCatDocument, {
-    variables: {first: 5 , categoryName: "top story"},
+    variables: { first: 5, categoryName: "top story" },
     context: {
       fetchOptions: {
-        next: {revalidate: 10 }
+        next: { revalidate: 10 }
       }
-    }
-  })
+    },
+    fetchPolicy: 'cache-and-network' // Add caching here
+  });
+
 
   const posts = data.posts;
   const firstPost = posts?.nodes?.[0];

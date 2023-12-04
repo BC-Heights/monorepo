@@ -26,7 +26,8 @@ export function TopicCard(props: TopicCardProps) {
       fetchOptions: {
         next: { revalidate: 10 }
       }
-    }
+    },
+    fetchPolicy: 'cache-and-network'
   });
   
   return (
