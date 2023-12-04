@@ -22,7 +22,7 @@ export function Loading(props: LoadingProps) {
             </div>
           ))}
           {count === 2 && (
-            <div style={{visibility: 'hidden', width: '370px'}} />
+            <div style={{display: 'none', width: '370px'}} />
           )}
         </div>
       ))}

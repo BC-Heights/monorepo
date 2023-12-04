@@ -42,7 +42,6 @@ export function BigCard(props: BigCardProps) {
         </div>
       </div>
     </div>
-
   );
 }
 
