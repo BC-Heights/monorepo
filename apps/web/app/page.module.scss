@@ -9,11 +9,31 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
-    gap: 16px;
+    gap: 25px;
     width: fit-content;
 }
 
 .filler {
     width: 370px;
+  }
+
+  .title-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 16px
+  }
+  
+  .line {
+    border-top: 4px solid #eee;
+    width: 100%;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: 600;
+    font-family: "arbitus slab";
+    text-wrap: nowrap;
   }
   
