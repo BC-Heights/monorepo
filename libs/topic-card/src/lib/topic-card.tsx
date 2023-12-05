@@ -47,7 +47,7 @@ export function TopicCard(props: TopicCardProps) {
                   key={index}
                   date={post.date || 'Jan 10'}
                   imageSrc={post.featuredImage?.node?.sourceUrl || '/default-image.jpg'}
-                  excerpt={post.excerpt || 'No Excerpt'}
+                  excerpt={props.category==='Multimedia'? '': post.excerpt || 'No Excerpt'}
                   imageAlt={post.featuredImage?.node?.caption || 'No Caption'} 
                   imgW={370}
                   imgH={202.91}

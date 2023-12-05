@@ -25,8 +25,8 @@ export function StyledCard(props: StyledCardProps) {
           <Image className={styles['large-image']}
             src={props.imageSrc}
             alt={props.imageAlt}
-            width={props.imgW}
-            height={props.imgH}
+            width={638}
+            height={349}
             priority={props.priority? props.priority: false}
             />
         </Link>

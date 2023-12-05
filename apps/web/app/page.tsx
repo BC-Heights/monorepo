@@ -20,6 +20,7 @@ export default async function Index() {
         <MainCard/>
       </Suspense>
       <Suspense fallback={<TopicLoading cardPerRow={[3, 3, 3]} cardConfig={Array(9).fill([2,3])} />}>
+        {/* make this more dynamic so each topic card has a similar height */}
         <div className={styles['dom-topics-container']}>
             <div className={styles['topics-container']}>
               {cats.slice(0, 2).map((category, index) => (

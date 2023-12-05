@@ -20,6 +20,11 @@ $breakpoint: 1137px;
 .large-image {
     width: 100%;
     height: auto;
+
+    @media (min-width: $breakpoint) {
+        width: 105px;
+        height: auto;
+    }
 }
 
 .entry {
