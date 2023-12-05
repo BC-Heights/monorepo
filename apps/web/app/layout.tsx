@@ -1,5 +1,6 @@
 import { ApolloWrapper } from './apolloWrapper';
 import { Analytics } from '@vercel/analytics/react'
+import Link from 'next/link';
 import './global.css';
 
 
@@ -16,7 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div>Header</div>
+        <div>
+          <Link href="/">Header</Link>
+        </div>
         <ApolloWrapper>{children}</ApolloWrapper>
         <Analytics />
         <div>Footer</div>

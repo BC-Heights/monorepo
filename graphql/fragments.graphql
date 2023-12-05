@@ -6,7 +6,8 @@ fragment PostFragment on Post {
       }
     }
     id
-    date
+    date 
+    modifiedGmt
     featuredImage {
       node {
         caption

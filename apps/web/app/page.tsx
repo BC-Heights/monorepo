@@ -55,7 +55,7 @@ export default async function Index() {
                     src="https://e.issuu.com/embed.html?backgroundColor=%23232323&backgroundColorFullscreen=%23232323&d=the_heights_dec_4_2023&hideIssuuLogo=true&u=bcheights"
                   />
                   <span>
-                  <p style={{ textAlign: 'center', fontFamily: 'arbitus slab', margin: '16px 0' }}>
+                  <p style={{ textAlign: 'center', fontFamily: 'arbutus slab', margin: '16px 0' }}>
                     <strong>
                       <span style={{ fontSize: '14pt' }}>
                         Click Above To Access The Most Recent{' '}
@@ -101,7 +101,9 @@ export default async function Index() {
                   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                   loading="lazy"
                 />
-               <Twitter/>
+                <Suspense fallback={<div>Loading Twitter...</div>}>
+                  <Twitter/>
+                </Suspense>
               </div>
             </div>
             <div className={styles['topics-container']}>
