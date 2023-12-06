@@ -2,7 +2,7 @@ import styles from './styled-card.module.scss';
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { formatDate } from '@the-heights/format-date'
+import { formatDate, formatHrefDate } from '@the-heights/format-date'
 
 /* eslint-disable-next-line */
 export interface StyledCardProps {
@@ -18,10 +18,11 @@ export interface StyledCardProps {
 }
 
 export function StyledCard(props: StyledCardProps) {
+  const articleLink = `/${formatHrefDate(props.date)}/${props.slug}`;
   return (
     <div className={styles['container']}>
       <div className={styles['sub-container']}>
-        <Link href={`/${props.slug}`}>
+        <Link href={articleLink}>
           <Image className={styles['large-image']}
             src={props.imageSrc}
             alt={props.imageAlt}
@@ -31,7 +32,7 @@ export function StyledCard(props: StyledCardProps) {
             />
         </Link>
         <div className={styles["entry"]}>
-          <Link href={`/${props.slug}`}>
+          <Link href={articleLink}>
             <h1 className={styles['title']}>{props.title}</h1>
           </Link>
           <div className={styles['entry-divider']}></div>
@@ -40,7 +41,7 @@ export function StyledCard(props: StyledCardProps) {
       </div>
       <div className={styles['footer']}>
       <i>{formatDate(props.date)}</i>
-      <Link href={`/${props.slug}`}>
+      <Link href={articleLink}>
         <i>Read More</i>
       </Link>
     </div>

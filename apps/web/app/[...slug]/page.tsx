@@ -13,10 +13,11 @@ import parse, { DOMNode, Element, HTMLReactParserOptions, domToReact } from 'htm
 import { formatDate, formatTime } from '@the-heights/format-date'
 
 
-export default function Page({ params }: { params: { slug: string } }) {
+export default function Page({ params }: { params: { slug: string[] } }) {
   const { data: { postBy } } = useSuspenseQuery(GetPostBySlugDocument, {
-    variables: {slug: params.slug }
+    variables: {slug: params.slug[params.slug.length - 1] }
   })
+
 
   
   let postHTML;

@@ -1,6 +1,6 @@
 import styles from './big-card.module.scss';
 import Link from 'next/link';
-import { formatDate } from '@the-heights/format-date';
+import { formatDate, formatHrefDate } from '@the-heights/format-date';
 import Image from 'next/image';
 
 /* eslint-disable-next-line */
@@ -17,9 +17,10 @@ export interface BigCardProps {
 }
 
 export function BigCard(props: BigCardProps) {
+  const articleLink = `/${formatHrefDate(props.date)}/${props.slug}`;
   return (
     <div className={styles['container']}>
-      <Link href={`/${props.slug}`}>
+      <Link href={articleLink}>
         <Image className={styles['large-image']}
           src={props.imageSrc}
           alt={props.imageAlt}
@@ -29,14 +30,14 @@ export function BigCard(props: BigCardProps) {
            />
       </Link>
       <div className={styles["entry"]}>
-        <Link href={`/${props.slug}`}>
+        <Link href={articleLink}>
           <h1 className={styles['title']}>{props.title}</h1>
         </Link>
         <div className={styles['entry-divider']}></div>
         <div className={styles['excerpt']} dangerouslySetInnerHTML={{ __html: props.excerpt}}></div>
         <div className={styles['footer']}>
           <i>{formatDate(props.date)}</i>
-          <Link href={`/${props.slug}`}>
+          <Link href={articleLink}>
             <i>Read More</i>
           </Link>
         </div>

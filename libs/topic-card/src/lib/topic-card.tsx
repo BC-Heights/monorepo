@@ -65,6 +65,7 @@ export function TopicCard(props: TopicCardProps) {
                   key={index}
                   slug={post.slug || 'default-slug'}
                   title={post.title || 'Untitled'}
+                  date={post.date || 'Jan 10'}
                 />
               );
             }
