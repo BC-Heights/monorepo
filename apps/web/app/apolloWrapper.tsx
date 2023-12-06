@@ -37,6 +37,7 @@ function makeClient() {
           httpLink,
         ])
           : httpLink,
+    ssrForceFetchDelay: 100,
   });
 }
 

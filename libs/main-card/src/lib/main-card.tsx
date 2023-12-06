@@ -21,9 +21,9 @@ export function MainCard(props: MainCardProps) {
     context: {
       fetchOptions: {
         next: { revalidate: 10 }
-      }
+      },
     },
-    fetchPolicy: 'cache-and-network' // Add caching here
+    fetchPolicy: 'network-only' // Fetch data from network only
   });
 
 
