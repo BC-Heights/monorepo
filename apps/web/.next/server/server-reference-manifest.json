@@ -1,5 +1,14 @@
 {
-  "node": {},
+  "node": {
+    "53222307f6d5f1cc18eb9918ee52e58f9cd091f1": {
+      "workers": {
+        "app/page": "(action-browser)/../../node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5Catshi%5C%5Csource%5C%5Crepos%5C%5Cthe-heights%5C%5Clibs%5C%5Ctopic-card%5C%5Csrc%5C%5Clib%5C%5Cserver.ts%22%2C%5B%22revalidate%22%5D%5D%5D&__client_imported__=true!"
+      },
+      "layer": {
+        "app/page": "action-browser"
+      }
+    }
+  },
   "edge": {},
   "encryptionKey": "hoZuwEMCjrIEANHx2JWlLoS78zjD5cQ9kw0XiLtiH4Q="
 }

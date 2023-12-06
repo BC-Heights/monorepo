@@ -9,13 +9,15 @@ import { GetPostsByCatDocument } from 'graphql/queries.generated'
 
 import { useSuspenseQuery } from '@apollo/experimental-nextjs-app-support/ssr';
 
-
 /* eslint-disable-next-line */
 export interface TopicCardProps {
   category: string;
   numBig: number;
   numSmall: number;
 }
+
+
+
 
 export function TopicCard(props: TopicCardProps) {
   const numTotal = props.numBig + props.numSmall;
@@ -24,11 +26,12 @@ export function TopicCard(props: TopicCardProps) {
     variables: { first: numTotal, categoryName: props.category },
     context: {
       fetchOptions: {
-        next: { revalidate: 10 }
+        next: {revalidate: true }
       }
     },
     fetchPolicy: 'cache-and-network'
   });
+
   
   return (
       <div className={styles['container']}>

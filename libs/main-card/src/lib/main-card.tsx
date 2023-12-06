@@ -15,12 +15,13 @@ export interface MainCardProps {
 }
 
 
+
 export function MainCard(props: MainCardProps) {
   const { data } = useSuspenseQuery(GetPostsByCatDocument, {
     variables: { first: 5, categoryName: "top story" },
     context: {
       fetchOptions: {
-        next: { revalidate: 10 },
+        next: { revalidate: true },
         
       },
     },
