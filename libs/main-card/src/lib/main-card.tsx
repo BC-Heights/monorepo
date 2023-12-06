@@ -20,10 +20,11 @@ export function MainCard(props: MainCardProps) {
     variables: { first: 5, categoryName: "top story" },
     context: {
       fetchOptions: {
-        next: { revalidate: 10 }
+        next: { revalidate: 10 },
+        
       },
     },
-    fetchPolicy: 'network-only' // Fetch data from network only
+    fetchPolicy: 'cache-and-network' // Fetch data from network only
   });
 
 
