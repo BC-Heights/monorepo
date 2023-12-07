@@ -22,7 +22,6 @@ export function MainCard(props: MainCardProps) {
     context: {
       fetchOptions: {
         next: { tags: ["posts"] },
-        
       },
       fetchPolicy: 'cache-and-network'
     },
