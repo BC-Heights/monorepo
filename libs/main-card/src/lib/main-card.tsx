@@ -25,7 +25,7 @@ export function MainCard(props: MainCardProps) {
         
       },
     },
-    fetchPolicy: 'cache-and-network' // Fetch data from network only
+    fetchPolicy: 'cache-and-network'
   });
 
 
