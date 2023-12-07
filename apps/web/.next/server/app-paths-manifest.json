@@ -4,4 +4,5 @@
   "/e-edition/page": "app/e-edition/page.js",
   "/news/page": "app/news/page.js",
   "/page": "app/page.js"
+  "/games/crossword/page": "app/games/crossword/page.js"
 }
