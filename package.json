@@ -13,6 +13,7 @@
     "@swc/helpers": "~0.5.2",
     "@types/dompurify": "^3.0.5",
     "@vercel/analytics": "^1.1.1",
+    "@vercel/speed-insights": "^1.0.0",
     "graphql": "^16.8.1",
     "html-react-parser": "^5.0.7",
     "isomorphic-dompurify": "^1.9.0",
