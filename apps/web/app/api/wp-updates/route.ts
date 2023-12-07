@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from 'next'
+import { NextRequest, NextResponse } from 'next/server'
 import { revalidateTag } from 'next/cache'
 
 export const dynamic = 'force-dynamic'
@@ -9,13 +9,9 @@ export async function GET() {
     return Response.json(data)
 }
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
-    // This function will be triggered when your webhook sends a POST request
-    // You can access the data sent by the webhook in req.body
-  
-    // Trigger a revalidation of your data here
+export async function POST(req: NextRequest) {
     revalidateTag('posts')
     console.log('Webhook received')
   
-    res.status(200).json({ message: 'Webhook received' })
+    return NextResponse.json({ received: true, now:  Date.now() })
   }
