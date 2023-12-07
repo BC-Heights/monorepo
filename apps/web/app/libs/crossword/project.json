@@ -1,0 +1,16 @@
+{
+  "name": "libs/crossword",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/web/app/libs/crossword/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/web/app/libs/crossword/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  }
+}
