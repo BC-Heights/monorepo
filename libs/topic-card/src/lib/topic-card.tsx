@@ -27,7 +27,8 @@ export function TopicCard(props: TopicCardProps) {
     context: {
       fetchOptions: {
         next: { tags: ["posts"] },
-      }
+      },
+      fetchPolicy: 'cache-and-network'
     },
   });
 

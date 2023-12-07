@@ -24,6 +24,7 @@ export function MainCard(props: MainCardProps) {
         next: { tags: ["posts"] },
         
       },
+      fetchPolicy: 'cache-and-network'
     },
   });
 
