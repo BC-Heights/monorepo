@@ -21,7 +21,7 @@ export function MainCard(props: MainCardProps) {
     variables: { first: 5, categoryName: "top story" },
     context: {
       fetchOptions: {
-        next: { revalidate: true },
+        next: { revalidate: true, tags: ["posts"] },
         
       },
     },
