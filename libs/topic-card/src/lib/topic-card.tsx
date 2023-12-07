@@ -29,7 +29,6 @@ export function TopicCard(props: TopicCardProps) {
         next: { tags: ["posts"] },
       }
     },
-    fetchPolicy: 'cache-and-network'
   });
 
   

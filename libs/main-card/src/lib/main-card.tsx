@@ -25,7 +25,6 @@ export function MainCard(props: MainCardProps) {
         
       },
     },
-    fetchPolicy: 'cache-and-network'
   });
 
 
