@@ -1,5 +1,5 @@
 export default function Page() {
     return (
-        <div>Features</div>
+        <div>Magazine</div>
     )
 }
