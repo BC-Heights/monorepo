@@ -1,8 +1,5 @@
-export default function Page({ params }: { params: { slug: string[] } }) {
+export default function Page() {
     return (
-        <div>ur mom</div>
+        <div>Crossword</div>
     )
-
 }
-
-
