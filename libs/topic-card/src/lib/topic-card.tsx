@@ -26,7 +26,7 @@ export function TopicCard(props: TopicCardProps) {
     variables: { first: numTotal, categoryName: props.category },
     context: {
       fetchOptions: {
-        next: {revalidate: true }
+        next: { tags: ["posts"] },
       }
     },
     fetchPolicy: 'cache-and-network'
