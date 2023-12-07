@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { revalidateTag } from 'next/cache'
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default function POST(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     // Trigger a revalidation of your data here
     revalidateTag('Posts')
