@@ -7,6 +7,11 @@ export const { getClient } = registerApolloClient(() => {
       link: new HttpLink({
         uri: "https://www.bcheights.com/graphql",
       }),
+      defaultOptions: {
+        query: {
+          fetchPolicy: 'no-cache'
+        },
+      }
     });
   });
 

@@ -10,10 +10,11 @@ const Twitter: React.FC = () => {
       <TwitterTimelineEmbed
         sourceType="profile"
         screenName="bcheights"
-        options={{height: 400}}
+        options={{height: '600px'}}
         />
     </div>
   );
 };
+
 
 export default Twitter;
