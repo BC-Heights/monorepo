@@ -1,26 +1,14 @@
-import { ApolloClient, createHttpLink, InMemoryCache, NormalizedCacheObject } from '@apollo/client'
+import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
+import { registerApolloClient } from "@apollo/experimental-nextjs-app-support/rsc";
 
-
-const httpLink = createHttpLink({
-  uri: 'https://www.bcheights.com/graphql/',
-  fetchOptions: {
-    mode: 'cors',
-  }
-  
-});
-
-
-export function createApolloClient(): ApolloClient<NormalizedCacheObject> {
-  return new ApolloClient({
-    ssrMode: true,
-    link: httpLink,
-    cache: new InMemoryCache(),
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/graphql/',
-    },
+export const { getClient } = registerApolloClient(() => {
+    return new ApolloClient({
+      cache: new InMemoryCache(),
+      link: new HttpLink({
+        uri: "https://www.bcheights.com/graphql",
+      }),
+    });
   });
-}
 
 
 

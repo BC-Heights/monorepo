@@ -6,13 +6,10 @@ import { TopicCard } from '@the-heights/topic-card';
 import Twitter from './twitter';
 
 import { TopicLoading, MainLoading } from './loadImport';
-
 import Image from 'next/image';
 
 
-export const dynamic = 'force-dynamic';
-
-export default async function Index() {
+export default function Index() {
   const cats = ['Sports', 'News', 'Features' /*Magazine*/, 'Newton', 'Arts', 'Opinions', 'Multimedia'];
  
   return (
