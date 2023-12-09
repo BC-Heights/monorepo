@@ -8,6 +8,7 @@ import {
   NextSSRInMemoryCache,
   SSRMultipartLink,
 } from "@apollo/experimental-nextjs-app-support/ssr";
+
 import { loadErrorMessages, loadDevMessages } from "@apollo/client/dev";
 import { setVerbosity } from "ts-invariant";
 
@@ -37,6 +38,7 @@ function makeClient() {
           httpLink,
         ])
           : httpLink,
+      ssrForceFetchDelay: 100,
   });
 }
 
@@ -47,3 +49,6 @@ export function ApolloWrapper({ children }: React.PropsWithChildren) {
     </ApolloNextAppProvider>
   );
 }
+
+
+
