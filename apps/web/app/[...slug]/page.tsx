@@ -1,11 +1,8 @@
-"use client"
-
 import React from 'react'
-
 import styles from './page.module.scss'
 
-import { useSuspenseQuery } from '@apollo/experimental-nextjs-app-support/ssr'
-import { GetPostBySlugDocument } from 'graphql/queries.generated'
+import { getClient } from '@the-heights/apollo-client';
+import { GetPostBySlugDocument, GetPostBySlugQuery } from 'graphql/queries.generated'
 
 import Image from 'next/image'
 
@@ -13,11 +10,16 @@ import parse, { DOMNode, Element, HTMLReactParserOptions, domToReact } from 'htm
 import { formatDate, formatTime } from '@the-heights/format-date'
 
 
-export default function Page({ params }: { params: { slug: string[] } }) {
-  const { data: { postBy } } = useSuspenseQuery(GetPostBySlugDocument, {
-    variables: {slug: params.slug[params.slug.length - 1] }
+export default async function Page({ params }: { params: { slug: string[] } }) {
+  const { data: { postBy } } = await getClient().query<GetPostBySlugQuery>({
+    query: GetPostBySlugDocument,
+    variables: {slug: params.slug[params.slug.length - 1] },
+    context: {
+      fetchOptions: {
+        next: { revalidate: 5, },
+      },
+    }
   })
-
 
   
   let postHTML;
