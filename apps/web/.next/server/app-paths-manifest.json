@@ -1,7 +1,4 @@
 {
-  "/opinions/page": "app/opinions/page.js",
-  "/news/page": "app/news/page.js",
-  "/e-edition/page": "app/e-edition/page.js",
   "/page": "app/page.js",
   "/[...slug]/page": "app/[...slug]/page.js"
 }

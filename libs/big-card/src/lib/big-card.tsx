@@ -2,6 +2,7 @@ import styles from './big-card.module.scss';
 import Link from 'next/link';
 import { formatDate, formatHrefDate } from '@the-heights/format-date';
 import Image from 'next/image';
+import { Suspense } from 'react';
 
 /* eslint-disable-next-line */
 export interface BigCardProps {
@@ -20,15 +21,17 @@ export function BigCard(props: BigCardProps) {
   const articleLink = `/${formatHrefDate(props.date)}/${props.slug}`;
   return (
     <div className={styles['container']}>
-      <Link href={articleLink}>
-        <Image className={styles['large-image']}
-          src={props.imageSrc}
-          alt={props.imageAlt}
-          width={props.imgW}
-          height={props.imgH}
-          priority={props.priority? props.priority: false}
-           />
-      </Link>
+      <Suspense fallback={<div>ur mom</div>}>
+        <Link href={articleLink}>
+          <Image className={styles['large-image']}
+            src={props.imageSrc}
+            alt={props.imageAlt}
+            width={props.imgW}
+            height={props.imgH}
+            loading='lazy'
+            />
+        </Link>
+      </Suspense>
       <div className={styles["entry"]}>
         <Link href={articleLink}>
           <h1 className={styles['title']}>{props.title}</h1>
