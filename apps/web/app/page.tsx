@@ -5,7 +5,7 @@ import { MainCard } from '@the-heights/main-card';
 import { TopicCard } from '@the-heights/topic-card';
 import Twitter from './twitter';
 
-import { TopicLoading, MainLoading } from './loading';
+import { TopicLoading, MainLoading } from './loadImport';
 
 import Image from 'next/image';
 
@@ -14,11 +14,14 @@ export const dynamic = 'force-dynamic';
 
 export default async function Index() {
   const cats = ['Sports', 'News', 'Features' /*Magazine*/, 'Newton', 'Arts', 'Opinions', 'Multimedia'];
+ 
   return (
     <div className={styles.page}>
       <Suspense fallback={<MainLoading />}>
         <MainCard/>
       </Suspense>
+      {/* put the data fetching in each topic card, that way they can load in when they're ready
+      Or have it be per row so it looks better */}
       <Suspense fallback={<TopicLoading cardPerRow={[3, 3, 3]} cardConfig={Array(9).fill([2,3])} />}>
         {/* make this more dynamic so each topic card has a similar height */}
         <div className={styles['dom-topics-container']}>
