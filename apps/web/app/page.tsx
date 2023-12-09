@@ -38,7 +38,6 @@ export default function Index() {
                   <h1 className={styles['title']}>E-Edition</h1>
                   <span className={styles['line']} />
                 </div>
-                
                 <div style={{ position: 'relative', paddingTop: 'max(60%,326px)', height: 0, width: '100%' }}>
                   <iframe
                     allow="clipboard-write allow-top-navigation allow-top-navigation-by-user-activation allow-downloads allow-scripts allow-same-origin allow-popups allow-modals allow-popups-to-escape-sandbox allow-forms"

@@ -16,7 +16,7 @@ export async function MainCard() {
     variables: { first: 5, categoryName: 'top story' },
     context: {
       fetchOptions: {
-        next: { tags: ["posts"], revalidate: 5 },
+        next: { tags: ["posts"], revalidate: 5, },
       },
     },
   });
