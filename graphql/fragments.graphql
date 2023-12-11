@@ -17,4 +17,9 @@ fragment PostFragment on Post {
     excerpt
     slug
     content(format: RENDERED)
+    categories {
+      nodes {
+        name
+      }
+    }
   }
