@@ -10,7 +10,7 @@ import parse, { DOMNode, Element, HTMLReactParserOptions, domToReact } from 'htm
 import { formatDate, formatTime } from '@the-heights/format-date'
 
 
-export async function getImageUrl(id: number) {
+async function getImageUrl(id: number) {
   const { data: { mediaItemBy: sourceUrl } } = await getClient().query<GetImageUrlQuery>({
     query: GetImageUrlDocument,
     variables: { mediaItemId: id },
