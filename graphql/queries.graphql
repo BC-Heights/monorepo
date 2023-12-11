@@ -1,28 +1,34 @@
- query GetPosts($first: Int!) {
-    posts(first: $first, where: {}) {
-      nodes {
-        ...PostFragment
-      }
-    }
-  }
-
-  query GetPostBySlug($slug: String!) {
-    postBy(slug: $slug) {
+query GetPosts($first: Int!) {
+  posts(first: $first, where: {}) {
+    nodes {
       ...PostFragment
     }
   }
+}
 
-  query GetPostsByCat($first: Int!, $categoryName: String!) {
-    posts(where: {categoryName: $categoryName}, first: $first) {
-      nodes {
-       ...PostFragment
-      }
+query GetPostBySlug($slug: String!) {
+  postBy(slug: $slug) {
+    ...PostFragment
+  }
+}
+
+query GetPostsByCat($first: Int!, $categoryName: String!) {
+  posts(where: {categoryName: $categoryName}, first: $first) {
+    nodes {
+      ...PostFragment
     }
   }
+}
 
 
-  query GetImageUrl($mediaItemId: Int = 10) {
-    mediaItemBy(mediaItemId: $mediaItemId) {
-      sourceUrl(size: MEDIUM)
+query GetImageUrl($mediaItemId: Int = 10) {
+  mediaItemBy(mediaItemId: $mediaItemId) {
+    sourceUrl(size: MEDIUM)
+  }
+}
+
+query GetPostTitleBySlug($slug: String!) {
+  postBy(slug: $slug) {
+    title
   }
 }

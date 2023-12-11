@@ -9,6 +9,7 @@ import { TopicLoading, MainLoading } from './loadImport';
 import Image from 'next/image';
 
 
+
 export default function Index() {
   const cats = ['Sports', 'News', 'Features' /*Magazine*/, 'Newton', 'Arts', 'Opinions', 'Multimedia'];
  
