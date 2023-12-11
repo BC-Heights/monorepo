@@ -2,7 +2,9 @@ import React from 'react'
 import styles from './page.module.scss'
 
 import { getClient } from '@the-heights/apollo-client';
-import { GetPostBySlugDocument, GetPostBySlugQuery } from 'graphql/queries.generated'
+import { GetPostBySlugDocument, GetPostBySlugQuery, 
+         GetPostTitleBySlugDocument, GetPostTitleBySlugQuery, GetPostsQuery } 
+         from 'graphql/queries.generated'
 
 import Image from 'next/image'
 
@@ -10,7 +12,45 @@ import parse from 'html-react-parser'
 import { formatDate, formatTime } from '@the-heights/format-date'
 import { multiMediaRegex, mainOptions } from './parser';
 
+import {  Metadata } from 'next'
 
+export interface PageProps {
+  post: GetPostsQuery
+}
+
+// export async function generateStaticParams() {
+//   const { data: {posts} } = await getClient().query<GetPostsByCatQuery>({
+//     query: GetPostsByCatDocument,
+//     variables: { first: 5, categoryName: 'top story' },
+//   });
+
+//   const paths = posts?.nodes.map((post) => ({
+//     params: { slug: [formatHrefDate(post.date || 'jan 10'), post.slug] },
+//   }));
+
+//   return { paths, fallback: false };
+// };
+
+
+ 
+export const generateMetadata = async ({ params }: { params: { slug: string[] } }): Promise<Metadata> => {
+  const { data: { postBy } } = await getClient().query<GetPostTitleBySlugQuery>({
+    query: GetPostTitleBySlugDocument,
+    variables: { slug: params.slug[params.slug.length -1] },
+    context: {
+      fetchOptions: {
+        next: { revalidate: 5 },
+      },
+    },
+  });
+
+  const metadata: Metadata = {
+    title: `${postBy?.title} \u2014 The Heights` || '...',
+    description: `${postBy?.title} \u2014 The Heights` || '...',
+  };
+
+  return metadata;
+};
 
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
