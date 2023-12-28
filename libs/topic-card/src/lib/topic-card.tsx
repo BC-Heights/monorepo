@@ -23,7 +23,7 @@ export async function TopicCard(props: TopicCardProps) {
     variables: { first: numTotal, categoryName: props.category },
     context: {
       fetchOptions: {
-        next: { tags: ["posts"], revalidate: 5 },
+        next: { tags: ["posts"] },
       },
     },
   });
