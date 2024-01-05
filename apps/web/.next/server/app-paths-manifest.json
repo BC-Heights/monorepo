@@ -1,3 +1,4 @@
 {
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/api/wp-updates/route": "app/api/wp-updates/route.js"
 }

@@ -5,7 +5,7 @@ import { revalidateTag, revalidatePath } from 'next/cache'
 
 
 export async function POST(req: NextRequest) {
-  // const data = await req.json();
+  const data = await req.json();
   // const { post_permalink } = data;
   // const lastSlashIndex = post_permalink.lastIndexOf('/');
   // const secondToLastSlashIndex = post_permalink.lastIndexOf('/', lastSlashIndex - 1);
@@ -14,5 +14,11 @@ export async function POST(req: NextRequest) {
   revalidateTag('posts');
   revalidatePath('/');
   // revalidatePath(newHref);
-  return NextResponse.json({ received: true, now:  Date.now() });
+  return NextResponse.json({ received: true, now:  Date.now(), data: data });
   }
+
+export async function GET(req: NextRequest) {
+  revalidateTag('posts');
+  revalidatePath('/');
+  return NextResponse.json({ received: true, now:  Date.now() });
+}
