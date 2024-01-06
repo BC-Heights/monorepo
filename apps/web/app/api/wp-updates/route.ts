@@ -1,7 +1,7 @@
 'use server'
 
 import { NextRequest, NextResponse } from 'next/server'
-import { revalidateTag, revalidatePath } from 'next/cache'
+import { revalidateTag } from 'next/cache'
 
 
 export async function POST(req: NextRequest) {
@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
   // const newHref = post_permalink.substring(secondToLastSlashIndex === -1 ? lastSlashIndex + 1 : secondToLastSlashIndex + 1);
   const data = await req.json();
   const apiKey = req.headers.get('x-api-key')
-  if (apiKey !== '1234') {
+  if (apiKey !== '2e7c77c7-928c-4ffe-9801-7f032ce82446') {
     return NextResponse.error(); 
   }
 
@@ -21,9 +21,3 @@ export async function POST(req: NextRequest) {
   // revalidatePath(newHref);
   return NextResponse.json({ received: true, now:  Date.now(), data: data });
   }
-
-export async function GET(req: NextRequest) {
-  revalidateTag('posts');
-  revalidatePath('/');
-  return NextResponse.json({ received: true, now:  Date.now() });
-}
