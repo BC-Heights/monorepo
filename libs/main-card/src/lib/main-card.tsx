@@ -6,7 +6,6 @@ import { BigCard } from '@the-heights/big-card';
 
 import { GetPostsByCatDocument } from 'graphql/queries.generated'
 import { useSuspenseQuery } from '@apollo/experimental-nextjs-app-support/ssr';
-import { Suspense } from 'react';
 
 export const dynamic = 'force-dynamic';
 
@@ -32,7 +31,6 @@ export function MainCard() {
   return (
     <div className={styles['container']}>
       <div className={styles['main-post']}>
-        <Suspense fallback={<div>Loading...</div>}>
         <BigCard
           date={firstPost?.date || "No Date Available"}
           imageSrc={firstPost?.featuredImage?.node.sourceUrl || "/default-image.jpg"}
@@ -44,7 +42,6 @@ export function MainCard() {
           slug={firstPost?.slug || "default-slug"}
           title={firstPost?.title || "Untitled"}
         ></BigCard>
-        </Suspense>
       </div>
       <div className={styles['sub-container']}>
         {posts?.nodes.slice(1).map((post, index) => (
