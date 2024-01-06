@@ -35,11 +35,11 @@ export function TopicCard(props: TopicCardProps) {
   return (
       <div className={styles['container']}>
         <div className={styles['title-container']}>
-          <span></span>
+          <span/>
           <span className={styles['line']} />
           <h1 className={styles['title']}>{props.category==='Features'? 'Magazine': props.category}</h1>
           <span className={styles['line']} />
-          <span></span>
+          <span/>
         </div>
         <div>
           {posts?.nodes.map((post, index) => {
@@ -56,7 +56,6 @@ export function TopicCard(props: TopicCardProps) {
                   slug={post.slug || 'default-slug'} 
                   title={post.title || 'Untitled'}
                 />
-                
               );
             } else {
               return (

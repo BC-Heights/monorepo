@@ -1,3 +1,5 @@
+'use client';
+
 import styles from './page.module.scss';
 import React, { Suspense } from 'react';
 
@@ -7,7 +9,6 @@ import Twitter from './twitter';
 
 import { TopicLoading, MainLoading } from './loadImport';
 import Image from 'next/image';
-
 
 
 export default function Index() {
