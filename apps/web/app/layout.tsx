@@ -1,8 +1,11 @@
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from "@vercel/speed-insights/next"
+
 import Header from './header';
 import Footer from './footer';
 import './global.css';
+
+import { ApolloWrapper } from './apolloWrapper';
 
 
 export const metadata = {
@@ -19,7 +22,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header />
-        {children}
+        <ApolloWrapper>
+          {children}
+        </ApolloWrapper>
         <Analytics />
         <SpeedInsights />
         <Footer />
