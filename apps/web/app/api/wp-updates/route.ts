@@ -11,6 +11,7 @@ export async function POST(req: NextRequest) {
   // const secondToLastSlashIndex = post_permalink.lastIndexOf('/', lastSlashIndex - 1);
   // const newHref = post_permalink.substring(secondToLastSlashIndex === -1 ? lastSlashIndex + 1 : secondToLastSlashIndex + 1);
 
+  console.log(req.headers);
   revalidateTag('posts');
   revalidatePath('/');
   // revalidatePath(newHref);
