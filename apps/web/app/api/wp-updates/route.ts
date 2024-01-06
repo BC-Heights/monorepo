@@ -5,15 +5,19 @@ import { revalidateTag, revalidatePath } from 'next/cache'
 
 
 export async function POST(req: NextRequest) {
-  const data = await req.json();
   // const { post_permalink } = data;
   // const lastSlashIndex = post_permalink.lastIndexOf('/');
   // const secondToLastSlashIndex = post_permalink.lastIndexOf('/', lastSlashIndex - 1);
   // const newHref = post_permalink.substring(secondToLastSlashIndex === -1 ? lastSlashIndex + 1 : secondToLastSlashIndex + 1);
+  const data = await req.json();
+  const apiKey = req.headers.get('x-api-key')
+  if (apiKey !== '1234') {
+    return NextResponse.error(); 
+  }
 
   console.log(req.headers);
   revalidateTag('posts');
-  revalidatePath('/');
+  // revalidatePath('/');
   // revalidatePath(newHref);
   return NextResponse.json({ received: true, now:  Date.now(), data: data });
   }
