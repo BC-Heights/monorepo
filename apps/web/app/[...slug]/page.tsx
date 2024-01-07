@@ -18,20 +18,6 @@ export interface PageProps {
   post: GetPostsQuery
 }
 
-// export async function generateStaticParams() {
-//   const { data: {posts} } = await getClient().query<GetPostsByCatQuery>({
-//     query: GetPostsByCatDocument,
-//     variables: { first: 5, categoryName: 'top story' },
-//   });
-
-//   const paths = posts?.nodes.map((post) => ({
-//     params: { slug: [formatHrefDate(post.date || 'jan 10'), post.slug] },
-//   }));
-
-//   return { paths, fallback: false };
-// };
-
-
  
 export const generateMetadata = async ({ params }: { params: { slug: string[] } }): Promise<Metadata> => {
   const { data: { postBy } } = await getClient().query<GetPostTitleBySlugQuery>({
@@ -99,5 +85,3 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     </div>
   );
 }
-
-    
