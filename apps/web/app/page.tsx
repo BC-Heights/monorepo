@@ -1,5 +1,3 @@
-'use client';
-
 import styles from './page.module.scss';
 import React, { Suspense } from 'react';
 
@@ -13,7 +11,7 @@ import Image from 'next/image';
 
 export default function Index() {
   const cats = ['Sports', 'News', 'Features' /*Magazine*/, 'Newton', 'Arts', 'Opinions', 'Multimedia'];
- 
+
   return (
     <div className={styles.page}>
       <Suspense fallback={<MainLoading />}>
@@ -68,7 +66,7 @@ export default function Index() {
                     </strong>
                   </p>
                 </span>
-                  <Image 
+                  <Image
                     src={'https://s3.amazonaws.com/heights-photos/wp-content/uploads/2023/02/27003123/Newsletter-372x195.png'}
                     width={372}
                     height={195}
