@@ -1,14 +1,11 @@
-'use client';
-
 import styles from './topic-card.module.scss';
 
 import { SmallCard } from '@the-heights/small-card';
 import { BigCard } from '@the-heights/big-card';
 
-import { GetPostsByCatDocument } from 'graphql/queries.generated'
-import { useSuspenseQuery } from '@apollo/experimental-nextjs-app-support/ssr';
+import { getClient } from '@the-heights/apollo-client';
 
-export const dynamic = 'force-dynamic';
+import { GetPostsByCatDocument, GetPostsByCatQuery } from 'graphql/queries.generated'
 
 
 /* eslint-disable-next-line */
@@ -19,10 +16,11 @@ export interface TopicCardProps {
 }
 
 
-export function TopicCard(props: TopicCardProps) {
+export async function TopicCard(props: TopicCardProps) {
   const numTotal = props.numBig + props.numSmall;
 
-  const { data: {posts} } = useSuspenseQuery(GetPostsByCatDocument, {
+  const { data: { posts }} = await getClient().query<GetPostsByCatQuery>({
+    query: GetPostsByCatDocument,
     variables: { first: numTotal, categoryName: props.category },
     context: {
       fetchOptions: {
@@ -30,7 +28,6 @@ export function TopicCard(props: TopicCardProps) {
       },
     },
   });
-
 
   return (
       <div className={styles['container']}>

@@ -15,9 +15,16 @@ export async function POST(req: NextRequest) {
     return NextResponse.error(); 
   }
 
-  console.log(req.headers);
+  console.log(data);
+
   revalidateTag('posts');
   // revalidatePath('/');
   // revalidatePath(newHref);
   return NextResponse.json({ received: true, now:  Date.now(), data: data });
   }
+
+
+export async function GET() {
+  revalidateTag('posts');
+  return NextResponse.json({ received: true, now:  Date.now() });
+}
