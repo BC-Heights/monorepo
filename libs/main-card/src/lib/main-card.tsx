@@ -5,8 +5,6 @@ import { BigCard } from '@the-heights/big-card';
 import { GetPostsByCatDocument, GetPostsByCatQuery } from 'graphql/queries.generated'
 import { getClient } from '@the-heights/apollo-client';
 
-export const dynamic = 'force-dynamic';
-
 
 export interface MainCardProps {
 
