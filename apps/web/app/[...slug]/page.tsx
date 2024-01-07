@@ -12,7 +12,7 @@ import parse from 'html-react-parser'
 import { formatDate, formatTime } from '@the-heights/format-date'
 import { multiMediaRegex, mainOptions } from './parser';
 
-import {  Metadata } from 'next'
+import { Metadata } from 'next'
 
 export interface PageProps {
   post: GetPostsQuery
