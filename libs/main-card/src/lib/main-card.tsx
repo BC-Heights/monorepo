@@ -21,8 +21,10 @@ export async function MainCard() {
       },
     },
   });
+
   
   const firstPost = posts?.nodes?.[0];
+  
 
   return (
     <div className={styles['container']}>
