@@ -25,7 +25,7 @@ export const generateMetadata = async ({ params }: { params: { slug: string[] } 
     variables: { slug: params.slug[params.slug.length -1] },
     context: {
       fetchOptions: {
-        next: { revalidate: 5 },
+        next: { revalidate: 60 },
       },
     },
   });
