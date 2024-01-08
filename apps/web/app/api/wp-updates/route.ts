@@ -22,9 +22,3 @@ export async function POST(req: NextRequest) {
   // revalidatePath(newHref);
   return NextResponse.json({ received: true, now:  Date.now(), data: data });
   }
-
-
-export async function GET() {
-  revalidateTag('posts');
-  return NextResponse.json({ received: true, now:  Date.now() });
-}
