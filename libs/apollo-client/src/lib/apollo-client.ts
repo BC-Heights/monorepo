@@ -2,10 +2,8 @@ import { HttpLink } from "@apollo/client";
 import {
   NextSSRInMemoryCache,
   NextSSRApolloClient,
-  ApolloNextAppProvider
 } from "@apollo/experimental-nextjs-app-support/ssr";
 import { registerApolloClient } from "@apollo/experimental-nextjs-app-support/rsc";
-import React = require("react");
 
 export const { getClient } = registerApolloClient(() => {
   return new NextSSRApolloClient({
@@ -20,11 +18,3 @@ export const { getClient } = registerApolloClient(() => {
     }
   });
 });
-
-export function ApolloClient({ children }: React.PropsWithChildren) {
-  return (
-    <ApolloNextAppProvider makeClient={getClient}>
-      {children}
-    </ApolloNextAppProvider>
-  );
-}
