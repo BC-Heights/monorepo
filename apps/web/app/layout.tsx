@@ -5,7 +5,6 @@ import Header from './header';
 import Footer from './footer';
 import './global.css';
 
-import { ApolloWrapper } from './apolloWrapper';
 
 
 export const metadata = {
@@ -22,9 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header />
-        <ApolloWrapper>
-          {children}
-        </ApolloWrapper>
+        {children}
         <Analytics />
         <SpeedInsights />
         <Footer />
