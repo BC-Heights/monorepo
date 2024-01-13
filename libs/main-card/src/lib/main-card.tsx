@@ -23,6 +23,7 @@ export function MainCard() {
     },
   });
 
+
   const firstPost = posts?.nodes?.[0];
   
   return (
