@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@the-heights/apollo-client": ["libs/apollo-client/src/index.ts"],
+      "@the-heights/apollo-wrapper": ["libs/apollo-wrapper/src/index.ts"],
       "@the-heights/big-card": ["libs/big-card/src/index.ts"],
       "@the-heights/format-date": ["libs/format-date/src/index.ts"],
       "@the-heights/gql": ["libs/gql/src/lib/index.ts"],
