@@ -1,16 +1,21 @@
 {
   "pages": {
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
+    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/arts/[slug]/page": [
+    "/not-found": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/arts/[slug]/page.css",
-      "static/chunks/app/arts/[slug]/page.js"
+      "static/chunks/app/not-found.js"
     ],
     "/[...slug]/page": [
       "static/chunks/webpack.js",
@@ -23,41 +28,23 @@
       "static/chunks/main-app.js",
       "static/chunks/app/[...slug]/loading.js"
     ],
-    "/page": [
+    "/arts/[slug]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/page.css",
-      "static/chunks/app/page.js"
+      "static/css/app/arts/[slug]/page.css",
+      "static/chunks/app/arts/[slug]/page.js"
     ],
-    "/sports/[slug]/page": [
+    "/e-edition/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/sports/[slug]/page.css",
-      "static/chunks/app/sports/[slug]/page.js"
-    ],
-    "/opinions/[slug]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/opinions/[slug]/page.css",
-      "static/chunks/app/opinions/[slug]/page.js"
+      "static/css/app/e-edition/page.css",
+      "static/chunks/app/e-edition/page.js"
     ],
     "/sports/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/sports/page.css",
       "static/chunks/app/sports/page.js"
-    ],
-    "/news/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/news/page.css",
-      "static/chunks/app/news/page.js"
-    ],
-    "/arts/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/arts/page.css",
-      "static/chunks/app/arts/page.js"
     ]
   }
 }
