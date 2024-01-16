@@ -3,7 +3,8 @@ import React, { Suspense } from 'react';
 
 import { MainCard } from '@the-heights/main-card';
 import { TopicCard } from '@the-heights/topic-card';
-import Twitter from './twitter';
+
+import { Twitter } from '@the-heights/twitter';
 
 import { TopicLoading, MainLoading } from './loadImport';
 import Image from 'next/image';
@@ -17,10 +18,7 @@ export default function Index() {
       <Suspense fallback={<MainLoading />}>
         <MainCard/>
       </Suspense>
-      {/* put the data fetching in each topic card, that way they can load in when they're ready
-      Or have it be per row so it looks better */}
       <Suspense fallback={<TopicLoading cardPerRow={[3, 3, 3]} cardConfig={Array(9).fill([2,3])} />}>
-        {/* make this more dynamic so each topic card has a similar height */}
         <div className={styles['dom-topics-container']}>
             <div className={styles['topics-container']}>
               {cats.slice(0, 2).map((category, index) => (

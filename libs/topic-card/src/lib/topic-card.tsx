@@ -15,10 +15,8 @@ export interface TopicCardProps {
   numSmall: number;
 }
 
-
 export function TopicCard(props: TopicCardProps) {
   const numTotal = props.numBig + props.numSmall;
-
 
   const { data: { posts }} = useSuspenseQuery(GetPostsByCatDocument, {
     variables: { first: numTotal, categoryName: props.category },
