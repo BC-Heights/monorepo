@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import styles from './HeadFoot.module.scss'
+import styles from './header.module.scss'
 
-export default function Header() {
+export function Header() {
     const navItems = [
         { label: 'E-Edition', dropdownOptions: [] },
         { 
@@ -82,8 +82,7 @@ export default function Header() {
     return (
     <div className={styles.header}>
         <Link href={'/'}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={'https://s3.amazonaws.com/heights-photos/wp-content/uploads/2021/09/26192503/the_heights_header-1.png'}
+            <img id='logo-img' src={'https://s3.amazonaws.com/heights-photos/wp-content/uploads/2021/09/26192503/the_heights_header-1.png'}
             width={375} height={110} alt={'Logo'} />
         </Link>
         <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
@@ -114,3 +113,5 @@ export default function Header() {
     </div>
     )
 }
+
+export default Header;

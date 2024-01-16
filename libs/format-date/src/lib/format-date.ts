@@ -11,6 +11,7 @@ export function formatDate(inputDate: string): string {
 
 export function formatTime(dateString: string): string {
   const date = new Date(dateString);
+  date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
   let hours = date.getHours();
   const minutes = date.getMinutes();
   const ampm = hours >= 12 ? 'pm' : 'am';
@@ -30,4 +31,3 @@ export function formatHrefDate(inputDate: string): string {
 
   return `${year}/${month.toString().padStart(2, '0')}/${day.toString().padStart(2, '0')}`;
 }
-

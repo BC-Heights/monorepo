@@ -4,7 +4,7 @@ import React from 'react';
 import { TwitterTimelineEmbed } from 'react-twitter-embed' 
 
 
-const Twitter: React.FC = () => {
+export const Twitter: React.FC = () => {
   return (
     <div>
       <TwitterTimelineEmbed
@@ -15,6 +15,5 @@ const Twitter: React.FC = () => {
     </div>
   );
 };
-
 
 export default Twitter;
