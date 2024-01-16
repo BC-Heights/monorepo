@@ -13,6 +13,7 @@
     "@swc/helpers": "~0.5.2",
     "@types/dompurify": "^3.0.5",
     "@vercel/analytics": "^1.1.1",
+    "@vercel/edge-config": "^0.4.1",
     "@vercel/speed-insights": "^1.0.0",
     "graphql": "^16.8.1",
     "html-react-parser": "^5.0.7",
@@ -24,7 +25,8 @@
     "react-native": "0.72.6",
     "react-twitter-embed": "^4.0.4",
     "rooks": "^7.14.1",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "vercel": "^33.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.5",

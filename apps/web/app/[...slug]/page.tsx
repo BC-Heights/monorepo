@@ -13,6 +13,8 @@ import { formatDate, formatTime } from '@the-heights/format-date'
 import { multiMediaRegex, mainOptions } from './parser';
 
 import { Metadata } from 'next'
+import { notFound } from 'next/navigation';
+
 
 export interface PageProps {
   post: GetPostsQuery
@@ -20,6 +22,13 @@ export interface PageProps {
 
  
 export const generateMetadata = async ({ params }: { params: { slug: string[] } }): Promise<Metadata> => {
+  // Check if the slug conforms to the year/month/day/postName format
+  const slugString = params.slug.join('/');
+  const regex = /^\d{4}\/\d{2}\/\d{2}\/[\w-]+$/;
+  if (!regex.test(slugString)) {
+    return notFound();
+  }
+
   const { data: { postBy } } = await getClient().query<GetPostTitleBySlugQuery>({
     query: GetPostTitleBySlugDocument,
     variables: { slug: params.slug[params.slug.length -1] },
@@ -59,7 +68,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     }
 
     postHTML = parse(postBy.content, mainOptions) || <div>No Post Found</div>;
-  }
+
 
   return (
     <div className={styles['container']}> 
@@ -67,16 +76,16 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
         <div>
           <div className={styles['img-container']}>
             <Image 
-              src={postBy?.featuredImage?.node?.sourceUrl || '/images/placeholder.png'} 
-              alt={postBy?.featuredImage?.node?.caption  || 'No Image Found'} 
+              src={postBy.featuredImage?.node?.sourceUrl || '/images/placeholder.png'} 
+              alt={postBy.featuredImage?.node?.caption  || 'No Image Found'} 
               fill={true}
               priority={true} />
           </div>
-          <h1 className={styles['title']}>{postBy?.title}</h1>
-          <div className={styles['author']}>By {postBy?.author?.node.name || ''}</div>
+          <h1 className={styles['title']}>{postBy.title}</h1>
+          <div className={styles['author']}>By {postBy.author?.node.name || ''}</div>
           <div className={styles['date']}>
-            <span>{formatDate(postBy?.date || '')}</span> 
-            <span>Updated {formatDate(postBy?.modifiedGmt || '')} at {formatTime(postBy?.modifiedGmt || '')}</span>
+            <span>{formatDate(postBy.date || '')}</span> 
+            <span>Updated {formatDate(postBy.modifiedGmt || '')} at {formatTime(postBy.modifiedGmt || '')}</span>
           </div>
         </div>
         {/* post content */}
@@ -84,4 +93,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
       </div>
     </div>
   );
+  } else {
+    return notFound();
+  }
 }
