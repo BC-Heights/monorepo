@@ -96,7 +96,7 @@ export function Header() {
                             {item.dropdownOptions.length > 0 && (
                                 <div className={styles.dropdown}>
                                     {item.dropdownOptions.map((option, index) => (
-                                        <Link key={index} href={'/'}>
+                                        <Link key={index} href={`/${item.label.toLowerCase()}/${option.toLowerCase().replace(' ', '-')}`}>
                                             {option}
                                         </Link>
                                     ))}

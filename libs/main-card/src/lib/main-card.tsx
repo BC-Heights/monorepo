@@ -1,11 +1,9 @@
-'use client'
-
 import styles from './main-card.module.scss';
 import { StyledCard } from '@the-heights/styled-card';
 import { BigCard } from '@the-heights/big-card';
 
-import { GetPostsByCatDocument } from 'graphql/queries.generated'
-import { useSuspenseQuery } from '@apollo/experimental-nextjs-app-support/ssr';
+import { GetPostsByCatDocument, GetPostsByCatQuery } from 'graphql/queries.generated'
+import { getClient } from '@the-heights/apollo-client';
 
 
 export interface MainCardProps {
@@ -13,8 +11,9 @@ export interface MainCardProps {
 }
 
 
-export function MainCard() {
-  const { data: {posts} } = useSuspenseQuery(GetPostsByCatDocument, {
+export async function MainCard() {
+  const { data: { posts} } = await getClient().query<GetPostsByCatQuery>({
+    query: GetPostsByCatDocument,
     variables: { first: 5, categoryName: 'top story' },
     context: {
       fetchOptions: {
@@ -22,7 +21,6 @@ export function MainCard() {
       },
     },
   });
-
 
   const firstPost = posts?.nodes?.[0];
   
