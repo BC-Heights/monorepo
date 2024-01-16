@@ -1,12 +1,10 @@
 "use client"
 
 import styles from './topic-card.module.scss';
-
 import { SmallCard } from '@the-heights/small-card';
 import { BigCard } from '@the-heights/big-card';
 
 import { GetPostsByCatDocument } from 'graphql/queries.generated'
-
 import { useSuspenseQuery } from '@apollo/experimental-nextjs-app-support/ssr';
 
 
