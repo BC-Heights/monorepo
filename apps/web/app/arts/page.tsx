@@ -1,5 +1,9 @@
+import { SubTopicCard } from "@the-heights/sub-topic-card"
+
 export default function Page() {
     return (
-        <div>Arts</div>
+        <div>
+            <SubTopicCard slug="arts" />
+        </div>
     )
 }

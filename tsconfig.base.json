@@ -25,6 +25,10 @@
       "@the-heights/medium-card": ["libs/medium-card/src/index.ts"],
       "@the-heights/small-card": ["libs/small-card/src/index.ts"],
       "@the-heights/styled-card": ["libs/styled-card/src/index.ts"],
+      "@the-heights/sub-topic-card": ["libs/sub-topic-card/src/index.ts"],
+      "@the-heights/sub-topic-card/server": [
+        "libs/sub-topic-card/src/server.ts"
+      ],
       "@the-heights/topic-card": ["libs/topic-card/src/index.ts"],
       "@the-heights/twitter": ["libs/twitter/src/index.ts"]
     }
