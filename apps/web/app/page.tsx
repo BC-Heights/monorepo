@@ -8,6 +8,7 @@ import { Twitter } from '@the-heights/twitter';
 
 import { TopicLoading, MainLoading } from './loadImport';
 import Image from 'next/image';
+import { SearchBar } from '@the-heights/search-bar';
 
 
 export default function Index() {
@@ -52,25 +53,24 @@ export default function Index() {
                     }}
                     src="https://e.issuu.com/embed.html?backgroundColor=%23232323&backgroundColorFullscreen=%23232323&d=the_heights_dec_4_2023&hideIssuuLogo=true&u=bcheights"
                   />
-                  <span>
-                  <p style={{ textAlign: 'center', fontFamily: 'arbutus slab', margin: '16px 0' }}>
-                    <strong>
-                      <span style={{ fontSize: '14pt' }}>
-                        Click Above To Access The Most Recent{' '}
-                        <a href="https://www.bcheights.com/e-edition-2/">
-                          E-Edition Of <em>The Heights</em>
-                        </a>
-                      </span>
-                    </strong>
-                  </p>
-                </span>
-                  <Image
-                    src={'https://s3.amazonaws.com/heights-photos/wp-content/uploads/2023/02/27003123/Newsletter-372x195.png'}
-                    width={372}
-                    height={195}
-                    alt={'Subscribe to the Newsletter'}
-                    />
                 </div>
+                <p style={{ textAlign: 'center', fontFamily: 'arbutus slab', margin: '16px 0' }}>
+                  <strong>
+                    <span style={{ fontSize: '14pt' }}>
+                      Click Above To Access The Most Recent{' '}
+                      <a href="https://www.bcheights.com/e-edition-2/">
+                        E-Edition Of <em>The Heights</em>
+                      </a>
+                    </span>
+                  </strong>
+                </p>
+                <Image
+                  src={'https://s3.amazonaws.com/heights-photos/wp-content/uploads/2023/02/27003123/Newsletter-372x195.png'}
+                  width={372}
+                  height={195}
+                  alt={'Subscribe to the Newsletter'}
+                  />
+                <SearchBar />
               </div>
             </div>
             <div className={styles['topics-container']}>
