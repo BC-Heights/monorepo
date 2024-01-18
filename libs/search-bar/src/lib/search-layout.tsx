@@ -1,5 +1,4 @@
 import SearchBar from "./search-bar"
-import { SearchCard } from "./search-card"
 
 export function SearchLayout() {
     return (
