@@ -32,3 +32,15 @@ query GetPostTitleBySlug($slug: String!) {
     title
   }
 }
+
+query SearchPosts($first: Int!, $search: String!, $after: String = null) {
+  posts(where: {search: $search}, first: $first, after: $after) {
+    nodes {
+      ...PostFragment
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}

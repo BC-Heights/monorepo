@@ -1,6 +1,7 @@
 'use client'
 
 import { HttpLink, ApolloLink } from "@apollo/client";
+import { relayStylePagination } from "@apollo/client/utilities";
 import {
   ApolloNextAppProvider,
   NextSSRInMemoryCache,
@@ -15,7 +16,15 @@ function makeClient() {
   });
 
   return new NextSSRApolloClient({
-    cache: new NextSSRInMemoryCache(),
+    cache: new NextSSRInMemoryCache({
+      typePolicies: {
+        Query: {
+          fields: {
+            posts: relayStylePagination(),
+          },
+        },
+        }
+    }),
     link:
       typeof window === "undefined"
         ? ApolloLink.from([
@@ -27,11 +36,13 @@ function makeClient() {
         : httpLink,
     defaultOptions: {
       query: {
-        fetchPolicy: "no-cache",
+        fetchPolicy: "network-only",
       },
-    }
+    },
   });
 }
+
+
 
 /* eslint-disable-next-line */
 export interface ApolloWrapperProps {
