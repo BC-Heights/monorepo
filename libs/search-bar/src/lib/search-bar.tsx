@@ -38,15 +38,18 @@ export function SearchBar({first}: SearchBarProps) {
         type="text" placeholder="Search..." value={inputValue} 
         onChange={handleInputChange} onKeyDown={handleKeyPress} />
       <button type="submit" onClick={handleSearch} style={{ cursor: 'pointer' }}>Search</button>
-      {/* {Array.from({ length: pageCount }, (_, i) => ( */}
+      {searchValue && (
+        <div>
         <SearchCard key={0} first={first*pageCount} searchValue={searchValue}/>
-      {/* ))} */}
-      <button 
+        <button 
         type="submit" 
         style={{ cursor: 'pointer' }} 
         onClick={() => setPageCount(pageCount + 1)}>
           Load More
       </button>
+      </div>
+        )}
+      
     </div>
   );
 
