@@ -1,7 +1,7 @@
 'use server'
 
 import { NextRequest, NextResponse } from 'next/server'
-import { revalidatePath, revalidateTag } from 'next/cache'
+import { revalidateTag } from 'next/cache'
 
 interface Post {
   ID: number;
@@ -67,6 +67,5 @@ export async function POST(req: NextRequest) {
   console.log('POST', data.taxonomies);
 
   revalidateTag('posts');
-  revalidatePath('/');
   return NextResponse.json({ received: true, now:  Date.now(), data: data });
 }

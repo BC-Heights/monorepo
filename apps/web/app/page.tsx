@@ -12,7 +12,7 @@ import { SearchBar } from '@the-heights/search-bar';
 
 
 export default function Index() {
-  const cats = ['Sports', 'News', 'Features' /*Magazine*/, 'Newton', 'Arts', 'Opinions', 'Multimedia'];
+  const cats = ['Sports', 'News', 'Features' /*Magazine*/, 'Metro' /*Newton*/, 'Arts', 'Opinions', 'Multimedia'];
 
   return (
     <div className={styles.page}>
