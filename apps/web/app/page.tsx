@@ -70,7 +70,7 @@ export default function Index() {
                   height={195}
                   alt={'Subscribe to the Newsletter'}
                   />
-                <SearchBar />
+                <SearchBar first={4}/>
               </div>
             </div>
             <div className={styles['topics-container']}>

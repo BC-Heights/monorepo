@@ -1,7 +1,7 @@
-/*
- * Replace this with your own classes
- *
- * e.g.
- * .container {
- * }
-*/
+/* BEGIN: Add max height and scroll bar */
+.container {
+  max-height: 800px;
+  overflow-y: auto;
+}
+/* END: Add max height and scroll bar */
+

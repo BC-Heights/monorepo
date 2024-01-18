@@ -18,12 +18,8 @@ function makeClient() {
   return new NextSSRApolloClient({
     cache: new NextSSRInMemoryCache({
       typePolicies: {
-        Query: {
-          fields: {
-            posts: relayStylePagination(),
-          },
+        posts: relayStylePagination(),
         },
-        }
     }),
     link:
       typeof window === "undefined"
