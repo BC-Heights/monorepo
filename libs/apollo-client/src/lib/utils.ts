@@ -1,5 +1,5 @@
 import { unstable_cache } from "next/cache";
-import { GetPostsByCatDocument, GetPostsByCatQuery, GetPostBySlugDocument, GetPostBySlugQuery } from "graphql/queries.generated";
+import { GetPostsByCatDocument, GetPostsByCatQuery, GetPostBySlugDocument, GetPostBySlugQuery } from "../graphql/queries.generated";
 import { getClient } from "./apollo-client";
 
 export const GetPostsByCat = unstable_cache(async (first, categoryName) => {

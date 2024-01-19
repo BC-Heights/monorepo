@@ -1,0 +1,25 @@
+fragment PostFragment on Post {
+    title
+    author {
+      node {
+        name
+      }
+    }
+    id
+    date 
+    modifiedGmt
+    featuredImage {
+      node {
+        caption
+        sourceUrl(size: ALM_THUMBNAIL)
+      }
+    }
+    excerpt
+    slug
+    content(format: RENDERED)
+    categories {
+      nodes {
+        name
+      }
+    }
+  }
