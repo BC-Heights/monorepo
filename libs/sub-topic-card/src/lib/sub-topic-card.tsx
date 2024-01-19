@@ -1,6 +1,5 @@
 import { BigCard } from '@the-heights/big-card';
-import { GetPostsByCatDocument, GetPostsByCatQuery } from 'graphql/queries.generated'
-import { getClient } from '@the-heights/apollo-client';
+import { GetPostsByCat } from '@the-heights/apollo-client';
 import { notFound } from 'next/navigation';
 
 /* eslint-disable-next-line */
@@ -9,15 +8,7 @@ export interface SubTopicCardProps {
 }
 
 export async function SubTopicCard(props: SubTopicCardProps) {
-  const { data: { posts }} = await getClient().query<GetPostsByCatQuery>({
-    query: GetPostsByCatDocument,
-    variables: { first: 5, categoryName: props.slug },
-    context: {
-      fetchOptions: {
-        next: { tags: ["posts"] },
-      },
-    },
-  });
+  const posts = await GetPostsByCat(10, props.slug);
 
   if (posts?.nodes.length === 0) {
     // TODO: More work coming soon page

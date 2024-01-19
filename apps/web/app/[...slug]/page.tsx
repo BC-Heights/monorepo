@@ -1,11 +1,7 @@
 import React from 'react'
 import styles from './page.module.scss'
 
-import { getClient } from '@the-heights/apollo-client';
-import { GetPostBySlugDocument, GetPostBySlugQuery, 
-         GetPostTitleBySlugDocument, GetPostTitleBySlugQuery, GetPostsQuery } 
-         from 'graphql/queries.generated'
-
+import { GetPostBySlug } from '@the-heights/apollo-client';
 import Image from 'next/image'
 
 import parse from 'html-react-parser'
@@ -16,32 +12,23 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation';
 
 
-export interface PageProps {
-  post: GetPostsQuery
-}
+export interface PageProps { }
 
  
 export const generateMetadata = async ({ params }: { params: { slug: string[] } }): Promise<Metadata> => {
   // Check if the slug conforms to the year/month/day/postName format
+  // There's probably a better way to do this with middleware
   const slugString = params.slug.join('/');
   const regex = /^\d{4}\/\d{2}\/\d{2}\/[\w-]+$/;
   if (!regex.test(slugString)) {
     return notFound();
   }
 
-  const { data: { postBy } } = await getClient().query<GetPostTitleBySlugQuery>({
-    query: GetPostTitleBySlugDocument,
-    variables: { slug: params.slug[params.slug.length -1] },
-    context: {
-      fetchOptions: {
-        next: { revalidate: 60 },
-      },
-    },
-  });
+  const post = await GetPostBySlug(params.slug[params.slug.length - 1]);
 
   const metadata: Metadata = {
-    title: `${postBy?.title} \u2014 The Heights` || '...',
-    description: `${postBy?.title} \u2014 The Heights` || '...',
+    title: `${post?.title} \u2014 The Heights` || '...',
+    description: `${post?.title} \u2014 The Heights` || '...',
   };
 
   return metadata;
@@ -49,25 +36,18 @@ export const generateMetadata = async ({ params }: { params: { slug: string[] } 
 
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
-  const { data: { postBy } } = await getClient().query<GetPostBySlugQuery>({
-    query: GetPostBySlugDocument,
-    variables: {slug: params.slug[params.slug.length - 1] },
-    context: {
-      fetchOptions: {
-        next: { revalidate: 5, },
-      },
-    }
-  })
+  const post = await GetPostBySlug(params.slug[params.slug.length - 1]);
+
 
   let postHTML;
 
-  if (postBy?.content) {
-    const hasMultimediaCategory = postBy.categories?.nodes.some(node => node.name === 'Multimedia');
+  if (post?.content) {
+    const hasMultimediaCategory = post.categories?.nodes.some(node => node.name === 'Multimedia');
     if (hasMultimediaCategory) {
-      postBy.content = await multiMediaRegex(postBy.content)
+      post.content = await multiMediaRegex(post.content)
     }
 
-    postHTML = parse(postBy.content, mainOptions) || <div>No Post Found</div>;
+    postHTML = parse(post.content, mainOptions) || <div>No Post Found</div>;
 
 
   return (
@@ -76,16 +56,16 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
         <div>
           <div className={styles['img-container']}>
             <Image 
-              src={postBy.featuredImage?.node?.sourceUrl || '/images/placeholder.png'} 
-              alt={postBy.featuredImage?.node?.caption  || 'No Image Found'} 
+              src={post.featuredImage?.node?.sourceUrl || '/images/placeholder.png'} 
+              alt={post.featuredImage?.node?.caption  || 'No Image Found'} 
               fill={true}
               priority={true} />
           </div>
-          <h1 className={styles['title']}>{postBy.title}</h1>
-          <div className={styles['author']}>By {postBy.author?.node.name || ''}</div>
+          <h1 className={styles['title']}>{post.title}</h1>
+          <div className={styles['author']}>By {post.author?.node.name || ''}</div>
           <div className={styles['date']}>
-            <span>{formatDate(postBy.date || '')}</span> 
-            <span>Updated {formatDate(postBy.modifiedGmt || '')} at {formatTime(postBy.modifiedGmt || '')}</span>
+            <span>{formatDate(post.date || '')}</span> 
+            <span>Updated {formatDate(post.modifiedGmt || '')} at {formatTime(post.modifiedGmt || '')}</span>
           </div>
         </div>
         {/* post content */}
