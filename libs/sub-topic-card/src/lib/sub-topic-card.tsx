@@ -1,5 +1,5 @@
 import { BigCard } from '@the-heights/big-card';
-import { GetPostsByCat } from '@the-heights/apollo-client';
+import { GetPostsByCat } from '@the-heights/graphql';
 import { notFound } from 'next/navigation';
 
 /* eslint-disable-next-line */

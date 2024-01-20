@@ -3,8 +3,8 @@ import {
   GetPostsByCatDocument, GetPostsByCatQuery, 
   GetPostBySlugDocument, GetPostBySlugQuery,
   SearchPostsDocument, SearchPostsQuery,
-  GetImageUrlDocument, GetImageUrlQuery } from "../graphql/queries.generated";
-import { getClient } from "./apollo-client";
+  GetImageUrlDocument, GetImageUrlQuery } from "./queries.generated";
+import { getClient } from "@the-heights/apollo-client";
 
 export const GetPostsByCat = unstable_cache(async (first, categoryName) => {
   const { data: { posts } } = await getClient().query<GetPostsByCatQuery>({

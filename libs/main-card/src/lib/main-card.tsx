@@ -1,13 +1,10 @@
 import styles from './main-card.module.scss';
 import { StyledCard } from '@the-heights/styled-card';
 import { BigCard } from '@the-heights/big-card';
-import { GetPostsByCat } from '@the-heights/apollo-client';
+import { GetPostsByCat } from '@the-heights/graphql';
 
 
-export interface MainCardProps {
-
-
-}
+export interface MainCardProps { }
 
 
 export async function MainCard() {
