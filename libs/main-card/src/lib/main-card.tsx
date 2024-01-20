@@ -6,6 +6,7 @@ import { GetPostsByCat } from '@the-heights/apollo-client';
 
 export interface MainCardProps {
 
+
 }
 
 

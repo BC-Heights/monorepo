@@ -1,5 +1,8 @@
 import { unstable_cache } from "next/cache";
-import { GetPostsByCatDocument, GetPostsByCatQuery, GetPostBySlugDocument, GetPostBySlugQuery } from "../graphql/queries.generated";
+import { 
+  GetPostsByCatDocument, GetPostsByCatQuery, 
+  GetPostBySlugDocument, GetPostBySlugQuery,
+  SearchPostsDocument, SearchPostsQuery, } from "../graphql/queries.generated";
 import { getClient } from "./apollo-client";
 
 export const GetPostsByCat = unstable_cache(async (first, categoryName) => {
@@ -8,9 +11,10 @@ export const GetPostsByCat = unstable_cache(async (first, categoryName) => {
     variables: { first: first, categoryName: categoryName },
   });
   return posts;
-}, ['posts'], {
-  tags: ['posts'],
-});
+  }, ['posts'], {
+    tags: ['posts'],
+  }
+);
 
 export const GetPostBySlug = unstable_cache(async (slug) => {
   const { data: { postBy} } = await getClient().query<GetPostBySlugQuery>({
@@ -18,11 +22,20 @@ export const GetPostBySlug = unstable_cache(async (slug) => {
     variables: { slug: slug },
   });
   return postBy;
-}, ['posts'],
-{
-  tags: ['posts'],
-}
+  }, ['posts'],
+  {
+    tags: ['posts'],
+  }
 );
 
-
-
+export const SearchPosts = unstable_cache(async (search, first, after) => {
+  const { data: { posts } } = await getClient().query<SearchPostsQuery>({
+    query: SearchPostsDocument,
+    variables: { search: search, first: first, after: after },
+  });
+  return posts;
+  }, ['posts'],
+  {
+    tags: ['posts'],
+  }
+);
