@@ -2,7 +2,8 @@ import { unstable_cache } from "next/cache";
 import { 
   GetPostsByCatDocument, GetPostsByCatQuery, 
   GetPostBySlugDocument, GetPostBySlugQuery,
-  SearchPostsDocument, SearchPostsQuery, } from "../graphql/queries.generated";
+  SearchPostsDocument, SearchPostsQuery,
+  GetImageUrlDocument, GetImageUrlQuery } from "../graphql/queries.generated";
 import { getClient } from "./apollo-client";
 
 export const GetPostsByCat = unstable_cache(async (first, categoryName) => {
@@ -37,5 +38,17 @@ export const SearchPosts = unstable_cache(async (search, first, after) => {
   }, ['posts'],
   {
     tags: ['posts'],
+  }
+);
+
+export const GetImageUrl = unstable_cache(async (id) => {
+  const { data: { mediaItemBy: sourceUrl } } = await getClient().query<GetImageUrlQuery>({
+    query: GetImageUrlDocument,
+    variables: { id: id },
+  });
+  return sourceUrl;
+  }, ['images'],
+  {
+    tags: ['images'],
   }
 );
