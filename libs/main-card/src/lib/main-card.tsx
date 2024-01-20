@@ -1,27 +1,17 @@
 import styles from './main-card.module.scss';
 import { StyledCard } from '@the-heights/styled-card';
 import { BigCard } from '@the-heights/big-card';
-
-import { GetPostsByCatDocument, GetPostsByCatQuery } from 'graphql/queries.generated'
-import { getClient } from '@the-heights/apollo-client';
+import { GetPostsByCat } from '@the-heights/apollo-client';
 
 
 export interface MainCardProps {
+
 
 }
 
 
 export async function MainCard() {
-  const { data: { posts} } = await getClient().query<GetPostsByCatQuery>({
-    query: GetPostsByCatDocument,
-    variables: { first: 5, categoryName: 'top story' },
-    context: {
-      fetchOptions: {
-        next: { tags: ["posts"] },
-      },
-    },
-  });
-
+  const posts = await GetPostsByCat(5, 'top story');
   const firstPost = posts?.nodes?.[0];
   
   return (

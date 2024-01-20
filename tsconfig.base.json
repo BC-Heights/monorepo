@@ -16,7 +16,6 @@
     "baseUrl": ".",
     "paths": {
       "@the-heights/apollo-client": ["libs/apollo-client/src/index.ts"],
-      "@the-heights/apollo-wrapper": ["libs/apollo-wrapper/src/index.ts"],
       "@the-heights/big-card": ["libs/big-card/src/index.ts"],
       "@the-heights/footer": ["libs/footer/src/index.ts"],
       "@the-heights/format-date": ["libs/format-date/src/index.ts"],
@@ -27,11 +26,8 @@
       "@the-heights/small-card": ["libs/small-card/src/index.ts"],
       "@the-heights/styled-card": ["libs/styled-card/src/index.ts"],
       "@the-heights/sub-topic-card": ["libs/sub-topic-card/src/index.ts"],
-      "@the-heights/sub-topic-card/server": [
-        "libs/sub-topic-card/src/server.ts"
-      ],
       "@the-heights/topic-card": ["libs/topic-card/src/index.ts"],
-      "@the-heights/twitter": ["libs/twitter/src/index.ts"]
+      "@the-heights/twitter": ["libs/twitter/src/index.ts"],
     }
   },
   "exclude": ["node_modules", "tmp"]

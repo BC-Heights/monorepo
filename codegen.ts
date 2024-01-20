@@ -3,10 +3,10 @@ import type { CodegenConfig } from "@graphql-codegen/cli";
 const config: CodegenConfig = {
   overwrite: true,
   schema: "https://www.bcheights.com/graphql",
-  documents: ["graphql/**/*.graphql"],
+  documents: ["libs/apollo-client/src/graphql/**/*.graphql"],
   generates: {
-    "graphql/types.generated.ts": { plugins: ["typescript"] },
-    "graphql/": {
+    "libs/apollo-client/src/graphql/types.generated.ts": { plugins: ["typescript"] },
+    "libs/apollo-client/src/graphql/": {
       preset: "near-operation-file",
       presetConfig: {
         extension: ".generated.ts",
