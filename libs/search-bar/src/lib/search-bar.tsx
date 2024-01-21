@@ -36,7 +36,6 @@ export function SearchBar({first}: SearchBarProps) {
         after: data?.posts?.pageInfo.endCursor,
       },
       updateQuery: (prev, { fetchMoreResult }): SearchPostsQuery => {
-        if (!fetchMoreResult) return prev;
         if (!fetchMoreResult.posts) return prev;
         if (!prev.posts) return prev;
         return {
