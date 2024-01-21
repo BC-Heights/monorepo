@@ -14,6 +14,9 @@ const config: CodegenConfig = {
       },
       plugins: ["typescript-operations", "typed-document-node"],
     },
+      'libs/apollo-wrapper/src/lib/apollo-helpers.ts': {
+        plugins: ['typescript-apollo-client-helpers']
+      }
   },
 };
 

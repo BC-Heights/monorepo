@@ -35,6 +35,7 @@
     "@graphql-codegen/client-preset": "^4.1.0",
     "@graphql-codegen/import-types-preset": "^3.0.0",
     "@graphql-codegen/near-operation-file-preset": "^3.0.0",
+    "@graphql-codegen/typescript-apollo-client-helpers": "^3.0.0",
     "@graphql-codegen/typescript-react-apollo": "^4.1.0",
     "@graphql-typed-document-node/core": "^3.2.0",
     "@nx/cypress": "17.1.2",

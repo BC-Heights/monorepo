@@ -4,6 +4,6 @@ module.exports = {
         name: 'bcheights-graphql',
         url: 'https://www.bcheights.com/graphql',
       },
-      includes: ['graphql/**/*.graphql']
+      includes: ['libs/graphql/src/lib/**/*.graphql']
     }
   };

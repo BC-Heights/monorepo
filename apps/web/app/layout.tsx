@@ -1,5 +1,7 @@
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { ApolloWrapper } from "@the-heights/apollo-wrapper";
+
 
 import { Header } from '@the-heights/header';
 import { Footer } from '@the-heights/footer';
@@ -20,7 +22,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header />
-        {children}
+        <ApolloWrapper>
+          {children}
+        </ApolloWrapper>
         <Analytics />
         <SpeedInsights />
         <Footer />
