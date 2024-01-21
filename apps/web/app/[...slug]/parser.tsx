@@ -2,7 +2,7 @@ import React from 'react'
 
 import { DOMNode, Element, HTMLReactParserOptions, domToReact } from 'html-react-parser'
 
-import { GetImageUrl } from '@the-heights/apollo-client';
+import { GetImageUrl } from '@the-heights/graphql';
 
 
 // ask multimedia people to change how they make their articles

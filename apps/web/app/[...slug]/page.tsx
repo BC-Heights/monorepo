@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './page.module.scss'
 
-import { GetPostBySlug } from '@the-heights/apollo-client';
+import { GetPostBySlug } from '@the-heights/graphql';
 import Image from 'next/image'
 
 import parse from 'html-react-parser'

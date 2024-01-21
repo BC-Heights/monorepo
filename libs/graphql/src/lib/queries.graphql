@@ -20,7 +20,6 @@ query GetPostsByCat($first: Int!, $categoryName: String!) {
   }
 }
 
-
 query GetImageUrl($mediaItemId: Int = 10) {
   mediaItemBy(mediaItemId: $mediaItemId) {
     sourceUrl(size: MEDIUM)

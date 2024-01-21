@@ -2,8 +2,7 @@ import styles from './topic-card.module.scss';
 import { SmallCard } from '@the-heights/small-card';
 import { BigCard } from '@the-heights/big-card';
 
-import { GetPostsByCat } from '@the-heights/apollo-client';
-
+import { GetPostsByCat } from '@the-heights/graphql';
 
 
 /* eslint-disable-next-line */
