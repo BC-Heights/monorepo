@@ -2,6 +2,9 @@
 
 import React, { useState } from 'react';
 
+
+
+// eslint-disable-next-line @nx/enforce-module-boundaries
 import { SearchPostsDocument, SearchPostsQuery } from 'libs/graphql/src/lib/queries.generated';
 import { useLazyQuery, NetworkStatus } from '@apollo/client';
 import { StyledCard } from '@the-heights/styled-card';
