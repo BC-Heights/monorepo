@@ -1,9 +1,6 @@
 "use client";
 
 import React, { useState } from 'react';
-
-
-
 // eslint-disable-next-line @nx/enforce-module-boundaries
 import { SearchPostsDocument, SearchPostsQuery } from 'libs/graphql/src/lib/queries.generated';
 import { useLazyQuery, NetworkStatus } from '@apollo/client';
@@ -91,7 +88,6 @@ export function SearchBar({first}: SearchBarProps) {
       {(loading && !(networkStatus===NetworkStatus.fetchMore)) && <p>Loading...</p>}
       {networkStatus === NetworkStatus.fetchMore && 
       <p>Loading more...</p>}
-
     </div>
   );
 }
