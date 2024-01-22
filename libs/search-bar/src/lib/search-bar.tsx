@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-
+// eslint-disable-next-line @nx/enforce-module-boundaries
 import { SearchPostsDocument, SearchPostsQuery } from 'libs/graphql/src/lib/queries.generated';
 import { useLazyQuery, NetworkStatus } from '@apollo/client';
 import { StyledCard } from '@the-heights/styled-card';
@@ -36,7 +36,6 @@ export function SearchBar({first}: SearchBarProps) {
         after: data?.posts?.pageInfo.endCursor,
       },
       updateQuery: (prev, { fetchMoreResult }): SearchPostsQuery => {
-        if (!fetchMoreResult) return prev;
         if (!fetchMoreResult.posts) return prev;
         if (!prev.posts) return prev;
         return {
@@ -89,7 +88,6 @@ export function SearchBar({first}: SearchBarProps) {
       {(loading && !(networkStatus===NetworkStatus.fetchMore)) && <p>Loading...</p>}
       {networkStatus === NetworkStatus.fetchMore && 
       <p>Loading more...</p>}
-
     </div>
   );
 }
