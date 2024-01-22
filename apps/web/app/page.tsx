@@ -15,13 +15,13 @@ export default function Index() {
   const cats = ['Sports', 'News', 'Features' /*Magazine*/, 'Metro' /*Newton*/, 'Arts', 'Opinions', 'Multimedia'];
 
   return (
-    <div className={styles.page}>
+    <div>
       <Suspense fallback={<MainLoading />}>
         <MainCard/>
       </Suspense>
       <Suspense fallback={<TopicLoading cardPerRow={[3, 3, 3]} cardConfig={Array(9).fill([2,3])} />}>
-        <div className={styles['dom-topics-container']}>
-            <div className={styles['topics-container']}>
+        <div className="flex flex-col items-center">
+            <div className="flex flex-row flex-wrap justify-start gap-[25px] w-fit">
               {cats.slice(0, 2).map((category, index) => (
                   <TopicCard
                     key={index}
@@ -30,14 +30,14 @@ export default function Index() {
                     numSmall={3}
                   />
               ))}
-              <div className={styles['filler']}>
-                <div className={styles['title-container']}>
+              <div className="w-[370px]">
+                <div className="flex flex-row justify-around items-center gap-4">
                   <span></span>
-                  <span className={styles['line']} />
+                  <span className="w-full border-t-4 border-t-[#eee] border-solid" />
                   <h1 className={styles['title']}>E-Edition</h1>
-                  <span className={styles['line']} />
+                  <span className="w-full border-t-4 border-t-[#eee] border-solid" />
                 </div>
-                <div style={{ position: 'relative', paddingTop: 'max(60%,326px)', height: 0, width: '100%' }}>
+                {/* <div style={{ position: 'relative', paddingTop: 'max(60%,326px)', height: '370px', width: '370px' }}>
                   <iframe
                     allow="clipboard-write allow-top-navigation allow-top-navigation-by-user-activation allow-downloads allow-scripts allow-same-origin allow-popups allow-modals allow-popups-to-escape-sandbox allow-forms"
                     allowFullScreen={true}
@@ -53,7 +53,7 @@ export default function Index() {
                     }}
                     src="https://e.issuu.com/embed.html?backgroundColor=%23232323&backgroundColorFullscreen=%23232323&d=the_heights_dec_4_2023&hideIssuuLogo=true&u=bcheights"
                   />
-                </div>
+                </div> */}
                 <p style={{ textAlign: 'center', fontFamily: 'arbutus slab', margin: '16px 0' }}>
                   <strong>
                     <span style={{ fontSize: '14pt' }}>
