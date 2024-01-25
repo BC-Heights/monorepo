@@ -50,7 +50,7 @@ export async function SearchPosts(search: string, first: number, after: string, 
     return await Posts(search, first, after);
 }
 
-export async function GetImageUrl(id: string, tags = ['images']) {
+export async function GetImageUrl(id: number, tags = ['images']) {
   const ImageUrl = unstable_cache(async (id) => {
     const { data: { mediaItemBy: sourceUrl } } = await getClient().query<GetImageUrlQuery>({
       query: GetImageUrlDocument,
