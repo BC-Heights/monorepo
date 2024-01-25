@@ -16,7 +16,7 @@ export async function SubTopicCard(props: SubTopicCardProps) {
   }
 
   return (
-    <div style={{ width: '800px', margin: '32px auto' }}>
+    <div className="w-[800px] my-8 mx-auto">
       {posts?.nodes.map((post, index) => {
         return(
             <BigCard

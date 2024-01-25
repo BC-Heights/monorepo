@@ -1,15 +1,11 @@
-import React from 'react'
-import styles from './page.module.scss'
-
-import { GetPostBySlug } from '@the-heights/graphql';
-import Image from 'next/image'
-
-import parse from 'html-react-parser'
-import { formatDate, formatTime } from '@the-heights/format-date'
-import { multiMediaRegex, mainOptions } from './parser';
-
-import { Metadata } from 'next'
+import React from 'react';
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
+import parse from 'html-react-parser';
+import { formatDate, formatTime } from '@the-heights/format-date';
+import { multiMediaRegex, postOptions } from './parser';
+import { GetPostBySlug } from '@the-heights/graphql';
 
 
 export interface PageProps { }
@@ -37,8 +33,6 @@ export const generateMetadata = async ({ params }: { params: { slug: string[] } 
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
   const post = await GetPostBySlug(params.slug[params.slug.length - 1]);
-
-
   let postHTML;
 
   if (post?.content) {
@@ -47,29 +41,28 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
       post.content = await multiMediaRegex(post.content)
     }
 
-    postHTML = parse(post.content, mainOptions) || <div>No Post Found</div>;
-
+    postHTML = parse(post.content, postOptions) || <div>No Post Found</div>;
 
   return (
-    <div className={styles['container']}> 
-      <div className={styles['article-container']}>
+    <div className="flex w-full flex-row justify-center gap-[7.5%]"> 
+      <div className="w-6/12">
         <div>
-          <div className={styles['img-container']}>
+          <div className="w-full aspect-[16/9] relative">
             <Image 
               src={post.featuredImage?.node?.sourceUrl || '/images/placeholder.png'} 
               alt={post.featuredImage?.node?.caption  || 'No Image Found'} 
               fill={true}
               priority={true} />
           </div>
-          <h1 className={styles['title']}>{post.title}</h1>
-          <div className={styles['author']}>By {post.author?.node.name || ''}</div>
-          <div className={styles['date']}>
-            <span>{formatDate(post.date || '')}</span> 
+          <h1 className="text-4xl text-center mx-0 my-4">{post.title}</h1>
+          <div className="text-[1em] font-bold mb-[1em]">By {post.author?.node.name || ''}</div>
+          <div className="text-xs mb-3">
+            <span className="mr-4">{formatDate(post.date || '')}</span> 
             <span>Updated {formatDate(post.modifiedGmt || '')} at {formatTime(post.modifiedGmt || '')}</span>
           </div>
         </div>
         {/* post content */}
-        <div className={styles['article']}>{postHTML}</div>
+        <div>{postHTML}</div>
       </div>
     </div>
   );

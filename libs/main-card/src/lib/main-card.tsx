@@ -1,4 +1,3 @@
-import styles from './main-card.module.scss';
 import { StyledCard } from '@the-heights/styled-card';
 import { BigCard } from '@the-heights/big-card';
 import { GetPostsByCat } from '@the-heights/graphql';
@@ -12,8 +11,8 @@ export async function MainCard() {
   const firstPost = posts?.nodes?.[0];
   
   return (
-    <div className={styles['container']}>
-      <div className={styles['main-post']}>
+    <div className="flex items-start flex-wrap flex-row-reverse justify-center mt-4 mb-0 ">
+      <div className="w-[64%] pl-4 pr-0 py-0">
         <BigCard
           date={firstPost?.date || "No Date Available"}
           imageSrc={firstPost?.featuredImage?.node.sourceUrl || "/default-image.jpg"}
@@ -26,7 +25,7 @@ export async function MainCard() {
           title={firstPost?.title || "Untitled"}
         ></BigCard>
       </div>
-      <div className={styles['sub-container']}>
+      <div className="flex flex-col w-[64%] pl-0 pr-4 py-0 lg:max-w-[36%]">
         {posts?.nodes.slice(1).map((post, index) => (
             <StyledCard
                 key={index}

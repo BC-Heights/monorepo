@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import styles from './header.module.scss'
 
 export function Header() {
     const navItems = [
@@ -79,22 +78,27 @@ export function Header() {
         { label: 'Multimedia', dropdownOptions: [] },
         { label: 'Games', dropdownOptions: ["Crossword"] },
     ];
+
     return (
-    <div className={styles.header}>
-        <Link href={'/'}>
-            <img id='logo-img' src={'https://s3.amazonaws.com/heights-photos/wp-content/uploads/2021/09/26192503/the_heights_header-1.png'}
-            width={375} height={110} alt={'Logo'} />
-        </Link>
-        <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
-            <div className={styles.navbar}>
+        <div className="w-full flex flex-col items-center">
+            <Link href={'/'}>
+                <img className="w-[375px] h-[110px]" 
+                     src={'https://s3.amazonaws.com/heights-photos/wp-content/uploads/2021/09/26192503/the_heights_header-1.png'} 
+                     alt={'Logo'} />
+            </Link>
+            <div className="w-[1200px] h-[2.5em] flex 
+                            justify-center items-center 
+                            border-t-2 border-b border-black gap-5">
                 {navItems.map((item, index) => (
-                    <div className={styles.navcontainer} key={index}>
-                        <div className={styles.navitem}>
+                    <div className="h-full flex items-center gap-5" key={index}>
+                        <div className="relative font-medium group">
                             <Link href={`/${item.label.toLowerCase()}`}>
                                 {item.label}
                             </Link>
                             {item.dropdownOptions.length > 0 && (
-                                <div className={styles.dropdown}>
+                                <div className="hidden absolute z-50 w-max font-normal 
+                                                group-hover:grid grid-cols-[fit-content(200px)_fit-content(200px)]
+                                                gap-x-5 shadow-md bg-white p-2 rounded border border-gray-300">
                                     {item.dropdownOptions.map((option, index) => (
                                         <Link key={index} href={`/${item.label.toLowerCase()}/${option.toLowerCase().replace(' ', '-')}`}>
                                             {option}
@@ -104,13 +108,12 @@ export function Header() {
                             )}
                         </div>
                         {index < navItems.length - 1 && (
-                            <div className={styles.divider}/>
+                            <div className="w-px h-[60%] bg-gray-400"/>
                         )}
                     </div>
                 ))}
             </div>
         </div>
-    </div>
     )
 }
 

@@ -21,7 +21,7 @@ export async function TopicCard(props: TopicCardProps) {
         <div className="flex flex-row justify-around items-center gap-4">
           <span/>
           <span className="w-full border-t-4 border-t-[#eee] border-solid" />
-            <h1 className="text-2xl font-semibold">
+            <h1 className="text-2xl font-bold">
               {props.category==='Features'? 'Magazine': props.category==='Metro'? 'Newton': props.category}
             </h1>
           <span className="w-full border-t-4 border-t-[#eee] border-solid" />
