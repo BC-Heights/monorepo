@@ -1,5 +1,3 @@
-import styles from './styled-card.module.scss';
-
 import Link from 'next/link'
 import Image from 'next/image'
 import { formatDate, formatHrefDate } from '@the-heights/format-date'
@@ -20,32 +18,31 @@ export interface StyledCardProps {
 export function StyledCard(props: StyledCardProps) {
   const articleLink = `/${formatHrefDate(props.date)}/${props.slug}`;
   return (
-    <div className={styles['container']}>
-      <div className={styles['sub-container']}>
-        <Link href={articleLink}>
-          <Image className={styles['large-image']}
-            src={props.imageSrc}
-            alt={props.imageAlt}
-            width={638}
-            height={349}
-            priority={props.priority? props.priority: false}
-            />
-        </Link>
-        <div className={styles["entry"]}>
-          <Link href={articleLink}>
-            <h1 className={styles['title']}>{props.title}</h1>
-          </Link>
-          <div className={styles['entry-divider']}></div>
-          <div className={styles['excerpt']} dangerouslySetInnerHTML={{ __html: props.excerpt}}></div>
+    <Link href={articleLink} className="hover:text-slate-500">
+      <div className="mb-2 pb-2 border-b-[#eee] border-b border-solid">
+        <div className="flex flex-col gap-4 lg:flex-row">
+          <div>
+            {/* when screen <1024 dont show pic */}
+            <Image className="h-auto w-full lg:w-[200px]"
+              src={props.imageSrc}
+              alt={props.imageAlt}
+              width={638}
+              height={349}
+              priority={props.priority? props.priority: false}
+              />
+          </div>
+          <div className="flex flex-col items-center w-full lg:items-start">
+            <h1 className="text-xl w-fit text-center mx-0 my-4 px-4 py-0 lg:text-start lg:m-0 lg:p-0 lg:text-base">{props.title}</h1>
+            <div className="w-[100px] mx-0 my-2 border-t-2 border-t-[black] border-dotted"></div>
+            <div className="mx-0 my-4 text-lg lg:hidden" dangerouslySetInnerHTML={{ __html: props.excerpt}}></div>
+          </div>
         </div>
+        <div className="flex w-full justify-between text-[#AAAAAA] text-xs mx-0 my-2">
+          <i>{formatDate(props.date)}</i>
+          <i>Read More</i>
       </div>
-      <div className={styles['footer']}>
-      <i>{formatDate(props.date)}</i>
-      <Link href={articleLink}>
-        <i>Read More</i>
-      </Link>
     </div>
-  </div>
+  </Link>
   );
 }
 

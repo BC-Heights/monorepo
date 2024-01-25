@@ -1,4 +1,3 @@
-import styles from './big-card.module.scss';
 import Link from 'next/link';
 import { formatDate, formatHrefDate } from '@the-heights/format-date';
 import Image from 'next/image';
@@ -19,30 +18,26 @@ export interface BigCardProps {
 export function BigCard(props: BigCardProps) {
   const articleLink = `/${formatHrefDate(props.date)}/${props.slug}`;
   return (
-    <div className={styles['container']}>
-      <Link href={articleLink}>
-        <Image className={styles['large-image']}
-          src={props.imageSrc}
-          alt={props.imageAlt}
-          width={props.imgW}
-          height={props.imgH}
-          loading='lazy'
-          />
-      </Link>
-      <div className={styles["entry"]}>
-        <Link href={articleLink}>
-          <h1 className={styles['title']}>{props.title}</h1>
-        </Link>
-        <div className={styles['entry-divider']}></div>
-        <div className={styles['excerpt']} dangerouslySetInnerHTML={{ __html: props.excerpt}}></div>
-        <div className={styles['footer']}>
-          <i>{formatDate(props.date)}</i>
-          <Link href={articleLink}>
-            <i>Read More</i>
-          </Link>
+    <Link href={articleLink} className='hover:text-slate-500'>
+      <div className="mb-5 pb-5 border-b-[#eee] border-b border-solid">
+          <Image className="w-full h-auto"
+            src={props.imageSrc}
+            alt={props.imageAlt}
+            width={props.imgW}
+            height={props.imgH}
+            loading='lazy'
+            />
+        <div className="flex flex-col items-center">
+            <h1 className="text-xl font-medium w-fit text-center mx-0 my-4 px-4 py-0">{props.title}</h1>
+          <div className="w-[100px] mx-0 my-2 border-t-2 border-t-[black] border-dotted"></div>
+          <div className="!text-black mx-0 my-4 text-base"dangerouslySetInnerHTML={{ __html: props.excerpt}} />
+          <div className="flex w-full justify-between text-[#AAAAAA] text-xs">
+            <i>{formatDate(props.date)}</i>
+              <i>Read More</i>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

@@ -1,4 +1,3 @@
-import styles from './small-card.module.scss';
 import Link from 'next/link';
 
 import {  formatHrefDate } from '@the-heights/format-date';
@@ -13,8 +12,8 @@ export interface SmallCardProps {
 export function SmallCard(props: SmallCardProps) {
   const articleLink = `/${formatHrefDate(props.date)}/${props.slug}`;
   return (
-   <Link href={articleLink}>
-      <h1 className={styles['limited-width']}>{props.title}</h1>
+   <Link href={articleLink} className="hover:text-slate-500">
+      <h1 className="max-w-[80%] text-lg overflow-hidden text-ellipsis whitespace-nowrap font-normal">{props.title}</h1>
   </Link>
   );
 }

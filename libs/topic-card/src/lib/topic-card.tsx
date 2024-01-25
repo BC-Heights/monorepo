@@ -1,4 +1,3 @@
-import styles from './topic-card.module.scss';
 import { SmallCard } from '@the-heights/small-card';
 import { BigCard } from '@the-heights/big-card';
 
@@ -18,14 +17,14 @@ export async function TopicCard(props: TopicCardProps) {
   const posts = await GetPostsByCat(numTotal, props.category);
 
   return (
-      <div className={styles['container']}>
-        <div className={styles['title-container']}>
+      <div className="w-[370px] h-auto">
+        <div className="flex flex-row justify-around items-center gap-4">
           <span/>
-          <span className={styles['line']} />
-            <h1 className={styles['title']}>
+          <span className="w-full border-t-4 border-t-[#eee] border-solid" />
+            <h1 className="text-2xl font-bold">
               {props.category==='Features'? 'Magazine': props.category==='Metro'? 'Newton': props.category}
             </h1>
-          <span className={styles['line']} />
+          <span className="w-full border-t-4 border-t-[#eee] border-solid" />
           <span/>
         </div>
         <div>
@@ -59,6 +58,5 @@ export async function TopicCard(props: TopicCardProps) {
       </div>
   );
 }
-
 
 export default TopicCard;
