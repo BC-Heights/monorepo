@@ -33,7 +33,7 @@ export default function Index() {
                   <div className="flex flex-row justify-around items-center gap-4">
                     <span></span>
                     <span className="w-full border-t-4 border-t-[#eee] border-solid" />
-                    <h1 className="text-2xl font-semibold">E-Edition</h1>
+                    <h1 className="text-2xl font-semibold whitespace-nowrap">E-Edition</h1>
                     <span className="w-full border-t-4 border-t-[#eee] border-solid" />
                   </div>
                   <div className="relative p-t-[max(60%, 326px)] size-[370px]">

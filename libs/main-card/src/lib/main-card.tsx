@@ -7,8 +7,8 @@ export interface MainCardProps { }
 
 
 export async function MainCard() {
-  const posts = await GetPostsByCat(5, 'top story');
-  const firstPost = posts?.nodes?.[0];
+  const posts = await GetPostsByCat(5, 'top story', ['posts']);
+  const firstPost = posts?.nodes[0];
   
   return (
     <div className="flex items-start flex-wrap flex-row-reverse justify-center mt-4 mb-0 ">
