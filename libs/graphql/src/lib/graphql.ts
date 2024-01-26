@@ -7,7 +7,7 @@ import {
 import { getClient } from "@the-heights/apollo-client";
 
 
-export async function GetPostsByCat(first: number, categoryName: string, tags = ['posts']) {
+export const GetPostsByCat = async (first: number, categoryName: string, tags = ['posts']) => {
   const PostsByCat = unstable_cache(async (first, categoryName) => {
     const { data: { posts } } = await getClient().query<GetPostsByCatQuery>({
       query: GetPostsByCatDocument,
@@ -21,7 +21,7 @@ export async function GetPostsByCat(first: number, categoryName: string, tags = 
 }
 
 
-export async function GetPostBySlug(slug: string, tags = ['posts']) {
+export const GetPostBySlug = async (slug: string, tags = ['posts']) => {
   const PostBySlug = unstable_cache(async (slug) => {
     const { data: { postBy} } = await getClient().query<GetPostBySlugQuery>({
       query: GetPostBySlugDocument,
@@ -36,7 +36,7 @@ export async function GetPostBySlug(slug: string, tags = ['posts']) {
 }
 
 
-export async function SearchPosts(search: string, first: number, after: string, tags = ['posts']) {
+export const SearchPosts = async (search: string, first: number, after: string, tags = ['posts']) => {
   const Posts = unstable_cache(async (search, first, after) => {
     const { data: { posts } } = await getClient().query<SearchPostsQuery>({
       query: SearchPostsDocument,
@@ -50,7 +50,7 @@ export async function SearchPosts(search: string, first: number, after: string, 
     return await Posts(search, first, after);
 }
 
-export async function GetImageUrl(id: number, tags = ['images']) {
+export const GetImageUrl = async (id: number, tags = ['images']) => {
   const ImageUrl = unstable_cache(async (id) => {
     const { data: { mediaItemBy: sourceUrl } } = await getClient().query<GetImageUrlQuery>({
       query: GetImageUrlDocument,
