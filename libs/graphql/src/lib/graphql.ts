@@ -1,65 +1,119 @@
-import { unstable_cache } from "next/cache";
-import { 
-  GetPostsByCatDocument, GetPostsByCatQuery, 
-  GetPostBySlugDocument, GetPostBySlugQuery,
-  SearchPostsDocument, SearchPostsQuery,
-  GetImageUrlDocument, GetImageUrlQuery } from "./queries.generated";
-import { getClient } from "@the-heights/apollo-client";
+import { unstable_cache } from 'next/cache';
+import {
+  GetPostsDocument,
+  GetPostsQuery,
+  GetPostsQueryVariables,
+  GetPostBySlugDocument,
+  GetPostBySlugQuery,
+  GetPostBySlugQueryVariables,
+  GetPostsByCatDocument,
+  GetPostsByCatQuery,
+  GetPostsByCatQueryVariables,
+  GetImageUrlDocument,
+  GetImageUrlQuery,
+  GetImageUrlQueryVariables,
+  SearchPostsDocument,
+  SearchPostsQuery,
+  SearchPostsQueryVariables,
+} from './queries.generated';
+import { getClient } from '@the-heights/apollo-client';
 
-
-export const GetPostsByCat = async (first: number, categoryName: string, tags = ['posts']) => {
-  const PostsByCat = unstable_cache(async (first, categoryName) => {
-    const { data: { posts } } = await getClient().query<GetPostsByCatQuery>({
-      query: GetPostsByCatDocument,
-      variables: { first: first, categoryName: categoryName },
-    });
-    return posts;
-    }, ['posts'], {
-      tags: tags,
-    });
-    return await PostsByCat(first, categoryName);
-}
-
-
-export const GetPostBySlug = async (slug: string, tags = ['posts']) => {
-  const PostBySlug = unstable_cache(async (slug) => {
-    const { data: { postBy} } = await getClient().query<GetPostBySlugQuery>({
-      query: GetPostBySlugDocument,
-      variables: { slug: slug },
-    });
-    return postBy;
-    }, ['posts'],
+export const GetPosts = async (
+  { first }: GetPostsQueryVariables,
+  tags = ['posts']
+) => {
+  const GetPosts = unstable_cache(
+    async (first) => {
+      const { data } = await getClient().query<GetPostsQuery>({
+        query: GetPostsDocument,
+        variables: { first: first },
+      });
+      return data;
+    },
+    ['posts'],
     {
       tags: tags,
-    });
-    return await PostBySlug(slug);
-}
+    }
+  );
+  return await GetPosts(first);
+};
 
-
-export const SearchPosts = async (search: string, first: number, after: string, tags = ['posts']) => {
-  const Posts = unstable_cache(async (search, first, after) => {
-    const { data: { posts } } = await getClient().query<SearchPostsQuery>({
-      query: SearchPostsDocument,
-      variables: { search: search, first: first, after: after },
-    });
-    return posts;
-    }, ['posts'],
+export const GetPostBySlug = async (
+  { slug }: GetPostBySlugQueryVariables,
+  tags = ['posts']
+) => {
+  const GetPostBySlug = unstable_cache(
+    async (slug) => {
+      const { data } = await getClient().query<GetPostBySlugQuery>({
+        query: GetPostBySlugDocument,
+        variables: { slug: slug },
+      });
+      return data;
+    },
+    ['posts'],
     {
       tags: tags,
-    });
-    return await Posts(search, first, after);
-}
+    }
+  );
+  return await GetPostBySlug(slug);
+};
 
-export const GetImageUrl = async (id: number, tags = ['images']) => {
-  const ImageUrl = unstable_cache(async (id) => {
-    const { data: { mediaItemBy: sourceUrl } } = await getClient().query<GetImageUrlQuery>({
-      query: GetImageUrlDocument,
-      variables: { id: id },
-    });
-    return sourceUrl;
-    }, ['images'],
+export const GetPostsByCat = async (
+  { first, categoryName }: GetPostsByCatQueryVariables,
+  tags = ['posts']
+) => {
+  const GetPostsByCat = unstable_cache(
+    async (first, categoryName) => {
+      const { data } = await getClient().query<GetPostsByCatQuery>({
+        query: GetPostsByCatDocument,
+        variables: { first: first, categoryName: categoryName },
+      });
+      return data;
+    },
+    ['posts'],
     {
       tags: tags,
-    });
-  return await ImageUrl(id);
-}
+    }
+  );
+  return await GetPostsByCat(first, categoryName);
+};
+
+export const GetImageUrl = async (
+  { mediaItemId }: GetImageUrlQueryVariables,
+  tags = ['posts']
+) => {
+  const GetImageUrl = unstable_cache(
+    async (mediaItemId) => {
+      const { data } = await getClient().query<GetImageUrlQuery>({
+        query: GetImageUrlDocument,
+        variables: { mediaItemId: mediaItemId },
+      });
+      return data;
+    },
+    ['posts'],
+    {
+      tags: tags,
+    }
+  );
+  return await GetImageUrl(mediaItemId);
+};
+
+export const SearchPosts = async (
+  { first, search, after }: SearchPostsQueryVariables,
+  tags = ['posts']
+) => {
+  const SearchPosts = unstable_cache(
+    async (first, search, after) => {
+      const { data } = await getClient().query<SearchPostsQuery>({
+        query: SearchPostsDocument,
+        variables: { first: first, search: search, after: after },
+      });
+      return data;
+    },
+    ['posts'],
+    {
+      tags: tags,
+    }
+  );
+  return await SearchPosts(first, search, after);
+};
