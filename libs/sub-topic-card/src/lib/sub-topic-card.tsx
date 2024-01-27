@@ -8,7 +8,10 @@ export interface SubTopicCardProps {
 }
 
 export async function SubTopicCard(props: SubTopicCardProps) {
-  const posts = await GetPostsByCat(10, props.slug);
+  const { posts } = await GetPostsByCat({
+    first: 10,
+    categoryName: props.slug,
+  });
 
   if (posts?.nodes.length === 0) {
     // TODO: More work coming soon page
@@ -18,22 +21,24 @@ export async function SubTopicCard(props: SubTopicCardProps) {
   return (
     <div className="w-[800px] my-8 mx-auto">
       {posts?.nodes.map((post, index) => {
-        return(
-            <BigCard
-              key={index}
-              date={post.date || 'Jan 10'}
-              imageSrc={post.featuredImage?.node?.sourceUrl || '/default-image.jpg'}
-              excerpt={ post.excerpt || 'No Excerpt'}
-              imageAlt={post.featuredImage?.node?.caption || 'No Caption'} 
-              imgW={800}
-              imgH={440}
-              slug={post.slug || 'default-slug'} 
-              title={post.title || 'Untitled'}
-            />
+        return (
+          <BigCard
+            key={index}
+            date={post.date || 'Jan 10'}
+            imageSrc={
+              post.featuredImage?.node?.sourceUrl || '/default-image.jpg'
+            }
+            excerpt={post.excerpt || 'No Excerpt'}
+            imageAlt={post.featuredImage?.node?.caption || 'No Caption'}
+            imgW={800}
+            imgH={440}
+            slug={post.slug || 'default-slug'}
+            title={post.title || 'Untitled'}
+          />
         );
       })}
     </div>
-  )
+  );
 }
 
 export default SubTopicCard;
