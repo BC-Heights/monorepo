@@ -11,7 +11,7 @@ export async function multiMediaRegex(html: string): Promise<string> {
   const imageIdRegex = /\[vc_single_image image=&#8221;(\d+)&#8243; img_size=&#8221;full&#8221;\]/;
   let match = html.match(imageIdRegex);
   while ((match = html.match(imageIdRegex)) !== null) {
-      const imageUrl = await GetImageUrl(Number(match[1])); // Map the ids to an array of image URLs
+      const {mediaItemBy: imageUrl} = await GetImageUrl({mediaItemId: Number(match[1])}); // Map the ids to an array of image URLs
       html = html.replace(match[0], `<img src="${imageUrl?.sourceUrl || 'urmom.png'}" alt="No Image Found" width="100%" height="auto" />`);
   }
   return html;
