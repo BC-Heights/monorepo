@@ -1,8 +1,7 @@
-'use server';
-
 import { NextRequest, NextResponse } from 'next/server';
 import { revalidateTag } from 'next/cache';
 import PostData from './PostData';
+export const runtime = 'edge'
 
 export async function POST(req: NextRequest) {
   const data = (await req.json()) as PostData;
