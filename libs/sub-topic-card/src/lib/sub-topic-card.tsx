@@ -24,17 +24,10 @@ export async function SubTopicCard(props: SubTopicCardProps) {
       {posts?.nodes.map((post, index) => {
         return (
           <BigCard
+            post={post}
             key={index}
-            date={post.date || 'Jan 10'}
-            imageSrc={
-              post.featuredImage?.node?.sourceUrl || '/default-image.jpg'
-            }
-            excerpt={post.excerpt || 'No Excerpt'}
-            imageAlt={post.featuredImage?.node?.caption || 'No Caption'}
             imgW={800}
             imgH={440}
-            slug={post.slug || 'default-slug'}
-            title={post.title || 'Untitled'}
           />
         );
       })}
