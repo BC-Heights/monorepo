@@ -7,7 +7,7 @@ export interface MainCardProps {}
 export async function MainCard() {
   const { posts } = await GetPostsByCat(
     { first: 5, categoryName: 'top story' },
-    ['posts']
+    ['top story']
   );
   const firstPost = posts?.nodes[0];
 

@@ -13,10 +13,10 @@ export interface TopicCardProps {
 export async function TopicCard(props: TopicCardProps) {
   const numTotal = props.numBig + props.numSmall;
 
-  const { posts } = await GetPostsByCat({
-    first: numTotal,
-    categoryName: props.category,
-  });
+  const { posts } = await GetPostsByCat(
+    { first: numTotal, categoryName: props.category },
+    [props.category]
+  );
 
   return (
     <div className="w-[370px] h-auto">
