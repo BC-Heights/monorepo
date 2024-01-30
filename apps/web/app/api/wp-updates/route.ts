@@ -14,6 +14,6 @@ export async function POST(req: NextRequest) {
   console.log('POST', cats);
 
   // todo: revalidate based off of taxonomy
-  revalidateTag('posts');
+  cats.forEach((cat) => revalidateTag(cat));
   return NextResponse.json({ received: true, now: Date.now(), data: data });
 }
