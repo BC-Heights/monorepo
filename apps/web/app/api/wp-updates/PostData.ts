@@ -26,8 +26,16 @@ interface Post {
   }
   
   interface Taxonomy {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    [key: string]: any;
+    term_id: number;
+    name: string;
+    slug: string;
+    term_group: number;
+    term_taxonomy_id: number;
+    taxonomy: string;
+    description: string;
+    parent: number;
+    count: number;
+    filter: string;
   }
   
   interface AcfData {
@@ -47,7 +55,7 @@ interface Post {
     post_meta: PostMeta;
     post_thumbnail: string;
     post_permalink: string;
-    taxonomies: { category: Taxonomy };
+    taxonomies: { category: Taxonomy[] };
     acf_data: AcfData;
   }
   
