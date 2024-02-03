@@ -1,10 +1,12 @@
 "use client";
+// next js is stupid and doesn't like it when the client and server cards are in the same file
 
 import React, { useState } from 'react';
 // eslint-disable-next-line @nx/enforce-module-boundaries
 import { SearchPostsDocument, SearchPostsQuery } from 'libs/graphql/src/lib/queries.generated';
 import { useLazyQuery, NetworkStatus } from '@apollo/client';
-import { StyledCard } from '@the-heights/styled-card';
+// eslint-disable-next-line @nx/enforce-module-boundaries 
+import { StyledCard } from 'libs/cards/src/lib/styled-card';
 
 /* eslint-disable-next-line */
 export interface SearchBarProps {

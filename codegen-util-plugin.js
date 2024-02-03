@@ -11,6 +11,7 @@ import { getClient } from "@the-heights/apollo-client";
   `;
 }
 
+
 function generateFunction(operation) {
   const variables = operation.variableDefinitions.map(
     (v) => v.variable.name.value

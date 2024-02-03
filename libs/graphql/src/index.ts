@@ -1,2 +1,5 @@
 export * from './lib/graphql'
 export * from './lib/fragments.generated'
+export * from './lib/queries.generated'
+export * from './lib/mutations.generated'
+export * from './lib/types.generated'

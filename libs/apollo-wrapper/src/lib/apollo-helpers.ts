@@ -1212,11 +1212,6 @@ export type PageToRevisionConnectionPageInfoFieldPolicy = {
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type PdfpSettingsSettingsKeySpecifier = ('bpmGutenbergEnable' | 'pdfpGutenbergEnable' | PdfpSettingsSettingsKeySpecifier)[];
-export type PdfpSettingsSettingsFieldPolicy = {
-	bpmGutenbergEnable?: FieldPolicy<any> | FieldReadFunction<any>,
-	pdfpGutenbergEnable?: FieldPolicy<any> | FieldReadFunction<any>
-};
 export type PluginKeySpecifier = ('author' | 'authorUri' | 'description' | 'id' | 'isRestricted' | 'name' | 'path' | 'pluginUri' | 'version' | PluginKeySpecifier)[];
 export type PluginFieldPolicy = {
 	author?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -1247,11 +1242,12 @@ export type PluginConnectionPageInfoFieldPolicy = {
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type PostKeySpecifier = ('author' | 'authorDatabaseId' | 'authorId' | 'categories' | 'commentCount' | 'commentStatus' | 'comments' | 'content' | 'contentType' | 'contentTypeName' | 'databaseId' | 'date' | 'dateGmt' | 'desiredSlug' | 'editingLockedBy' | 'enclosure' | 'enqueuedScripts' | 'enqueuedStylesheets' | 'excerpt' | 'featuredImage' | 'featuredImageDatabaseId' | 'featuredImageId' | 'guid' | 'id' | 'isContentNode' | 'isPreview' | 'isRestricted' | 'isRevision' | 'isSticky' | 'isTermNode' | 'lastEditedBy' | 'link' | 'modified' | 'modifiedGmt' | 'pingStatus' | 'pinged' | 'postFormats' | 'postId' | 'preview' | 'previewRevisionDatabaseId' | 'previewRevisionId' | 'revisionOf' | 'revisions' | 'slug' | 'status' | 'tags' | 'template' | 'terms' | 'title' | 'toPing' | 'uri' | PostKeySpecifier)[];
+export type PostKeySpecifier = ('author' | 'authorDatabaseId' | 'authorId' | 'authors' | 'categories' | 'commentCount' | 'commentStatus' | 'comments' | 'content' | 'contentType' | 'contentTypeName' | 'databaseId' | 'date' | 'dateGmt' | 'desiredSlug' | 'editingLockedBy' | 'enclosure' | 'enqueuedScripts' | 'enqueuedStylesheets' | 'excerpt' | 'featuredImage' | 'featuredImageDatabaseId' | 'featuredImageId' | 'guid' | 'id' | 'isContentNode' | 'isPreview' | 'isRestricted' | 'isRevision' | 'isSticky' | 'isTermNode' | 'lastEditedBy' | 'link' | 'modified' | 'modifiedGmt' | 'pingStatus' | 'pinged' | 'postFormats' | 'postId' | 'preview' | 'previewRevisionDatabaseId' | 'previewRevisionId' | 'revisionOf' | 'revisions' | 'slug' | 'status' | 'tags' | 'template' | 'terms' | 'title' | 'toPing' | 'uri' | PostKeySpecifier)[];
 export type PostFieldPolicy = {
 	author?: FieldPolicy<any> | FieldReadFunction<any>,
 	authorDatabaseId?: FieldPolicy<any> | FieldReadFunction<any>,
 	authorId?: FieldPolicy<any> | FieldReadFunction<any>,
+	authors?: FieldPolicy<any> | FieldReadFunction<any>,
 	categories?: FieldPolicy<any> | FieldReadFunction<any>,
 	commentCount?: FieldPolicy<any> | FieldReadFunction<any>,
 	commentStatus?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -1300,6 +1296,13 @@ export type PostFieldPolicy = {
 	title?: FieldPolicy<any> | FieldReadFunction<any>,
 	toPing?: FieldPolicy<any> | FieldReadFunction<any>,
 	uri?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type PostAuthorKeySpecifier = ('displayName' | 'id' | 'type' | 'url' | PostAuthorKeySpecifier)[];
+export type PostAuthorFieldPolicy = {
+	displayName?: FieldPolicy<any> | FieldReadFunction<any>,
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	type?: FieldPolicy<any> | FieldReadFunction<any>,
+	url?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type PostConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | PostConnectionKeySpecifier)[];
 export type PostConnectionFieldPolicy = {
@@ -1611,7 +1614,7 @@ export type RootMutationFieldPolicy = {
 	updateTag?: FieldPolicy<any> | FieldReadFunction<any>,
 	updateUser?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type RootQueryKeySpecifier = ('allSettings' | 'categories' | 'category' | 'comment' | 'comments' | 'contentNode' | 'contentNodes' | 'contentType' | 'contentTypes' | 'discussionSettings' | 'generalSettings' | 'mediaItem' | 'mediaItemBy' | 'mediaItems' | 'menu' | 'menuItem' | 'menuItems' | 'menus' | 'node' | 'nodeByUri' | 'page' | 'pageBy' | 'pages' | 'pdfpSettingsSettings' | 'plugin' | 'plugins' | 'post' | 'postBy' | 'postFormat' | 'postFormats' | 'posts' | 'readingSettings' | 'registeredScripts' | 'registeredStylesheets' | 'revisions' | 'tag' | 'tags' | 'taxonomies' | 'taxonomy' | 'termNode' | 'terms' | 'theme' | 'themeisleSdkSettingsSettings' | 'themes' | 'user' | 'userRole' | 'userRoles' | 'users' | 'viewer' | 'writingSettings' | RootQueryKeySpecifier)[];
+export type RootQueryKeySpecifier = ('allSettings' | 'categories' | 'category' | 'comment' | 'comments' | 'contentNode' | 'contentNodes' | 'contentType' | 'contentTypes' | 'discussionSettings' | 'generalSettings' | 'mediaItem' | 'mediaItemBy' | 'mediaItems' | 'menu' | 'menuItem' | 'menuItems' | 'menus' | 'node' | 'nodeByUri' | 'page' | 'pageBy' | 'pages' | 'plugin' | 'plugins' | 'post' | 'postBy' | 'postFormat' | 'postFormats' | 'posts' | 'readingSettings' | 'registeredScripts' | 'registeredStylesheets' | 'revisions' | 'tag' | 'tags' | 'taxonomies' | 'taxonomy' | 'termNode' | 'terms' | 'theme' | 'themeisleSdkSettingsSettings' | 'themes' | 'user' | 'userRole' | 'userRoles' | 'users' | 'viewer' | 'writingSettings' | RootQueryKeySpecifier)[];
 export type RootQueryFieldPolicy = {
 	allSettings?: FieldPolicy<any> | FieldReadFunction<any>,
 	categories?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -1636,7 +1639,6 @@ export type RootQueryFieldPolicy = {
 	page?: FieldPolicy<any> | FieldReadFunction<any>,
 	pageBy?: FieldPolicy<any> | FieldReadFunction<any>,
 	pages?: FieldPolicy<any> | FieldReadFunction<any>,
-	pdfpSettingsSettings?: FieldPolicy<any> | FieldReadFunction<any>,
 	plugin?: FieldPolicy<any> | FieldReadFunction<any>,
 	plugins?: FieldPolicy<any> | FieldReadFunction<any>,
 	post?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -2030,7 +2032,7 @@ export type SendPasswordResetEmailPayloadFieldPolicy = {
 	success?: FieldPolicy<any> | FieldReadFunction<any>,
 	user?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type SettingsKeySpecifier = ('discussionSettingsDefaultCommentStatus' | 'discussionSettingsDefaultPingStatus' | 'generalSettingsDateFormat' | 'generalSettingsDescription' | 'generalSettingsEmail' | 'generalSettingsLanguage' | 'generalSettingsStartOfWeek' | 'generalSettingsTimeFormat' | 'generalSettingsTimezone' | 'generalSettingsTitle' | 'generalSettingsUrl' | 'pdfpSettingsSettingsBpmGutenbergEnable' | 'pdfpSettingsSettingsPdfpGutenbergEnable' | 'readingSettingsPageForPosts' | 'readingSettingsPageOnFront' | 'readingSettingsPostsPerPage' | 'readingSettingsShowOnFront' | 'themeisleSdkSettingsSettingsThemeisleSdkPromotions' | 'themeisleSdkSettingsSettingsThemeisleSdkPromotionsNeveFseInstalled' | 'themeisleSdkSettingsSettingsThemeisleSdkPromotionsOptimoleInstalled' | 'themeisleSdkSettingsSettingsThemeisleSdkPromotionsOtterInstalled' | 'themeisleSdkSettingsSettingsThemeisleSdkPromotionsRopInstalled' | 'writingSettingsDefaultCategory' | 'writingSettingsDefaultPostFormat' | 'writingSettingsUseSmilies' | SettingsKeySpecifier)[];
+export type SettingsKeySpecifier = ('discussionSettingsDefaultCommentStatus' | 'discussionSettingsDefaultPingStatus' | 'generalSettingsDateFormat' | 'generalSettingsDescription' | 'generalSettingsEmail' | 'generalSettingsLanguage' | 'generalSettingsStartOfWeek' | 'generalSettingsTimeFormat' | 'generalSettingsTimezone' | 'generalSettingsTitle' | 'generalSettingsUrl' | 'readingSettingsPageForPosts' | 'readingSettingsPageOnFront' | 'readingSettingsPostsPerPage' | 'readingSettingsShowOnFront' | 'themeisleSdkSettingsSettingsThemeisleSdkPromotions' | 'themeisleSdkSettingsSettingsThemeisleSdkPromotionsNeveFseInstalled' | 'themeisleSdkSettingsSettingsThemeisleSdkPromotionsOptimoleInstalled' | 'themeisleSdkSettingsSettingsThemeisleSdkPromotionsOtterInstalled' | 'themeisleSdkSettingsSettingsThemeisleSdkPromotionsRopInstalled' | 'writingSettingsDefaultCategory' | 'writingSettingsDefaultPostFormat' | 'writingSettingsUseSmilies' | SettingsKeySpecifier)[];
 export type SettingsFieldPolicy = {
 	discussionSettingsDefaultCommentStatus?: FieldPolicy<any> | FieldReadFunction<any>,
 	discussionSettingsDefaultPingStatus?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -2043,8 +2045,6 @@ export type SettingsFieldPolicy = {
 	generalSettingsTimezone?: FieldPolicy<any> | FieldReadFunction<any>,
 	generalSettingsTitle?: FieldPolicy<any> | FieldReadFunction<any>,
 	generalSettingsUrl?: FieldPolicy<any> | FieldReadFunction<any>,
-	pdfpSettingsSettingsBpmGutenbergEnable?: FieldPolicy<any> | FieldReadFunction<any>,
-	pdfpSettingsSettingsPdfpGutenbergEnable?: FieldPolicy<any> | FieldReadFunction<any>,
 	readingSettingsPageForPosts?: FieldPolicy<any> | FieldReadFunction<any>,
 	readingSettingsPageOnFront?: FieldPolicy<any> | FieldReadFunction<any>,
 	readingSettingsPostsPerPage?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -2377,13 +2377,12 @@ export type UpdatePostPayloadFieldPolicy = {
 	clientMutationId?: FieldPolicy<any> | FieldReadFunction<any>,
 	post?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type UpdateSettingsPayloadKeySpecifier = ('allSettings' | 'clientMutationId' | 'discussionSettings' | 'generalSettings' | 'pdfpSettingsSettings' | 'readingSettings' | 'themeisleSdkSettingsSettings' | 'writingSettings' | UpdateSettingsPayloadKeySpecifier)[];
+export type UpdateSettingsPayloadKeySpecifier = ('allSettings' | 'clientMutationId' | 'discussionSettings' | 'generalSettings' | 'readingSettings' | 'themeisleSdkSettingsSettings' | 'writingSettings' | UpdateSettingsPayloadKeySpecifier)[];
 export type UpdateSettingsPayloadFieldPolicy = {
 	allSettings?: FieldPolicy<any> | FieldReadFunction<any>,
 	clientMutationId?: FieldPolicy<any> | FieldReadFunction<any>,
 	discussionSettings?: FieldPolicy<any> | FieldReadFunction<any>,
 	generalSettings?: FieldPolicy<any> | FieldReadFunction<any>,
-	pdfpSettingsSettings?: FieldPolicy<any> | FieldReadFunction<any>,
 	readingSettings?: FieldPolicy<any> | FieldReadFunction<any>,
 	themeisleSdkSettingsSettings?: FieldPolicy<any> | FieldReadFunction<any>,
 	writingSettings?: FieldPolicy<any> | FieldReadFunction<any>
@@ -3260,10 +3259,6 @@ export type StrictTypedTypePolicies = {
 		keyFields?: false | PageToRevisionConnectionPageInfoKeySpecifier | (() => undefined | PageToRevisionConnectionPageInfoKeySpecifier),
 		fields?: PageToRevisionConnectionPageInfoFieldPolicy,
 	},
-	PdfpSettingsSettings?: Omit<TypePolicy, "fields" | "keyFields"> & {
-		keyFields?: false | PdfpSettingsSettingsKeySpecifier | (() => undefined | PdfpSettingsSettingsKeySpecifier),
-		fields?: PdfpSettingsSettingsFieldPolicy,
-	},
 	Plugin?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | PluginKeySpecifier | (() => undefined | PluginKeySpecifier),
 		fields?: PluginFieldPolicy,
@@ -3283,6 +3278,10 @@ export type StrictTypedTypePolicies = {
 	Post?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | PostKeySpecifier | (() => undefined | PostKeySpecifier),
 		fields?: PostFieldPolicy,
+	},
+	PostAuthor?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | PostAuthorKeySpecifier | (() => undefined | PostAuthorKeySpecifier),
+		fields?: PostAuthorFieldPolicy,
 	},
 	PostConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | PostConnectionKeySpecifier | (() => undefined | PostConnectionKeySpecifier),
