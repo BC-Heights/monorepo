@@ -6,6 +6,7 @@ import { SearchBar } from '@the-heights/search-bar';
 
 import { TopicLoading, MainLoading } from '@the-heights/components';
 import { Twitter } from '@the-heights/twitter';
+import './global.css';
 
 export default function Index() {
   const cats = [
