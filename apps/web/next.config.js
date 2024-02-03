@@ -22,6 +22,12 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'i0.wp.com',
+        port: '',
+        pathname: '/s3.amazonaws.com/**',
+      },
+      {
+        protocol: 'https',
         hostname: 'www.bcheights.com',
         port: '',
         pathname: '/wp-content/**',
