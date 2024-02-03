@@ -12,18 +12,16 @@
 //} from 'react-native';
 //import Svg, { G, Path } from 'react-native-svg';
 
-import { Posts } from '@the-heights/main-card';
-import { ApolloProvider } from '@apollo/client';
-import { createApolloClient } from '@the-heights/apollo-client';
+
 
 export const App = () => {
   //const [whatsNextYCoord, setWhatsNextYCoord] = useState<number>(0);
   //const scrollViewRef = useRef<null | ScrollView>(null);
 
   return (
-    <ApolloProvider client={createApolloClient()}>
-      <Posts></Posts>
-    </ApolloProvider>
+    <text>
+      Hello, world!
+    </text>
   );
 };
 //const styles = StyleSheet.create({

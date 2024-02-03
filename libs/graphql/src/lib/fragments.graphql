@@ -1,9 +1,8 @@
 fragment PostFragment on Post {
     title
-    author {
-      node {
-        name
-      }
+    authors {
+      displayName
+      url
     }
     id
     date 
@@ -11,7 +10,13 @@ fragment PostFragment on Post {
     featuredImage {
       node {
         caption
-        sourceUrl(size: ALM_THUMBNAIL)
+        sourceUrl(size: $imgSize)
+        mediaDetails {
+          sizes {
+            sourceUrl
+            name
+          }
+        }
       }
     }
     excerpt
@@ -23,3 +28,4 @@ fragment PostFragment on Post {
       }
     }
   }
+

@@ -1,4 +1,4 @@
-query GetPosts($first: Int!) {
+query GetPosts($first: Int!, $imgSize: MediaItemSizeEnum = LARGE) {
   posts(first: $first, where: {}) {
     nodes {
       ...PostFragment
@@ -6,13 +6,14 @@ query GetPosts($first: Int!) {
   }
 }
 
-query GetPostBySlug($slug: String!) {
+
+query GetPostBySlug($slug: String!, $imgSize: MediaItemSizeEnum = LARGE) {
   postBy(slug: $slug) {
     ...PostFragment
   }
 }
 
-query GetPostsByCat($first: Int!, $categoryName: String!) {
+query GetPostsByCat($first: Int!, $categoryName: String!, $imgSize: MediaItemSizeEnum = LARGE) {
   posts(where: {categoryName: $categoryName}, first: $first) {
     nodes {
       ...PostFragment
@@ -22,11 +23,11 @@ query GetPostsByCat($first: Int!, $categoryName: String!) {
 
 query GetImageUrl($mediaItemId: Int = 10) {
   mediaItemBy(mediaItemId: $mediaItemId) {
-    sourceUrl(size: MEDIUM)
+    sourceUrl(size: LARGE)
   }
 }
 
-query SearchPosts($first: Int!, $search: String!, $after: String = null) {
+query SearchPosts($first: Int!, $search: String!, $after: String = null, $imgSize: MediaItemSizeEnum = LARGE) {
   posts(where: {search: $search}, first: $first, after: $after) {
     nodes {
       ...PostFragment
@@ -34,6 +35,17 @@ query SearchPosts($first: Int!, $search: String!, $after: String = null) {
     pageInfo {
       hasNextPage
       endCursor
+    }
+  }
+}
+
+query GetPostAuthors($first: Int!) {
+  posts(first: $first) {
+    nodes {
+      authors {
+        displayName
+        url
+      }
     }
   }
 }

@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import parse from 'html-react-parser';
-import { formatDate, formatTime } from '@the-heights/format-date';
+import { formatDate, formatTime } from '@the-heights/utils';
 import { multiMediaRegex, postOptions } from './parser';
 import { GetPostBySlug } from '@the-heights/graphql';
 
@@ -67,7 +67,10 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
             </div>
             <h1 className="text-4xl text-center mx-0 my-4">{post.title}</h1>
             <div className="text-[1em] font-bold mb-[1em]">
-              By {post.author?.node.name || ''}
+              By {post.authors
+              ?.map((author) => author?.displayName)
+              .join(', ')
+              .replace(/,([^,]*)$/, ', and$1')}
             </div>
             <div className="text-xs mb-3">
               <span className="mr-4">{formatDate(post.date || '')}</span>

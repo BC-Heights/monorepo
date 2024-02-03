@@ -1,11 +1,10 @@
 import React, { Suspense } from 'react';
 import Image from 'next/image';
 
-import { MainCard } from '@the-heights/main-card';
-import { TopicCard } from '@the-heights/topic-card';
+import { MainCard, TopicCard } from '@the-heights/cards';
 import { SearchBar } from '@the-heights/search-bar';
 
-import { TopicLoading, MainLoading } from './loadImport';
+import { TopicLoading, MainLoading } from '@the-heights/components';
 import { Twitter } from '@the-heights/twitter';
 
 export default function Index() {
