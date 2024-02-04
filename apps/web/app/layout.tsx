@@ -3,8 +3,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { ApolloWrapper } from "@the-heights/apollo-wrapper";
 
 
-import { Header } from '@the-heights/header';
-import { Footer } from '@the-heights/footer';
+import { Header } from '@the-heights/components';
+import { Footer } from '@the-heights/components';
 import './global.css';
 
 

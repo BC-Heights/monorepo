@@ -1,4 +1,4 @@
-import { GetPostsByCat, PostFragmentFragment } from '@the-heights/graphql';
+import { GetPostsByCat } from '@the-heights/graphql';
 import BigCard from './big-card';
 import SmallCard from './small-card';
 
@@ -17,7 +17,7 @@ export default async function TopicCard(props: TopicCardProps) {
   );
 
   return (
-    <div className="w-[370px] h-auto">
+    <div className="h-auto">
       <div className="flex flex-row justify-around items-center gap-4">
         <span />
         <span className="w-full border-t-4 border-t-[#eee] border-solid" />
@@ -36,9 +36,9 @@ export default async function TopicCard(props: TopicCardProps) {
           if (index < props.numBig) {
             return (
               <BigCard
-                post={post as PostFragmentFragment}
+                post={post}
                 key={index}
-                imgSize="LARGE"
+                imgSize="large"
                 imgW={370}
                 imgH={202.91}
               />

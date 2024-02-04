@@ -13,7 +13,7 @@ export default function BigCard(props: BigCardProps) {
       <div className="mb-5 pb-5 border-b-[#eee] border-b border-solid">
         <Image
           className="w-full h-auto"
-          src={getUrlByName(props.post, 'large') || '/default-image.jpg'}
+          src={getUrlByName(props.post, props.imgSize) || '/default-image.jpg'}
           alt={props.post.featuredImage?.node?.caption || 'No Caption'}
           width={props.imgW}
           height={props.imgH}
