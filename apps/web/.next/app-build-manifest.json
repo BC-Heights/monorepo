@@ -1,9 +1,9 @@
 {
   "pages": {
-    "/page": [
+    "/not-found": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+      "static/chunks/app/not-found.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -11,20 +11,30 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/not-found": [
+    "/magazine/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/not-found.js"
+      "static/chunks/app/magazine/page.js"
+    ],
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
+    ],
+    "/[...slug]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[...slug]/page.js"
     ],
     "/[...slug]/loading": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/[...slug]/loading.js"
     ],
-    "/[...slug]/page": [
+    "/opinions/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/[...slug]/page.js"
+      "static/chunks/app/opinions/page.js"
     ]
   }
 }
