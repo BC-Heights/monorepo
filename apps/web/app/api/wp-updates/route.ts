@@ -10,9 +10,11 @@ export async function POST(req: NextRequest) {
     return NextResponse.error();
   }
 
-  console.log('POST', data.taxonomies);
+  const cats = data.taxonomies.category.map((cat) => cat.name.toLowerCase());
+  console.log('POST', cats);
 
-  // todo: revalidate based off of taxonomy
-  revalidateTag('posts');
+  cats.forEach((cat) => revalidateTag(cat));
+  // to do revalidte indivudal sub section pages
+
   return NextResponse.json({ received: true, now: Date.now(), data: data });
 }

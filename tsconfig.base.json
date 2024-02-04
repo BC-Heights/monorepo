@@ -17,19 +17,15 @@
     "paths": {
       "@the-heights/apollo-client": ["libs/apollo-client/src/index.ts"],
       "@the-heights/apollo-wrapper": ["libs/apollo-wrapper/src/index.ts"],
-      "@the-heights/big-card": ["libs/big-card/src/index.ts"],
+      "@the-heights/cards": ["libs/cards/src/index.ts"],
+      "@the-heights/components": ["libs/components/src/index.ts"],
       "@the-heights/footer": ["libs/footer/src/index.ts"],
       "@the-heights/format-date": ["libs/format-date/src/index.ts"],
       "@the-heights/graphql": ["libs/graphql/src/index.ts"],
       "@the-heights/header": ["libs/header/src/index.ts"],
-      "@the-heights/main-card": ["libs/main-card/src/index.ts"],
-      "@the-heights/medium-card": ["libs/medium-card/src/index.ts"],
       "@the-heights/search-bar": ["libs/search-bar/src/index.ts"],
-      "@the-heights/small-card": ["libs/small-card/src/index.ts"],
-      "@the-heights/styled-card": ["libs/styled-card/src/index.ts"],
-      "@the-heights/sub-topic-card": ["libs/sub-topic-card/src/index.ts"],
-      "@the-heights/topic-card": ["libs/topic-card/src/index.ts"],
-      "@the-heights/twitter": ["libs/twitter/src/index.ts"]
+      "@the-heights/twitter": ["libs/twitter/src/index.ts"],
+      "@the-heights/utils": ["libs/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

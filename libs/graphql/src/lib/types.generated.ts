@@ -77,7 +77,7 @@ export type Category = DatabaseIdentifier & HierarchicalNode & HierarchicalTermN
   enqueuedScripts?: Maybe<TermNodeToEnqueuedScriptConnection>;
   /** Connection between the TermNode type and the EnqueuedStylesheet type */
   enqueuedStylesheets?: Maybe<TermNodeToEnqueuedStylesheetConnection>;
-  /** The unique resource identifier path */
+  /** The globally unique ID for the object */
   id: Scalars['ID']['output'];
   /** Whether the node is a Content Node */
   isContentNode: Scalars['Boolean']['output'];
@@ -942,7 +942,7 @@ export type ContentNode = {
   enqueuedStylesheets?: Maybe<ContentNodeToEnqueuedStylesheetConnection>;
   /** The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table. */
   guid?: Maybe<Scalars['String']['output']>;
-  /** The unique resource identifier path */
+  /** The globally unique ID for the object */
   id: Scalars['ID']['output'];
   /** Whether the node is a Content Node */
   isContentNode: Scalars['Boolean']['output'];
@@ -3086,7 +3086,7 @@ export type MenuItemConnectionPageInfo = {
 export type MenuItemLinkable = {
   /** The unique identifier stored in the database */
   databaseId: Scalars['Int']['output'];
-  /** The unique resource identifier path */
+  /** The globally unique ID for the object */
   id: Scalars['ID']['output'];
   /** Whether the node is a Content Node */
   isContentNode: Scalars['Boolean']['output'];
@@ -4015,15 +4015,6 @@ export type PageToRevisionConnectionWhereArgs = {
   title?: InputMaybe<Scalars['String']['input']>;
 };
 
-/** The pdfpSettings setting type */
-export type PdfpSettingsSettings = {
-  __typename?: 'PdfpSettingsSettings';
-  /** The boolean Settings Group */
-  bpmGutenbergEnable?: Maybe<Scalars['Boolean']['output']>;
-  /** The boolean Settings Group */
-  pdfpGutenbergEnable?: Maybe<Scalars['Boolean']['output']>;
-};
-
 /** An plugin object */
 export type Plugin = Node & {
   __typename?: 'Plugin';
@@ -4104,6 +4095,8 @@ export type Post = ContentNode & DatabaseIdentifier & MenuItemLinkable & Node & 
   authorDatabaseId?: Maybe<Scalars['Int']['output']>;
   /** The globally unique identifier of the author of the node */
   authorId?: Maybe<Scalars['ID']['output']>;
+  /** Returns the post authors */
+  authors?: Maybe<Array<Maybe<PostAuthor>>>;
   /** Connection between the Post type and the category type */
   categories?: Maybe<PostToCategoryConnection>;
   /** The number of comments. Even though WPGraphQL denotes this field as an integer, in WordPress this field should be saved as a numeric string for compatibility. */
@@ -4301,6 +4294,19 @@ export type PostTitleArgs = {
   format?: InputMaybe<PostObjectFieldFormatEnum>;
 };
 
+/** Post author */
+export type PostAuthor = {
+  __typename?: 'PostAuthor';
+  /** display name */
+  displayName?: Maybe<Scalars['String']['output']>;
+  /** author id */
+  id?: Maybe<Scalars['Int']['output']>;
+  /** author type */
+  type?: Maybe<Scalars['String']['output']>;
+  /** url */
+  url?: Maybe<Scalars['String']['output']>;
+};
+
 /** Set relationships between the post to categories */
 export type PostCategoriesInput = {
   /** If true, this will append the category to existing related categories. If false, this will replace existing relationships. Default true. */
@@ -4366,7 +4372,7 @@ export type PostFormat = DatabaseIdentifier & MenuItemLinkable & Node & TermNode
   enqueuedScripts?: Maybe<TermNodeToEnqueuedScriptConnection>;
   /** Connection between the TermNode type and the EnqueuedStylesheet type */
   enqueuedStylesheets?: Maybe<TermNodeToEnqueuedStylesheetConnection>;
-  /** The unique resource identifier path */
+  /** The globally unique ID for the object */
   id: Scalars['ID']['output'];
   /** Whether the node is a Content Node */
   isContentNode: Scalars['Boolean']['output'];
@@ -5829,8 +5835,6 @@ export type RootQuery = {
   pageBy?: Maybe<Page>;
   /** Connection between the RootQuery type and the page type */
   pages?: Maybe<RootQueryToPageConnection>;
-  /** Fields of the &#039;PdfpSettingsSettings&#039; settings group */
-  pdfpSettingsSettings?: Maybe<PdfpSettingsSettings>;
   /** A WordPress plugin */
   plugin?: Maybe<Plugin>;
   /** Connection between the RootQuery type and the Plugin type */
@@ -7509,10 +7513,6 @@ export type Settings = {
   generalSettingsTitle?: Maybe<Scalars['String']['output']>;
   /** Settings of the the string Settings Group */
   generalSettingsUrl?: Maybe<Scalars['String']['output']>;
-  /** Settings of the the boolean Settings Group */
-  pdfpSettingsSettingsBpmGutenbergEnable?: Maybe<Scalars['Boolean']['output']>;
-  /** Settings of the the boolean Settings Group */
-  pdfpSettingsSettingsPdfpGutenbergEnable?: Maybe<Scalars['Boolean']['output']>;
   /** Settings of the the integer Settings Group */
   readingSettingsPageForPosts?: Maybe<Scalars['Int']['output']>;
   /** Settings of the the integer Settings Group */
@@ -7554,7 +7554,7 @@ export type Tag = DatabaseIdentifier & MenuItemLinkable & Node & TermNode & Unif
   enqueuedScripts?: Maybe<TermNodeToEnqueuedScriptConnection>;
   /** Connection between the TermNode type and the EnqueuedStylesheet type */
   enqueuedStylesheets?: Maybe<TermNodeToEnqueuedStylesheetConnection>;
-  /** The unique resource identifier path */
+  /** The globally unique ID for the object */
   id: Scalars['ID']['output'];
   /** Whether the node is a Content Node */
   isContentNode: Scalars['Boolean']['output'];
@@ -8055,7 +8055,7 @@ export type TermNode = {
   enqueuedScripts?: Maybe<TermNodeToEnqueuedScriptConnection>;
   /** Connection between the TermNode type and the EnqueuedStylesheet type */
   enqueuedStylesheets?: Maybe<TermNodeToEnqueuedStylesheetConnection>;
-  /** The unique resource identifier path */
+  /** The globally unique ID for the object */
   id: Scalars['ID']['output'];
   /** Whether the node is a Content Node */
   isContentNode: Scalars['Boolean']['output'];
@@ -8299,7 +8299,7 @@ export type ThemeisleSdkSettingsSettings = {
 
 /** Any node that has a URI */
 export type UniformResourceIdentifiable = {
-  /** The unique resource identifier path */
+  /** The globally unique ID for the object */
   id: Scalars['ID']['output'];
   /** Whether the node is a Content Node */
   isContentNode: Scalars['Boolean']['output'];
@@ -8561,8 +8561,6 @@ export type UpdateSettingsInput = {
   generalSettingsTitle?: InputMaybe<Scalars['String']['input']>;
   /** Site URL. */
   generalSettingsUrl?: InputMaybe<Scalars['String']['input']>;
-  pdfpSettingsSettingsBpmGutenbergEnable?: InputMaybe<Scalars['Boolean']['input']>;
-  pdfpSettingsSettingsPdfpGutenbergEnable?: InputMaybe<Scalars['Boolean']['input']>;
   /** The ID of the page that should display the latest posts */
   readingSettingsPageForPosts?: InputMaybe<Scalars['Int']['input']>;
   /** The ID of the page that should be displayed on the front page */
@@ -8595,8 +8593,6 @@ export type UpdateSettingsPayload = {
   discussionSettings?: Maybe<DiscussionSettings>;
   /** Update the GeneralSettings setting. */
   generalSettings?: Maybe<GeneralSettings>;
-  /** Update the PdfpSettingsSettings setting. */
-  pdfpSettingsSettings?: Maybe<PdfpSettingsSettings>;
   /** Update the ReadingSettings setting. */
   readingSettings?: Maybe<ReadingSettings>;
   /** Update the ThemeisleSdkSettingsSettings setting. */
@@ -8957,10 +8953,6 @@ export enum UserRoleEnum {
   Donor = 'DONOR',
   /** User role with specific capabilities */
   Editor = 'EDITOR',
-  /** User role with specific capabilities */
-  SeoEditor = 'SEO_EDITOR',
-  /** User role with specific capabilities */
-  SeoManager = 'SEO_MANAGER',
   /** User role with specific capabilities */
   ShopManager = 'SHOP_MANAGER',
   /** User role with specific capabilities */
