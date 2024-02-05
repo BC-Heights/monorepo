@@ -5,6 +5,7 @@ import BigCard from './big-card';
 import SmallCard from './small-card';
 import SubTopicCard from './subtopic-card';
 import TopicCard from './topic-card';
+import EEdition from './e-edition';
 
 /* eslint-disable-next-line */
 export interface CardsProps {
@@ -25,4 +26,4 @@ export function Cards(props: CardsProps) {
 
 export default Cards;
 
-export { MainCard, StyledCard, BigCard, SmallCard, SubTopicCard, TopicCard };
+export { MainCard, StyledCard, BigCard, SmallCard, SubTopicCard, TopicCard, EEdition };
