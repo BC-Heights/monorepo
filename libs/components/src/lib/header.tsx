@@ -80,13 +80,13 @@ export function Header() {
     ];
 
     return (
-        <div className="w-full flex flex-col items-center">
+        <div className=" hidden w-full  lg:flex flex-col items-center">
             <Link href={'/'}>
                 <img className="w-[375px] h-[110px]" 
                      src={'https://s3.amazonaws.com/heights-photos/wp-content/uploads/2021/09/26192503/the_heights_header-1.png'} 
                      alt={'Logo'} />
             </Link>
-            <div className="w-[1308px] h-[2.5em] flex 
+            <div className="w-full px-8 h-[2.5em] flex 
                             justify-center items-center 
                             border-t-2 border-b border-black gap-5">
                 {navItems.map((item, index) => (

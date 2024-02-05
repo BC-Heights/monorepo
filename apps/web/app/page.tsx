@@ -7,7 +7,7 @@ import './global.css';
 export default function Index() {
   return (
     <div className="flex justify-center">
-      <div className="w-[1400px] flex flex-col">
+      <div className="w-full flex flex-col">
         <Suspense fallback={<MainLoading />}>
           <MainCard />
         </Suspense>

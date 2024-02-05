@@ -26,7 +26,7 @@ export default async function SubTopicCard(props: SubTopicCardProps) {
           <BigCard
             post={post}
             key={index}
-            imgSize="LARGE"
+            imgSize="large"
             imgW={800}
             imgH={440}
           />
