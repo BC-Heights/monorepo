@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { revalidateTag } from 'next/cache';
 import PostData from './PostData';
+import { log } from 'next-axiom';
 
 export async function POST(req: NextRequest) {
   const data = (await req.json());
@@ -11,7 +12,8 @@ export async function POST(req: NextRequest) {
 
   // const cats = data.taxonomies.category.map((cat) => cat.name.toLowerCase());
   // console.log('POST', cats);
-  console.log({ ...data, post: { ...data.post, post_content: undefined, post_before: undefined } });
+  console.log({ ...data, post: { ...data.post, post_content: undefined }, post_before: undefined });
+  log.debug('POST', { ...data, post: { ...data.post, post_content: undefined }, post_before: undefined });
   // console.log(data.taxonomies.category.map(cat))
 
   // cats.forEach((cat) => revalidateTag(cat));
