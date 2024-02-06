@@ -1,9 +1,24 @@
-interface Post {
+type Category = {
+  term_id: number;
+  name: string;
+  slug: string;
+  term_group: number;
+  term_taxonomy_id: number;
+  taxonomy: string;
+  description: string;
+  parent: number;
+  count: number;
+  filter: string;
+};
+
+export type PostData = {
+  post_id: number;
+  post: {
     ID: number;
     post_author: string;
     post_date: string;
     post_date_gmt: string;
-    post_content: string;
+    post_content: string | undefined;
     post_title: string;
     post_excerpt: string;
     post_status: string;
@@ -23,39 +38,17 @@ interface Post {
     post_mime_type: string;
     comment_count: string;
     filter: string;
-  }
-  
-  interface Taxonomy {
-    term_id: number;
-    name: string;
-    slug: string;
-    term_group: number;
-    term_taxonomy_id: number;
-    taxonomy: string;
-    description: string;
-    parent: number;
-    count: number;
-    filter: string;
-  }
-  
-  interface AcfData {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    demo_repeater_field: any[];
-    demo_text_field: string;
-    demo_true_false: boolean;
-  }
-  
-  interface PostMeta {
+  };
+  post_meta: {
     [key: string]: string[];
-  }
-  
-  export default interface PostData {
-    post_id: number;
-    post: Post;
-    post_meta: PostMeta;
-    post_thumbnail: string;
-    post_permalink: string;
-    taxonomies: { category: Taxonomy[] };
-    acf_data: AcfData;
-  }
-  
+  };
+  post_before: string | undefined;
+  post_thumbnail: string;
+  post_permalink: string;
+  taxonomies: {
+    category: {
+      [key: string]: Category;
+    };
+  };
+  acf_data: boolean;
+};

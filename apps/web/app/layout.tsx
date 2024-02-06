@@ -7,6 +7,7 @@ import { Header } from '@the-heights/components';
 import { Footer } from '@the-heights/components';
 import './global.css';
 import { Metadata } from 'next';
+import { AxiomWebVitals } from 'next-axiom';
 
 
 export const metadata: Metadata = {
@@ -31,6 +32,7 @@ export default function RootLayout({
         </ApolloWrapper>
         <Analytics />
         <SpeedInsights />
+        <AxiomWebVitals />
         <Footer />
       </body>
     </html>
