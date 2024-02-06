@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-// import { revalidateTag } from 'next/cache';
+import { revalidateTag } from 'next/cache';
 import { PostData } from './PostData';
 import { log, AxiomRequest } from 'next-axiom';
 
@@ -12,8 +12,10 @@ export async function POST(req: AxiomRequest) {
     return NextResponse.error();
   }
 
-  // const cats = data.taxonomies.category.map((cat) => cat.name.toLowerCase());
-  // console.log('POST', cats);
+  const cats = Object.keys(data.taxonomies.category).map(
+    (key) => data.taxonomies.category[key].name
+  );
+  console.log('POST', cats);
   console.log({
     ...data,
     post: { ...data.post, post_content: undefined },
@@ -24,10 +26,7 @@ export async function POST(req: AxiomRequest) {
     post: { ...data.post, post_content: undefined },
     post_before: undefined,
   });
-  console.log(data.taxonomies.category);
 
-  // cats.forEach((cat) => revalidateTag(cat));
-  // to do revalidte indivudal sub section pages
-
+  cats.forEach((cat) => revalidateTag(cat));
   return NextResponse.json({ received: true, now: Date.now(), data: data });
 }
