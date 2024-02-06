@@ -11,6 +11,7 @@ export async function POST(req: NextRequest) {
 
   // const cats = data.taxonomies.category.map((cat) => cat.name.toLowerCase());
   // console.log('POST', cats);
+  console.log(data)
 
   // cats.forEach((cat) => revalidateTag(cat));
   // to do revalidte indivudal sub section pages
