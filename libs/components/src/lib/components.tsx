@@ -4,6 +4,8 @@ export { default as Footer } from './footer';
 export { default as Header } from './header';
 export { default as Twitter } from './twitter';
 export { VerticalLine } from './lines';
+export { default as Spotify } from './spotify';
+export { default as AuthorName } from './authur-name';
 
 /* eslint-disable-next-line */
 export interface ComponentsProps {}

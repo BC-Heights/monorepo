@@ -86,11 +86,11 @@ export function Header() {
                      src={'https://s3.amazonaws.com/heights-photos/wp-content/uploads/2021/09/26192503/the_heights_header-1.png'} 
                      alt={'Logo'} />
             </Link>
-            <div className="w-full px-8 h-[2.5em] flex 
+            <div className="w-[calc(90%-64px)] px-8 h-[2.5em] flex 
                             justify-center items-center 
-                            border-t-2 border-b border-black gap-5">
+                            border-t-2 border-b border-black gap-8">
                 {navItems.map((item, index) => (
-                    <div className="h-full flex items-center gap-5" key={index}>
+                    <div className="h-full flex items-center gap-8" key={index}>
                         <div className="relative font-medium group">
                             <Link href={`/${item.label.toLowerCase()}`}>
                                 {item.label}

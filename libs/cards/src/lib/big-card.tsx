@@ -1,14 +1,24 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { formatDate, formatHrefDate, getUrlByName } from '@the-heights/utils';
+import {
+  filterCategories,
+  formatDate,
+  formatHrefDate,
+  getUrlByName,
+} from '@the-heights/utils';
 import { CardsProps } from './cards';
+import { AuthorName } from '@the-heights/components';
 
 /* eslint-disable-next-line */
-export interface BigCardProps extends CardsProps {}
+export interface BigCardProps extends CardsProps {
+  excerpt?: boolean;
+  category?: boolean;
+}
 
 export default function BigCard(props: BigCardProps) {
   const articleLink = `/${formatHrefDate(props.post.date!)}/${props.post.slug}`;
   return (
+    // use group hover instead so we can highlight the author name too
     <Link href={articleLink} className="hover:text-slate-500">
       <div className="mb-5 pb-5 border-b-[#eee] border-b border-solid">
         <Image
@@ -19,27 +29,21 @@ export default function BigCard(props: BigCardProps) {
           height={props.imgH}
           loading="lazy"
         />
-        <div>
-          {props.post.categories?.nodes?.map((cat, index) => (
-            <span key={index} className="text-xs text-[#AAAAAA]">
-              {cat?.name}
-            </span>
-          ))}
+        <div className="my-2 text-[#98002E]">
+          {filterCategories(
+            props.post.categories?.nodes?.map((cat) => cat?.name)
+          )}
         </div>
 
-        <div className="flex flex-col items-center">
-          <h1 className="text-xl font-medium w-fit text-center mx-0 my-4 px-4 py-0">
+        <div className="flex flex-col items-start">
+          <h1 className="text-2xl font-semibold w-fit mx-0 py-0">
             {props.post.title}
           </h1>
-          <div className="underline text-b59410">
-            {/* need to add linking eventually */}
-            {props.post.authors
-              ?.map((author) => author?.displayName)
-              .join(', ')
-              .replace(/,([^,]*)$/, ', and$1')}
+          <div className='my-2'>
+            <AuthorName {...props.post} />
           </div>
           <div
-            className="!text-black mx-0 my-4 text-base"
+            className={`!text-black mx-0 mb-4 text-base ${props.excerpt ? 'hidden' : ''}`}
             dangerouslySetInnerHTML={{ __html: props.post.excerpt! }}
           />
           <div className="flex w-full justify-between text-[#AAAAAA] text-xs">
