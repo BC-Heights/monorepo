@@ -1,11 +1,10 @@
 import { PostFragmentFragment } from '@the-heights/graphql';
-import MainCard from './main-card';
-import StyledCard from './styled-card';
-import BigCard from './big-card';
-import SmallCard from './small-card';
-import SubTopicCard from './subtopic-card';
-import TopicCard from './topic-card';
-import EEdition from './e-edition';
+export { default as MainCard } from './main-card';
+export { default as StyledCard } from './styled-card';
+export { default as BigCard } from './big-card';
+export { default as SmallCard } from './small-card';
+export { default as SubTopicCard } from './subtopic-card';
+export { default as TopicCard } from './topic-card';
 
 /* eslint-disable-next-line */
 export interface CardsProps {
@@ -26,4 +25,3 @@ export function Cards(props: CardsProps) {
 
 export default Cards;
 
-export { MainCard, StyledCard, BigCard, SmallCard, SubTopicCard, TopicCard, EEdition };
