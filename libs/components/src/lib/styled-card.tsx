@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { formatDate, formatHrefDate, getUrlByName } from '@the-heights/utils';
+import { formatDate, formatHrefDate } from '@the-heights/utils';
 import { CardsProps } from './cards';
-import { AuthorName } from '@the-heights/components';
+import AuthorName  from './authur-name';
 
 /* eslint-disable-next-line */
 export interface StyledCardProps extends CardsProps {
@@ -43,7 +43,7 @@ function StyledCard(props: StyledCardProps) {
               className={`aspect-video w-full md:w-[200px] xl:w-[300px] ${
                 props.reverse ? 'md:w-full' : ''
               }`}
-              src={getUrlByName(props.post, props.imgSize)!}
+              src={props.post.featuredImage?.node.sourceUrl || '/default-image.jpg'}
               alt={props.post.featuredImage?.node.caption || 'No Alt'}
               width={638}
               height={349}

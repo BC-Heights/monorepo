@@ -1,4 +1,4 @@
-import { SubTopicCard } from "@the-heights/cards";
+import { SubTopicCard } from "@the-heights/components";
 
 export default function Page() {
     return (

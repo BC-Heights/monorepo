@@ -1,15 +1,14 @@
-import { GetPostsByCat } from '@the-heights/graphql';
-import BigCard from './big-card';
-import StyledCard from './styled-card';
-import EEdition from './e-edition';
-import { VerticalLine } from '@the-heights/components';
+import { GetPostsByCat, MediaItemSizeEnum } from '@the-heights/graphql';
+import {BigCard, StyledCard} from './cards';
+import { EEdition, VerticalLine } from './components';
+
 
 /* eslint-disable-next-line */
 export interface MainCardProps {}
 
 export default async function MainCard() {
   const { posts } = await GetPostsByCat(
-    { first: 5, categoryName: 'top story' },
+    { first: 5, categoryName: 'top story', imgSize: MediaItemSizeEnum.Large},
     ['top story']
   );
 
