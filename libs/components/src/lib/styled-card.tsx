@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { formatDate, formatHrefDate, getUrlByName } from '@the-heights/utils';
 import { CardsProps } from './cards';
-import { AuthorName } from '@the-heights/components';
+import AuthorName  from './authur-name';
 
 /* eslint-disable-next-line */
 export interface StyledCardProps extends CardsProps {

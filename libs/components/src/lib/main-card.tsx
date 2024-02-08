@@ -1,8 +1,7 @@
 import { GetPostsByCat } from '@the-heights/graphql';
-import BigCard from './big-card';
-import StyledCard from './styled-card';
-import EEdition from './e-edition';
-import { VerticalLine } from '@the-heights/components';
+import {BigCard, StyledCard} from './cards';
+import { EEdition, VerticalLine } from './components';
+
 
 /* eslint-disable-next-line */
 export interface MainCardProps {}

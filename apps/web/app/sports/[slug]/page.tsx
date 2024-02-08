@@ -1,4 +1,4 @@
-import { SubTopicCard } from '@the-heights/cards';
+import { SubTopicCard } from '@the-heights/components';
 import { Suspense } from 'react';
 
 export default function Page({ params }: { params: { slug: string } }) {

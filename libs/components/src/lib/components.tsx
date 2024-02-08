@@ -6,6 +6,8 @@ export { default as Twitter } from './twitter';
 export { VerticalLine } from './lines';
 export { default as Spotify } from './spotify';
 export { default as AuthorName } from './authur-name';
+export { default as TopicComponent } from './topic-component';
+export { default as EEdition } from './e-edition';
 
 /* eslint-disable-next-line */
 export interface ComponentsProps {}
