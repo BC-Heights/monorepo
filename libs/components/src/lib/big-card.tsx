@@ -4,7 +4,6 @@ import {
   filterCategories,
   formatDate,
   formatHrefDate,
-  getUrlByName,
 } from '@the-heights/utils';
 import { CardsProps } from './cards';
 // eslint-disable-next-line @nx/enforce-module-boundaries
@@ -32,7 +31,7 @@ export default function BigCard(props: BigCardProps) {
       <div className="mb-5 pb-5 border-b-[#eee] border-b border-solid">
         <Image
           className="w-full h-auto"
-          src={getUrlByName(props.post, props.imgSize) || '/default-image.jpg'}
+          src={props.post.featuredImage?.node.sourceUrl || '/default-image.jpg'}
           alt={props.post.featuredImage?.node?.caption || 'No Caption'}
           width={props.imgW}
           height={props.imgH}
