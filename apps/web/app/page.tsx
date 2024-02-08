@@ -9,6 +9,14 @@ import {
 } from '@the-heights/components';
 import './global.css';
 
+interface TopicComponentProps {
+  type: 'big' | 'small' | 'styled';
+  imgSize: 'large' | 'medium' | 'small';
+  priority?: boolean;
+  excerpt?: boolean;
+  category?: boolean;
+}
+
 export default function Index() {
   return (
     <div className="flex justify-center">
@@ -21,9 +29,12 @@ export default function Index() {
           <div className="w-1/4 px-8 sticky top-0">
             <TopicCard
               category="Features"
-              topicComponents={Array(2).fill({
-                type: 'styled',
+              topicComponents={Array<TopicComponentProps>(2).fill({
+                type: 'big',
                 imgSize: 'large',
+                excerpt: false,
+                category: false,
+
               })}
             ></TopicCard>
           </div>

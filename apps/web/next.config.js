@@ -25,7 +25,7 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'i0.wp.com',
         port: '',
-        pathname: '/heights-photos.s3.amazonaws.com/**',
+        pathname: '/**',
       },
       {
         protocol: 'https',

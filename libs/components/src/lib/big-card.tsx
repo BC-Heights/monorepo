@@ -30,21 +30,27 @@ export default function BigCard(props: BigCardProps) {
     <Link href={articleLink} className="hover:text-slate-500">
       <div className="mb-5 pb-5 border-b-[#eee] border-b border-solid">
         <Image
-          className="w-full h-auto"
+          className="w-full h-auto mb-2"
           src={props.post.featuredImage?.node.sourceUrl || '/default-image.jpg'}
           alt={props.post.featuredImage?.node?.caption || 'No Caption'}
           width={props.imgW}
           height={props.imgH}
           loading="lazy"
         />
-        <div className="my-2 text-[#98002E]">
-          {filterCategories(
-            props.post.categories?.nodes?.map((cat) => cat?.name)
-          )}
+        <div
+          className={`mb-2 text-[#98002E] font-bold ${
+            category ? '' : 'hidden'
+          }`}
+        >
+          <text>
+            {filterCategories(
+              props.post.categories?.nodes?.map((cat) => cat?.name)
+            )}
+          </text>
         </div>
 
         <div className="flex flex-col items-start">
-          <h1 className="text-2xl font-semibold w-fit mx-0 py-0">
+          <h1 className="text-xl font-semibold w-fit mx-0 py-0">
             {props.post.title}
           </h1>
           <div className="my-2">

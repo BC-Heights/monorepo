@@ -22,7 +22,7 @@ export default async function TopicCard(props: TopicCardProps) {
 
   return (
     <div className="h-auto">
-      <div className="flex flex-row justify-around items-center gap-4">
+      <div className="flex flex-row items-start gap-4">
         
         <h1 className="text-2xl font-bold">
           {props.category === 'Features'
