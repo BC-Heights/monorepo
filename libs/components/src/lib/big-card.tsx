@@ -16,23 +16,27 @@ export default function BigCard(props: BigCardProps) {
   const articleLink = `/${formatHrefDate(post.date!)}/${post.slug}`;
   return (
     // use group hover instead so we can highlight the author name too
-    <Link href={articleLink} className="hover:text-slate-500">
+    <div className="group">
       <div className="mb-5 pb-5 border-b-[#eee] border-b border-solid">
-        <Image
-          className="w-full h-auto mb-2"
-          src={post.featuredImage?.node.sourceUrl || '/default-image.jpg'}
-          alt={post.featuredImage?.node?.caption || 'No Caption'}
-          width={props.imgW}
-          height={props.imgH}
-          loading="lazy"
-        />
+        <Link href={articleLink}>
+          <Image
+            className="w-full h-auto mb-2"
+            src={post.featuredImage?.node.sourceUrl || '/default-image.jpg'}
+            alt={post.featuredImage?.node?.caption || 'No Caption'}
+            width={props.imgW}
+            height={props.imgH}
+            loading="lazy"
+          />
+        </Link>
         <Category post={post} showCategory={showCategory} />
         <div className="flex flex-col items-start">
-          <h1 className="text-xl font-semibold w-fit mx-0 py-0">
-            {post.title}
+          <h1 className="text-xl font-semibold w-fit mx-0 py-0 group-hover:text-slate-600">
+            <Link href={articleLink}>{post.title}</Link>
           </h1>
-          <div className="my-2">
+
+          <div className="my-2 flex flex-row w-full text-nowrap">
             <AuthorName {...post} />
+            <div className='w-full'></div>
           </div>
           <div
             className={`!text-black mx-0 mb-4 text-base ${
@@ -42,10 +46,10 @@ export default function BigCard(props: BigCardProps) {
           />
           <div className="flex w-full justify-between text-[#AAAAAA] text-xs">
             <i>{formatDate(post.date!)}</i>
-            <i>Read More</i>
+            <Link href={articleLink}>Read More</Link>
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }

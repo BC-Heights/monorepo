@@ -1,31 +1,47 @@
-fragment PostFragment on Post {
-    title
-    molonguiAuthors {
-      displayName
-      slug
-    }
-    id
-    date 
-    modifiedGmt
-    featuredImage {
-      node {
-        caption
-        sourceUrl(size: $imgSize)
-        mediaDetails {
-          sizes {
-            sourceUrl
-            name
-          }
-        }
-      }
-    }
-    excerpt
-    slug
-    content(format: RENDERED)
-    categories {
-      nodes {
-        name
-      }
+fragment PostBase on Post {
+  title
+  molonguiAuthors {
+    ...AuthorTag
+  }
+  id
+  date
+  modifiedGmt
+  featuredImage {
+    node {
+      caption
+      sourceUrl(size: $imgSize)
     }
   }
+  categories {
+    nodes {
+      name
+    }
+  }
+}
 
+fragment PostPage on Post {
+  ...PostBase
+  content(format: RENDERED)
+}
+
+fragment PostCard on Post {
+  ...PostBase
+  excerpt
+  slug
+}
+
+fragment AuthorTag on MolonguiAuthor {
+  displayName
+  id
+  type
+  slug
+}
+
+fragment MolonguiAuthor on MolonguiAuthor {
+  ...AuthorTag
+  bio
+  avatar
+  posts {
+    ...PostCard
+  }
+}
