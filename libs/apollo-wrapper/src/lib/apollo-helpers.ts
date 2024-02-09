@@ -13,7 +13,7 @@ export type AvatarFieldPolicy = {
 	url?: FieldPolicy<any> | FieldReadFunction<any>,
 	width?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type CategoryKeySpecifier = ('ancestors' | 'categoryId' | 'children' | 'contentNodes' | 'count' | 'databaseId' | 'description' | 'enqueuedScripts' | 'enqueuedStylesheets' | 'id' | 'isContentNode' | 'isRestricted' | 'isTermNode' | 'link' | 'name' | 'parent' | 'parentDatabaseId' | 'parentId' | 'posts' | 'slug' | 'taxonomy' | 'taxonomyName' | 'termGroupId' | 'termTaxonomyId' | 'uri' | CategoryKeySpecifier)[];
+export type CategoryKeySpecifier = ('ancestors' | 'categoryId' | 'children' | 'contentNodes' | 'count' | 'databaseId' | 'description' | 'enqueuedScripts' | 'enqueuedStylesheets' | 'id' | 'isContentNode' | 'isRestricted' | 'isTermNode' | 'link' | 'name' | 'parent' | 'parentDatabaseId' | 'parentId' | 'posts' | 'seo' | 'slug' | 'taxonomy' | 'taxonomyName' | 'termGroupId' | 'termTaxonomyId' | 'uri' | CategoryKeySpecifier)[];
 export type CategoryFieldPolicy = {
 	ancestors?: FieldPolicy<any> | FieldReadFunction<any>,
 	categoryId?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -34,6 +34,7 @@ export type CategoryFieldPolicy = {
 	parentDatabaseId?: FieldPolicy<any> | FieldReadFunction<any>,
 	parentId?: FieldPolicy<any> | FieldReadFunction<any>,
 	posts?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	slug?: FieldPolicy<any> | FieldReadFunction<any>,
 	taxonomy?: FieldPolicy<any> | FieldReadFunction<any>,
 	taxonomyName?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -52,11 +53,12 @@ export type CategoryConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type CategoryConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | CategoryConnectionPageInfoKeySpecifier)[];
+export type CategoryConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | CategoryConnectionPageInfoKeySpecifier)[];
 export type CategoryConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type CategoryToAncestorsCategoryConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | CategoryToAncestorsCategoryConnectionKeySpecifier)[];
@@ -70,11 +72,12 @@ export type CategoryToAncestorsCategoryConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type CategoryToAncestorsCategoryConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | CategoryToAncestorsCategoryConnectionPageInfoKeySpecifier)[];
+export type CategoryToAncestorsCategoryConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | CategoryToAncestorsCategoryConnectionPageInfoKeySpecifier)[];
 export type CategoryToAncestorsCategoryConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type CategoryToCategoryConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | CategoryToCategoryConnectionKeySpecifier)[];
@@ -88,11 +91,12 @@ export type CategoryToCategoryConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type CategoryToCategoryConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | CategoryToCategoryConnectionPageInfoKeySpecifier)[];
+export type CategoryToCategoryConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | CategoryToCategoryConnectionPageInfoKeySpecifier)[];
 export type CategoryToCategoryConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type CategoryToContentNodeConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | CategoryToContentNodeConnectionKeySpecifier)[];
@@ -106,11 +110,12 @@ export type CategoryToContentNodeConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type CategoryToContentNodeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | CategoryToContentNodeConnectionPageInfoKeySpecifier)[];
+export type CategoryToContentNodeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | CategoryToContentNodeConnectionPageInfoKeySpecifier)[];
 export type CategoryToContentNodeConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type CategoryToParentCategoryConnectionEdgeKeySpecifier = ('cursor' | 'node' | CategoryToParentCategoryConnectionEdgeKeySpecifier)[];
@@ -129,11 +134,12 @@ export type CategoryToPostConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type CategoryToPostConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | CategoryToPostConnectionPageInfoKeySpecifier)[];
+export type CategoryToPostConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | CategoryToPostConnectionPageInfoKeySpecifier)[];
 export type CategoryToPostConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type CategoryToTaxonomyConnectionEdgeKeySpecifier = ('cursor' | 'node' | CategoryToTaxonomyConnectionEdgeKeySpecifier)[];
@@ -184,11 +190,12 @@ export type CommentConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type CommentConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | CommentConnectionPageInfoKeySpecifier)[];
+export type CommentConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | CommentConnectionPageInfoKeySpecifier)[];
 export type CommentConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type CommentToCommentConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | CommentToCommentConnectionKeySpecifier)[];
@@ -202,11 +209,12 @@ export type CommentToCommentConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type CommentToCommentConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | CommentToCommentConnectionPageInfoKeySpecifier)[];
+export type CommentToCommentConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | CommentToCommentConnectionPageInfoKeySpecifier)[];
 export type CommentToCommentConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type CommentToCommenterConnectionEdgeKeySpecifier = ('cursor' | 'node' | CommentToCommenterConnectionEdgeKeySpecifier)[];
@@ -245,8 +253,9 @@ export type ConnectionFieldPolicy = {
 	nodes?: FieldPolicy<any> | FieldReadFunction<any>,
 	pageInfo?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type ContentNodeKeySpecifier = ('contentType' | 'contentTypeName' | 'databaseId' | 'date' | 'dateGmt' | 'desiredSlug' | 'editingLockedBy' | 'enclosure' | 'enqueuedScripts' | 'enqueuedStylesheets' | 'guid' | 'id' | 'isContentNode' | 'isPreview' | 'isRestricted' | 'isTermNode' | 'lastEditedBy' | 'link' | 'modified' | 'modifiedGmt' | 'previewRevisionDatabaseId' | 'previewRevisionId' | 'slug' | 'status' | 'template' | 'uri' | ContentNodeKeySpecifier)[];
+export type ContentNodeKeySpecifier = ('attachedMedia' | 'contentType' | 'contentTypeName' | 'databaseId' | 'date' | 'dateGmt' | 'desiredSlug' | 'editingLockedBy' | 'enclosure' | 'enqueuedScripts' | 'enqueuedStylesheets' | 'guid' | 'id' | 'isContentNode' | 'isPreview' | 'isRestricted' | 'isTermNode' | 'lastEditedBy' | 'link' | 'modified' | 'modifiedGmt' | 'previewRevisionDatabaseId' | 'previewRevisionId' | 'seo' | 'slug' | 'status' | 'template' | 'uri' | ContentNodeKeySpecifier)[];
 export type ContentNodeFieldPolicy = {
+	attachedMedia?: FieldPolicy<any> | FieldReadFunction<any>,
 	contentType?: FieldPolicy<any> | FieldReadFunction<any>,
 	contentTypeName?: FieldPolicy<any> | FieldReadFunction<any>,
 	databaseId?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -269,6 +278,7 @@ export type ContentNodeFieldPolicy = {
 	modifiedGmt?: FieldPolicy<any> | FieldReadFunction<any>,
 	previewRevisionDatabaseId?: FieldPolicy<any> | FieldReadFunction<any>,
 	previewRevisionId?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	slug?: FieldPolicy<any> | FieldReadFunction<any>,
 	status?: FieldPolicy<any> | FieldReadFunction<any>,
 	template?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -285,11 +295,12 @@ export type ContentNodeConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type ContentNodeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | ContentNodeConnectionPageInfoKeySpecifier)[];
+export type ContentNodeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | ContentNodeConnectionPageInfoKeySpecifier)[];
 export type ContentNodeConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type ContentNodeToContentTypeConnectionEdgeKeySpecifier = ('cursor' | 'node' | ContentNodeToContentTypeConnectionEdgeKeySpecifier)[];
@@ -319,11 +330,12 @@ export type ContentNodeToEnqueuedScriptConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type ContentNodeToEnqueuedScriptConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | ContentNodeToEnqueuedScriptConnectionPageInfoKeySpecifier)[];
+export type ContentNodeToEnqueuedScriptConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | ContentNodeToEnqueuedScriptConnectionPageInfoKeySpecifier)[];
 export type ContentNodeToEnqueuedScriptConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type ContentNodeToEnqueuedStylesheetConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | ContentNodeToEnqueuedStylesheetConnectionKeySpecifier)[];
@@ -337,11 +349,31 @@ export type ContentNodeToEnqueuedStylesheetConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type ContentNodeToEnqueuedStylesheetConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | ContentNodeToEnqueuedStylesheetConnectionPageInfoKeySpecifier)[];
+export type ContentNodeToEnqueuedStylesheetConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | ContentNodeToEnqueuedStylesheetConnectionPageInfoKeySpecifier)[];
 export type ContentNodeToEnqueuedStylesheetConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
+	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type ContentNodeToMediaItemConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | ContentNodeToMediaItemConnectionKeySpecifier)[];
+export type ContentNodeToMediaItemConnectionFieldPolicy = {
+	edges?: FieldPolicy<any> | FieldReadFunction<any>,
+	nodes?: FieldPolicy<any> | FieldReadFunction<any>,
+	pageInfo?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type ContentNodeToMediaItemConnectionEdgeKeySpecifier = ('cursor' | 'node' | ContentNodeToMediaItemConnectionEdgeKeySpecifier)[];
+export type ContentNodeToMediaItemConnectionEdgeFieldPolicy = {
+	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
+	node?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type ContentNodeToMediaItemConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | ContentNodeToMediaItemConnectionPageInfoKeySpecifier)[];
+export type ContentNodeToMediaItemConnectionPageInfoFieldPolicy = {
+	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
+	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type ContentTemplateKeySpecifier = ('templateName' | ContentTemplateKeySpecifier)[];
@@ -394,11 +426,12 @@ export type ContentTypeConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type ContentTypeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | ContentTypeConnectionPageInfoKeySpecifier)[];
+export type ContentTypeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | ContentTypeConnectionPageInfoKeySpecifier)[];
 export type ContentTypeConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type ContentTypeToContentNodeConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | ContentTypeToContentNodeConnectionKeySpecifier)[];
@@ -412,11 +445,12 @@ export type ContentTypeToContentNodeConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type ContentTypeToContentNodeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | ContentTypeToContentNodeConnectionPageInfoKeySpecifier)[];
+export type ContentTypeToContentNodeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | ContentTypeToContentNodeConnectionPageInfoKeySpecifier)[];
 export type ContentTypeToContentNodeConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type ContentTypeToTaxonomyConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | ContentTypeToTaxonomyConnectionKeySpecifier)[];
@@ -430,11 +464,12 @@ export type ContentTypeToTaxonomyConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type ContentTypeToTaxonomyConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | ContentTypeToTaxonomyConnectionPageInfoKeySpecifier)[];
+export type ContentTypeToTaxonomyConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | ContentTypeToTaxonomyConnectionPageInfoKeySpecifier)[];
 export type ContentTypeToTaxonomyConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type CreateCategoryPayloadKeySpecifier = ('category' | 'clientMutationId' | CreateCategoryPayloadKeySpecifier)[];
@@ -587,11 +622,12 @@ export type EnqueuedScriptConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type EnqueuedScriptConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | EnqueuedScriptConnectionPageInfoKeySpecifier)[];
+export type EnqueuedScriptConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | EnqueuedScriptConnectionPageInfoKeySpecifier)[];
 export type EnqueuedScriptConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type EnqueuedStylesheetKeySpecifier = ('after' | 'args' | 'before' | 'conditional' | 'dependencies' | 'extra' | 'handle' | 'id' | 'isRtl' | 'media' | 'path' | 'rel' | 'src' | 'suffix' | 'title' | 'version' | EnqueuedStylesheetKeySpecifier)[];
@@ -624,11 +660,12 @@ export type EnqueuedStylesheetConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type EnqueuedStylesheetConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | EnqueuedStylesheetConnectionPageInfoKeySpecifier)[];
+export type EnqueuedStylesheetConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | EnqueuedStylesheetConnectionPageInfoKeySpecifier)[];
 export type EnqueuedStylesheetConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type FullwidthTemplateKeySpecifier = ('templateName' | FullwidthTemplateKeySpecifier)[];
@@ -647,9 +684,10 @@ export type GeneralSettingsFieldPolicy = {
 	title?: FieldPolicy<any> | FieldReadFunction<any>,
 	url?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type HierarchicalContentNodeKeySpecifier = ('ancestors' | 'children' | 'contentType' | 'contentTypeName' | 'databaseId' | 'date' | 'dateGmt' | 'desiredSlug' | 'editingLockedBy' | 'enclosure' | 'enqueuedScripts' | 'enqueuedStylesheets' | 'guid' | 'id' | 'isContentNode' | 'isPreview' | 'isRestricted' | 'isTermNode' | 'lastEditedBy' | 'link' | 'modified' | 'modifiedGmt' | 'parent' | 'parentDatabaseId' | 'parentId' | 'previewRevisionDatabaseId' | 'previewRevisionId' | 'slug' | 'status' | 'template' | 'uri' | HierarchicalContentNodeKeySpecifier)[];
+export type HierarchicalContentNodeKeySpecifier = ('ancestors' | 'attachedMedia' | 'children' | 'contentType' | 'contentTypeName' | 'databaseId' | 'date' | 'dateGmt' | 'desiredSlug' | 'editingLockedBy' | 'enclosure' | 'enqueuedScripts' | 'enqueuedStylesheets' | 'guid' | 'id' | 'isContentNode' | 'isPreview' | 'isRestricted' | 'isTermNode' | 'lastEditedBy' | 'link' | 'modified' | 'modifiedGmt' | 'parent' | 'parentDatabaseId' | 'parentId' | 'previewRevisionDatabaseId' | 'previewRevisionId' | 'seo' | 'slug' | 'status' | 'template' | 'uri' | HierarchicalContentNodeKeySpecifier)[];
 export type HierarchicalContentNodeFieldPolicy = {
 	ancestors?: FieldPolicy<any> | FieldReadFunction<any>,
+	attachedMedia?: FieldPolicy<any> | FieldReadFunction<any>,
 	children?: FieldPolicy<any> | FieldReadFunction<any>,
 	contentType?: FieldPolicy<any> | FieldReadFunction<any>,
 	contentTypeName?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -676,6 +714,7 @@ export type HierarchicalContentNodeFieldPolicy = {
 	parentId?: FieldPolicy<any> | FieldReadFunction<any>,
 	previewRevisionDatabaseId?: FieldPolicy<any> | FieldReadFunction<any>,
 	previewRevisionId?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	slug?: FieldPolicy<any> | FieldReadFunction<any>,
 	status?: FieldPolicy<any> | FieldReadFunction<any>,
 	template?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -692,11 +731,12 @@ export type HierarchicalContentNodeToContentNodeAncestorsConnectionEdgeFieldPoli
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfoKeySpecifier)[];
+export type HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfoKeySpecifier)[];
 export type HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type HierarchicalContentNodeToContentNodeChildrenConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | HierarchicalContentNodeToContentNodeChildrenConnectionKeySpecifier)[];
@@ -710,11 +750,12 @@ export type HierarchicalContentNodeToContentNodeChildrenConnectionEdgeFieldPolic
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type HierarchicalContentNodeToContentNodeChildrenConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | HierarchicalContentNodeToContentNodeChildrenConnectionPageInfoKeySpecifier)[];
+export type HierarchicalContentNodeToContentNodeChildrenConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | HierarchicalContentNodeToContentNodeChildrenConnectionPageInfoKeySpecifier)[];
 export type HierarchicalContentNodeToContentNodeChildrenConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type HierarchicalContentNodeToParentContentNodeConnectionEdgeKeySpecifier = ('cursor' | 'node' | HierarchicalContentNodeToParentContentNodeConnectionEdgeKeySpecifier)[];
@@ -765,10 +806,11 @@ export type MediaDetailsFieldPolicy = {
 	sizes?: FieldPolicy<any> | FieldReadFunction<any>,
 	width?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type MediaItemKeySpecifier = ('altText' | 'ancestors' | 'author' | 'authorDatabaseId' | 'authorId' | 'caption' | 'children' | 'commentCount' | 'commentStatus' | 'comments' | 'contentType' | 'contentTypeName' | 'databaseId' | 'date' | 'dateGmt' | 'description' | 'desiredSlug' | 'editingLockedBy' | 'enclosure' | 'enqueuedScripts' | 'enqueuedStylesheets' | 'fileSize' | 'guid' | 'id' | 'isContentNode' | 'isPreview' | 'isRestricted' | 'isTermNode' | 'lastEditedBy' | 'link' | 'mediaDetails' | 'mediaItemId' | 'mediaItemUrl' | 'mediaType' | 'mimeType' | 'modified' | 'modifiedGmt' | 'parent' | 'parentDatabaseId' | 'parentId' | 'previewRevisionDatabaseId' | 'previewRevisionId' | 'sizes' | 'slug' | 'sourceUrl' | 'srcSet' | 'status' | 'template' | 'title' | 'uri' | MediaItemKeySpecifier)[];
+export type MediaItemKeySpecifier = ('altText' | 'ancestors' | 'attachedMedia' | 'author' | 'authorDatabaseId' | 'authorId' | 'caption' | 'children' | 'commentCount' | 'commentStatus' | 'comments' | 'contentType' | 'contentTypeName' | 'databaseId' | 'date' | 'dateGmt' | 'description' | 'desiredSlug' | 'editingLockedBy' | 'enclosure' | 'enqueuedScripts' | 'enqueuedStylesheets' | 'fileSize' | 'guid' | 'id' | 'isContentNode' | 'isPreview' | 'isRestricted' | 'isTermNode' | 'lastEditedBy' | 'link' | 'mediaDetails' | 'mediaItemId' | 'mediaItemUrl' | 'mediaType' | 'mimeType' | 'modified' | 'modifiedGmt' | 'parent' | 'parentDatabaseId' | 'parentId' | 'previewRevisionDatabaseId' | 'previewRevisionId' | 'seo' | 'sizes' | 'slug' | 'sourceUrl' | 'srcSet' | 'status' | 'template' | 'title' | 'uri' | MediaItemKeySpecifier)[];
 export type MediaItemFieldPolicy = {
 	altText?: FieldPolicy<any> | FieldReadFunction<any>,
 	ancestors?: FieldPolicy<any> | FieldReadFunction<any>,
+	attachedMedia?: FieldPolicy<any> | FieldReadFunction<any>,
 	author?: FieldPolicy<any> | FieldReadFunction<any>,
 	authorDatabaseId?: FieldPolicy<any> | FieldReadFunction<any>,
 	authorId?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -809,6 +851,7 @@ export type MediaItemFieldPolicy = {
 	parentId?: FieldPolicy<any> | FieldReadFunction<any>,
 	previewRevisionDatabaseId?: FieldPolicy<any> | FieldReadFunction<any>,
 	previewRevisionId?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	sizes?: FieldPolicy<any> | FieldReadFunction<any>,
 	slug?: FieldPolicy<any> | FieldReadFunction<any>,
 	sourceUrl?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -829,11 +872,12 @@ export type MediaItemConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type MediaItemConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | MediaItemConnectionPageInfoKeySpecifier)[];
+export type MediaItemConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | MediaItemConnectionPageInfoKeySpecifier)[];
 export type MediaItemConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type MediaItemMetaKeySpecifier = ('aperture' | 'camera' | 'caption' | 'copyright' | 'createdTimestamp' | 'credit' | 'focalLength' | 'iso' | 'keywords' | 'orientation' | 'shutterSpeed' | 'title' | MediaItemMetaKeySpecifier)[];
@@ -862,11 +906,12 @@ export type MediaItemToCommentConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type MediaItemToCommentConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | MediaItemToCommentConnectionPageInfoKeySpecifier)[];
+export type MediaItemToCommentConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | MediaItemToCommentConnectionPageInfoKeySpecifier)[];
 export type MediaItemToCommentConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type MediaSizeKeySpecifier = ('file' | 'fileSize' | 'height' | 'mimeType' | 'name' | 'sourceUrl' | 'width' | MediaSizeKeySpecifier)[];
@@ -902,11 +947,12 @@ export type MenuConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type MenuConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | MenuConnectionPageInfoKeySpecifier)[];
+export type MenuConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | MenuConnectionPageInfoKeySpecifier)[];
 export type MenuConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type MenuItemKeySpecifier = ('childItems' | 'connectedNode' | 'connectedObject' | 'cssClasses' | 'databaseId' | 'description' | 'id' | 'isRestricted' | 'label' | 'linkRelationship' | 'locations' | 'menu' | 'menuItemId' | 'order' | 'parentDatabaseId' | 'parentId' | 'path' | 'target' | 'title' | 'uri' | 'url' | MenuItemKeySpecifier)[];
@@ -944,11 +990,12 @@ export type MenuItemConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type MenuItemConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | MenuItemConnectionPageInfoKeySpecifier)[];
+export type MenuItemConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | MenuItemConnectionPageInfoKeySpecifier)[];
 export type MenuItemConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type MenuItemLinkableKeySpecifier = ('databaseId' | 'id' | 'isContentNode' | 'isTermNode' | 'uri' | MenuItemLinkableKeySpecifier)[];
@@ -980,11 +1027,12 @@ export type MenuItemToMenuItemConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type MenuItemToMenuItemConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | MenuItemToMenuItemConnectionPageInfoKeySpecifier)[];
+export type MenuItemToMenuItemConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | MenuItemToMenuItemConnectionPageInfoKeySpecifier)[];
 export type MenuItemToMenuItemConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type MenuItemToMenuItemLinkableConnectionEdgeKeySpecifier = ('cursor' | 'node' | MenuItemToMenuItemLinkableConnectionEdgeKeySpecifier)[];
@@ -1003,12 +1051,23 @@ export type MenuToMenuItemConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type MenuToMenuItemConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | MenuToMenuItemConnectionPageInfoKeySpecifier)[];
+export type MenuToMenuItemConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | MenuToMenuItemConnectionPageInfoKeySpecifier)[];
 export type MenuToMenuItemConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type MolonguiAuthorKeySpecifier = ('avatar' | 'bio' | 'displayName' | 'id' | 'posts' | 'slug' | 'type' | MolonguiAuthorKeySpecifier)[];
+export type MolonguiAuthorFieldPolicy = {
+	avatar?: FieldPolicy<any> | FieldReadFunction<any>,
+	bio?: FieldPolicy<any> | FieldReadFunction<any>,
+	displayName?: FieldPolicy<any> | FieldReadFunction<any>,
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	posts?: FieldPolicy<any> | FieldReadFunction<any>,
+	slug?: FieldPolicy<any> | FieldReadFunction<any>,
+	type?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type NodeKeySpecifier = ('id' | NodeKeySpecifier)[];
 export type NodeFieldPolicy = {
@@ -1075,9 +1134,10 @@ export type NodeWithTemplateFieldPolicy = {
 	id?: FieldPolicy<any> | FieldReadFunction<any>,
 	template?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type NodeWithTitleKeySpecifier = ('id' | 'title' | NodeWithTitleKeySpecifier)[];
+export type NodeWithTitleKeySpecifier = ('id' | 'seo' | 'title' | NodeWithTitleKeySpecifier)[];
 export type NodeWithTitleFieldPolicy = {
 	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	title?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type NodeWithTrackbacksKeySpecifier = ('id' | 'pingStatus' | 'pinged' | 'toPing' | NodeWithTrackbacksKeySpecifier)[];
@@ -1092,9 +1152,10 @@ export type OneToOneConnectionFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type PageKeySpecifier = ('ancestors' | 'author' | 'authorDatabaseId' | 'authorId' | 'children' | 'commentCount' | 'commentStatus' | 'comments' | 'content' | 'contentType' | 'contentTypeName' | 'databaseId' | 'date' | 'dateGmt' | 'desiredSlug' | 'editingLockedBy' | 'enclosure' | 'enqueuedScripts' | 'enqueuedStylesheets' | 'featuredImage' | 'featuredImageDatabaseId' | 'featuredImageId' | 'guid' | 'id' | 'isContentNode' | 'isFrontPage' | 'isPostsPage' | 'isPreview' | 'isPrivacyPage' | 'isRestricted' | 'isRevision' | 'isTermNode' | 'lastEditedBy' | 'link' | 'menuOrder' | 'modified' | 'modifiedGmt' | 'pageId' | 'parent' | 'parentDatabaseId' | 'parentId' | 'preview' | 'previewRevisionDatabaseId' | 'previewRevisionId' | 'revisionOf' | 'revisions' | 'slug' | 'status' | 'template' | 'title' | 'uri' | PageKeySpecifier)[];
+export type PageKeySpecifier = ('ancestors' | 'attachedMedia' | 'author' | 'authorDatabaseId' | 'authorId' | 'children' | 'commentCount' | 'commentStatus' | 'comments' | 'content' | 'contentType' | 'contentTypeName' | 'databaseId' | 'date' | 'dateGmt' | 'desiredSlug' | 'editingLockedBy' | 'enclosure' | 'enqueuedScripts' | 'enqueuedStylesheets' | 'featuredImage' | 'featuredImageDatabaseId' | 'featuredImageId' | 'guid' | 'id' | 'isContentNode' | 'isFrontPage' | 'isPostsPage' | 'isPreview' | 'isPrivacyPage' | 'isRestricted' | 'isRevision' | 'isTermNode' | 'lastEditedBy' | 'link' | 'menuOrder' | 'modified' | 'modifiedGmt' | 'pageId' | 'parent' | 'parentDatabaseId' | 'parentId' | 'preview' | 'previewRevisionDatabaseId' | 'previewRevisionId' | 'revisionOf' | 'revisions' | 'seo' | 'slug' | 'status' | 'template' | 'title' | 'uri' | PageKeySpecifier)[];
 export type PageFieldPolicy = {
 	ancestors?: FieldPolicy<any> | FieldReadFunction<any>,
+	attachedMedia?: FieldPolicy<any> | FieldReadFunction<any>,
 	author?: FieldPolicy<any> | FieldReadFunction<any>,
 	authorDatabaseId?: FieldPolicy<any> | FieldReadFunction<any>,
 	authorId?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -1140,6 +1201,7 @@ export type PageFieldPolicy = {
 	previewRevisionId?: FieldPolicy<any> | FieldReadFunction<any>,
 	revisionOf?: FieldPolicy<any> | FieldReadFunction<any>,
 	revisions?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	slug?: FieldPolicy<any> | FieldReadFunction<any>,
 	status?: FieldPolicy<any> | FieldReadFunction<any>,
 	template?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -1157,11 +1219,12 @@ export type PageConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type PageConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | PageConnectionPageInfoKeySpecifier)[];
+export type PageConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | PageConnectionPageInfoKeySpecifier)[];
 export type PageConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type PageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | PageInfoKeySpecifier)[];
@@ -1182,11 +1245,12 @@ export type PageToCommentConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type PageToCommentConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | PageToCommentConnectionPageInfoKeySpecifier)[];
+export type PageToCommentConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | PageToCommentConnectionPageInfoKeySpecifier)[];
 export type PageToCommentConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type PageToPreviewConnectionEdgeKeySpecifier = ('cursor' | 'node' | PageToPreviewConnectionEdgeKeySpecifier)[];
@@ -1205,11 +1269,12 @@ export type PageToRevisionConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type PageToRevisionConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | PageToRevisionConnectionPageInfoKeySpecifier)[];
+export type PageToRevisionConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | PageToRevisionConnectionPageInfoKeySpecifier)[];
 export type PageToRevisionConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type PluginKeySpecifier = ('author' | 'authorUri' | 'description' | 'id' | 'isRestricted' | 'name' | 'path' | 'pluginUri' | 'version' | PluginKeySpecifier)[];
@@ -1235,19 +1300,20 @@ export type PluginConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type PluginConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | PluginConnectionPageInfoKeySpecifier)[];
+export type PluginConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | PluginConnectionPageInfoKeySpecifier)[];
 export type PluginConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type PostKeySpecifier = ('author' | 'authorDatabaseId' | 'authorId' | 'authors' | 'categories' | 'commentCount' | 'commentStatus' | 'comments' | 'content' | 'contentType' | 'contentTypeName' | 'databaseId' | 'date' | 'dateGmt' | 'desiredSlug' | 'editingLockedBy' | 'enclosure' | 'enqueuedScripts' | 'enqueuedStylesheets' | 'excerpt' | 'featuredImage' | 'featuredImageDatabaseId' | 'featuredImageId' | 'guid' | 'id' | 'isContentNode' | 'isPreview' | 'isRestricted' | 'isRevision' | 'isSticky' | 'isTermNode' | 'lastEditedBy' | 'link' | 'modified' | 'modifiedGmt' | 'pingStatus' | 'pinged' | 'postFormats' | 'postId' | 'preview' | 'previewRevisionDatabaseId' | 'previewRevisionId' | 'revisionOf' | 'revisions' | 'slug' | 'status' | 'tags' | 'template' | 'terms' | 'title' | 'toPing' | 'uri' | PostKeySpecifier)[];
+export type PostKeySpecifier = ('attachedMedia' | 'author' | 'authorDatabaseId' | 'authorId' | 'categories' | 'commentCount' | 'commentStatus' | 'comments' | 'content' | 'contentType' | 'contentTypeName' | 'databaseId' | 'date' | 'dateGmt' | 'desiredSlug' | 'editingLockedBy' | 'enclosure' | 'enqueuedScripts' | 'enqueuedStylesheets' | 'excerpt' | 'featuredImage' | 'featuredImageDatabaseId' | 'featuredImageId' | 'guid' | 'id' | 'isContentNode' | 'isPreview' | 'isRestricted' | 'isRevision' | 'isSticky' | 'isTermNode' | 'lastEditedBy' | 'link' | 'modified' | 'modifiedGmt' | 'molonguiAuthors' | 'pingStatus' | 'pinged' | 'postFormats' | 'postId' | 'preview' | 'previewRevisionDatabaseId' | 'previewRevisionId' | 'revisionOf' | 'revisions' | 'seo' | 'slug' | 'status' | 'tags' | 'template' | 'terms' | 'title' | 'toPing' | 'uri' | PostKeySpecifier)[];
 export type PostFieldPolicy = {
+	attachedMedia?: FieldPolicy<any> | FieldReadFunction<any>,
 	author?: FieldPolicy<any> | FieldReadFunction<any>,
 	authorDatabaseId?: FieldPolicy<any> | FieldReadFunction<any>,
 	authorId?: FieldPolicy<any> | FieldReadFunction<any>,
-	authors?: FieldPolicy<any> | FieldReadFunction<any>,
 	categories?: FieldPolicy<any> | FieldReadFunction<any>,
 	commentCount?: FieldPolicy<any> | FieldReadFunction<any>,
 	commentStatus?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -1279,6 +1345,7 @@ export type PostFieldPolicy = {
 	link?: FieldPolicy<any> | FieldReadFunction<any>,
 	modified?: FieldPolicy<any> | FieldReadFunction<any>,
 	modifiedGmt?: FieldPolicy<any> | FieldReadFunction<any>,
+	molonguiAuthors?: FieldPolicy<any> | FieldReadFunction<any>,
 	pingStatus?: FieldPolicy<any> | FieldReadFunction<any>,
 	pinged?: FieldPolicy<any> | FieldReadFunction<any>,
 	postFormats?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -1288,6 +1355,7 @@ export type PostFieldPolicy = {
 	previewRevisionId?: FieldPolicy<any> | FieldReadFunction<any>,
 	revisionOf?: FieldPolicy<any> | FieldReadFunction<any>,
 	revisions?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	slug?: FieldPolicy<any> | FieldReadFunction<any>,
 	status?: FieldPolicy<any> | FieldReadFunction<any>,
 	tags?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -1296,13 +1364,6 @@ export type PostFieldPolicy = {
 	title?: FieldPolicy<any> | FieldReadFunction<any>,
 	toPing?: FieldPolicy<any> | FieldReadFunction<any>,
 	uri?: FieldPolicy<any> | FieldReadFunction<any>
-};
-export type PostAuthorKeySpecifier = ('displayName' | 'id' | 'type' | 'url' | PostAuthorKeySpecifier)[];
-export type PostAuthorFieldPolicy = {
-	displayName?: FieldPolicy<any> | FieldReadFunction<any>,
-	id?: FieldPolicy<any> | FieldReadFunction<any>,
-	type?: FieldPolicy<any> | FieldReadFunction<any>,
-	url?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type PostConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | PostConnectionKeySpecifier)[];
 export type PostConnectionFieldPolicy = {
@@ -1315,14 +1376,15 @@ export type PostConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type PostConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | PostConnectionPageInfoKeySpecifier)[];
+export type PostConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | PostConnectionPageInfoKeySpecifier)[];
 export type PostConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type PostFormatKeySpecifier = ('contentNodes' | 'count' | 'databaseId' | 'description' | 'enqueuedScripts' | 'enqueuedStylesheets' | 'id' | 'isContentNode' | 'isRestricted' | 'isTermNode' | 'link' | 'name' | 'postFormatId' | 'posts' | 'slug' | 'taxonomy' | 'taxonomyName' | 'termGroupId' | 'termTaxonomyId' | 'uri' | PostFormatKeySpecifier)[];
+export type PostFormatKeySpecifier = ('contentNodes' | 'count' | 'databaseId' | 'description' | 'enqueuedScripts' | 'enqueuedStylesheets' | 'id' | 'isContentNode' | 'isRestricted' | 'isTermNode' | 'link' | 'name' | 'postFormatId' | 'posts' | 'seo' | 'slug' | 'taxonomy' | 'taxonomyName' | 'termGroupId' | 'termTaxonomyId' | 'uri' | PostFormatKeySpecifier)[];
 export type PostFormatFieldPolicy = {
 	contentNodes?: FieldPolicy<any> | FieldReadFunction<any>,
 	count?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -1338,6 +1400,7 @@ export type PostFormatFieldPolicy = {
 	name?: FieldPolicy<any> | FieldReadFunction<any>,
 	postFormatId?: FieldPolicy<any> | FieldReadFunction<any>,
 	posts?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	slug?: FieldPolicy<any> | FieldReadFunction<any>,
 	taxonomy?: FieldPolicy<any> | FieldReadFunction<any>,
 	taxonomyName?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -1356,11 +1419,12 @@ export type PostFormatConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type PostFormatConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | PostFormatConnectionPageInfoKeySpecifier)[];
+export type PostFormatConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | PostFormatConnectionPageInfoKeySpecifier)[];
 export type PostFormatConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type PostFormatToContentNodeConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | PostFormatToContentNodeConnectionKeySpecifier)[];
@@ -1374,11 +1438,12 @@ export type PostFormatToContentNodeConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type PostFormatToContentNodeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | PostFormatToContentNodeConnectionPageInfoKeySpecifier)[];
+export type PostFormatToContentNodeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | PostFormatToContentNodeConnectionPageInfoKeySpecifier)[];
 export type PostFormatToContentNodeConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type PostFormatToPostConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | PostFormatToPostConnectionKeySpecifier)[];
@@ -1392,11 +1457,12 @@ export type PostFormatToPostConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type PostFormatToPostConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | PostFormatToPostConnectionPageInfoKeySpecifier)[];
+export type PostFormatToPostConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | PostFormatToPostConnectionPageInfoKeySpecifier)[];
 export type PostFormatToPostConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type PostFormatToTaxonomyConnectionEdgeKeySpecifier = ('cursor' | 'node' | PostFormatToTaxonomyConnectionEdgeKeySpecifier)[];
@@ -1410,16 +1476,18 @@ export type PostToCategoryConnectionFieldPolicy = {
 	nodes?: FieldPolicy<any> | FieldReadFunction<any>,
 	pageInfo?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type PostToCategoryConnectionEdgeKeySpecifier = ('cursor' | 'node' | PostToCategoryConnectionEdgeKeySpecifier)[];
+export type PostToCategoryConnectionEdgeKeySpecifier = ('cursor' | 'isPrimary' | 'node' | PostToCategoryConnectionEdgeKeySpecifier)[];
 export type PostToCategoryConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
+	isPrimary?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type PostToCategoryConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | PostToCategoryConnectionPageInfoKeySpecifier)[];
+export type PostToCategoryConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | PostToCategoryConnectionPageInfoKeySpecifier)[];
 export type PostToCategoryConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type PostToCommentConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | PostToCommentConnectionKeySpecifier)[];
@@ -1433,11 +1501,12 @@ export type PostToCommentConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type PostToCommentConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | PostToCommentConnectionPageInfoKeySpecifier)[];
+export type PostToCommentConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | PostToCommentConnectionPageInfoKeySpecifier)[];
 export type PostToCommentConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type PostToPostFormatConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | PostToPostFormatConnectionKeySpecifier)[];
@@ -1446,16 +1515,18 @@ export type PostToPostFormatConnectionFieldPolicy = {
 	nodes?: FieldPolicy<any> | FieldReadFunction<any>,
 	pageInfo?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type PostToPostFormatConnectionEdgeKeySpecifier = ('cursor' | 'node' | PostToPostFormatConnectionEdgeKeySpecifier)[];
+export type PostToPostFormatConnectionEdgeKeySpecifier = ('cursor' | 'isPrimary' | 'node' | PostToPostFormatConnectionEdgeKeySpecifier)[];
 export type PostToPostFormatConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
+	isPrimary?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type PostToPostFormatConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | PostToPostFormatConnectionPageInfoKeySpecifier)[];
+export type PostToPostFormatConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | PostToPostFormatConnectionPageInfoKeySpecifier)[];
 export type PostToPostFormatConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type PostToPreviewConnectionEdgeKeySpecifier = ('cursor' | 'node' | PostToPreviewConnectionEdgeKeySpecifier)[];
@@ -1474,11 +1545,12 @@ export type PostToRevisionConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type PostToRevisionConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | PostToRevisionConnectionPageInfoKeySpecifier)[];
+export type PostToRevisionConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | PostToRevisionConnectionPageInfoKeySpecifier)[];
 export type PostToRevisionConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type PostToTagConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | PostToTagConnectionKeySpecifier)[];
@@ -1487,16 +1559,18 @@ export type PostToTagConnectionFieldPolicy = {
 	nodes?: FieldPolicy<any> | FieldReadFunction<any>,
 	pageInfo?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type PostToTagConnectionEdgeKeySpecifier = ('cursor' | 'node' | PostToTagConnectionEdgeKeySpecifier)[];
+export type PostToTagConnectionEdgeKeySpecifier = ('cursor' | 'isPrimary' | 'node' | PostToTagConnectionEdgeKeySpecifier)[];
 export type PostToTagConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
+	isPrimary?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type PostToTagConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | PostToTagConnectionPageInfoKeySpecifier)[];
+export type PostToTagConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | PostToTagConnectionPageInfoKeySpecifier)[];
 export type PostToTagConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type PostToTermNodeConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | PostToTermNodeConnectionKeySpecifier)[];
@@ -1510,11 +1584,12 @@ export type PostToTermNodeConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type PostToTermNodeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | PostToTermNodeConnectionPageInfoKeySpecifier)[];
+export type PostToTermNodeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | PostToTermNodeConnectionPageInfoKeySpecifier)[];
 export type PostToTermNodeConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type PostTypeLabelDetailsKeySpecifier = ('addNew' | 'addNewItem' | 'allItems' | 'archives' | 'attributes' | 'editItem' | 'featuredImage' | 'filterItemsList' | 'insertIntoItem' | 'itemsList' | 'itemsListNavigation' | 'menuName' | 'name' | 'newItem' | 'notFound' | 'notFoundInTrash' | 'parentItemColon' | 'removeFeaturedImage' | 'searchItems' | 'setFeaturedImage' | 'singularName' | 'uploadedToThisItem' | 'useFeaturedImage' | 'viewItem' | 'viewItems' | PostTypeLabelDetailsKeySpecifier)[];
@@ -1544,6 +1619,34 @@ export type PostTypeLabelDetailsFieldPolicy = {
 	useFeaturedImage?: FieldPolicy<any> | FieldReadFunction<any>,
 	viewItem?: FieldPolicy<any> | FieldReadFunction<any>,
 	viewItems?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type PostTypeSEOKeySpecifier = ('breadcrumbs' | 'canonical' | 'cornerstone' | 'focuskw' | 'fullHead' | 'metaDesc' | 'metaKeywords' | 'metaRobotsNofollow' | 'metaRobotsNoindex' | 'opengraphAuthor' | 'opengraphDescription' | 'opengraphImage' | 'opengraphModifiedTime' | 'opengraphPublishedTime' | 'opengraphPublisher' | 'opengraphSiteName' | 'opengraphTitle' | 'opengraphType' | 'opengraphUrl' | 'readingTime' | 'schema' | 'title' | 'twitterDescription' | 'twitterImage' | 'twitterTitle' | PostTypeSEOKeySpecifier)[];
+export type PostTypeSEOFieldPolicy = {
+	breadcrumbs?: FieldPolicy<any> | FieldReadFunction<any>,
+	canonical?: FieldPolicy<any> | FieldReadFunction<any>,
+	cornerstone?: FieldPolicy<any> | FieldReadFunction<any>,
+	focuskw?: FieldPolicy<any> | FieldReadFunction<any>,
+	fullHead?: FieldPolicy<any> | FieldReadFunction<any>,
+	metaDesc?: FieldPolicy<any> | FieldReadFunction<any>,
+	metaKeywords?: FieldPolicy<any> | FieldReadFunction<any>,
+	metaRobotsNofollow?: FieldPolicy<any> | FieldReadFunction<any>,
+	metaRobotsNoindex?: FieldPolicy<any> | FieldReadFunction<any>,
+	opengraphAuthor?: FieldPolicy<any> | FieldReadFunction<any>,
+	opengraphDescription?: FieldPolicy<any> | FieldReadFunction<any>,
+	opengraphImage?: FieldPolicy<any> | FieldReadFunction<any>,
+	opengraphModifiedTime?: FieldPolicy<any> | FieldReadFunction<any>,
+	opengraphPublishedTime?: FieldPolicy<any> | FieldReadFunction<any>,
+	opengraphPublisher?: FieldPolicy<any> | FieldReadFunction<any>,
+	opengraphSiteName?: FieldPolicy<any> | FieldReadFunction<any>,
+	opengraphTitle?: FieldPolicy<any> | FieldReadFunction<any>,
+	opengraphType?: FieldPolicy<any> | FieldReadFunction<any>,
+	opengraphUrl?: FieldPolicy<any> | FieldReadFunction<any>,
+	readingTime?: FieldPolicy<any> | FieldReadFunction<any>,
+	schema?: FieldPolicy<any> | FieldReadFunction<any>,
+	title?: FieldPolicy<any> | FieldReadFunction<any>,
+	twitterDescription?: FieldPolicy<any> | FieldReadFunction<any>,
+	twitterImage?: FieldPolicy<any> | FieldReadFunction<any>,
+	twitterTitle?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type PreviewableKeySpecifier = ('isPreview' | 'previewRevisionDatabaseId' | 'previewRevisionId' | PreviewableKeySpecifier)[];
 export type PreviewableFieldPolicy = {
@@ -1614,7 +1717,7 @@ export type RootMutationFieldPolicy = {
 	updateTag?: FieldPolicy<any> | FieldReadFunction<any>,
 	updateUser?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type RootQueryKeySpecifier = ('allSettings' | 'categories' | 'category' | 'comment' | 'comments' | 'contentNode' | 'contentNodes' | 'contentType' | 'contentTypes' | 'discussionSettings' | 'generalSettings' | 'mediaItem' | 'mediaItemBy' | 'mediaItems' | 'menu' | 'menuItem' | 'menuItems' | 'menus' | 'node' | 'nodeByUri' | 'page' | 'pageBy' | 'pages' | 'plugin' | 'plugins' | 'post' | 'postBy' | 'postFormat' | 'postFormats' | 'posts' | 'readingSettings' | 'registeredScripts' | 'registeredStylesheets' | 'revisions' | 'tag' | 'tags' | 'taxonomies' | 'taxonomy' | 'termNode' | 'terms' | 'theme' | 'themeisleSdkSettingsSettings' | 'themes' | 'user' | 'userRole' | 'userRoles' | 'users' | 'viewer' | 'writingSettings' | RootQueryKeySpecifier)[];
+export type RootQueryKeySpecifier = ('allSettings' | 'categories' | 'category' | 'comment' | 'comments' | 'contentNode' | 'contentNodes' | 'contentType' | 'contentTypes' | 'discussionSettings' | 'generalSettings' | 'mediaItem' | 'mediaItemBy' | 'mediaItems' | 'menu' | 'menuItem' | 'menuItems' | 'menus' | 'molonguiAuthor' | 'node' | 'nodeByUri' | 'page' | 'pageBy' | 'pages' | 'plugin' | 'plugins' | 'post' | 'postBy' | 'postFormat' | 'postFormats' | 'posts' | 'readingSettings' | 'registeredScripts' | 'registeredStylesheets' | 'revisions' | 'seo' | 'tag' | 'tags' | 'taxonomies' | 'taxonomy' | 'termNode' | 'terms' | 'theme' | 'themes' | 'user' | 'userRole' | 'userRoles' | 'users' | 'viewer' | 'writingSettings' | RootQueryKeySpecifier)[];
 export type RootQueryFieldPolicy = {
 	allSettings?: FieldPolicy<any> | FieldReadFunction<any>,
 	categories?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -1634,6 +1737,7 @@ export type RootQueryFieldPolicy = {
 	menuItem?: FieldPolicy<any> | FieldReadFunction<any>,
 	menuItems?: FieldPolicy<any> | FieldReadFunction<any>,
 	menus?: FieldPolicy<any> | FieldReadFunction<any>,
+	molonguiAuthor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>,
 	nodeByUri?: FieldPolicy<any> | FieldReadFunction<any>,
 	page?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -1650,6 +1754,7 @@ export type RootQueryFieldPolicy = {
 	registeredScripts?: FieldPolicy<any> | FieldReadFunction<any>,
 	registeredStylesheets?: FieldPolicy<any> | FieldReadFunction<any>,
 	revisions?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	tag?: FieldPolicy<any> | FieldReadFunction<any>,
 	tags?: FieldPolicy<any> | FieldReadFunction<any>,
 	taxonomies?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -1657,7 +1762,6 @@ export type RootQueryFieldPolicy = {
 	termNode?: FieldPolicy<any> | FieldReadFunction<any>,
 	terms?: FieldPolicy<any> | FieldReadFunction<any>,
 	theme?: FieldPolicy<any> | FieldReadFunction<any>,
-	themeisleSdkSettingsSettings?: FieldPolicy<any> | FieldReadFunction<any>,
 	themes?: FieldPolicy<any> | FieldReadFunction<any>,
 	user?: FieldPolicy<any> | FieldReadFunction<any>,
 	userRole?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -1677,11 +1781,12 @@ export type RootQueryToCategoryConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type RootQueryToCategoryConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | RootQueryToCategoryConnectionPageInfoKeySpecifier)[];
+export type RootQueryToCategoryConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | RootQueryToCategoryConnectionPageInfoKeySpecifier)[];
 export type RootQueryToCategoryConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type RootQueryToCommentConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | RootQueryToCommentConnectionKeySpecifier)[];
@@ -1695,11 +1800,12 @@ export type RootQueryToCommentConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type RootQueryToCommentConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | RootQueryToCommentConnectionPageInfoKeySpecifier)[];
+export type RootQueryToCommentConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | RootQueryToCommentConnectionPageInfoKeySpecifier)[];
 export type RootQueryToCommentConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type RootQueryToContentNodeConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | RootQueryToContentNodeConnectionKeySpecifier)[];
@@ -1713,11 +1819,12 @@ export type RootQueryToContentNodeConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type RootQueryToContentNodeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | RootQueryToContentNodeConnectionPageInfoKeySpecifier)[];
+export type RootQueryToContentNodeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | RootQueryToContentNodeConnectionPageInfoKeySpecifier)[];
 export type RootQueryToContentNodeConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type RootQueryToContentTypeConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | RootQueryToContentTypeConnectionKeySpecifier)[];
@@ -1731,11 +1838,12 @@ export type RootQueryToContentTypeConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type RootQueryToContentTypeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | RootQueryToContentTypeConnectionPageInfoKeySpecifier)[];
+export type RootQueryToContentTypeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | RootQueryToContentTypeConnectionPageInfoKeySpecifier)[];
 export type RootQueryToContentTypeConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type RootQueryToEnqueuedScriptConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | RootQueryToEnqueuedScriptConnectionKeySpecifier)[];
@@ -1749,11 +1857,12 @@ export type RootQueryToEnqueuedScriptConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type RootQueryToEnqueuedScriptConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | RootQueryToEnqueuedScriptConnectionPageInfoKeySpecifier)[];
+export type RootQueryToEnqueuedScriptConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | RootQueryToEnqueuedScriptConnectionPageInfoKeySpecifier)[];
 export type RootQueryToEnqueuedScriptConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type RootQueryToEnqueuedStylesheetConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | RootQueryToEnqueuedStylesheetConnectionKeySpecifier)[];
@@ -1767,11 +1876,12 @@ export type RootQueryToEnqueuedStylesheetConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type RootQueryToEnqueuedStylesheetConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | RootQueryToEnqueuedStylesheetConnectionPageInfoKeySpecifier)[];
+export type RootQueryToEnqueuedStylesheetConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | RootQueryToEnqueuedStylesheetConnectionPageInfoKeySpecifier)[];
 export type RootQueryToEnqueuedStylesheetConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type RootQueryToMediaItemConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | RootQueryToMediaItemConnectionKeySpecifier)[];
@@ -1785,11 +1895,12 @@ export type RootQueryToMediaItemConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type RootQueryToMediaItemConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | RootQueryToMediaItemConnectionPageInfoKeySpecifier)[];
+export type RootQueryToMediaItemConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | RootQueryToMediaItemConnectionPageInfoKeySpecifier)[];
 export type RootQueryToMediaItemConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type RootQueryToMenuConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | RootQueryToMenuConnectionKeySpecifier)[];
@@ -1803,11 +1914,12 @@ export type RootQueryToMenuConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type RootQueryToMenuConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | RootQueryToMenuConnectionPageInfoKeySpecifier)[];
+export type RootQueryToMenuConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | RootQueryToMenuConnectionPageInfoKeySpecifier)[];
 export type RootQueryToMenuConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type RootQueryToMenuItemConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | RootQueryToMenuItemConnectionKeySpecifier)[];
@@ -1821,11 +1933,12 @@ export type RootQueryToMenuItemConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type RootQueryToMenuItemConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | RootQueryToMenuItemConnectionPageInfoKeySpecifier)[];
+export type RootQueryToMenuItemConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | RootQueryToMenuItemConnectionPageInfoKeySpecifier)[];
 export type RootQueryToMenuItemConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type RootQueryToPageConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | RootQueryToPageConnectionKeySpecifier)[];
@@ -1839,11 +1952,12 @@ export type RootQueryToPageConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type RootQueryToPageConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | RootQueryToPageConnectionPageInfoKeySpecifier)[];
+export type RootQueryToPageConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | RootQueryToPageConnectionPageInfoKeySpecifier)[];
 export type RootQueryToPageConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type RootQueryToPluginConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | RootQueryToPluginConnectionKeySpecifier)[];
@@ -1857,11 +1971,12 @@ export type RootQueryToPluginConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type RootQueryToPluginConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | RootQueryToPluginConnectionPageInfoKeySpecifier)[];
+export type RootQueryToPluginConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | RootQueryToPluginConnectionPageInfoKeySpecifier)[];
 export type RootQueryToPluginConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type RootQueryToPostConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | RootQueryToPostConnectionKeySpecifier)[];
@@ -1875,11 +1990,12 @@ export type RootQueryToPostConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type RootQueryToPostConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | RootQueryToPostConnectionPageInfoKeySpecifier)[];
+export type RootQueryToPostConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | RootQueryToPostConnectionPageInfoKeySpecifier)[];
 export type RootQueryToPostConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type RootQueryToPostFormatConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | RootQueryToPostFormatConnectionKeySpecifier)[];
@@ -1893,11 +2009,12 @@ export type RootQueryToPostFormatConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type RootQueryToPostFormatConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | RootQueryToPostFormatConnectionPageInfoKeySpecifier)[];
+export type RootQueryToPostFormatConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | RootQueryToPostFormatConnectionPageInfoKeySpecifier)[];
 export type RootQueryToPostFormatConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type RootQueryToRevisionsConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | RootQueryToRevisionsConnectionKeySpecifier)[];
@@ -1911,11 +2028,12 @@ export type RootQueryToRevisionsConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type RootQueryToRevisionsConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | RootQueryToRevisionsConnectionPageInfoKeySpecifier)[];
+export type RootQueryToRevisionsConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | RootQueryToRevisionsConnectionPageInfoKeySpecifier)[];
 export type RootQueryToRevisionsConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type RootQueryToTagConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | RootQueryToTagConnectionKeySpecifier)[];
@@ -1929,11 +2047,12 @@ export type RootQueryToTagConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type RootQueryToTagConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | RootQueryToTagConnectionPageInfoKeySpecifier)[];
+export type RootQueryToTagConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | RootQueryToTagConnectionPageInfoKeySpecifier)[];
 export type RootQueryToTagConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type RootQueryToTaxonomyConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | RootQueryToTaxonomyConnectionKeySpecifier)[];
@@ -1947,11 +2066,12 @@ export type RootQueryToTaxonomyConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type RootQueryToTaxonomyConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | RootQueryToTaxonomyConnectionPageInfoKeySpecifier)[];
+export type RootQueryToTaxonomyConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | RootQueryToTaxonomyConnectionPageInfoKeySpecifier)[];
 export type RootQueryToTaxonomyConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type RootQueryToTermNodeConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | RootQueryToTermNodeConnectionKeySpecifier)[];
@@ -1965,11 +2085,12 @@ export type RootQueryToTermNodeConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type RootQueryToTermNodeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | RootQueryToTermNodeConnectionPageInfoKeySpecifier)[];
+export type RootQueryToTermNodeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | RootQueryToTermNodeConnectionPageInfoKeySpecifier)[];
 export type RootQueryToTermNodeConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type RootQueryToThemeConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | RootQueryToThemeConnectionKeySpecifier)[];
@@ -1983,11 +2104,12 @@ export type RootQueryToThemeConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type RootQueryToThemeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | RootQueryToThemeConnectionPageInfoKeySpecifier)[];
+export type RootQueryToThemeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | RootQueryToThemeConnectionPageInfoKeySpecifier)[];
 export type RootQueryToThemeConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type RootQueryToUserConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | RootQueryToUserConnectionKeySpecifier)[];
@@ -2001,11 +2123,12 @@ export type RootQueryToUserConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type RootQueryToUserConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | RootQueryToUserConnectionPageInfoKeySpecifier)[];
+export type RootQueryToUserConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | RootQueryToUserConnectionPageInfoKeySpecifier)[];
 export type RootQueryToUserConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type RootQueryToUserRoleConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | RootQueryToUserRoleConnectionKeySpecifier)[];
@@ -2019,12 +2142,243 @@ export type RootQueryToUserRoleConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type RootQueryToUserRoleConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | RootQueryToUserRoleConnectionPageInfoKeySpecifier)[];
+export type RootQueryToUserRoleConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | RootQueryToUserRoleConnectionPageInfoKeySpecifier)[];
 export type RootQueryToUserRoleConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOBreadcrumbsKeySpecifier = ('archivePrefix' | 'boldLast' | 'enabled' | 'homeText' | 'notFoundText' | 'prefix' | 'searchPrefix' | 'separator' | 'showBlogPage' | SEOBreadcrumbsKeySpecifier)[];
+export type SEOBreadcrumbsFieldPolicy = {
+	archivePrefix?: FieldPolicy<any> | FieldReadFunction<any>,
+	boldLast?: FieldPolicy<any> | FieldReadFunction<any>,
+	enabled?: FieldPolicy<any> | FieldReadFunction<any>,
+	homeText?: FieldPolicy<any> | FieldReadFunction<any>,
+	notFoundText?: FieldPolicy<any> | FieldReadFunction<any>,
+	prefix?: FieldPolicy<any> | FieldReadFunction<any>,
+	searchPrefix?: FieldPolicy<any> | FieldReadFunction<any>,
+	separator?: FieldPolicy<any> | FieldReadFunction<any>,
+	showBlogPage?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOConfigKeySpecifier = ('breadcrumbs' | 'contentTypes' | 'meta' | 'openGraph' | 'redirects' | 'schema' | 'social' | 'webmaster' | SEOConfigKeySpecifier)[];
+export type SEOConfigFieldPolicy = {
+	breadcrumbs?: FieldPolicy<any> | FieldReadFunction<any>,
+	contentTypes?: FieldPolicy<any> | FieldReadFunction<any>,
+	meta?: FieldPolicy<any> | FieldReadFunction<any>,
+	openGraph?: FieldPolicy<any> | FieldReadFunction<any>,
+	redirects?: FieldPolicy<any> | FieldReadFunction<any>,
+	schema?: FieldPolicy<any> | FieldReadFunction<any>,
+	social?: FieldPolicy<any> | FieldReadFunction<any>,
+	webmaster?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOContentTypeKeySpecifier = ('archive' | 'metaDesc' | 'metaRobotsNoindex' | 'schema' | 'schemaType' | 'title' | SEOContentTypeKeySpecifier)[];
+export type SEOContentTypeFieldPolicy = {
+	archive?: FieldPolicy<any> | FieldReadFunction<any>,
+	metaDesc?: FieldPolicy<any> | FieldReadFunction<any>,
+	metaRobotsNoindex?: FieldPolicy<any> | FieldReadFunction<any>,
+	schema?: FieldPolicy<any> | FieldReadFunction<any>,
+	schemaType?: FieldPolicy<any> | FieldReadFunction<any>,
+	title?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOContentTypeArchiveKeySpecifier = ('archiveLink' | 'breadcrumbTitle' | 'fullHead' | 'hasArchive' | 'metaDesc' | 'metaRobotsFollow' | 'metaRobotsIndex' | 'metaRobotsNofollow' | 'metaRobotsNoindex' | 'title' | SEOContentTypeArchiveKeySpecifier)[];
+export type SEOContentTypeArchiveFieldPolicy = {
+	archiveLink?: FieldPolicy<any> | FieldReadFunction<any>,
+	breadcrumbTitle?: FieldPolicy<any> | FieldReadFunction<any>,
+	fullHead?: FieldPolicy<any> | FieldReadFunction<any>,
+	hasArchive?: FieldPolicy<any> | FieldReadFunction<any>,
+	metaDesc?: FieldPolicy<any> | FieldReadFunction<any>,
+	metaRobotsFollow?: FieldPolicy<any> | FieldReadFunction<any>,
+	metaRobotsIndex?: FieldPolicy<any> | FieldReadFunction<any>,
+	metaRobotsNofollow?: FieldPolicy<any> | FieldReadFunction<any>,
+	metaRobotsNoindex?: FieldPolicy<any> | FieldReadFunction<any>,
+	title?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOContentTypesKeySpecifier = ('mediaItem' | 'page' | 'post' | SEOContentTypesKeySpecifier)[];
+export type SEOContentTypesFieldPolicy = {
+	mediaItem?: FieldPolicy<any> | FieldReadFunction<any>,
+	page?: FieldPolicy<any> | FieldReadFunction<any>,
+	post?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOGlobalMetaKeySpecifier = ('author' | 'config' | 'date' | 'homepage' | 'notFound' | SEOGlobalMetaKeySpecifier)[];
+export type SEOGlobalMetaFieldPolicy = {
+	author?: FieldPolicy<any> | FieldReadFunction<any>,
+	config?: FieldPolicy<any> | FieldReadFunction<any>,
+	date?: FieldPolicy<any> | FieldReadFunction<any>,
+	homepage?: FieldPolicy<any> | FieldReadFunction<any>,
+	notFound?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOGlobalMeta404KeySpecifier = ('breadcrumb' | 'title' | SEOGlobalMeta404KeySpecifier)[];
+export type SEOGlobalMeta404FieldPolicy = {
+	breadcrumb?: FieldPolicy<any> | FieldReadFunction<any>,
+	title?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOGlobalMetaAuthorKeySpecifier = ('description' | 'title' | SEOGlobalMetaAuthorKeySpecifier)[];
+export type SEOGlobalMetaAuthorFieldPolicy = {
+	description?: FieldPolicy<any> | FieldReadFunction<any>,
+	title?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOGlobalMetaConfigKeySpecifier = ('separator' | SEOGlobalMetaConfigKeySpecifier)[];
+export type SEOGlobalMetaConfigFieldPolicy = {
+	separator?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOGlobalMetaDateKeySpecifier = ('description' | 'title' | SEOGlobalMetaDateKeySpecifier)[];
+export type SEOGlobalMetaDateFieldPolicy = {
+	description?: FieldPolicy<any> | FieldReadFunction<any>,
+	title?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOGlobalMetaHomeKeySpecifier = ('description' | 'title' | SEOGlobalMetaHomeKeySpecifier)[];
+export type SEOGlobalMetaHomeFieldPolicy = {
+	description?: FieldPolicy<any> | FieldReadFunction<any>,
+	title?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOOpenGraphKeySpecifier = ('defaultImage' | 'frontPage' | SEOOpenGraphKeySpecifier)[];
+export type SEOOpenGraphFieldPolicy = {
+	defaultImage?: FieldPolicy<any> | FieldReadFunction<any>,
+	frontPage?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOOpenGraphFrontPageKeySpecifier = ('description' | 'image' | 'title' | SEOOpenGraphFrontPageKeySpecifier)[];
+export type SEOOpenGraphFrontPageFieldPolicy = {
+	description?: FieldPolicy<any> | FieldReadFunction<any>,
+	image?: FieldPolicy<any> | FieldReadFunction<any>,
+	title?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOPageInfoSchemaKeySpecifier = ('raw' | SEOPageInfoSchemaKeySpecifier)[];
+export type SEOPageInfoSchemaFieldPolicy = {
+	raw?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOPostTypeBreadcrumbsKeySpecifier = ('text' | 'url' | SEOPostTypeBreadcrumbsKeySpecifier)[];
+export type SEOPostTypeBreadcrumbsFieldPolicy = {
+	text?: FieldPolicy<any> | FieldReadFunction<any>,
+	url?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOPostTypePageInfoKeySpecifier = ('schema' | SEOPostTypePageInfoKeySpecifier)[];
+export type SEOPostTypePageInfoFieldPolicy = {
+	schema?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOPostTypeSchemaKeySpecifier = ('articleType' | 'pageType' | 'raw' | SEOPostTypeSchemaKeySpecifier)[];
+export type SEOPostTypeSchemaFieldPolicy = {
+	articleType?: FieldPolicy<any> | FieldReadFunction<any>,
+	pageType?: FieldPolicy<any> | FieldReadFunction<any>,
+	raw?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEORedirectKeySpecifier = ('format' | 'origin' | 'target' | 'type' | SEORedirectKeySpecifier)[];
+export type SEORedirectFieldPolicy = {
+	format?: FieldPolicy<any> | FieldReadFunction<any>,
+	origin?: FieldPolicy<any> | FieldReadFunction<any>,
+	target?: FieldPolicy<any> | FieldReadFunction<any>,
+	type?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOSchemaKeySpecifier = ('companyLogo' | 'companyName' | 'companyOrPerson' | 'homeUrl' | 'inLanguage' | 'logo' | 'personLogo' | 'personName' | 'siteName' | 'siteUrl' | 'wordpressSiteName' | SEOSchemaKeySpecifier)[];
+export type SEOSchemaFieldPolicy = {
+	companyLogo?: FieldPolicy<any> | FieldReadFunction<any>,
+	companyName?: FieldPolicy<any> | FieldReadFunction<any>,
+	companyOrPerson?: FieldPolicy<any> | FieldReadFunction<any>,
+	homeUrl?: FieldPolicy<any> | FieldReadFunction<any>,
+	inLanguage?: FieldPolicy<any> | FieldReadFunction<any>,
+	logo?: FieldPolicy<any> | FieldReadFunction<any>,
+	personLogo?: FieldPolicy<any> | FieldReadFunction<any>,
+	personName?: FieldPolicy<any> | FieldReadFunction<any>,
+	siteName?: FieldPolicy<any> | FieldReadFunction<any>,
+	siteUrl?: FieldPolicy<any> | FieldReadFunction<any>,
+	wordpressSiteName?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOSocialKeySpecifier = ('facebook' | 'instagram' | 'linkedIn' | 'mySpace' | 'otherSocials' | 'pinterest' | 'twitter' | 'wikipedia' | 'youTube' | SEOSocialKeySpecifier)[];
+export type SEOSocialFieldPolicy = {
+	facebook?: FieldPolicy<any> | FieldReadFunction<any>,
+	instagram?: FieldPolicy<any> | FieldReadFunction<any>,
+	linkedIn?: FieldPolicy<any> | FieldReadFunction<any>,
+	mySpace?: FieldPolicy<any> | FieldReadFunction<any>,
+	otherSocials?: FieldPolicy<any> | FieldReadFunction<any>,
+	pinterest?: FieldPolicy<any> | FieldReadFunction<any>,
+	twitter?: FieldPolicy<any> | FieldReadFunction<any>,
+	wikipedia?: FieldPolicy<any> | FieldReadFunction<any>,
+	youTube?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOSocialFacebookKeySpecifier = ('defaultImage' | 'url' | SEOSocialFacebookKeySpecifier)[];
+export type SEOSocialFacebookFieldPolicy = {
+	defaultImage?: FieldPolicy<any> | FieldReadFunction<any>,
+	url?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOSocialInstagramKeySpecifier = ('url' | SEOSocialInstagramKeySpecifier)[];
+export type SEOSocialInstagramFieldPolicy = {
+	url?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOSocialLinkedInKeySpecifier = ('url' | SEOSocialLinkedInKeySpecifier)[];
+export type SEOSocialLinkedInFieldPolicy = {
+	url?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOSocialMySpaceKeySpecifier = ('url' | SEOSocialMySpaceKeySpecifier)[];
+export type SEOSocialMySpaceFieldPolicy = {
+	url?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOSocialPinterestKeySpecifier = ('metaTag' | 'url' | SEOSocialPinterestKeySpecifier)[];
+export type SEOSocialPinterestFieldPolicy = {
+	metaTag?: FieldPolicy<any> | FieldReadFunction<any>,
+	url?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOSocialTwitterKeySpecifier = ('cardType' | 'username' | SEOSocialTwitterKeySpecifier)[];
+export type SEOSocialTwitterFieldPolicy = {
+	cardType?: FieldPolicy<any> | FieldReadFunction<any>,
+	username?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOSocialWikipediaKeySpecifier = ('url' | SEOSocialWikipediaKeySpecifier)[];
+export type SEOSocialWikipediaFieldPolicy = {
+	url?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOSocialYoutubeKeySpecifier = ('url' | SEOSocialYoutubeKeySpecifier)[];
+export type SEOSocialYoutubeFieldPolicy = {
+	url?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOTaxonomySchemaKeySpecifier = ('raw' | SEOTaxonomySchemaKeySpecifier)[];
+export type SEOTaxonomySchemaFieldPolicy = {
+	raw?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOUserKeySpecifier = ('breadcrumbTitle' | 'canonical' | 'fullHead' | 'language' | 'metaDesc' | 'metaRobotsNofollow' | 'metaRobotsNoindex' | 'opengraphDescription' | 'opengraphImage' | 'opengraphTitle' | 'region' | 'schema' | 'social' | 'title' | 'twitterDescription' | 'twitterImage' | 'twitterTitle' | SEOUserKeySpecifier)[];
+export type SEOUserFieldPolicy = {
+	breadcrumbTitle?: FieldPolicy<any> | FieldReadFunction<any>,
+	canonical?: FieldPolicy<any> | FieldReadFunction<any>,
+	fullHead?: FieldPolicy<any> | FieldReadFunction<any>,
+	language?: FieldPolicy<any> | FieldReadFunction<any>,
+	metaDesc?: FieldPolicy<any> | FieldReadFunction<any>,
+	metaRobotsNofollow?: FieldPolicy<any> | FieldReadFunction<any>,
+	metaRobotsNoindex?: FieldPolicy<any> | FieldReadFunction<any>,
+	opengraphDescription?: FieldPolicy<any> | FieldReadFunction<any>,
+	opengraphImage?: FieldPolicy<any> | FieldReadFunction<any>,
+	opengraphTitle?: FieldPolicy<any> | FieldReadFunction<any>,
+	region?: FieldPolicy<any> | FieldReadFunction<any>,
+	schema?: FieldPolicy<any> | FieldReadFunction<any>,
+	social?: FieldPolicy<any> | FieldReadFunction<any>,
+	title?: FieldPolicy<any> | FieldReadFunction<any>,
+	twitterDescription?: FieldPolicy<any> | FieldReadFunction<any>,
+	twitterImage?: FieldPolicy<any> | FieldReadFunction<any>,
+	twitterTitle?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOUserSchemaKeySpecifier = ('articleType' | 'pageType' | 'raw' | SEOUserSchemaKeySpecifier)[];
+export type SEOUserSchemaFieldPolicy = {
+	articleType?: FieldPolicy<any> | FieldReadFunction<any>,
+	pageType?: FieldPolicy<any> | FieldReadFunction<any>,
+	raw?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOUserSocialKeySpecifier = ('facebook' | 'instagram' | 'linkedIn' | 'mySpace' | 'pinterest' | 'soundCloud' | 'twitter' | 'wikipedia' | 'youTube' | SEOUserSocialKeySpecifier)[];
+export type SEOUserSocialFieldPolicy = {
+	facebook?: FieldPolicy<any> | FieldReadFunction<any>,
+	instagram?: FieldPolicy<any> | FieldReadFunction<any>,
+	linkedIn?: FieldPolicy<any> | FieldReadFunction<any>,
+	mySpace?: FieldPolicy<any> | FieldReadFunction<any>,
+	pinterest?: FieldPolicy<any> | FieldReadFunction<any>,
+	soundCloud?: FieldPolicy<any> | FieldReadFunction<any>,
+	twitter?: FieldPolicy<any> | FieldReadFunction<any>,
+	wikipedia?: FieldPolicy<any> | FieldReadFunction<any>,
+	youTube?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SEOWebmasterKeySpecifier = ('baiduVerify' | 'googleVerify' | 'msVerify' | 'yandexVerify' | SEOWebmasterKeySpecifier)[];
+export type SEOWebmasterFieldPolicy = {
+	baiduVerify?: FieldPolicy<any> | FieldReadFunction<any>,
+	googleVerify?: FieldPolicy<any> | FieldReadFunction<any>,
+	msVerify?: FieldPolicy<any> | FieldReadFunction<any>,
+	yandexVerify?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type SendPasswordResetEmailPayloadKeySpecifier = ('clientMutationId' | 'success' | 'user' | SendPasswordResetEmailPayloadKeySpecifier)[];
 export type SendPasswordResetEmailPayloadFieldPolicy = {
@@ -2032,7 +2386,7 @@ export type SendPasswordResetEmailPayloadFieldPolicy = {
 	success?: FieldPolicy<any> | FieldReadFunction<any>,
 	user?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type SettingsKeySpecifier = ('discussionSettingsDefaultCommentStatus' | 'discussionSettingsDefaultPingStatus' | 'generalSettingsDateFormat' | 'generalSettingsDescription' | 'generalSettingsEmail' | 'generalSettingsLanguage' | 'generalSettingsStartOfWeek' | 'generalSettingsTimeFormat' | 'generalSettingsTimezone' | 'generalSettingsTitle' | 'generalSettingsUrl' | 'readingSettingsPageForPosts' | 'readingSettingsPageOnFront' | 'readingSettingsPostsPerPage' | 'readingSettingsShowOnFront' | 'themeisleSdkSettingsSettingsThemeisleSdkPromotions' | 'themeisleSdkSettingsSettingsThemeisleSdkPromotionsNeveFseInstalled' | 'themeisleSdkSettingsSettingsThemeisleSdkPromotionsOptimoleInstalled' | 'themeisleSdkSettingsSettingsThemeisleSdkPromotionsOtterInstalled' | 'themeisleSdkSettingsSettingsThemeisleSdkPromotionsRopInstalled' | 'writingSettingsDefaultCategory' | 'writingSettingsDefaultPostFormat' | 'writingSettingsUseSmilies' | SettingsKeySpecifier)[];
+export type SettingsKeySpecifier = ('discussionSettingsDefaultCommentStatus' | 'discussionSettingsDefaultPingStatus' | 'generalSettingsDateFormat' | 'generalSettingsDescription' | 'generalSettingsEmail' | 'generalSettingsLanguage' | 'generalSettingsStartOfWeek' | 'generalSettingsTimeFormat' | 'generalSettingsTimezone' | 'generalSettingsTitle' | 'generalSettingsUrl' | 'readingSettingsPageForPosts' | 'readingSettingsPageOnFront' | 'readingSettingsPostsPerPage' | 'readingSettingsShowOnFront' | 'writingSettingsDefaultCategory' | 'writingSettingsDefaultPostFormat' | 'writingSettingsUseSmilies' | SettingsKeySpecifier)[];
 export type SettingsFieldPolicy = {
 	discussionSettingsDefaultCommentStatus?: FieldPolicy<any> | FieldReadFunction<any>,
 	discussionSettingsDefaultPingStatus?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -2049,16 +2403,11 @@ export type SettingsFieldPolicy = {
 	readingSettingsPageOnFront?: FieldPolicy<any> | FieldReadFunction<any>,
 	readingSettingsPostsPerPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	readingSettingsShowOnFront?: FieldPolicy<any> | FieldReadFunction<any>,
-	themeisleSdkSettingsSettingsThemeisleSdkPromotions?: FieldPolicy<any> | FieldReadFunction<any>,
-	themeisleSdkSettingsSettingsThemeisleSdkPromotionsNeveFseInstalled?: FieldPolicy<any> | FieldReadFunction<any>,
-	themeisleSdkSettingsSettingsThemeisleSdkPromotionsOptimoleInstalled?: FieldPolicy<any> | FieldReadFunction<any>,
-	themeisleSdkSettingsSettingsThemeisleSdkPromotionsOtterInstalled?: FieldPolicy<any> | FieldReadFunction<any>,
-	themeisleSdkSettingsSettingsThemeisleSdkPromotionsRopInstalled?: FieldPolicy<any> | FieldReadFunction<any>,
 	writingSettingsDefaultCategory?: FieldPolicy<any> | FieldReadFunction<any>,
 	writingSettingsDefaultPostFormat?: FieldPolicy<any> | FieldReadFunction<any>,
 	writingSettingsUseSmilies?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type TagKeySpecifier = ('contentNodes' | 'count' | 'databaseId' | 'description' | 'enqueuedScripts' | 'enqueuedStylesheets' | 'id' | 'isContentNode' | 'isRestricted' | 'isTermNode' | 'link' | 'name' | 'posts' | 'slug' | 'tagId' | 'taxonomy' | 'taxonomyName' | 'termGroupId' | 'termTaxonomyId' | 'uri' | TagKeySpecifier)[];
+export type TagKeySpecifier = ('contentNodes' | 'count' | 'databaseId' | 'description' | 'enqueuedScripts' | 'enqueuedStylesheets' | 'id' | 'isContentNode' | 'isRestricted' | 'isTermNode' | 'link' | 'name' | 'posts' | 'seo' | 'slug' | 'tagId' | 'taxonomy' | 'taxonomyName' | 'termGroupId' | 'termTaxonomyId' | 'uri' | TagKeySpecifier)[];
 export type TagFieldPolicy = {
 	contentNodes?: FieldPolicy<any> | FieldReadFunction<any>,
 	count?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -2073,6 +2422,7 @@ export type TagFieldPolicy = {
 	link?: FieldPolicy<any> | FieldReadFunction<any>,
 	name?: FieldPolicy<any> | FieldReadFunction<any>,
 	posts?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	slug?: FieldPolicy<any> | FieldReadFunction<any>,
 	tagId?: FieldPolicy<any> | FieldReadFunction<any>,
 	taxonomy?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -2092,11 +2442,12 @@ export type TagConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type TagConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | TagConnectionPageInfoKeySpecifier)[];
+export type TagConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | TagConnectionPageInfoKeySpecifier)[];
 export type TagConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type TagToContentNodeConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | TagToContentNodeConnectionKeySpecifier)[];
@@ -2110,11 +2461,12 @@ export type TagToContentNodeConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type TagToContentNodeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | TagToContentNodeConnectionPageInfoKeySpecifier)[];
+export type TagToContentNodeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | TagToContentNodeConnectionPageInfoKeySpecifier)[];
 export type TagToContentNodeConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type TagToPostConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | TagToPostConnectionKeySpecifier)[];
@@ -2128,11 +2480,12 @@ export type TagToPostConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type TagToPostConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | TagToPostConnectionPageInfoKeySpecifier)[];
+export type TagToPostConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | TagToPostConnectionPageInfoKeySpecifier)[];
 export type TagToPostConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type TagToTaxonomyConnectionEdgeKeySpecifier = ('cursor' | 'node' | TagToTaxonomyConnectionEdgeKeySpecifier)[];
@@ -2175,12 +2528,40 @@ export type TaxonomyConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type TaxonomyConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | TaxonomyConnectionPageInfoKeySpecifier)[];
+export type TaxonomyConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | TaxonomyConnectionPageInfoKeySpecifier)[];
 export type TaxonomyConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type TaxonomySEOKeySpecifier = ('breadcrumbs' | 'canonical' | 'cornerstone' | 'focuskw' | 'fullHead' | 'metaDesc' | 'metaKeywords' | 'metaRobotsNofollow' | 'metaRobotsNoindex' | 'opengraphAuthor' | 'opengraphDescription' | 'opengraphImage' | 'opengraphModifiedTime' | 'opengraphPublishedTime' | 'opengraphPublisher' | 'opengraphSiteName' | 'opengraphTitle' | 'opengraphType' | 'opengraphUrl' | 'schema' | 'title' | 'twitterDescription' | 'twitterImage' | 'twitterTitle' | TaxonomySEOKeySpecifier)[];
+export type TaxonomySEOFieldPolicy = {
+	breadcrumbs?: FieldPolicy<any> | FieldReadFunction<any>,
+	canonical?: FieldPolicy<any> | FieldReadFunction<any>,
+	cornerstone?: FieldPolicy<any> | FieldReadFunction<any>,
+	focuskw?: FieldPolicy<any> | FieldReadFunction<any>,
+	fullHead?: FieldPolicy<any> | FieldReadFunction<any>,
+	metaDesc?: FieldPolicy<any> | FieldReadFunction<any>,
+	metaKeywords?: FieldPolicy<any> | FieldReadFunction<any>,
+	metaRobotsNofollow?: FieldPolicy<any> | FieldReadFunction<any>,
+	metaRobotsNoindex?: FieldPolicy<any> | FieldReadFunction<any>,
+	opengraphAuthor?: FieldPolicy<any> | FieldReadFunction<any>,
+	opengraphDescription?: FieldPolicy<any> | FieldReadFunction<any>,
+	opengraphImage?: FieldPolicy<any> | FieldReadFunction<any>,
+	opengraphModifiedTime?: FieldPolicy<any> | FieldReadFunction<any>,
+	opengraphPublishedTime?: FieldPolicy<any> | FieldReadFunction<any>,
+	opengraphPublisher?: FieldPolicy<any> | FieldReadFunction<any>,
+	opengraphSiteName?: FieldPolicy<any> | FieldReadFunction<any>,
+	opengraphTitle?: FieldPolicy<any> | FieldReadFunction<any>,
+	opengraphType?: FieldPolicy<any> | FieldReadFunction<any>,
+	opengraphUrl?: FieldPolicy<any> | FieldReadFunction<any>,
+	schema?: FieldPolicy<any> | FieldReadFunction<any>,
+	title?: FieldPolicy<any> | FieldReadFunction<any>,
+	twitterDescription?: FieldPolicy<any> | FieldReadFunction<any>,
+	twitterImage?: FieldPolicy<any> | FieldReadFunction<any>,
+	twitterTitle?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type TaxonomyToContentTypeConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | TaxonomyToContentTypeConnectionKeySpecifier)[];
 export type TaxonomyToContentTypeConnectionFieldPolicy = {
@@ -2193,11 +2574,12 @@ export type TaxonomyToContentTypeConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type TaxonomyToContentTypeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | TaxonomyToContentTypeConnectionPageInfoKeySpecifier)[];
+export type TaxonomyToContentTypeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | TaxonomyToContentTypeConnectionPageInfoKeySpecifier)[];
 export type TaxonomyToContentTypeConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type TaxonomyToTermNodeConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | TaxonomyToTermNodeConnectionKeySpecifier)[];
@@ -2211,11 +2593,12 @@ export type TaxonomyToTermNodeConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type TaxonomyToTermNodeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | TaxonomyToTermNodeConnectionPageInfoKeySpecifier)[];
+export type TaxonomyToTermNodeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | TaxonomyToTermNodeConnectionPageInfoKeySpecifier)[];
 export type TaxonomyToTermNodeConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type Template_ContactPageKeySpecifier = ('templateName' | Template_ContactPageKeySpecifier)[];
@@ -2256,11 +2639,12 @@ export type TermNodeConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type TermNodeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | TermNodeConnectionPageInfoKeySpecifier)[];
+export type TermNodeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | TermNodeConnectionPageInfoKeySpecifier)[];
 export type TermNodeConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type TermNodeToEnqueuedScriptConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | TermNodeToEnqueuedScriptConnectionKeySpecifier)[];
@@ -2274,11 +2658,12 @@ export type TermNodeToEnqueuedScriptConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type TermNodeToEnqueuedScriptConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | TermNodeToEnqueuedScriptConnectionPageInfoKeySpecifier)[];
+export type TermNodeToEnqueuedScriptConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | TermNodeToEnqueuedScriptConnectionPageInfoKeySpecifier)[];
 export type TermNodeToEnqueuedScriptConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type TermNodeToEnqueuedStylesheetConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | TermNodeToEnqueuedStylesheetConnectionKeySpecifier)[];
@@ -2292,11 +2677,12 @@ export type TermNodeToEnqueuedStylesheetConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type TermNodeToEnqueuedStylesheetConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | TermNodeToEnqueuedStylesheetConnectionPageInfoKeySpecifier)[];
+export type TermNodeToEnqueuedStylesheetConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | TermNodeToEnqueuedStylesheetConnectionPageInfoKeySpecifier)[];
 export type TermNodeToEnqueuedStylesheetConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type ThemeKeySpecifier = ('author' | 'authorUri' | 'description' | 'id' | 'isRestricted' | 'name' | 'screenshot' | 'slug' | 'tags' | 'themeUri' | 'version' | ThemeKeySpecifier)[];
@@ -2324,20 +2710,13 @@ export type ThemeConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type ThemeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | ThemeConnectionPageInfoKeySpecifier)[];
+export type ThemeConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | ThemeConnectionPageInfoKeySpecifier)[];
 export type ThemeConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
-};
-export type ThemeisleSdkSettingsSettingsKeySpecifier = ('themeisleSdkPromotions' | 'themeisleSdkPromotionsNeveFseInstalled' | 'themeisleSdkPromotionsOptimoleInstalled' | 'themeisleSdkPromotionsOtterInstalled' | 'themeisleSdkPromotionsRopInstalled' | ThemeisleSdkSettingsSettingsKeySpecifier)[];
-export type ThemeisleSdkSettingsSettingsFieldPolicy = {
-	themeisleSdkPromotions?: FieldPolicy<any> | FieldReadFunction<any>,
-	themeisleSdkPromotionsNeveFseInstalled?: FieldPolicy<any> | FieldReadFunction<any>,
-	themeisleSdkPromotionsOptimoleInstalled?: FieldPolicy<any> | FieldReadFunction<any>,
-	themeisleSdkPromotionsOtterInstalled?: FieldPolicy<any> | FieldReadFunction<any>,
-	themeisleSdkPromotionsRopInstalled?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type UniformResourceIdentifiableKeySpecifier = ('id' | 'isContentNode' | 'isTermNode' | 'uri' | UniformResourceIdentifiableKeySpecifier)[];
 export type UniformResourceIdentifiableFieldPolicy = {
@@ -2377,14 +2756,13 @@ export type UpdatePostPayloadFieldPolicy = {
 	clientMutationId?: FieldPolicy<any> | FieldReadFunction<any>,
 	post?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type UpdateSettingsPayloadKeySpecifier = ('allSettings' | 'clientMutationId' | 'discussionSettings' | 'generalSettings' | 'readingSettings' | 'themeisleSdkSettingsSettings' | 'writingSettings' | UpdateSettingsPayloadKeySpecifier)[];
+export type UpdateSettingsPayloadKeySpecifier = ('allSettings' | 'clientMutationId' | 'discussionSettings' | 'generalSettings' | 'readingSettings' | 'writingSettings' | UpdateSettingsPayloadKeySpecifier)[];
 export type UpdateSettingsPayloadFieldPolicy = {
 	allSettings?: FieldPolicy<any> | FieldReadFunction<any>,
 	clientMutationId?: FieldPolicy<any> | FieldReadFunction<any>,
 	discussionSettings?: FieldPolicy<any> | FieldReadFunction<any>,
 	generalSettings?: FieldPolicy<any> | FieldReadFunction<any>,
 	readingSettings?: FieldPolicy<any> | FieldReadFunction<any>,
-	themeisleSdkSettingsSettings?: FieldPolicy<any> | FieldReadFunction<any>,
 	writingSettings?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type UpdateTagPayloadKeySpecifier = ('clientMutationId' | 'tag' | UpdateTagPayloadKeySpecifier)[];
@@ -2397,7 +2775,7 @@ export type UpdateUserPayloadFieldPolicy = {
 	clientMutationId?: FieldPolicy<any> | FieldReadFunction<any>,
 	user?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type UserKeySpecifier = ('avatar' | 'capKey' | 'capabilities' | 'comments' | 'databaseId' | 'description' | 'email' | 'enqueuedScripts' | 'enqueuedStylesheets' | 'extraCapabilities' | 'firstName' | 'id' | 'isContentNode' | 'isJwtAuthSecretRevoked' | 'isRestricted' | 'isTermNode' | 'jwtAuthExpiration' | 'jwtAuthToken' | 'jwtRefreshToken' | 'jwtUserSecret' | 'lastName' | 'locale' | 'mediaItems' | 'name' | 'nicename' | 'nickname' | 'pages' | 'posts' | 'registeredDate' | 'revisions' | 'roles' | 'shouldShowAdminToolbar' | 'slug' | 'uri' | 'url' | 'userId' | 'username' | UserKeySpecifier)[];
+export type UserKeySpecifier = ('avatar' | 'capKey' | 'capabilities' | 'comments' | 'databaseId' | 'description' | 'email' | 'enqueuedScripts' | 'enqueuedStylesheets' | 'extraCapabilities' | 'firstName' | 'id' | 'isContentNode' | 'isJwtAuthSecretRevoked' | 'isRestricted' | 'isTermNode' | 'jwtAuthExpiration' | 'jwtAuthToken' | 'jwtRefreshToken' | 'jwtUserSecret' | 'lastName' | 'locale' | 'mediaItems' | 'name' | 'nicename' | 'nickname' | 'pages' | 'posts' | 'registeredDate' | 'revisions' | 'roles' | 'seo' | 'shouldShowAdminToolbar' | 'slug' | 'uri' | 'url' | 'userId' | 'username' | UserKeySpecifier)[];
 export type UserFieldPolicy = {
 	avatar?: FieldPolicy<any> | FieldReadFunction<any>,
 	capKey?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -2430,6 +2808,7 @@ export type UserFieldPolicy = {
 	registeredDate?: FieldPolicy<any> | FieldReadFunction<any>,
 	revisions?: FieldPolicy<any> | FieldReadFunction<any>,
 	roles?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	shouldShowAdminToolbar?: FieldPolicy<any> | FieldReadFunction<any>,
 	slug?: FieldPolicy<any> | FieldReadFunction<any>,
 	uri?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -2448,11 +2827,12 @@ export type UserConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type UserConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | UserConnectionPageInfoKeySpecifier)[];
+export type UserConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | UserConnectionPageInfoKeySpecifier)[];
 export type UserConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type UserRoleKeySpecifier = ('capabilities' | 'displayName' | 'id' | 'isRestricted' | 'name' | UserRoleKeySpecifier)[];
@@ -2474,11 +2854,12 @@ export type UserRoleConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type UserRoleConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | UserRoleConnectionPageInfoKeySpecifier)[];
+export type UserRoleConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | UserRoleConnectionPageInfoKeySpecifier)[];
 export type UserRoleConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type UserToCommentConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | UserToCommentConnectionKeySpecifier)[];
@@ -2492,11 +2873,12 @@ export type UserToCommentConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type UserToCommentConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | UserToCommentConnectionPageInfoKeySpecifier)[];
+export type UserToCommentConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | UserToCommentConnectionPageInfoKeySpecifier)[];
 export type UserToCommentConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type UserToEnqueuedScriptConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | UserToEnqueuedScriptConnectionKeySpecifier)[];
@@ -2510,11 +2892,12 @@ export type UserToEnqueuedScriptConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type UserToEnqueuedScriptConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | UserToEnqueuedScriptConnectionPageInfoKeySpecifier)[];
+export type UserToEnqueuedScriptConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | UserToEnqueuedScriptConnectionPageInfoKeySpecifier)[];
 export type UserToEnqueuedScriptConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type UserToEnqueuedStylesheetConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | UserToEnqueuedStylesheetConnectionKeySpecifier)[];
@@ -2528,11 +2911,12 @@ export type UserToEnqueuedStylesheetConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type UserToEnqueuedStylesheetConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | UserToEnqueuedStylesheetConnectionPageInfoKeySpecifier)[];
+export type UserToEnqueuedStylesheetConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | UserToEnqueuedStylesheetConnectionPageInfoKeySpecifier)[];
 export type UserToEnqueuedStylesheetConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type UserToMediaItemConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | UserToMediaItemConnectionKeySpecifier)[];
@@ -2546,11 +2930,12 @@ export type UserToMediaItemConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type UserToMediaItemConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | UserToMediaItemConnectionPageInfoKeySpecifier)[];
+export type UserToMediaItemConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | UserToMediaItemConnectionPageInfoKeySpecifier)[];
 export type UserToMediaItemConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type UserToPageConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | UserToPageConnectionKeySpecifier)[];
@@ -2564,11 +2949,12 @@ export type UserToPageConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type UserToPageConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | UserToPageConnectionPageInfoKeySpecifier)[];
+export type UserToPageConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | UserToPageConnectionPageInfoKeySpecifier)[];
 export type UserToPageConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type UserToPostConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | UserToPostConnectionKeySpecifier)[];
@@ -2582,11 +2968,12 @@ export type UserToPostConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type UserToPostConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | UserToPostConnectionPageInfoKeySpecifier)[];
+export type UserToPostConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | UserToPostConnectionPageInfoKeySpecifier)[];
 export type UserToPostConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type UserToRevisionsConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | UserToRevisionsConnectionKeySpecifier)[];
@@ -2600,11 +2987,12 @@ export type UserToRevisionsConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type UserToRevisionsConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | UserToRevisionsConnectionPageInfoKeySpecifier)[];
+export type UserToRevisionsConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | UserToRevisionsConnectionPageInfoKeySpecifier)[];
 export type UserToRevisionsConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type UserToUserRoleConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | UserToUserRoleConnectionKeySpecifier)[];
@@ -2618,18 +3006,20 @@ export type UserToUserRoleConnectionEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type UserToUserRoleConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | UserToUserRoleConnectionPageInfoKeySpecifier)[];
+export type UserToUserRoleConnectionPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | UserToUserRoleConnectionPageInfoKeySpecifier)[];
 export type UserToUserRoleConnectionPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type WPPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor' | WPPageInfoKeySpecifier)[];
+export type WPPageInfoKeySpecifier = ('endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'seo' | 'startCursor' | WPPageInfoKeySpecifier)[];
 export type WPPageInfoFieldPolicy = {
 	endCursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
+	seo?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type WritingSettingsKeySpecifier = ('defaultCategory' | 'defaultPostFormat' | 'useSmilies' | WritingSettingsKeySpecifier)[];
@@ -2822,6 +3212,18 @@ export type StrictTypedTypePolicies = {
 	ContentNodeToEnqueuedStylesheetConnectionPageInfo?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ContentNodeToEnqueuedStylesheetConnectionPageInfoKeySpecifier | (() => undefined | ContentNodeToEnqueuedStylesheetConnectionPageInfoKeySpecifier),
 		fields?: ContentNodeToEnqueuedStylesheetConnectionPageInfoFieldPolicy,
+	},
+	ContentNodeToMediaItemConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ContentNodeToMediaItemConnectionKeySpecifier | (() => undefined | ContentNodeToMediaItemConnectionKeySpecifier),
+		fields?: ContentNodeToMediaItemConnectionFieldPolicy,
+	},
+	ContentNodeToMediaItemConnectionEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ContentNodeToMediaItemConnectionEdgeKeySpecifier | (() => undefined | ContentNodeToMediaItemConnectionEdgeKeySpecifier),
+		fields?: ContentNodeToMediaItemConnectionEdgeFieldPolicy,
+	},
+	ContentNodeToMediaItemConnectionPageInfo?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ContentNodeToMediaItemConnectionPageInfoKeySpecifier | (() => undefined | ContentNodeToMediaItemConnectionPageInfoKeySpecifier),
+		fields?: ContentNodeToMediaItemConnectionPageInfoFieldPolicy,
 	},
 	ContentTemplate?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ContentTemplateKeySpecifier | (() => undefined | ContentTemplateKeySpecifier),
@@ -3151,6 +3553,10 @@ export type StrictTypedTypePolicies = {
 		keyFields?: false | MenuToMenuItemConnectionPageInfoKeySpecifier | (() => undefined | MenuToMenuItemConnectionPageInfoKeySpecifier),
 		fields?: MenuToMenuItemConnectionPageInfoFieldPolicy,
 	},
+	MolonguiAuthor?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | MolonguiAuthorKeySpecifier | (() => undefined | MolonguiAuthorKeySpecifier),
+		fields?: MolonguiAuthorFieldPolicy,
+	},
 	Node?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | NodeKeySpecifier | (() => undefined | NodeKeySpecifier),
 		fields?: NodeFieldPolicy,
@@ -3278,10 +3684,6 @@ export type StrictTypedTypePolicies = {
 	Post?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | PostKeySpecifier | (() => undefined | PostKeySpecifier),
 		fields?: PostFieldPolicy,
-	},
-	PostAuthor?: Omit<TypePolicy, "fields" | "keyFields"> & {
-		keyFields?: false | PostAuthorKeySpecifier | (() => undefined | PostAuthorKeySpecifier),
-		fields?: PostAuthorFieldPolicy,
 	},
 	PostConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | PostConnectionKeySpecifier | (() => undefined | PostConnectionKeySpecifier),
@@ -3418,6 +3820,10 @@ export type StrictTypedTypePolicies = {
 	PostTypeLabelDetails?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | PostTypeLabelDetailsKeySpecifier | (() => undefined | PostTypeLabelDetailsKeySpecifier),
 		fields?: PostTypeLabelDetailsFieldPolicy,
+	},
+	PostTypeSEO?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | PostTypeSEOKeySpecifier | (() => undefined | PostTypeSEOKeySpecifier),
+		fields?: PostTypeSEOFieldPolicy,
 	},
 	Previewable?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | PreviewableKeySpecifier | (() => undefined | PreviewableKeySpecifier),
@@ -3691,6 +4097,138 @@ export type StrictTypedTypePolicies = {
 		keyFields?: false | RootQueryToUserRoleConnectionPageInfoKeySpecifier | (() => undefined | RootQueryToUserRoleConnectionPageInfoKeySpecifier),
 		fields?: RootQueryToUserRoleConnectionPageInfoFieldPolicy,
 	},
+	SEOBreadcrumbs?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOBreadcrumbsKeySpecifier | (() => undefined | SEOBreadcrumbsKeySpecifier),
+		fields?: SEOBreadcrumbsFieldPolicy,
+	},
+	SEOConfig?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOConfigKeySpecifier | (() => undefined | SEOConfigKeySpecifier),
+		fields?: SEOConfigFieldPolicy,
+	},
+	SEOContentType?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOContentTypeKeySpecifier | (() => undefined | SEOContentTypeKeySpecifier),
+		fields?: SEOContentTypeFieldPolicy,
+	},
+	SEOContentTypeArchive?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOContentTypeArchiveKeySpecifier | (() => undefined | SEOContentTypeArchiveKeySpecifier),
+		fields?: SEOContentTypeArchiveFieldPolicy,
+	},
+	SEOContentTypes?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOContentTypesKeySpecifier | (() => undefined | SEOContentTypesKeySpecifier),
+		fields?: SEOContentTypesFieldPolicy,
+	},
+	SEOGlobalMeta?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOGlobalMetaKeySpecifier | (() => undefined | SEOGlobalMetaKeySpecifier),
+		fields?: SEOGlobalMetaFieldPolicy,
+	},
+	SEOGlobalMeta404?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOGlobalMeta404KeySpecifier | (() => undefined | SEOGlobalMeta404KeySpecifier),
+		fields?: SEOGlobalMeta404FieldPolicy,
+	},
+	SEOGlobalMetaAuthor?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOGlobalMetaAuthorKeySpecifier | (() => undefined | SEOGlobalMetaAuthorKeySpecifier),
+		fields?: SEOGlobalMetaAuthorFieldPolicy,
+	},
+	SEOGlobalMetaConfig?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOGlobalMetaConfigKeySpecifier | (() => undefined | SEOGlobalMetaConfigKeySpecifier),
+		fields?: SEOGlobalMetaConfigFieldPolicy,
+	},
+	SEOGlobalMetaDate?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOGlobalMetaDateKeySpecifier | (() => undefined | SEOGlobalMetaDateKeySpecifier),
+		fields?: SEOGlobalMetaDateFieldPolicy,
+	},
+	SEOGlobalMetaHome?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOGlobalMetaHomeKeySpecifier | (() => undefined | SEOGlobalMetaHomeKeySpecifier),
+		fields?: SEOGlobalMetaHomeFieldPolicy,
+	},
+	SEOOpenGraph?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOOpenGraphKeySpecifier | (() => undefined | SEOOpenGraphKeySpecifier),
+		fields?: SEOOpenGraphFieldPolicy,
+	},
+	SEOOpenGraphFrontPage?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOOpenGraphFrontPageKeySpecifier | (() => undefined | SEOOpenGraphFrontPageKeySpecifier),
+		fields?: SEOOpenGraphFrontPageFieldPolicy,
+	},
+	SEOPageInfoSchema?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOPageInfoSchemaKeySpecifier | (() => undefined | SEOPageInfoSchemaKeySpecifier),
+		fields?: SEOPageInfoSchemaFieldPolicy,
+	},
+	SEOPostTypeBreadcrumbs?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOPostTypeBreadcrumbsKeySpecifier | (() => undefined | SEOPostTypeBreadcrumbsKeySpecifier),
+		fields?: SEOPostTypeBreadcrumbsFieldPolicy,
+	},
+	SEOPostTypePageInfo?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOPostTypePageInfoKeySpecifier | (() => undefined | SEOPostTypePageInfoKeySpecifier),
+		fields?: SEOPostTypePageInfoFieldPolicy,
+	},
+	SEOPostTypeSchema?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOPostTypeSchemaKeySpecifier | (() => undefined | SEOPostTypeSchemaKeySpecifier),
+		fields?: SEOPostTypeSchemaFieldPolicy,
+	},
+	SEORedirect?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEORedirectKeySpecifier | (() => undefined | SEORedirectKeySpecifier),
+		fields?: SEORedirectFieldPolicy,
+	},
+	SEOSchema?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOSchemaKeySpecifier | (() => undefined | SEOSchemaKeySpecifier),
+		fields?: SEOSchemaFieldPolicy,
+	},
+	SEOSocial?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOSocialKeySpecifier | (() => undefined | SEOSocialKeySpecifier),
+		fields?: SEOSocialFieldPolicy,
+	},
+	SEOSocialFacebook?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOSocialFacebookKeySpecifier | (() => undefined | SEOSocialFacebookKeySpecifier),
+		fields?: SEOSocialFacebookFieldPolicy,
+	},
+	SEOSocialInstagram?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOSocialInstagramKeySpecifier | (() => undefined | SEOSocialInstagramKeySpecifier),
+		fields?: SEOSocialInstagramFieldPolicy,
+	},
+	SEOSocialLinkedIn?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOSocialLinkedInKeySpecifier | (() => undefined | SEOSocialLinkedInKeySpecifier),
+		fields?: SEOSocialLinkedInFieldPolicy,
+	},
+	SEOSocialMySpace?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOSocialMySpaceKeySpecifier | (() => undefined | SEOSocialMySpaceKeySpecifier),
+		fields?: SEOSocialMySpaceFieldPolicy,
+	},
+	SEOSocialPinterest?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOSocialPinterestKeySpecifier | (() => undefined | SEOSocialPinterestKeySpecifier),
+		fields?: SEOSocialPinterestFieldPolicy,
+	},
+	SEOSocialTwitter?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOSocialTwitterKeySpecifier | (() => undefined | SEOSocialTwitterKeySpecifier),
+		fields?: SEOSocialTwitterFieldPolicy,
+	},
+	SEOSocialWikipedia?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOSocialWikipediaKeySpecifier | (() => undefined | SEOSocialWikipediaKeySpecifier),
+		fields?: SEOSocialWikipediaFieldPolicy,
+	},
+	SEOSocialYoutube?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOSocialYoutubeKeySpecifier | (() => undefined | SEOSocialYoutubeKeySpecifier),
+		fields?: SEOSocialYoutubeFieldPolicy,
+	},
+	SEOTaxonomySchema?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOTaxonomySchemaKeySpecifier | (() => undefined | SEOTaxonomySchemaKeySpecifier),
+		fields?: SEOTaxonomySchemaFieldPolicy,
+	},
+	SEOUser?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOUserKeySpecifier | (() => undefined | SEOUserKeySpecifier),
+		fields?: SEOUserFieldPolicy,
+	},
+	SEOUserSchema?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOUserSchemaKeySpecifier | (() => undefined | SEOUserSchemaKeySpecifier),
+		fields?: SEOUserSchemaFieldPolicy,
+	},
+	SEOUserSocial?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOUserSocialKeySpecifier | (() => undefined | SEOUserSocialKeySpecifier),
+		fields?: SEOUserSocialFieldPolicy,
+	},
+	SEOWebmaster?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SEOWebmasterKeySpecifier | (() => undefined | SEOWebmasterKeySpecifier),
+		fields?: SEOWebmasterFieldPolicy,
+	},
 	SendPasswordResetEmailPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | SendPasswordResetEmailPayloadKeySpecifier | (() => undefined | SendPasswordResetEmailPayloadKeySpecifier),
 		fields?: SendPasswordResetEmailPayloadFieldPolicy,
@@ -3758,6 +4296,10 @@ export type StrictTypedTypePolicies = {
 	TaxonomyConnectionPageInfo?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TaxonomyConnectionPageInfoKeySpecifier | (() => undefined | TaxonomyConnectionPageInfoKeySpecifier),
 		fields?: TaxonomyConnectionPageInfoFieldPolicy,
+	},
+	TaxonomySEO?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | TaxonomySEOKeySpecifier | (() => undefined | TaxonomySEOKeySpecifier),
+		fields?: TaxonomySEOFieldPolicy,
 	},
 	TaxonomyToContentTypeConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | TaxonomyToContentTypeConnectionKeySpecifier | (() => undefined | TaxonomyToContentTypeConnectionKeySpecifier),
@@ -3846,10 +4388,6 @@ export type StrictTypedTypePolicies = {
 	ThemeConnectionPageInfo?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ThemeConnectionPageInfoKeySpecifier | (() => undefined | ThemeConnectionPageInfoKeySpecifier),
 		fields?: ThemeConnectionPageInfoFieldPolicy,
-	},
-	ThemeisleSdkSettingsSettings?: Omit<TypePolicy, "fields" | "keyFields"> & {
-		keyFields?: false | ThemeisleSdkSettingsSettingsKeySpecifier | (() => undefined | ThemeisleSdkSettingsSettingsKeySpecifier),
-		fields?: ThemeisleSdkSettingsSettingsFieldPolicy,
 	},
 	UniformResourceIdentifiable?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | UniformResourceIdentifiableKeySpecifier | (() => undefined | UniformResourceIdentifiableKeySpecifier),

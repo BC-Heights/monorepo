@@ -1,8 +1,8 @@
 fragment PostFragment on Post {
     title
-    authors {
+    molonguiAuthors {
       displayName
-      url
+      slug
     }
     id
     date 

@@ -42,9 +42,9 @@ query SearchPosts($first: Int!, $search: String!, $after: String = null, $imgSiz
 query GetPostAuthors($first: Int!) {
   posts(first: $first) {
     nodes {
-      authors {
+      molonguiAuthors {
         displayName
-        url
+        slug
       }
     }
   }
