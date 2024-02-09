@@ -20,7 +20,7 @@
       "@the-heights/components": ["libs/components/src/index.ts"],
       "@the-heights/graphql": ["libs/graphql/src/index.ts"],
       "@the-heights/search-bar": ["libs/search-bar/src/index.ts"],
-      "@the-heights/utils": ["libs/utils/src/index.ts"]
+      "@the-heights/utils": ["libs/utils/src/index.ts"],
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,9 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import {
-  formatDate,
-  formatHrefDate,
-} from '@the-heights/utils';
+import { formatDate, formatHrefDate } from '@the-heights/utils';
 import { CardsProps } from './cards';
 import { AuthorName, Category } from './tags';
 
@@ -41,8 +38,8 @@ function StyledCard(props: StyledCardProps) {
             />
           </div>
           <div className="flex flex-col items-start w-full md:items-start md:max-w-[360px]">
-          <Category post={post} showCategory={showCategory} />
-            <h1 className="text-xl font-bold w-fit text-center mx-0 my-4 px-4 py-0 md:text-start md:m-0 md:p-0 md:text-base group-hover:text-slate-600">
+            <Category post={post} showCategory={showCategory} />
+            <h1 className="text-xl font-bold w-fit text-center mx-0 my-4 px-4 py-0 md:text-start md:m-0 md:p-0 md:text-base group-hover:text-slate-500">
               {post.title}
             </h1>
             <div
