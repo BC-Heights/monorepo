@@ -7,7 +7,7 @@ export function getUrlByName(data: PostFragmentFragment, name: string) {
 }
 
 export function formatAuthorName(data: PostFragmentFragment) {
-  let authorNames = data.authors
+  let authorNames = data.molonguiAuthors
     ?.map((author) => author?.displayName)
     .join(', ');
 
