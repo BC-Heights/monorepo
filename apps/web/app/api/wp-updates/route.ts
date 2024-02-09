@@ -3,8 +3,6 @@ import { revalidateTag } from 'next/cache';
 import { PostData } from './PostData';
 import { log, AxiomRequest } from 'next-axiom';
 
-export const runtime = 'edge';
-
 export async function POST(req: AxiomRequest) {
   const data = (await req.json()) as PostData;
   const apiKey = req.headers.get('x-api-key');

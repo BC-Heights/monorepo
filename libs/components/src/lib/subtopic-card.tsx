@@ -29,6 +29,8 @@ export default async function SubTopicCard(props: SubTopicCardProps) {
             imgSize="large"
             imgW={800}
             imgH={440}
+            showCategory={true}
+            showExcerpt={true}
           />
         );
       })}

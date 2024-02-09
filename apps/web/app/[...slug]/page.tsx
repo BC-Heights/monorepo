@@ -6,6 +6,7 @@ import parse from 'html-react-parser';
 import { formatDate, formatTime } from '@the-heights/utils';
 import { multiMediaRegex, postOptions } from './parser';
 import { GetPostBySlug } from '@the-heights/graphql';
+import { AuthorName } from '@the-heights/components';
 
 export interface PageProps {}
 
@@ -66,12 +67,9 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
               />
             </div>
             <h1 className="text-4xl text-center mx-0 my-4">{post.title}</h1>
-            <div className="text-[1em] font-bold mb-[1em]">
-              By {post.authors
-              ?.map((author) => author?.displayName)
-              .join(', ')
-              .replace(/,([^,]*)$/, ', and$1')}
-            </div>
+            <div className="my-2">
+            <AuthorName {...post} />
+          </div>
             <div className="text-xs mb-3">
               <span className="mr-4">{formatDate(post.date || '')}</span>
               <span>
