@@ -1,4 +1,4 @@
-import { PostFragmentFragment } from '@the-heights/graphql';
+import { PostFragment } from '@the-heights/graphql';
 import { BigCard, SmallCard, StyledCard } from './cards';
 
 export interface TopicComponentProps {
@@ -9,7 +9,7 @@ export interface TopicComponentProps {
   showCategory: boolean;
 }
 
-export default function TopicComponent(props: TopicComponentProps & { post: PostFragmentFragment }) {
+export default function TopicComponent(props: TopicComponentProps & { post: PostFragment }) {
   const { type, ...otherProps } = props;
   switch (type) {
     case 'big':
