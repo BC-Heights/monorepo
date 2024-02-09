@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function EEdition() {
   return (
-    <div className="flex flex-row w-full gap-4 pb-4 px-8 md:flex-col md:pl-8 md:mr-8">
+    <div className="flex flex-row w-full gap-4 pb-4 pl-8 md:flex-col md:px-8 md:mr-8">
       <div className="w-1/2 md:w-full">
         <div className="relative p-t-[max(60%, 326px)] w-full h-[270px]">
           <iframe

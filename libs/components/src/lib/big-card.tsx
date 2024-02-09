@@ -1,30 +1,19 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import {
-  filterCategories,
-  formatDate,
-  formatHrefDate,
-} from '@the-heights/utils';
+import { formatDate, formatHrefDate } from '@the-heights/utils';
 import { CardsProps } from './cards';
-// eslint-disable-next-line @nx/enforce-module-boundaries
-import { AuthorName } from '@the-heights/components';
+import { AuthorName, Category } from './tags';
 
 /* eslint-disable-next-line */
 export interface BigCardProps extends CardsProps {
-  excerpt?: boolean;
-  category?: boolean;
+  showExcerpt: boolean;
+  showCategory: boolean;
 }
 
 export default function BigCard(props: BigCardProps) {
-  let { excerpt, category } = props;
-  if (typeof excerpt === 'undefined') {
-    excerpt = true;
-  }
-  if (typeof category === 'undefined') {
-    category = true;
-  }
+  const { post, showExcerpt, showCategory } = props;
 
-  const articleLink = `/${formatHrefDate(props.post.date!)}/${props.post.slug}`;
+  const articleLink = `/${formatHrefDate(post.date!)}/${post.slug}`;
   return (
     // use group hover instead so we can highlight the author name too
     <Link href={articleLink} className="hover:text-slate-500">
@@ -37,18 +26,7 @@ export default function BigCard(props: BigCardProps) {
           height={props.imgH}
           loading="lazy"
         />
-        <div
-          className={`mb-2 text-[#98002E] font-bold ${
-            category ? '' : 'hidden'
-          }`}
-        >
-          <text>
-            {filterCategories(
-              props.post.categories?.nodes?.map((cat) => cat?.name)
-            )}
-          </text>
-        </div>
-
+        <Category post={post} showCategory={showCategory} />
         <div className="flex flex-col items-start">
           <h1 className="text-xl font-semibold w-fit mx-0 py-0">
             {props.post.title}
@@ -58,7 +36,7 @@ export default function BigCard(props: BigCardProps) {
           </div>
           <div
             className={`!text-black mx-0 mb-4 text-base ${
-              excerpt ? '' : 'hidden'
+              showExcerpt ? '' : 'hidden'
             }`}
             dangerouslySetInnerHTML={{ __html: props.post.excerpt! }}
           />

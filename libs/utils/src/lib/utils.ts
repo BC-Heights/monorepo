@@ -9,7 +9,7 @@ export function getUrlByName(data: PostFragmentFragment, name: string) {
 export function formatAuthorName(data: PostFragmentFragment) {
   let authorNames = data.authors
     ?.map((author) => author?.displayName)
-    .join(',');
+    .join(', ');
 
   if (!authorNames) {
     return '';

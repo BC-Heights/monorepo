@@ -6,16 +6,9 @@ import {
   Spotify,
   MainCard,
   TopicCard,
+  TopicComponentProps,
 } from '@the-heights/components';
 import './global.css';
-
-interface TopicComponentProps {
-  type: 'big' | 'small' | 'styled';
-  imgSize: 'large' | 'medium' | 'small';
-  priority?: boolean;
-  excerpt?: boolean;
-  category?: boolean;
-}
 
 export default function Index() {
   return (
@@ -32,9 +25,8 @@ export default function Index() {
               topicComponents={Array<TopicComponentProps>(2).fill({
                 type: 'big',
                 imgSize: 'large',
-                excerpt: false,
-                category: false,
-
+                showExcerpt: false,
+                showCategory: false,
               })}
             ></TopicCard>
           </div>
@@ -45,9 +37,24 @@ export default function Index() {
                 <TopicCard
                   category="News"
                   topicComponents={[
-                    { type: 'big', imgSize: 'large', category: false },
-                    { type: 'styled', imgSize: 'large', category: false },
-                    { type: 'styled', imgSize: 'large', category: false },
+                    {
+                      type: 'big',
+                      imgSize: 'large',
+                      showCategory: false,
+                      showExcerpt: true,
+                    },
+                    {
+                      type: 'styled',
+                      imgSize: 'large',
+                      showCategory: false,
+                      showExcerpt: false,
+                    },
+                    {
+                      type: 'styled',
+                      imgSize: 'large',
+                      showCategory: false,
+                      showExcerpt: false,
+                    },
                   ]}
                 />
               </div>
@@ -56,9 +63,24 @@ export default function Index() {
                 <TopicCard
                   category="Sports"
                   topicComponents={[
-                    { type: 'big', imgSize: 'large', category: false },
-                    { type: 'styled', imgSize: 'large', category: false },
-                    { type: 'styled', imgSize: 'large', category: false },
+                    {
+                      type: 'big',
+                      imgSize: 'large',
+                      showCategory: false,
+                      showExcerpt: true,
+                    },
+                    {
+                      type: 'styled',
+                      imgSize: 'large',
+                      showCategory: false,
+                      showExcerpt: false,
+                    },
+                    {
+                      type: 'styled',
+                      imgSize: 'large',
+                      showCategory: false,
+                      showExcerpt: false,
+                    },
                   ]}
                 />
               </div>
@@ -73,6 +95,8 @@ export default function Index() {
                   {
                     type: 'big',
                     imgSize: 'large',
+                    showCategory: false,
+                    showExcerpt: true,
                   },
                 ]}
               />
