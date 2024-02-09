@@ -3,10 +3,9 @@ import Link from 'next/link';
 import {
   formatDate,
   formatHrefDate,
-  filterCategories,
 } from '@the-heights/utils';
 import { CardsProps } from './cards';
-import AuthorName from './authur-name';
+import { AuthorName, Category } from './tags';
 
 /* eslint-disable-next-line */
 export interface StyledCardProps extends CardsProps {
@@ -23,7 +22,7 @@ function StyledCard(props: StyledCardProps) {
   const articleLink = `/${formatHrefDate(post.date!)}/${post.slug!}`;
 
   return (
-    <Link href={articleLink} className="hover:text-slate-500">
+    <Link href={articleLink} className="group">
       <div className="mb-4 pb-2 border-b-[#eee] border-b border-solid">
         <div
           className={`flex flex-col gap-4 md:flex-row  ${
@@ -42,18 +41,8 @@ function StyledCard(props: StyledCardProps) {
             />
           </div>
           <div className="flex flex-col items-start w-full md:items-start md:max-w-[360px]">
-            <div
-              className={`mb-2 text-[#98002E] font-bold ${
-                showCategory ? '' : '!hidden'
-              }`}
-            >
-              <text>
-                {filterCategories(
-                  props.post.categories?.nodes?.map((cat) => cat?.name)
-                )}
-              </text>
-            </div>
-            <h1 className="text-xl font-bold w-fit text-center mx-0 my-4 px-4 py-0 md:text-start md:m-0 md:p-0 md:text-base">
+          <Category post={post} showCategory={showCategory} />
+            <h1 className="text-xl font-bold w-fit text-center mx-0 my-4 px-4 py-0 md:text-start md:m-0 md:p-0 md:text-base group-hover:text-slate-600">
               {post.title}
             </h1>
             <div

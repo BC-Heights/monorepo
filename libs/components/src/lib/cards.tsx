@@ -1,4 +1,4 @@
-import { PostFragmentFragment } from '@the-heights/graphql';
+import { PostFragment } from '@the-heights/graphql';
 export { default as MainCard } from './main-card';
 export { default as StyledCard } from './styled-card';
 export { default as BigCard } from './big-card';
@@ -8,7 +8,7 @@ export { default as TopicCard } from './topic-card';
 
 /* eslint-disable-next-line */
 export interface CardsProps {
-  post: PostFragmentFragment;
+  post: PostFragment;
   imgSize: string;
   imgW: number;
   imgH: number;

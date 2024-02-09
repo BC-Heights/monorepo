@@ -1,12 +1,6 @@
-import { PostFragmentFragment } from '@the-heights/graphql';
+import { PostFragment } from '@the-heights/graphql';
 
-export function getUrlByName(data: PostFragmentFragment, name: string) {
-  const sizes = data.featuredImage?.node.mediaDetails?.sizes || [];
-  const size = sizes.find((item) => item?.name === name);
-  return size ? size.sourceUrl : null;
-}
-
-export function formatAuthorName(data: PostFragmentFragment) {
+export function formatAuthorName(data: PostFragment) {
   let authorNames = data.molonguiAuthors
     ?.map((author) => author?.displayName)
     .join(', ');
