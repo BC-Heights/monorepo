@@ -49,7 +49,7 @@ query SearchPosts(
 
 query GetAuthorInfo(
   $id: Int!
-  $type: String
+  $type: String!
   $imgSize: MediaItemSizeEnum = LARGE
 ) {
   molonguiAuthor(id: $id, type: $type) {

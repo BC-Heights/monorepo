@@ -16,16 +16,6 @@
       "static/chunks/main-app.js",
       "static/chunks/app/not-found.js"
     ],
-    "/[...slug]/loading": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/[...slug]/loading.js"
-    ],
-    "/[...slug]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/[...slug]/page.js"
-    ],
     "/author/[slug]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
