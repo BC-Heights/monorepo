@@ -37,11 +37,12 @@ fragment AuthorTag on MolonguiAuthor {
   slug
 }
 
-fragment MolonguiAuthor on MolonguiAuthor {
+fragment MolonguiAuthorFrag on MolonguiAuthor {
   ...AuthorTag
   bio
   avatar
   posts {
-    ...PostCard
+    title
+    slug
   }
 }
