@@ -31,22 +31,32 @@ function generateFunction(operation) {
   const variables = operation.variableDefinitions.map(
     (v) => v.variable.name.value
   );
+  const query = `
+  const { data } = await getClient().query<${operation.name.value}Query>({
+    query: ${operation.name.value}Document,
+    variables: { ${variables.map((v) => `${v}: ${v}`).join(', ')} },
+  });
+  return data;
+  `
+
   return `
-export const ${operation.name.value} = async ({${variables.join(', ')}}: ${
+export const Cached${operation.name.value} = async ({${variables.join(', ')}}: ${
     operation.name.value
   }QueryVariables, tags = ['posts']) => {
   const ${operation.name.value} = unstable_cache(async (${variables.join(
     ', '
   )}) => {
-    const { data } = await getClient().query<${operation.name.value}Query>({
-      query: ${operation.name.value}Document,
-      variables: { ${variables.map((v) => `${v}: ${v}`).join(', ')} },
-    });
-    return data;
+    ${query}
     }, ['posts'], {
       tags: tags,
     });
     return await ${operation.name.value}(${variables.join(', ')});
+}
+
+export const ${operation.name.value} = async ({${variables.join(', ')}}: ${
+    operation.name.value
+  }QueryVariables) => {
+    ${query}
 }
     `;
 }

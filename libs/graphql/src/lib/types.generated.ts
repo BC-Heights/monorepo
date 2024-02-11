@@ -6286,7 +6286,7 @@ export type RootQueryMenusArgs = {
 /** The root entry point into the Graph */
 export type RootQueryMolonguiAuthorArgs = {
   id: Scalars['Int']['input'];
-  type?: InputMaybe<Scalars['String']['input']>;
+  type: Scalars['String']['input'];
 };
 
 

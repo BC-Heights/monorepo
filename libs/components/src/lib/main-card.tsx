@@ -1,4 +1,4 @@
-import { GetPostsByCat, MediaItemSizeEnum } from '@the-heights/graphql';
+import { CachedGetPostsByCat, MediaItemSizeEnum } from '@the-heights/graphql';
 import { BigCard, StyledCard } from './cards';
 import { EEdition, VerticalLine } from './components';
 
@@ -6,7 +6,7 @@ import { EEdition, VerticalLine } from './components';
 export interface MainCardProps {}
 
 export default async function MainCard() {
-  const { posts } = await GetPostsByCat(
+  const { posts } = await CachedGetPostsByCat(
     { first: 4, categoryName: 'top story', imgSize: MediaItemSizeEnum.Large },
     ['top story']
   );

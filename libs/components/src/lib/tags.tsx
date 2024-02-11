@@ -48,7 +48,7 @@ export function Category(props: { post: PostFragment; showCategory: boolean }) {
   const { post, showCategory } = props;
   return (
     <div
-      className={`mb-2 text-[#98002E] font-bold ${
+      className={`text-[#98002E] font-bold ${
         showCategory ? '' : 'hidden'
       }`}
     >

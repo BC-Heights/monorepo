@@ -1,4 +1,4 @@
-import { GetPostsByCat } from '@the-heights/graphql';
+import { CachedGetPostsByCat } from '@the-heights/graphql';
 import BigCard from './big-card';
 import { notFound } from 'next/navigation';
 
@@ -8,7 +8,7 @@ export interface SubTopicCardProps {
 }
 
 export default async function SubTopicCard(props: SubTopicCardProps) {
-  const { posts } = await GetPostsByCat(
+  const { posts } = await CachedGetPostsByCat(
     { first: 10, categoryName: props.slug },
     [props.slug]
   );

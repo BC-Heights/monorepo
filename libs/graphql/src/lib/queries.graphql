@@ -47,12 +47,36 @@ query SearchPosts(
   }
 }
 
-query GetAuthorInfo(
+query GetAuthorInfo($id: Int!, $type: String!) {
+  molonguiAuthor(id: $id, type: $type) {
+    ...AuthorTag
+    bio
+    avatar
+  }
+}
+
+query GetAuthorPosts(
   $id: Int!
-  $type: String
+  $type: String!
   $imgSize: MediaItemSizeEnum = LARGE
 ) {
   molonguiAuthor(id: $id, type: $type) {
-    ...MolonguiAuthor
+    posts {
+      title
+      slug
+      date
+      featuredImage {
+        node {
+          sourceUrl(size: $imgSize)
+        }
+      }
+      categories {
+        nodes {
+          name
+        }
+      }
+      excerpt
+
+    }
   }
 }
