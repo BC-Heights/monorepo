@@ -1,9 +1,10 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { revalidateTag } from 'next/cache';
 import { PostData } from './PostData';
-import { log, AxiomRequest } from 'next-axiom';
+import { Logger } from 'next-axiom';
 
-export async function POST(req: AxiomRequest) {
+export async function POST(req: NextRequest) {
+  const log = new Logger();
   const data = (await req.json());
   if (!data) {
     return NextResponse.error();
@@ -17,7 +18,6 @@ export async function POST(req: AxiomRequest) {
   const cats = Object.keys(postData.taxonomies.category).map(
     (key) => data.taxonomies.category[key].name
   );
-  console.log('POST', cats);
   log.debug('POST', {
     ...postData,
     post: { ...postData.post, post_content: undefined },
@@ -25,6 +25,6 @@ export async function POST(req: AxiomRequest) {
   });
 
   cats.forEach((cat) => revalidateTag(cat));
-  
+  await log.flush();
   return NextResponse.json({ received: true, now: Date.now(), data: postData });
 }
