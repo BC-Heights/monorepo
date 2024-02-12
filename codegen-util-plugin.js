@@ -47,9 +47,7 @@ export const Cached${operation.name.value} = async ({${variables.join(', ')}}: $
     ', '
   )}) => {
     ${query}
-    }, ['posts'], {
-      tags: tags,
-    });
+    }, [...tags]);
     return await ${operation.name.value}(${variables.join(', ')});
 }
 

@@ -27,9 +27,7 @@ export const CachedGetPosts = async ({first, imgSize}: GetPostsQueryVariables, t
   });
   return data;
   
-    }, ['posts'], {
-      tags: tags,
-    });
+    }, [...tags]);
     return await GetPosts(first, imgSize);
 }
 
@@ -53,9 +51,7 @@ export const CachedGetPostBySlug = async ({slug, imgSize}: GetPostBySlugQueryVar
   });
   return data;
   
-    }, ['posts'], {
-      tags: tags,
-    });
+    }, [...tags]);
     return await GetPostBySlug(slug, imgSize);
 }
 
@@ -79,9 +75,7 @@ export const CachedGetPostsByCat = async ({first, categoryName, imgSize}: GetPos
   });
   return data;
   
-    }, ['posts'], {
-      tags: tags,
-    });
+    }, [...tags]);
     return await GetPostsByCat(first, categoryName, imgSize);
 }
 
@@ -105,9 +99,7 @@ export const CachedGetImageUrl = async ({mediaItemId}: GetImageUrlQueryVariables
   });
   return data;
   
-    }, ['posts'], {
-      tags: tags,
-    });
+    }, [...tags]);
     return await GetImageUrl(mediaItemId);
 }
 
@@ -131,9 +123,7 @@ export const CachedSearchPosts = async ({first, search, after, imgSize}: SearchP
   });
   return data;
   
-    }, ['posts'], {
-      tags: tags,
-    });
+    }, [...tags]);
     return await SearchPosts(first, search, after, imgSize);
 }
 
@@ -157,9 +147,7 @@ export const CachedGetAuthorInfo = async ({id, type}: GetAuthorInfoQueryVariable
   });
   return data;
   
-    }, ['posts'], {
-      tags: tags,
-    });
+    }, [...tags]);
     return await GetAuthorInfo(id, type);
 }
 
@@ -183,9 +171,7 @@ export const CachedGetAuthorPosts = async ({id, type, imgSize}: GetAuthorPostsQu
   });
   return data;
   
-    }, ['posts'], {
-      tags: tags,
-    });
+    }, [...tags]);
     return await GetAuthorPosts(id, type, imgSize);
 }
 
