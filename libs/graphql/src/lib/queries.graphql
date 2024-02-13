@@ -61,6 +61,22 @@ query GetAuthorPosts(
   $imgSize: MediaItemSizeEnum = LARGE
 ) {
   molonguiAuthor(id: $id, type: $type) {
-    ...MolonguiAuthorPost
+    posts {
+      title
+      slug
+      date
+      featuredImage {
+        node {
+          sourceUrl(size: $imgSize)
+          caption
+        }
+      }
+      categories {
+        nodes {
+          name
+        }
+      }
+      excerpt
+    }
   }
 }

@@ -47,22 +47,4 @@ fragment MolonguiAuthorFrag on MolonguiAuthor {
   }
 }
 
-fragment MolonguiAuthorPost on MolonguiAuthor {
-  posts {
-      title
-      slug
-      date
-      featuredImage {
-        node {
-          sourceUrl(size: $imgSize)
-          caption
-        }
-      }
-      categories {
-        nodes {
-          name
-        }
-      }
-      excerpt
-    }
-}
+
