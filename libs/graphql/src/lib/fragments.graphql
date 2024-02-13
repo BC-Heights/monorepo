@@ -46,3 +46,23 @@ fragment MolonguiAuthorFrag on MolonguiAuthor {
     slug
   }
 }
+
+fragment MolonguiAuthorPost on MolonguiAuthor {
+  posts {
+      title
+      slug
+      date
+      featuredImage {
+        node {
+          sourceUrl(size: $imgSize)
+          caption
+        }
+      }
+      categories {
+        nodes {
+          name
+        }
+      }
+      excerpt
+    }
+}

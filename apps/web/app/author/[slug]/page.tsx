@@ -1,5 +1,11 @@
-import { CachedGetAuthorInfo, GetAuthorPosts } from '@the-heights/graphql';
 import { Metadata } from 'next';
+import { Suspense } from 'react';
+import {
+  CachedGetAuthorInfo,
+  GetAuthorPosts,
+  PostFragment,
+} from '@the-heights/graphql';
+import Controller from './controller';
 
 export const generateMetadata = async ({
   params,
@@ -39,37 +45,59 @@ export default async function Page({
     ['authors']
   );
 
-  const { molonguiAuthor } = await GetAuthorPosts({
-    id: Number(searchParams.id),
-    type: searchParams.type,
-  });
-
-  const posts = molonguiAuthor?.posts;
-
   return (
     <div className="flex justify-center">
-      <div className="w-[90%] px-8">
-        <div className="flex flex-col md:flex-row gap-2.5 sm:gap-5">
-          <div
-            dangerouslySetInnerHTML={{ __html: author?.avatar ?? '' }}
-            className="min-w-[150px] flex justify-center"
-          />
+      <div className="w-[90%] px-8 flex flex-row gap-4">
+        <div className="w-full">
+          <div className="flex flex-col py-8 md:flex-row gap-2.5 sm:gap-5">
+            <div
+              dangerouslySetInnerHTML={{ __html: author?.avatar ?? '' }}
+              className="min-w-[150px] flex justify-center"
+            />
+            <div>
+              <h1 className="text-center pb-2.5 md:text-left">
+                {author?.displayName}
+              </h1>
+              <div dangerouslySetInnerHTML={{ __html: author?.bio ?? '' }} />
+            </div>
+          </div>
           <div>
-            <h1 className="text-center pb-2.5 md:text-left">
-              {author?.displayName}
-            </h1>
-            <div dangerouslySetInnerHTML={{ __html: author?.bio ?? '' }} />
+            <div className="w-full border-t" />
+            <p className="my-4 text-lg">Latest Articles</p>
+          </div>
+          <div>
+            <Suspense fallback={<div>Loading...</div>}>
+              <ServerPosts
+                id={Number(searchParams.id)}
+                type={searchParams.type}
+              />
+            </Suspense>
           </div>
         </div>
-        <div className="flex flex-wrap justify-center gap-5">
-          {posts?.map((post, index) => (
-            <div key={index} className="w-[300px]">
-              <div dangerouslySetInnerHTML={{ __html: post?.title ?? '' }} />
-              <div dangerouslySetInnerHTML={{ __html: post?.excerpt ?? '' }} />
-            </div>
-          ))}
-        </div>
+        <div className="w-1/4 ">hey side panel</div>
       </div>
     </div>
+  );
+}
+
+interface ServerPostsProps {
+  id: number;
+  type: string;
+  page?: number;
+}
+
+async function ServerPosts(props: ServerPostsProps) {
+  const { molonguiAuthor } = await GetAuthorPosts({
+    id: Number(props.id),
+    type: props.type,
+  });
+
+  const posts = molonguiAuthor?.posts?.filter(
+    (post) => post?.featuredImage?.node.sourceUrl && post?.title
+  ) as PostFragment[];
+  const subProps = { posts, numPosts: posts?.length, postsPerPage: 5 };
+
+  return (
+    <Controller {...subProps} />
   );
 }

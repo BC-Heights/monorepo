@@ -14,9 +14,10 @@ import { getClient } from "@the-heights/apollo-client";
     
 import { PostBaseFragment,
 PostPageFragment,
-PostCardFragment } from "./fragments.generated";
+PostCardFragment,
+MolonguiAuthorPostFragment } from "./fragments.generated";
 
-export type PostFragment = PostBaseFragment & PostPageFragment & PostCardFragment;
+export type PostFragment = PostBaseFragment & PostPageFragment & PostCardFragment & MolonguiAuthorPostFragment;
     
 export const CachedGetPosts = async ({first, imgSize}: GetPostsQueryVariables, tags = ['posts']) => {
   const GetPosts = unstable_cache(async (first, imgSize) => {
