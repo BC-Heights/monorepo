@@ -1,5 +1,6 @@
 import { CachedGetPostsByCat } from '@the-heights/graphql';
 import TopicComponent, { TopicComponentProps } from './topic-component';
+import Link from 'next/link';
 
 export interface TopicCardProps {
   category: string;
@@ -12,17 +13,20 @@ export default async function TopicCard(props: TopicCardProps) {
     [props.category]
   );
 
+  const category =
+    props.category === 'Features'
+      ? 'Magazine'
+      : props.category === 'Metro'
+      ? 'Newton'
+      : props.category;
+
   return (
     <div className="h-auto">
-      <div className="flex flex-row items-start gap-4">
-        <h1 className="text-2xl text-[#98002E] font-bold">
-          {props.category === 'Features'
-            ? 'Magazine'
-            : props.category === 'Metro'
-            ? 'Newton'
-            : props.category}
+      <Link href={`/${category.toLowerCase()}`} className="flex flex-row items-start w-fit gap-4">
+        <h1 className="text-2xl text-[#98002E] font-bold hover:underline">
+          {category}
         </h1>
-      </div>
+      </Link>
       <div>
         {posts?.nodes.map((post, index) => {
           return (

@@ -1,8 +1,9 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function EEdition() {
   return (
-    <div className="flex flex-row w-full gap-4 pb-4 pl-8 md:flex-col md:px-8 md:mr-8">
+    <div className="flex flex-row w-full gap-4 pb-4 px-8 md:flex-col md:mr-8">
       <div className="w-1/2 md:w-full">
         <div className="relative p-t-[max(60%, 326px)] w-full h-[270px]">
           <iframe
@@ -15,18 +16,21 @@ export default function EEdition() {
         </div>
       </div>
       <div className="flex flex-col w-1/2 md:flex-col-reverse md:w-full">
-        <Image
-          src={
-            'https://s3.amazonaws.com/heights-photos/wp-content/uploads/2023/02/27003123/Newsletter-372x195.png'
-          }
-          width={372}
-          height={195}
-          alt={'Subscribe to the Newsletter'}
-        />
+        <Link href="http://eepurl.com/gB0i79">
+          <Image
+            src={
+              'https://s3.amazonaws.com/heights-photos/wp-content/uploads/2023/02/27003123/Newsletter-372x195.png'
+            }
+            width={372}
+            height={195}
+            alt={'Subscribe to the Newsletter'}
+          />
+        </Link>
         <h2 className="text-center my-4 text-xl">
           <strong>
             <span>
-              Click <text className='hidden md:inline'>Above </text> To Access The Most Recent{' '}
+              Click <text className="hidden md:inline">Above </text> To Access
+              The Most Recent{' '}
               <a href="https://www.bcheights.com/e-edition-2/">
                 E-Edition Of <em>The Heights</em>
               </a>

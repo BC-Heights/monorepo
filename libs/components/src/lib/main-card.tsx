@@ -15,7 +15,7 @@ export default async function MainCard() {
 
   return (
     <div className="flex flex-wrap justify-center mt-4 mb-0 w-full lg:flex-row">
-      <div className="py-0 px-8 lg:w-2/5">
+      <div className="py-0 px-8 w-[90%] lg:w-2/5">
         <BigCard
           post={firstPost!}
           imgSize="large"
@@ -30,7 +30,7 @@ export default async function MainCard() {
         <div className="hidden border-r border-[#eee] w-0 lg:flex lg:self-stretch" />
       </div>
       <div
-        className="flex flex-col-reverse justify-center w-full md:flex-row md:max-w-[calc(100%-64px)] lg:w-1/2"
+        className="flex flex-col-reverse justify-center w-[90%] md:flex-row md:max-w-[calc(100%-64px)] lg:w-1/2"
       >
         <div className="px-8 py-0 w-full lg:w-3/5">
           {posts?.nodes.slice(1).map((post, index) => (

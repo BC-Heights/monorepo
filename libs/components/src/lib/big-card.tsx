@@ -32,10 +32,6 @@ export default function BigCard(props: BigCardProps) {
           <Category post={post} showCategory={showCategory} />
           <Link href={articleLink} className="w-full"></Link>
         </div>
-        <Link
-          href={articleLink}
-          className={`h-2 w-full  ${showCategory ? 'block' : 'hidden'}`}
-        />
         <div className="flex flex-col items-start">
           <div className="w-full">
             <Link href={articleLink}>

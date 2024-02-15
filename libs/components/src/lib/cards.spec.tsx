@@ -13,7 +13,7 @@ describe('Cards', () => {
       excerpt: undefined,
       slug: undefined,
       content: undefined,
-      authors: undefined,
+      molonguiAuthors: undefined,
       featuredImage: undefined,
       categories: undefined
     }} imgSize={''} imgW={0} imgH={0} />);
