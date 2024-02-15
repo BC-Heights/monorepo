@@ -6,6 +6,7 @@ import { Header } from '@the-heights/components';
 import { Footer } from '@the-heights/components';
 import './global.css';
 import { Metadata } from 'next';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import { AxiomWebVitals } from 'next-axiom';
 
 export const metadata: Metadata = {
@@ -21,13 +22,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
+      </head>
       <AxiomWebVitals />
       <body>
-        <Header />
-        <ApolloWrapper>{children}</ApolloWrapper>
-        <Analytics />
-        <SpeedInsights />
-        <Footer />
+        <AppRouterCacheProvider>
+          <Header />
+          <ApolloWrapper>{children}</ApolloWrapper>
+          <Analytics />
+          <SpeedInsights />
+          <Footer />
+        </AppRouterCacheProvider>
       </body>
     </html>
   );
