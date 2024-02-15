@@ -12,6 +12,11 @@ fragment PostBase on Post {
       sourceUrl(size: $imgSize)
     }
   }
+  attachedMedia {
+    nodes {
+      sourceUrl(size: $imgSize)
+    }
+  }
   categories {
     nodes {
       name

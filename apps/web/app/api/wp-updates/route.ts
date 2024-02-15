@@ -9,14 +9,12 @@ export async function POST(req: NextRequest) {
     return NextResponse.error();
   }
 
-  log.info('POST', data);
-  console.log('POST', data);
   if (data.taxonomies.category) {
     const cats = Object.keys(data.taxonomies.category).map(
       (key) => data.taxonomies.category[key].name
     );
-    cats.forEach((cat) => console.log('cat', cat));
     cats.forEach((cat) => revalidateTag(cat));
+    console.log('Revalidated categories:', cats);
   }
   await log.flush();
   return NextResponse.json({ received: true, now: Date.now(), data });
