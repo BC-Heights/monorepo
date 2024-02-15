@@ -7,7 +7,7 @@ import {
   domToReact,
 } from 'html-react-parser';
 
-export async function multiMediaRegex(
+export function multiMediaRegex(
   html: string,
   images:
     | {
@@ -16,7 +16,7 @@ export async function multiMediaRegex(
         sourceUrl?: string | null | undefined;
       }[]
     | undefined
-): Promise<string> {
+): string {
   //fancy regex magic to remove all the vc stuff
   const regex =
     /\[vc_row\]|\[vc_column\]|\[vc_column_text\]|\[\/vc_column_text\]|\[\/vc_column\]|\[\/vc_row\]/g;
@@ -25,7 +25,7 @@ export async function multiMediaRegex(
     /\[vc_single_image image=&#8221;(\d+)&#8243; img_size=&#8221;full&#8221;\]/;
   let match = html.match(imageIdRegex);
 
-  while (match !== null) {
+  if (match !== null) {
     const imageItemId = Number(match[1]);
     const imageItem = images?.find((item) => item.databaseId === imageItemId);
     const imageUrl = imageItem?.sourceUrl;

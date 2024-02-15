@@ -8,6 +8,7 @@ import { multiMediaRegex, postOptions } from './parser';
 import { GetPostBySlug } from '@the-heights/graphql';
 import { AuthorName } from '@the-heights/components';
 
+
 export interface PageProps {}
 
 export const generateMetadata = async ({
@@ -42,12 +43,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   let postHTML;
 
   if (post?.content) {
-    const hasMultimediaCategory = post.categories?.nodes.some(
-      (node) => node.name === 'Multimedia'
-    );
-    if (hasMultimediaCategory) {
-      post.content = await multiMediaRegex(post.content, post.attachedMedia?.nodes);
-    }
+    post.content = multiMediaRegex(post.content, post.attachedMedia?.nodes);
 
     postHTML = parse(post.content, postOptions) || <div>No Post Found</div>;
 
@@ -56,20 +52,27 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
         <div className="w-6/12">
           <div>
             <div className="w-full aspect-[16/9] relative">
-              <Image
-                src={
-                  post.featuredImage?.node?.sourceUrl ||
-                  '/images/placeholder.png'
-                }
-                alt={post.featuredImage?.node?.caption || 'No Image Found'}
-                fill={true}
-                priority={true}
-              />
+              {post.categories?.nodes
+                ?.map((cat, index) => cat.name?.toLowerCase())
+                .includes('gallery') ? (
+               <div>
+                </div>
+              ) : (
+                <Image
+                  src={
+                    post.featuredImage?.node?.sourceUrl ||
+                    '/images/placeholder.png'
+                  }
+                  alt={post.featuredImage?.node?.caption || 'No Image Found'}
+                  fill={true}
+                  priority={true}
+                />
+              )}
             </div>
             <h1 className="text-4xl text-center mx-0 my-4">{post.title}</h1>
             <div className="my-2">
-            <AuthorName {...post} />
-          </div>
+              <AuthorName {...post} />
+            </div>
             <div className="text-xs mb-3">
               <span className="mr-4">{formatDate(post.date || '')}</span>
               <span>

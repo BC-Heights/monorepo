@@ -72,7 +72,7 @@ export default async function Page({
               type={searchParams.type}
             />
           </Suspense>
-          <div className="w-2/5 ">hey side panel</div>
+          <div className="min-w-[320px]">hey side panel</div>
         </div>
       </div>
     </div>

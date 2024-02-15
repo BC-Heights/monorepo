@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import { PostFragment } from '@the-heights/graphql';
-import { formatDate, filterCategories } from '@the-heights/utils';
+import { formatDate, formatHrefDate, filterCategories } from '@the-heights/utils';
 
 export interface PostsProps {
   posts: PostFragment[];
@@ -19,7 +19,7 @@ export default function Posts({ posts, postsPerPage, page }: PostsProps) {
     <>
       {posts.slice(start, end).map((post, index) => (
         <div key={index} className="">
-          <Link href={post?.slug || '/'} className="group">
+          <Link href={`/${formatHrefDate(post.date!)}/${post.slug}`|| '/'} className="group">
             <div className="mb-4 pb-2 border-b-[#eee] border-b border-solid">
               <div className="flex flex-col gap-4 md:flex-row">
                 <div className="hidden lg:block">
