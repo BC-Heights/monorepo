@@ -15,6 +15,7 @@ export async function POST(req: NextRequest) {
     const cats = Object.keys(data.taxonomies.category).map(
       (key) => data.taxonomies.category[key].name
     );
+    cats.forEach((cat) => console.log('cat', cat));
     cats.forEach((cat) => revalidateTag(cat));
   }
   await log.flush();
