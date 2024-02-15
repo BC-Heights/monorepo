@@ -7,7 +7,7 @@ import { formatDate, formatTime } from '@the-heights/utils';
 import { multiMediaRegex, postOptions } from './parser';
 import { GetPostBySlug } from '@the-heights/graphql';
 import { AuthorName } from '@the-heights/components';
-
+import ImageCarousel from './imageCarousel';
 
 export interface PageProps {}
 
@@ -55,7 +55,8 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
               {post.categories?.nodes
                 ?.map((cat, index) => cat.name?.toLowerCase())
                 .includes('gallery') ? (
-               <div>
+                <div>
+                  <ImageCarousel images={post.attachedMedia?.nodes}/>
                 </div>
               ) : (
                 <Image
