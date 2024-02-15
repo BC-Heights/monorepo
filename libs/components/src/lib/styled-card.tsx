@@ -19,17 +19,16 @@ function StyledCard(props: StyledCardProps) {
   const articleLink = `/${formatHrefDate(post.date!)}/${post.slug!}`;
 
   return (
-    <Link href={articleLink} className="group">
-      <div className="mb-4 pb-2 border-b-[#eee] border-b border-solid">
-        <div
-          className={`flex flex-col gap-4 md:flex-row  ${
-            reverse ? 'lg:flex-row-reverse' : ''
-          }`}
-        >
+    <div className="mb-4 pb-2 border-b-[#eee] border-b border-solid group">
+      <div
+        className={`flex flex-col gap-4 md:flex-row md:gap-0 ${
+          reverse ? 'lg:flex-row-reverse' : ''
+        }`}
+      >
+        <Link href={articleLink}>
           <div className={reverse ? 'block lg:hidden xl:block' : ''}>
             <Image
               className={`w-full md:w-[25vw] xl:w-[300px]  `}
-              // style={{ aspectRatio: '4/3' }}
               src={post.featuredImage?.node.sourceUrl || '/default-image.jpg'}
               alt={post.featuredImage?.node.caption || 'No Alt'}
               width={638}
@@ -37,26 +36,35 @@ function StyledCard(props: StyledCardProps) {
               priority={priority ? true : false}
             />
           </div>
-          <div className="flex flex-col items-start w-full md:items-start md:max-w-[360px]">
+        </Link>
+        <Link href={articleLink} className="min-w-[16px] hidden md:block" />
+        <div className="flex flex-col items-start w-full md:items-start md:max-w-[360px]">
+          <div className="flex flex-row w-full text-nowrap">
             <Category post={post} showCategory={showCategory} />
+            <Link href={articleLink} className="w-full"></Link>
+          </div>
+          <Link href={articleLink}>
+            {' '}
             <h1 className="text-xl font-bold w-fit text-center mx-0 my-4 px-4 py-0 md:text-start md:m-0 md:p-0 md:text-base group-hover:text-slate-500">
               {post.title}
             </h1>
-            <div
-              className="mx-0 my-4 text-lg md:hidden"
-              dangerouslySetInnerHTML={{ __html: post.excerpt! }}
-            />
-            <div className="my-2">
-              <AuthorName {...post} />
-            </div>
+          </Link>
+          <Link
+            href={articleLink}
+            className="mx-0 py-4 text-lg md:hidden"
+            dangerouslySetInnerHTML={{ __html: post.excerpt! }}
+          />
+          <div className="flex flex-row w-full text-nowrap">
+            <AuthorName {...post} />
+            <Link href={articleLink} className="w-full"></Link>
           </div>
         </div>
-        <div className="flex w-full justify-between text-[#AAAAAA] text-xs mx-0 my-2">
-          <i>{formatDate(post.date!)}</i>
-          <i>Read More</i>
-        </div>
       </div>
-    </Link>
+      <Link href={articleLink} className="flex w-full justify-between text-[#AAAAAA] text-xs mx-0 py-2">
+        <i>{formatDate(post.date!)}</i>
+        <i>Read More</i>
+      </Link>
+    </div>
   );
 }
 
