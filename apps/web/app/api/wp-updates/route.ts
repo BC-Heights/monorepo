@@ -10,7 +10,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.error();
   }
 
-  await log.debug('POST', data);
+  log.debug('POST', data);
+  console.log('POST', data);
   await log.flush();
   return NextResponse.json({ received: true, now: Date.now(), data });
 }
