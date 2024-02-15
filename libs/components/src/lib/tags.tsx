@@ -15,11 +15,7 @@ export function AuthorName(post: PostFragment) {
     const { displayName, id, type, slug } = author;
 
     return (
-      <Link
-        href={`/author/${slug}?id=${id}&type=${type}`}
-      >
-        {displayName}
-      </Link>
+      <Link href={`/author/${slug}?id=${id}&type=${type}`}>{displayName}</Link>
     );
   }
 
@@ -28,7 +24,7 @@ export function AuthorName(post: PostFragment) {
       {molonguiAuthors.map((author, index) => {
         return (
           <>
-            <span key={index} className="hover:underline">
+            <span key={index} className="text-nowrap hover:underline">
               {authorLink(author!)}
             </span>
             {authorCount === 2 && index < 1
@@ -57,9 +53,7 @@ export function Category(props: { post: PostFragment; showCategory: boolean }) {
         showCategory ? '' : 'hidden'
       }`}
     >
-      <text>
-        {category}
-      </text>
+      <text>{category}</text>
     </Link>
   );
 }
