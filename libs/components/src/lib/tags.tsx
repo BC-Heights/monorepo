@@ -47,18 +47,18 @@ export function AuthorName(post: PostFragment) {
 
 export function Category(props: { post: PostFragment; showCategory: boolean }) {
   const { post, showCategory } = props;
-  const catergory = filterCategories(
+  const category = filterCategories(
     post.categories?.nodes?.map((cat) => cat?.name)
   );
   return (
     <Link
-      href={`/${catergory[0].toLowerCase()}`}
+      href={`/${category[0].toLowerCase()}`}
       className={`text-[#98002E] font-bold hover:underline ${
         showCategory ? '' : 'hidden'
       }`}
     >
       <text>
-        {catergory}
+        {category}
       </text>
     </Link>
   );

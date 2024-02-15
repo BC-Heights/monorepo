@@ -33,6 +33,7 @@ export function filterCategories(
     'Opinions',
     'Newton',
     'Metro',
+    'Multimedia',
   ];
   if (categories.includes('Newton') || categories.includes('Metro')) {
     return ['Newton'];
