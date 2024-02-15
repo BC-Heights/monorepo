@@ -46,7 +46,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
       (node) => node.name === 'Multimedia'
     );
     if (hasMultimediaCategory) {
-      post.content = await multiMediaRegex(post.content);
+      post.content = await multiMediaRegex(post.content, post.attachedMedia?.nodes);
     }
 
     postHTML = parse(post.content, postOptions) || <div>No Post Found</div>;

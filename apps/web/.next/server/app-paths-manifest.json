@@ -1,7 +1,4 @@
 {
-  "/page": "app/page.js",
-  "/magazine/page": "app/magazine/page.js",
-  "/news/page": "app/news/page.js",
-  "/newton/page": "app/newton/page.js",
-  "/multimedia/page": "app/multimedia/page.js"
+  "/multimedia/page": "app/multimedia/page.js",
+  "/[...slug]/page": "app/[...slug]/page.js"
 }
