@@ -6,6 +6,7 @@ import {
   PostFragment,
 } from '@the-heights/graphql';
 import Controller from './controller';
+import Loading from './loading';
 
 export const generateMetadata = async ({
   params,
@@ -47,34 +48,32 @@ export default async function Page({
 
   return (
     <div className="flex justify-center">
-      <div className="w-[90%] px-8 flex flex-row gap-4">
+      <div className="w-[90%] px-8 flex flex-col">
         <div className="w-full">
-          <div className="flex flex-col py-8 md:flex-row gap-2.5 sm:gap-5">
+          <div className="flex flex-col py-8 items-center gap-2.5 sm:gap-5">
             <div
               dangerouslySetInnerHTML={{ __html: author?.avatar ?? '' }}
-              className="min-w-[150px] flex justify-center"
+              className="min-w-[150px] flex justify-center rounded-[50%] overflow-hidden border-[3px] border-solid border-[#98002E]"
             />
-            <div>
-              <h1 className="text-center pb-2.5 md:text-left">
-                {author?.displayName}
-              </h1>
-              <div dangerouslySetInnerHTML={{ __html: author?.bio ?? '' }} />
-            </div>
+            <h1 className="text-center">
+              {author?.displayName}
+            </h1>
+            <p className='text-left text-pretty max-w-[400px] md:text-center' dangerouslySetInnerHTML={{ __html: author?.bio ?? '' }} />
           </div>
           <div>
             <div className="w-full border-t" />
             <p className="my-4 text-lg">Latest Articles</p>
           </div>
-          <div>
-            <Suspense fallback={<div>Loading...</div>}>
-              <ServerPosts
-                id={Number(searchParams.id)}
-                type={searchParams.type}
-              />
-            </Suspense>
-          </div>
         </div>
-        <div className="w-1/4 ">hey side panel</div>
+        <div className="flex flex-col gap-4 sm:flex-row">
+          <Suspense fallback={<Loading />}>
+            <ServerPosts
+              id={Number(searchParams.id)}
+              type={searchParams.type}
+            />
+          </Suspense>
+          <div className="w-2/5 ">hey side panel</div>
+        </div>
       </div>
     </div>
   );
@@ -97,7 +96,5 @@ async function ServerPosts(props: ServerPostsProps) {
   ) as PostFragment[];
   const subProps = { posts, numPosts: posts?.length, postsPerPage: 5 };
 
-  return (
-    <Controller {...subProps} />
-  );
+  return <Controller {...subProps} />;
 }
