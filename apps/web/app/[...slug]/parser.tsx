@@ -6,10 +6,17 @@ import {
   HTMLReactParserOptions,
   domToReact,
 } from 'html-react-parser';
-import { GetImageUrl } from '@the-heights/graphql';
 
-// ask multimedia people to change how they make their articles or add a plugin
-export async function multiMediaRegex(html: string): Promise<string> {
+export async function multiMediaRegex(
+  html: string,
+  images:
+    | {
+        __typename?: 'MediaItem' | undefined;
+        databaseId: number;
+        sourceUrl?: string | null | undefined;
+      }[]
+    | undefined
+): Promise<string> {
   //fancy regex magic to remove all the vc stuff
   const regex =
     /\[vc_row\]|\[vc_column\]|\[vc_column_text\]|\[\/vc_column_text\]|\[\/vc_column\]|\[\/vc_row\]/g;
@@ -17,17 +24,27 @@ export async function multiMediaRegex(html: string): Promise<string> {
   const imageIdRegex =
     /\[vc_single_image image=&#8221;(\d+)&#8243; img_size=&#8221;full&#8221;\]/;
   let match = html.match(imageIdRegex);
-  while ((match = html.match(imageIdRegex)) !== null) {
-    const { mediaItemBy: imageUrl } = await GetImageUrl({
-      mediaItemId: Number(match[1]),
-    }); // Map the ids to an array of image URLs
-    html = html.replace(
-      match[0],
-      `<img src="${
-        imageUrl?.sourceUrl || 'urmom.png'
-      }" alt="No Image Found" width="100%" height="auto" />`
-    );
+
+  while (match !== null) {
+    const imageItemId = Number(match[1]);
+    const imageItem = images?.find((item) => item.databaseId === imageItemId);
+    const imageUrl = imageItem?.sourceUrl;
+
+    if (imageUrl) {
+      html = html.replace(
+        match[0],
+        `<img src="${imageUrl}" alt="No Image Found" width="100%" height="auto" />`
+      );
+    } else {
+      html = html.replace(
+        match[0],
+        `<img src="urmom.png" alt="No Image Found" width="100%" height="auto" />`
+      );
+    }
+
+    match = html.match(imageIdRegex);
   }
+
   return html;
 }
 
