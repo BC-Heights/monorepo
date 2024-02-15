@@ -9,6 +9,11 @@
   "dependencies": {
     "@apollo/client": "^3.8.7",
     "@apollo/experimental-nextjs-app-support": "^0.7.0",
+    "@emotion/cache": "^11.11.0",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.10",
+    "@mui/material-nextjs": "^5.15.9",
     "@nx/next": "17.1.2",
     "@reduxjs/toolkit": "^2.1.0",
     "@swc/helpers": "~0.5.2",
