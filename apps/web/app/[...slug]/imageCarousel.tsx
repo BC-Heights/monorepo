@@ -21,17 +21,18 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
         autoPlay={false}
         animation="slide"
         indicators={true}
-        navButtonsAlwaysVisible={true}
       >
         {images?.map((image, index) => (
-          <Image
-            key={index}
-            width={1920}
-            height={1080}
-            src={image?.sourceUrl || ''}
-            alt={image?.caption || 'No Image Found'}
-            className="w-full h-full object-cover"
-          />
+          <div key={index} className='w-[800px]'>
+            <Image
+              width={800}
+              height={440}
+              src={image?.sourceUrl || ''}
+              alt={image?.caption || 'No Image Found'}
+              className="w-full h-full object-cover"
+              priority={index === 0 ? true : false}
+            />
+          </div>
         ))}
       </Carousel>
     </div>

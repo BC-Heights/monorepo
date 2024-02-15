@@ -49,14 +49,14 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
 
     return (
       <div className="flex w-full flex-row justify-center gap-[7.5%]">
-        <div className="w-6/12">
+        <div className="w-[800px]">
           <div>
-            <div className="w-full aspect-[16/9] relative">
+            <div className="w-full relative">
               {post.categories?.nodes
-                ?.map((cat, index) => cat.name?.toLowerCase())
+                ?.map((cat) => cat.name?.toLowerCase())
                 .includes('gallery') ? (
                 <div>
-                  <ImageCarousel images={post.attachedMedia?.nodes}/>
+                  <ImageCarousel images={post.attachedMedia?.nodes} />
                 </div>
               ) : (
                 <Image
@@ -82,7 +82,6 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
               </span>
             </div>
           </div>
-          {/* post content */}
           <div>{postHTML}</div>
         </div>
       </div>
