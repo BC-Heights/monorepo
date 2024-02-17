@@ -5,8 +5,8 @@ import {
   GetAuthorPosts,
   PostFragment,
 } from '@the-heights/graphql';
-import Controller from './controller';
 import Loading from './loading';
+import Controller from './controller';
 
 export const generateMetadata = async ({
   params,
@@ -55,10 +55,11 @@ export default async function Page({
               dangerouslySetInnerHTML={{ __html: author?.avatar ?? '' }}
               className="min-w-[150px] flex justify-center rounded-[50%] overflow-hidden border-[3px] border-solid border-[#98002E]"
             />
-            <h1 className="text-center">
-              {author?.displayName}
-            </h1>
-            <p className='text-left text-pretty max-w-[400px] md:text-center' dangerouslySetInnerHTML={{ __html: author?.bio ?? '' }} />
+            <h1 className="text-center">{author?.displayName}</h1>
+            <p
+              className="text-left text-pretty max-w-[400px] md:text-center"
+              dangerouslySetInnerHTML={{ __html: author?.bio ?? '' }}
+            />
           </div>
           <div>
             <div className="w-full border-t" />
@@ -72,7 +73,7 @@ export default async function Page({
               type={searchParams.type}
             />
           </Suspense>
-          <div className="w-2/5 ">hey side panel</div>
+          <div className="min-w-[320px]">hey side panel</div>
         </div>
       </div>
     </div>

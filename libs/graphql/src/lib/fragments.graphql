@@ -36,15 +36,3 @@ fragment AuthorTag on MolonguiAuthor {
   type
   slug
 }
-
-fragment MolonguiAuthorFrag on MolonguiAuthor {
-  ...AuthorTag
-  bio
-  avatar
-  posts {
-    title
-    slug
-  }
-}
-
-
