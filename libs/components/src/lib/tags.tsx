@@ -15,21 +15,18 @@ export function AuthorName(post: PostFragment) {
     const { displayName, id, type, slug } = author;
 
     return (
-      <Link
-        href={`/author/${slug}?id=${id}&type=${type}`}
-        className="text-[#b59410] font-style: italic font-bold"
-      >
-        {displayName}
-      </Link>
+      <Link href={`/author/${slug}?id=${id}&type=${type}`}>{displayName}</Link>
     );
   }
 
   return (
-    <div className="text-[#b59410] font-style: italic font-bold">
+    <div className="text-[#b59410] italic font-bold">
       {molonguiAuthors.map((author, index) => {
         return (
-          <span key={index}>
-            {authorLink(author!)}
+          <>
+            <span key={index} className="text-nowrap hover:underline">
+              {authorLink(author!)}
+            </span>
             {authorCount === 2 && index < 1
               ? ' and '
               : authorCount > 2 && index < authorCount - 1
@@ -37,7 +34,7 @@ export function AuthorName(post: PostFragment) {
               : authorCount > 2 && index === authorCount - 1
               ? ', and '
               : ''}
-          </span>
+          </>
         );
       })}
     </div>
@@ -46,15 +43,17 @@ export function AuthorName(post: PostFragment) {
 
 export function Category(props: { post: PostFragment; showCategory: boolean }) {
   const { post, showCategory } = props;
+  const category = filterCategories(
+    post.categories?.nodes?.map((cat) => cat?.name)
+  );
   return (
-    <div
-      className={`text-[#98002E] font-bold ${
+    <Link
+      href={`/${category[0].toLowerCase()}`}
+      className={`text-[#98002E] font-bold hover:underline ${
         showCategory ? '' : 'hidden'
       }`}
     >
-      <text>
-        {filterCategories(post.categories?.nodes?.map((cat) => cat?.name))}
-      </text>
-    </div>
+      <text>{category}</text>
+    </Link>
   );
 }

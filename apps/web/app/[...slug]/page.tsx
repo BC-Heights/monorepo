@@ -7,6 +7,7 @@ import { formatDate, formatTime } from '@the-heights/utils';
 import { multiMediaRegex, postOptions } from './parser';
 import { GetPostBySlug } from '@the-heights/graphql';
 import { AuthorName } from '@the-heights/components';
+import ImageCarousel from './imageCarousel';
 
 export interface PageProps {}
 
@@ -42,34 +43,37 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   let postHTML;
 
   if (post?.content) {
-    const hasMultimediaCategory = post.categories?.nodes.some(
-      (node) => node.name === 'Multimedia'
-    );
-    if (hasMultimediaCategory) {
-      post.content = await multiMediaRegex(post.content);
-    }
+    post.content = multiMediaRegex(post.content, post.attachedMedia?.nodes);
 
     postHTML = parse(post.content, postOptions) || <div>No Post Found</div>;
 
     return (
       <div className="flex w-full flex-row justify-center gap-[7.5%]">
-        <div className="w-6/12">
+        <div className="w-[800px]">
           <div>
-            <div className="w-full aspect-[16/9] relative">
-              <Image
-                src={
-                  post.featuredImage?.node?.sourceUrl ||
-                  '/images/placeholder.png'
-                }
-                alt={post.featuredImage?.node?.caption || 'No Image Found'}
-                fill={true}
-                priority={true}
-              />
+            <div className="w-full relative">
+              {post.categories?.nodes
+                ?.map((cat) => cat.name?.toLowerCase())
+                .includes('gallery') ? (
+                <div>
+                  <ImageCarousel images={post.attachedMedia?.nodes} />
+                </div>
+              ) : (
+                <Image
+                  src={
+                    post.featuredImage?.node?.sourceUrl ||
+                    '/images/placeholder.png'
+                  }
+                  alt={post.featuredImage?.node?.caption || 'No Image Found'}
+                  fill={true}
+                  priority={true}
+                />
+              )}
             </div>
             <h1 className="text-4xl text-center mx-0 my-4">{post.title}</h1>
             <div className="my-2">
-            <AuthorName {...post} />
-          </div>
+              <AuthorName {...post} />
+            </div>
             <div className="text-xs mb-3">
               <span className="mr-4">{formatDate(post.date || '')}</span>
               <span>
@@ -78,7 +82,6 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
               </span>
             </div>
           </div>
-          {/* post content */}
           <div>{postHTML}</div>
         </div>
       </div>
