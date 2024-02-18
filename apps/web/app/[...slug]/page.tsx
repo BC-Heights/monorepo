@@ -51,7 +51,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
       <div className="flex w-full flex-row justify-center gap-[7.5%]">
         <div className="w-[800px]">
           <div>
-            <div className="w-full relative">
+            <div className="w-full h-[440px] relative">
               {post.categories?.nodes
                 ?.map((cat) => cat.name?.toLowerCase())
                 .includes('gallery') ? (
