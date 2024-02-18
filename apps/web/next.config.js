@@ -33,6 +33,12 @@ const nextConfig = withAxiom({
         port: '',
         pathname: '/wp-content/**',
       },
+      {
+        protocol: 'https',
+        hostname: "heights-photos.s3.amazonaws.com",
+        port: '',
+        pathname: '/**',
+      }
     ],
   },
 });

@@ -16,6 +16,7 @@ fragment PostBase on Post {
     nodes {
       databaseId
       sourceUrl(size: $imgSize)
+      caption
     }
   }
   categories {
