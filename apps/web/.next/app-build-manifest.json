@@ -26,35 +26,35 @@
       "static/chunks/main-app.js",
       "static/chunks/app/author/[slug]/loading.js"
     ],
-    "/[...slug]/loading": [
+    "/arts/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/[...slug]/loading.js"
+      "static/chunks/app/arts/page.js"
+    ],
+    "/news/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/news/page.js"
     ],
     "/[...slug]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/[...slug]/page.js"
     ],
+    "/[...slug]/loading": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[...slug]/loading.js"
+    ],
     "/multimedia/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/multimedia/page.js"
     ],
-    "/opinions/page": [
+    "/magazine/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/opinions/page.js"
-    ],
-    "/arts/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/arts/page.js"
-    ],
-    "/newton/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/newton/page.js"
+      "static/chunks/app/magazine/page.js"
     ]
   }
 }

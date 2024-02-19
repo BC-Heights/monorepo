@@ -9,6 +9,8 @@ import { GetPostBySlug } from '@the-heights/graphql';
 import { AuthorName } from '@the-heights/components';
 import ImageCarousel from './imageCarousel';
 
+export const dynamic = 'force-dynamic';
+
 export interface PageProps {}
 
 export const generateMetadata = async ({
@@ -51,14 +53,13 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
       <div className="flex w-full flex-row justify-center gap-[7.5%]">
         <div className="w-[800px]">
           <div>
-            <div className="w-full h-[440px] relative">
+            <div className="w-full relative">
               {post.categories?.nodes
                 ?.map((cat) => cat.name?.toLowerCase())
                 .includes('gallery') ? (
-                <div>
                   <ImageCarousel images={post.attachedMedia?.nodes} />
-                </div>
               ) : (
+                <div className='h-[440px]'>
                 <Image
                   src={
                     post.featuredImage?.node?.sourceUrl ||
@@ -68,6 +69,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
                   fill={true}
                   priority={true}
                 />
+                </div>
               )}
             </div>
             <h1 className="text-4xl text-center mx-0 my-4">{post.title}</h1>
