@@ -45,7 +45,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   let postHTML;
 
   if (post?.content) {
-    post.content = multiMediaRegex(post.content, post.attachedMedia?.nodes);
+    // post.content = multiMediaRegex(post.content, post.attachedMedia?.nodes);
 
     postHTML = parse(post.content, postOptions) || <div>No Post Found</div>;
 
