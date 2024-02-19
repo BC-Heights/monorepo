@@ -8,6 +8,8 @@ import {
 import Controller from './controller';
 import Loading from './loading';
 
+export const dynamic = 'force-dynamic';
+
 export const generateMetadata = async ({
   params,
   searchParams,

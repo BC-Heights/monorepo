@@ -16,14 +16,14 @@ export interface ImageCarouselProps {
 
 export default function ImageCarousel({ images }: ImageCarouselProps) {
   return (
-    <div>
+    <div className=''>
       <Carousel
         autoPlay={false}
         animation="slide"
         indicators={true}
       >
         {images?.map((image, index) => (
-          <div key={index} className='w-[800px]'>
+          <div key={index} className='w-[800px] h-[440px] overflow-hidden'>
             <Image
               width={800}
               height={440}
