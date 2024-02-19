@@ -9,7 +9,6 @@ import { GetPostBySlug } from '@the-heights/graphql';
 import { AuthorName } from '@the-heights/components';
 import ImageCarousel from './imageCarousel';
 
-export const dynamic = 'force-dynamic';
 
 export interface PageProps {}
 
@@ -45,8 +44,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   let postHTML;
 
   if (post?.content) {
-    // post.content = multiMediaRegex(post.content, post.attachedMedia?.nodes);
-
+    post.content = multiMediaRegex(post.content, post.attachedMedia?.nodes);
     postHTML = parse(post.content, postOptions) || <div>No Post Found</div>;
 
     return (
@@ -57,18 +55,18 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
               {post.categories?.nodes
                 ?.map((cat) => cat.name?.toLowerCase())
                 .includes('gallery') ? (
-                  <ImageCarousel images={post.attachedMedia?.nodes} />
+                <ImageCarousel images={post.attachedMedia?.nodes} />
               ) : (
-                <div className='h-[440px]'>
-                <Image
-                  src={
-                    post.featuredImage?.node?.sourceUrl ||
-                    '/images/placeholder.png'
-                  }
-                  alt={post.featuredImage?.node?.caption || 'No Image Found'}
-                  fill={true}
-                  priority={true}
-                />
+                <div className="h-[440px]">
+                  <Image
+                    src={
+                      post.featuredImage?.node?.sourceUrl ||
+                      '/images/placeholder.png'
+                    }
+                    alt={post.featuredImage?.node?.caption || 'No Image Found'}
+                    fill={true}
+                    priority={true}
+                  />
                 </div>
               )}
             </div>
