@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { revalidateTag } from 'next/cache';
+import { revalidatePath, revalidateTag } from 'next/cache';
 import { Logger } from 'next-axiom';
 
 export async function POST(req: NextRequest) {
@@ -19,7 +19,13 @@ export async function POST(req: NextRequest) {
   }
 
   if (data.post_permalink) {
-    console.log('Revalidated post:', data.post_permalink);
+    const post_permalink: string = data.post_permalink;
+    console.log('Revalidated post:', post_permalink);
+    if (!post_permalink.includes('?')){
+      revalidatePath(post_permalink.replace('www.bcheights.com', 'monorepo-chi-seven.vercel.app'));
+      console.log('Revalidated post:', post_permalink.replace('www.bcheights.com', 'monorepo-chi-seven.vercel.app'));
+      revalidatePath('/')
+    }
   }
 
   await log.flush();
