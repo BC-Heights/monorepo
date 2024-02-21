@@ -9,6 +9,7 @@ export { AuthorName, Category } from './tags';
 export { default as TopicComponent } from './topic-component';
 export type { TopicComponentProps } from './topic-component';
 export { default as EEdition } from './e-edition';
+export { default as Wheel } from './wheel';
 
 /* eslint-disable-next-line */
 export interface ComponentsProps {}
