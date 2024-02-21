@@ -40,6 +40,21 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/magazine/page.js"
+    ],
+    "/newton/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/newton/page.js"
+    ],
+    "/multimedia/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/multimedia/page.js"
+    ],
+    "/arts/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/arts/page.js"
     ]
   }
 }

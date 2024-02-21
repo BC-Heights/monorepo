@@ -8,6 +8,7 @@ export async function POST(req: NextRequest) {
   if (!data) {
     return NextResponse.error();
   }
+  console.log('Received data:', data);
 
   if (data.taxonomies.category) {
     const cats = Object.keys(data.taxonomies.category).map(
@@ -16,6 +17,11 @@ export async function POST(req: NextRequest) {
     cats.forEach((cat) => revalidateTag(cat));
     console.log('Revalidated categories:', cats);
   }
+
+  if (data.post_permalink) {
+    console.log('Revalidated post:', data.post_permalink);
+  }
+
   await log.flush();
   return NextResponse.json({ received: true, now: Date.now(), data });
 }
