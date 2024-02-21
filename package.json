@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "codegen": "graphql-codegen --config codegen.ts"
+    "codegen": "graphql-codegen --config codegen.ts && prettier --write libs/graphql/src/lib/graphql.ts"
   },
   "private": true,
   "dependencies": {
