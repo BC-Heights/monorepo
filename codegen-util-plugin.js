@@ -1,7 +1,6 @@
 function generateImports(operations) {
   const operationNames = operations.map((op) => op.name.value);
   return `
-import { unstable_cache } from "next/cache";
 import { 
   ${operationNames
     .map((name) => `${name}Document, ${name}Query, ${name}QueryVariables`)
@@ -31,33 +30,18 @@ function generateFunction(operation) {
   const variables = operation.variableDefinitions.map(
     (v) => v.variable.name.value
   );
-  const query = (context) => {
-    return `
-  const { data } = await getClient().query<${operation.name.value}Query>({
-    query: ${operation.name.value}Document,
-    variables: { ${variables.map((v) => `${v}: ${v}`).join(', ')} },
-    ${context ? `context: ${context},` : ''}
-  });
-  return data;
-  `;
-  };
 
   return `
-export const Cached${operation.name.value} = async ({${variables.join(
-    ', '
-  )}}: ${operation.name.value}QueryVariables, tags = ['posts']) => {
-  const ${operation.name.value} = unstable_cache(async (${variables.join(
-    ', '
-  )}) => {
-    ${query()}
-    }, [...tags]);
-    return await ${operation.name.value}(${variables.join(', ')});
-}
 
 export const ${operation.name.value} = async ({${variables.join(', ')}}: ${
     operation.name.value
-  }QueryVariables, tags=['posts']) => {
-    ${query(`{next: {tags: tags}}`)}
+  }QueryVariables, tags?: string[]) => {
+  const { data } = await getClient().query<${operation.name.value}Query>({
+    query: ${operation.name.value}Document,
+    variables: { ${variables.map((v) => `${v}: ${v}`).join(', ')} },
+    context: tags ? { next: { tags: tags } } : undefined,
+  });
+  return data;
 }
     `;
 }

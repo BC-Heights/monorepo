@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { Suspense } from 'react';
 import {
-  CachedGetAuthorInfo,
+  GetAuthorInfo,
   GetAuthorPosts,
   PostFragment,
 } from '@the-heights/graphql';
@@ -17,7 +17,7 @@ export const generateMetadata = async ({
   params: { slug: string[] };
   searchParams: { [key: string]: string };
 }): Promise<Metadata> => {
-  const { molonguiAuthor: author } = await CachedGetAuthorInfo(
+  const { molonguiAuthor: author } = await GetAuthorInfo(
     {
       id: Number(searchParams.id),
       type: searchParams.type,
@@ -40,7 +40,7 @@ export default async function Page({
   params: { slug: string };
   searchParams: { [key: string]: string };
 }) {
-  const { molonguiAuthor: author } = await CachedGetAuthorInfo(
+  const { molonguiAuthor: author } = await GetAuthorInfo(
     {
       id: Number(searchParams.id),
       type: searchParams.type,
