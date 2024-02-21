@@ -3605,7 +3605,7 @@ export type MolonguiAuthor = {
   displayName?: Maybe<Scalars['String']['output']>;
   /** author id */
   id?: Maybe<Scalars['Int']['output']>;
-  /** author posts */
+  /** posts by this author */
   posts?: Maybe<Array<Maybe<Post>>>;
   /** slug */
   slug?: Maybe<Scalars['String']['output']>;

@@ -1,4 +1,4 @@
-import { CachedGetPostsByCat } from '@the-heights/graphql';
+import { GetPostsByCat } from '@the-heights/graphql';
 import TopicComponent, { TopicComponentProps } from './topic-component';
 import Link from 'next/link';
 
@@ -8,7 +8,7 @@ export interface TopicCardProps {
 }
 
 export default async function TopicCard(props: TopicCardProps) {
-  const { posts } = await CachedGetPostsByCat(
+  const { posts } = await GetPostsByCat(
     { first: props.topicComponents.length, categoryName: props.category },
     [props.category]
   );

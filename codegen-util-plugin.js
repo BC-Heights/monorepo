@@ -31,30 +31,33 @@ function generateFunction(operation) {
   const variables = operation.variableDefinitions.map(
     (v) => v.variable.name.value
   );
-  const query = `
+  const query = (context) => {
+    return `
   const { data } = await getClient().query<${operation.name.value}Query>({
     query: ${operation.name.value}Document,
     variables: { ${variables.map((v) => `${v}: ${v}`).join(', ')} },
+    ${context ? `context: ${context},` : ''}
   });
   return data;
-  `
+  `;
+  };
 
   return `
-export const Cached${operation.name.value} = async ({${variables.join(', ')}}: ${
-    operation.name.value
-  }QueryVariables, tags = ['posts']) => {
+export const Cached${operation.name.value} = async ({${variables.join(
+    ', '
+  )}}: ${operation.name.value}QueryVariables, tags = ['posts']) => {
   const ${operation.name.value} = unstable_cache(async (${variables.join(
     ', '
   )}) => {
-    ${query}
+    ${query()}
     }, [...tags]);
     return await ${operation.name.value}(${variables.join(', ')});
 }
 
 export const ${operation.name.value} = async ({${variables.join(', ')}}: ${
     operation.name.value
-  }QueryVariables) => {
-    ${query}
+  }QueryVariables, tags=['posts']) => {
+    ${query(`{next: {tags: tags}}`)}
 }
     `;
 }
