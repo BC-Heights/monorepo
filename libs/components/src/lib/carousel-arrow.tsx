@@ -41,3 +41,73 @@ export default function Arrow({ action }: { action: () => void }) {
     </StyledButtonWrapper>
   );
 }
+
+export function PrevArrow({action}: { action: () => void }) {
+  const {
+    NavButton,
+    PrevIcon,
+    navButtonsWrapperProps,
+    navButtonsProps,
+  } = sanitizeProps({});
+  return (
+    <StyledButtonWrapper
+      $next={false}
+      $prev
+      $fullHeightHover={true}
+      {...navButtonsWrapperProps}
+    >
+      {NavButton !== undefined ? (
+        NavButton({
+          onClick: action,
+          next: false,
+          prev: true,
+          ...navButtonsProps,
+        })
+      ) : (
+        <StyledIconButton
+          $alwaysVisible={false}
+          $fullHeightHover={true}
+          onClick={action}
+          aria-label={action.name}
+        >
+          {PrevIcon}
+        </StyledIconButton>
+      )}
+    </StyledButtonWrapper>
+  );
+}
+
+export function NextArrow({action}: { action: () => void }) {
+  const {
+    NavButton,
+    NextIcon,
+    navButtonsWrapperProps,
+    navButtonsProps,
+  } = sanitizeProps({});
+  return (
+    <StyledButtonWrapper
+      $next
+      $prev={false}
+      $fullHeightHover={true}
+      {...navButtonsWrapperProps}
+    >
+      {NavButton !== undefined ? (
+        NavButton({
+          onClick: action,
+          next: true,
+          prev: false,
+          ...navButtonsProps,
+        })
+      ) : (
+        <StyledIconButton
+          $alwaysVisible={false}
+          $fullHeightHover={true}
+          onClick={action}
+          aria-label={action.name}
+        >
+          {NextIcon}
+        </StyledIconButton>
+      )}
+    </StyledButtonWrapper>
+  );
+}

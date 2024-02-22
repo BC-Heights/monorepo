@@ -6,7 +6,7 @@ import Slider, { Settings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import Arrow from './carousel-arrow';
+import {NextArrow, PrevArrow} from './carousel-arrow';
 
 import { PostFragment } from '@the-heights/graphql';
 import BigCard from './big-card';
@@ -95,8 +95,8 @@ export function SliderCarousel({ posts }: { posts: PostFragment[] }) {
           );
         })}
       </Slider>
-      <Arrow action={previous} />
-      <Arrow action={next} />
+      <PrevArrow action={previous} />
+      <NextArrow action={next} />
     </div>
   );
 }

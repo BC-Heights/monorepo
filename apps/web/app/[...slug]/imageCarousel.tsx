@@ -8,7 +8,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import Image from 'next/image';
 
 // eslint-disable-next-line @nx/enforce-module-boundaries
-import Arrow from 'libs/components/src/lib/carousel-arrow';
+import {NextArrow, PrevArrow} from 'libs/components/src/lib/carousel-arrow';
 
 export interface ImageCarouselProps {
   images:
@@ -58,8 +58,8 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
           </div>
         ))}
       </Slider>
-      <Arrow action={previous} />
-      <Arrow action={next} />
+      <PrevArrow action={previous} />
+      <NextArrow action={next} />
     </div>
   );
 }
