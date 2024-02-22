@@ -1,10 +1,5 @@
 {
   "pages": {
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
-    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -16,45 +11,50 @@
       "static/chunks/main-app.js",
       "static/chunks/app/not-found.js"
     ],
-    "/author/[slug]/loading": [
+    "/arts/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/author/[slug]/loading.js"
+      "static/css/app/arts/page.css",
+      "static/chunks/app/arts/page.js"
     ],
-    "/author/[slug]/page": [
+    "/newton/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/author/[slug]/page.js"
+      "static/css/app/newton/page.css",
+      "static/chunks/app/newton/page.js"
+    ],
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
+    ],
+    "/multimedia/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/multimedia/page.css",
+      "static/chunks/app/multimedia/page.js"
+    ],
+    "/[...slug]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[...slug]/page.css",
+      "static/chunks/app/[...slug]/page.js"
     ],
     "/[...slug]/loading": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/[...slug]/loading.js"
     ],
-    "/[...slug]/page": [
+    "/author/[slug]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/[...slug]/page.js"
+      "static/chunks/app/author/[slug]/page.js"
     ],
-    "/magazine/page": [
+    "/author/[slug]/loading": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/magazine/page.js"
-    ],
-    "/newton/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/newton/page.js"
-    ],
-    "/multimedia/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/multimedia/page.js"
-    ],
-    "/arts/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/arts/page.js"
+      "static/chunks/app/author/[slug]/loading.js"
     ]
   }
 }
