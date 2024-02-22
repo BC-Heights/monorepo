@@ -55,6 +55,12 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/author/[slug]/loading.js"
+    ],
+    "/magazine/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/magazine/page.css",
+      "static/chunks/app/magazine/page.js"
     ]
   }
 }

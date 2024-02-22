@@ -1,5 +1,8 @@
 "use client"
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import Carousel from 'react-material-ui-carousel';
+
 import {
   StyledButtonWrapper,
   StyledIconButton,
