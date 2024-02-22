@@ -1,6 +1,5 @@
 {
   "/arts/page": "app/arts/page.js",
-  "/newton/page": "app/newton/page.js",
   "/page": "app/page.js",
   "/multimedia/page": "app/multimedia/page.js",
   "/[...slug]/page": "app/[...slug]/page.js",
