@@ -10,6 +10,7 @@ export { default as TopicComponent } from './topic-component';
 export type { TopicComponentProps } from './topic-component';
 export { default as EEdition } from './e-edition';
 export { default as Wheel } from './wheel';
+export { default as Arrow } from './carousel-arrow';
 
 /* eslint-disable-next-line */
 export interface ComponentsProps {}

@@ -1,7 +1,14 @@
 'use client';
 
-import Carousel from 'react-material-ui-carousel';
+import { useRef } from 'react';
+
+import Slider, { Settings } from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import Image from 'next/image';
+
+// eslint-disable-next-line @nx/enforce-module-boundaries
+import Arrow from 'libs/components/src/lib/carousel-arrow';
 
 export interface ImageCarouselProps {
   images:
@@ -15,15 +22,31 @@ export interface ImageCarouselProps {
 }
 
 export default function ImageCarousel({ images }: ImageCarouselProps) {
+  const settings: Settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
+  const sliderRef = useRef<Slider>(null);
+  const next = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickNext();
+    }
+  };
+  const previous = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickPrev();
+    }
+  };
+
   return (
-    <div className=''>
-      <Carousel
-        autoPlay={false}
-        animation="slide"
-        indicators={true}
-      >
+    <div className="slider-container">
+      <Slider {...settings} ref={sliderRef}>
         {images?.map((image, index) => (
-          <div key={index} className='w-[800px] h-[440px] overflow-hidden'>
+          <div key={index} className="w-[800px] h-[440px] overflow-hidden">
             <Image
               width={800}
               height={440}
@@ -34,7 +57,9 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
             />
           </div>
         ))}
-      </Carousel>
+      </Slider>
+      <Arrow action={previous} />
+      <Arrow action={next} />
     </div>
   );
 }
