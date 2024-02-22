@@ -6,11 +6,7 @@ import Slider, { Settings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import {
-  StyledButtonWrapper,
-  StyledIconButton,
-} from 'react-material-ui-carousel/dist/components/Styled';
-import { sanitizeProps } from 'react-material-ui-carousel/dist/components/util';
+import Arrow from './carousel-arrow';
 
 import { PostFragment } from '@the-heights/graphql';
 import BigCard from './big-card';
@@ -99,48 +95,8 @@ export function SliderCarousel({ posts }: { posts: PostFragment[] }) {
           );
         })}
       </Slider>
-        <Arrow action={previous} />
-        <Arrow action={next} />
+      <Arrow action={previous} />
+      <Arrow action={next} />
     </div>
-  );
-}
-
-export interface ArrowProps {
-  action: () => void;
-}
-
-export function Arrow({ action }: ArrowProps) {
-  const {
-    NavButton,
-    PrevIcon,
-    NextIcon,
-    navButtonsWrapperProps,
-    navButtonsProps,
-  } = sanitizeProps({});
-  return (
-    <StyledButtonWrapper
-      $next={action.name === 'next'}
-      $prev={action.name === 'previous'}
-      $fullHeightHover={true}
-      {...navButtonsWrapperProps}
-    >
-      {NavButton !== undefined ? (
-        NavButton({
-          onClick: action,
-          next: action.name === 'next',
-          prev: action.name === 'previous',
-          ...navButtonsProps,
-        })
-      ) : (
-        <StyledIconButton
-          $alwaysVisible={false}
-          $fullHeightHover={true}
-          onClick={action}
-          aria-label={action.name}
-        >
-          {action.name === 'next' ? NextIcon : PrevIcon}
-        </StyledIconButton>
-      )}
-    </StyledButtonWrapper>
   );
 }
