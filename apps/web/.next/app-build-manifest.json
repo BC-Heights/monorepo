@@ -39,6 +39,28 @@
       "static/chunks/main-app.js",
       "static/css/app/news/page.css",
       "static/chunks/app/news/page.js"
+    ],
+    "/opinions/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/opinions/page.css",
+      "static/chunks/app/opinions/page.js"
+    ],
+    "/newton/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/newton/page.css",
+      "static/chunks/app/newton/page.js"
+    ],
+    "/author/[slug]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/author/[slug]/page.js"
+    ],
+    "/author/[slug]/loading": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/author/[slug]/loading.js"
     ]
   }
 }
