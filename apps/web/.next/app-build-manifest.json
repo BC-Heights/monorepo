@@ -12,6 +12,7 @@
       "static/chunks/app/not-found.js"
     ],
     "/arts/page": [
+
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/arts/page.js"
@@ -26,11 +27,33 @@
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
     ],
+    "/newton/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/newton/page.css",
+      "static/chunks/app/newton/page.js"
+    ],
+    "/page": [
     "/multimedia/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/multimedia/page.js"
     ],
+    "/multimedia/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/multimedia/page.css",
+      "static/chunks/app/multimedia/page.js"
+    ],
+    "/[...slug]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[...slug]/page.css",
+      "static/chunks/app/[...slug]/page.js"
+    ],
+    "/[...slug]/loading": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
     "/[...slug]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",

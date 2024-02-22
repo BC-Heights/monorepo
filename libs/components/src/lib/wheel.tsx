@@ -1,7 +1,16 @@
 'use client';
 
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import { useRef, useState, useEffect } from 'react';
+import Slider, { Settings } from 'react-slick';
+
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
+import {
+  StyledButtonWrapper,
+  StyledIconButton,
+} from 'react-material-ui-carousel/dist/components/Styled';
+import { sanitizeProps } from 'react-material-ui-carousel/dist/components/util';
 
 import { PostFragment } from '@the-heights/graphql';
 import BigCard from './big-card';
@@ -11,66 +20,72 @@ export interface WheelProps {
 }
 
 export default function Wheel({ posts }: WheelProps) {
-  const responsive = {
-    desktop: {
-      breakpoint: {
-        max: 3000,
-        min: 1024,
-      },
-      items: 1,
-      partialVisibilityGutter: 25,
-    },
-    mobile: {
-      breakpoint: {
-        max: 464,
-        min: 0,
-      },
-      items: 1,
-      partialVisibilityGutter: 25,
-    },
-    tablet: {
-      breakpoint: {
-        max: 1024,
-        min: 464,
-      },
-      items: 1,
-      partialVisibilityGutter: 25,
-    },
+  return (
+    <div>
+      <SliderCarousel posts={posts} />
+    </div>
+  );
+}
+
+export function SliderCarousel({ posts }: { posts: PostFragment[] }) {
+  const threshold = 80;
+
+  const sliderRef = useRef<Slider>(null);
+  const [deltaX, setDeltaX] = useState(0);
+  const next = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickNext();
+    }
+  };
+  const previous = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickPrev();
+    }
+  };
+
+  useEffect(() => {
+    const handleWheel = (event: WheelEvent) => {
+      setDeltaX((prevDeltaX) => prevDeltaX + event.deltaX);
+
+      if (Math.abs(deltaX) >= threshold) {
+        if (deltaX > 0) {
+          next();
+        } else {
+          previous();
+        }
+        setDeltaX(0); // Reset deltaX
+      }
+    };
+    const sliderElement = sliderRef.current?.innerSlider?.list;
+
+    if (sliderElement) {
+      sliderElement.addEventListener('wheel', handleWheel);
+    }
+
+    return () => {
+      if (sliderElement) {
+        sliderElement.removeEventListener('wheel', handleWheel);
+      }
+    };
+  }, [deltaX]);
+
+  const settings: Settings = {
+    arrows: false,
+    infinite: true,
+    speed: 750,
+    className: 'center',
+    centerMode: true,
+    centerPadding: '200px',
+    slidesToShow: 1,
+    dots: true,
   };
 
   return (
-    <div className="pb-[30px] relative">
-      <Carousel
-        additionalTransfrom={0}
-        arrows
-        autoPlaySpeed={1000}
-        centerMode
-        className=""
-        containerClass="container"
-        dotListClass=""
-        draggable={false}
-        swipeable
-        focusOnSelect={false}
-        infinite
-        itemClass=""
-        keyBoardControl
-        minimumTouchDrag={80}
-        pauseOnHover
-        renderArrowsWhenDisabled={false}
-        renderButtonGroupOutside
-        renderDotsOutside
-        responsive={responsive}
-        rewind={false}
-        rewindWithAnimation={false}
-        rtl={false}
-        shouldResetAutoplay
-        showDots
-        sliderClass=""
-        slidesToSlide={1}
-      >
+    <div className="slider-container relative">
+      <Slider ref={sliderRef} {...settings}>
         {posts?.map((post, index) => {
           return (
-            <div className="px-5">
+            <div className="px-8">
               <BigCard
                 post={post}
                 key={index}
@@ -83,7 +98,49 @@ export default function Wheel({ posts }: WheelProps) {
             </div>
           );
         })}
-      </Carousel>
+      </Slider>
+        <Arrow action={previous} />
+        <Arrow action={next} />
     </div>
+  );
+}
+
+export interface ArrowProps {
+  action: () => void;
+}
+
+export function Arrow({ action }: ArrowProps) {
+  const {
+    NavButton,
+    PrevIcon,
+    NextIcon,
+    navButtonsWrapperProps,
+    navButtonsProps,
+  } = sanitizeProps({});
+  return (
+    <StyledButtonWrapper
+      $next={action.name === 'next'}
+      $prev={action.name === 'previous'}
+      $fullHeightHover={true}
+      {...navButtonsWrapperProps}
+    >
+      {NavButton !== undefined ? (
+        NavButton({
+          onClick: action,
+          next: action.name === 'next',
+          prev: action.name === 'previous',
+          ...navButtonsProps,
+        })
+      ) : (
+        <StyledIconButton
+          $alwaysVisible={false}
+          $fullHeightHover={true}
+          onClick={action}
+          aria-label={action.name}
+        >
+          {action.name === 'next' ? NextIcon : PrevIcon}
+        </StyledIconButton>
+      )}
+    </StyledButtonWrapper>
   );
 }
