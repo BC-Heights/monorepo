@@ -6,6 +6,12 @@ import Slider, { Settings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+import {
+  StyledButtonWrapper,
+  StyledIconButton,
+} from 'react-material-ui-carousel/dist/components/Styled';
+import { sanitizeProps } from 'react-material-ui-carousel/dist/components/util';
+
 import { PostFragment } from '@the-heights/graphql';
 import BigCard from './big-card';
 
@@ -75,7 +81,7 @@ export function SliderCarousel({ posts }: { posts: PostFragment[] }) {
   };
 
   return (
-    <div className="slider-container">
+    <div className="slider-container relative">
       <Slider ref={sliderRef} {...settings}>
         {posts?.map((post, index) => {
           return (
@@ -93,30 +99,48 @@ export function SliderCarousel({ posts }: { posts: PostFragment[] }) {
           );
         })}
       </Slider>
-      <div className="flex justify-between w-[calc(90%-64px)] absolute top-[50%] text-white px-6">
         <Arrow action={previous} />
         <Arrow action={next} />
-      </div>
     </div>
   );
 }
 
-export function Arrow({ action }: { action: () => void }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="fill-slate-500 size-6 cursor-pointer opacity-35 hover:opacity-80 focus:opacity-80"
-      viewBox="0 0 24 24"
-      onClick={() => {
-        action();
-      }}
-      transform={`${action.name === 'previous' ? 'rotate(180)' : ''} scale(${
-        5 / 3
-      })`}
-    >
-      <circle cx="12" cy="12" r="12" fill="#cbdfe1" />
+export interface ArrowProps {
+  action: () => void;
+}
 
-      <path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm2 12l-4.5 4.5 1.527 1.5 5.973-6-5.973-6-1.527 1.5 4.5 4.5z" />
-    </svg>
+export function Arrow({ action }: ArrowProps) {
+  const {
+    NavButton,
+    PrevIcon,
+    NextIcon,
+    navButtonsWrapperProps,
+    navButtonsProps,
+  } = sanitizeProps({});
+  return (
+    <StyledButtonWrapper
+      $next={action.name === 'next'}
+      $prev={action.name === 'previous'}
+      $fullHeightHover={true}
+      {...navButtonsWrapperProps}
+    >
+      {NavButton !== undefined ? (
+        NavButton({
+          onClick: action,
+          next: action.name === 'next',
+          prev: action.name === 'previous',
+          ...navButtonsProps,
+        })
+      ) : (
+        <StyledIconButton
+          $alwaysVisible={false}
+          $fullHeightHover={true}
+          onClick={action}
+          aria-label={action.name}
+        >
+          {action.name === 'next' ? NextIcon : PrevIcon}
+        </StyledIconButton>
+      )}
+    </StyledButtonWrapper>
   );
 }
