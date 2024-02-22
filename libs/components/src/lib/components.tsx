@@ -1,4 +1,6 @@
 import styles from './components.module.css';
+export{ NextArrow, PrevArrow} from './carousel-arrow';
+
 export { MainLoading, TopicLoading } from './loading'; 
 export { default as Footer } from './footer';
 export { default as Header } from './header';
