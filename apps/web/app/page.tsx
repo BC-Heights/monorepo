@@ -7,6 +7,7 @@ import {
   MainCard,
   TopicCard,
   TopicComponentProps,
+  ArtsCard,
 } from '@the-heights/components';
 import './global.css';
 
@@ -88,9 +89,10 @@ export default function Index() {
             <div className="w-[calc(100%-64px)] border-t my-4 mx-8" />
             <Spotify />
             <div className="w-[calc(100%-64px)] border-t my-4 mx-8" />
+
             <div className="w-full px-8">
-              <TopicCard
-                category="Opinions"
+              <ArtsCard
+                category="Arts"
                 topicComponents={[
                   {
                     type: 'big',
