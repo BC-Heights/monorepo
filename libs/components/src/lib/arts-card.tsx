@@ -33,7 +33,7 @@ export default async function ArtsCard(props: ArtsCardProps) {
                 <Link href={`/${formatHrefDate(post.date!)}/${post.slug!}`}>
                   <div className="group relative">
                     <img className="object-cover group-hover:grayscale" src={post.featuredImage?.node.sourceUrl || '/default-image.jpg'} alt={post.featuredImage?.node.caption || 'No Alt'} />
-                      <div className="absolute inset-0 flex items-center justify-left opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-red-800 bg-opacity-0 group-hover:bg-opacity-30 h-1/2">
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-red-800 bg-opacity-0 group-hover:bg-opacity-30 h-1/3">
                         <p className="text-white text-lg font-bold">{post.title}</p>
                       </div>
                   </div>
@@ -44,7 +44,7 @@ export default async function ArtsCard(props: ArtsCardProps) {
                 <Link href={`/${formatHrefDate(post.date!)}/${post.slug!}`}>
                   <div className="group relative">
                     <img className="object-cover group-hover:grayscale" src={post.featuredImage?.node.sourceUrl || '/default-image.jpg'} alt={post.featuredImage?.node.caption || 'No Alt'} />
-                      <div className="absolute inset-0 flex items-center justify-left opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-red-800 bg-opacity-0 group-hover:bg-opacity-30 h-1/2">
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-red-800 bg-opacity-0 group-hover:bg-opacity-30 h-1/3">
                         <p className="text-white text-lg font-bold">{post.title}</p>
                       </div>
                   </div>
@@ -55,7 +55,7 @@ export default async function ArtsCard(props: ArtsCardProps) {
                 <Link href={`/${formatHrefDate(post.date!)}/${post.slug!}`}>
                   <div className="group relative">
                     <img className="object-cover group-hover:grayscale" src={post.featuredImage?.node.sourceUrl || '/default-image.jpg'} alt={post.featuredImage?.node.caption || 'No Alt'} />
-                      <div className="absolute inset-0 flex items-center justify-left opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-red-800 bg-opacity-0 group-hover:bg-opacity-30 h-1/2">
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-red-800 bg-opacity-0 group-hover:bg-opacity-30 h-1/3">
                         <p className="text-white text-lg font-bold">{post.title}</p>
                       </div>
                   </div>
