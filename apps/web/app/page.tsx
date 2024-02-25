@@ -89,19 +89,8 @@ export default function Index() {
             <div className="w-[calc(100%-64px)] border-t my-4 mx-8" />
             <Spotify />
             <div className="w-[calc(100%-64px)] border-t my-4 mx-8" />
-
             <div className="w-full px-8">
-              <ArtsCard
-                category="Arts"
-                topicComponents={[
-                  {
-                    type: 'big',
-                    imgSize: 'large',
-                    showCategory: false,
-                    showExcerpt: true,
-                  },
-                ]}
-              />
+              <ArtsCard category="Arts" />
             </div>
           </div>
         </div>
