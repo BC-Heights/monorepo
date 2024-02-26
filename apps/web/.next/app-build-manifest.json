@@ -39,6 +39,46 @@
       "static/chunks/main-app.js",
       "static/css/app/sports/page.css",
       "static/chunks/app/sports/page.js"
+    ],
+    "/arts/features/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/arts/features/page.css",
+      "static/chunks/app/arts/features/page.js"
+    ],
+    "/arts/music/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/arts/music/page.css",
+      "static/chunks/app/arts/music/page.js"
+    ],
+    "/magazine/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/magazine/page.css",
+      "static/chunks/app/magazine/page.js"
+    ],
+    "/arts/off-campus/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/arts/off-campus/page.css",
+      "static/chunks/app/arts/off-campus/page.js"
+    ],
+    "/arts/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/arts/page.css",
+      "static/chunks/app/arts/page.js"
+    ],
+    "/author/[slug]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/author/[slug]/page.js"
+    ],
+    "/author/[slug]/loading": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/author/[slug]/loading.js"
     ]
   }
 }

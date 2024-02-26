@@ -1,5 +1,9 @@
 {
-  "/opinions/page": "app/opinions/page.js",
-  "/page": "app/page.js",
-  "/sports/page": "app/sports/page.js"
+  "/[...slug]/page": "app/[...slug]/page.js",
+  "/arts/music/page": "app/arts/music/page.js",
+  "/magazine/page": "app/magazine/page.js",
+  "/arts/off-campus/page": "app/arts/off-campus/page.js",
+  "/arts/page": "app/arts/page.js",
+  "/author/[slug]/page": "app/author/[slug]/page.js",
+  "/page": "app/page.js"
 }

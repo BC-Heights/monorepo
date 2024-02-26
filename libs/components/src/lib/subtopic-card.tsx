@@ -1,25 +1,6 @@
 import { GetPostsByCat } from '@the-heights/graphql';
 import BigCard from './big-card';
 import { notFound } from 'next/navigation';
-import { Metadata, ResolvingMetadata } from 'next';
-import { headers } from 'next/headers'
-
-type Props = {
-  params: { id: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
-
-export async function generateMetadata(
-  { params, searchParams }: Props,
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
-  const domain = headers().get('x-forwarded-host');
-  return {
-    title: domain,
-    description: domain,
-    verification: { google: process.env.GOOGLE_SEARCH_CONSOLE },
-  };
-}
 
 /* eslint-disable-next-line */
 export interface SubTopicCardProps {
