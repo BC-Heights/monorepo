@@ -10,7 +10,7 @@ export interface SubTopicCardProps {
 export default async function SubTopicCard(props: SubTopicCardProps) {
   const { posts } = await GetPostsByCat(
     { first: 10, categoryName: props.slug },
-    [props.slug]
+    [props.slug],
   );
 
   if (posts?.nodes.length === 0) {
@@ -19,7 +19,7 @@ export default async function SubTopicCard(props: SubTopicCardProps) {
   }
 
   return (
-    <div className="w-[800px] my-8 mx-auto">
+    <div className="mx-auto my-8 w-[800px]">
       {props.slug}
       {posts?.nodes.map((post, index) => {
         return (

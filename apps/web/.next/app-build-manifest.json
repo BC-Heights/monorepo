@@ -6,26 +6,39 @@
       "static/css/app/page.css",
       "static/chunks/app/page.js"
     ],
-    "/not-found": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/not-found.js"
-    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/author/[slug]/page": [
+    "/not-found": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/author/[slug]/page.js"
+      "static/chunks/app/not-found.js"
     ],
-    "/author/[slug]/loading": [
+    "/sports/fall/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/author/[slug]/loading.js"
+      "static/css/app/sports/fall/page.css",
+      "static/chunks/app/sports/fall/page.js"
+    ],
+    "/sports/athletics-news/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/sports/athletics-news/page.css",
+      "static/chunks/app/sports/athletics-news/page.js"
+    ],
+    "/[...slug]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[...slug]/page.css",
+      "static/chunks/app/[...slug]/page.js"
+    ],
+    "/[...slug]/loading": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[...slug]/loading.js"
     ]
   }
 }

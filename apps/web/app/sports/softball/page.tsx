@@ -1,14 +1,14 @@
 import { SubTopicCard } from '@the-heights/components';
 
 export const metadata = {
-  title: 'News \u2014 The Heights',
-  description: "The Heights' coverage of news.",
+  title: 'Softball \u2014 The Heights',
+  description: "The Heights' Coverage of BC Softball.",
 };
 
 export default function Page() {
   return (
     <div>
-      <SubTopicCard slug="news" />
+      <SubTopicCard slug="softball" />
     </div>
   );
 }
