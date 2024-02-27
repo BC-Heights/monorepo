@@ -8,7 +8,7 @@ export default async function Page() {
 
   return (
     <div className="flex justify-center">
-      <div className="flex flex-col w-[90%] px-8">
+      <div className="flex w-[90%] flex-col px-8">
         <Wheel posts={posts?.nodes as PostFragment[]} />
       </div>
     </div>
