@@ -1,14 +1,14 @@
 import { SubTopicCard } from '@the-heights/components';
 
 export const metadata = {
-  title: 'Column \u2014 The Heights',
-  description: "The Heights' Column.",
+  title: 'On Campus News',
+  description: 'The Heights Coverage of On Campus News',
 };
 
 export default function Page() {
   return (
     <div>
-      <SubTopicCard slug="column" />
+      <SubTopicCard slug="on-campus-news" />
     </div>
   );
 }

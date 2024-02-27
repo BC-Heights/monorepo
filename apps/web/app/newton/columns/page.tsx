@@ -1,14 +1,14 @@
 import { SubTopicCard } from '@the-heights/components';
 
 export const metadata = {
-  title: 'Column \u2014 The Heights',
-  description: "The Heights' Column.",
+  title: 'Newton Column \u2014 The Heights',
+  description: "The Heights' Newton Column.",
 };
 
 export default function Page() {
   return (
     <div>
-      <SubTopicCard slug="column" />
+      <SubTopicCard slug="column-metro" />
     </div>
   );
 }
