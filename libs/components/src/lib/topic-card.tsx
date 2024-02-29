@@ -5,6 +5,7 @@ import Link from 'next/link';
 export interface TopicCardProps {
   category: string;
   topicComponents: TopicComponentProps[];
+  className?: string;
 }
 
 export default async function TopicCard(props: TopicCardProps) {
@@ -21,7 +22,7 @@ export default async function TopicCard(props: TopicCardProps) {
         : props.category;
 
   return (
-    <div className="h-auto">
+    <div className={`h-auto ${props.className}`}>
       <Link
         href={`/${category.toLowerCase()}`}
         className="flex w-fit flex-row items-start gap-4"

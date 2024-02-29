@@ -13,17 +13,12 @@ import BigCard from './big-card';
 
 export interface WheelProps {
   posts: PostFragment[];
+  dynamicHeight?: boolean;
 }
 
-export default function Wheel({ posts }: WheelProps) {
-  return (
-    <div>
-      <SliderCarousel posts={posts} />
-    </div>
-  );
-}
 
-export function SliderCarousel({ posts }: { posts: PostFragment[] }) {
+
+export default function Wheel({ posts, dynamicHeight }: WheelProps) {
   const threshold = 80;
 
   const sliderRef = useRef<Slider>(null);
@@ -73,7 +68,9 @@ export function SliderCarousel({ posts }: { posts: PostFragment[] }) {
     centerMode: true,
     centerPadding: '200px',
     slidesToShow: 1,
+    adaptiveHeight: dynamicHeight,
     dots: true,
+    cssEase: 'ease-in-out',
     responsive: [
       {
         breakpoint: 1024,
@@ -108,7 +105,7 @@ export function SliderCarousel({ posts }: { posts: PostFragment[] }) {
                 imgSize="large"
                 imgW={800}
                 imgH={440}
-                showCategory={true}
+                showCategory={false}
                 showExcerpt={true}
               />
             </div>
