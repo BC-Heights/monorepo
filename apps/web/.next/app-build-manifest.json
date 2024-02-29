@@ -17,18 +17,6 @@
       "static/chunks/main-app.js",
       "static/chunks/app/not-found.js"
     ],
-    "/sports/fall/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/sports/fall/page.css",
-      "static/chunks/app/sports/fall/page.js"
-    ],
-    "/sports/athletics-news/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/sports/athletics-news/page.css",
-      "static/chunks/app/sports/athletics-news/page.js"
-    ],
     "/[...slug]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
