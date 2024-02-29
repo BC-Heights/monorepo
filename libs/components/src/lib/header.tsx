@@ -7,23 +7,21 @@ interface DropdownOption {
 
 interface HeaderOption {
   name: string;
-  link?: string;
   dropdownOptions: DropdownOption[];
+  link?: string;
 }
 
 class HeaderOptions implements HeaderOption {
   name: string;
-  link?: string;
   dropdownOptions: DropdownOption[];
+  link?: string;
 
   constructor(name: string, dropdownOptions: DropdownOption[], link?: string) {
     this.name = name;
     this.link = link || name.toLowerCase().replace(/ /g, '-');
     this.dropdownOptions = dropdownOptions.map((option) => ({
       ...option,
-      link:
-        option.link ||
-        `${this.name}/${option.name.toLowerCase().replace(/ /g, '-')}`,
+      link: `${this.link}/${option.link || option.name.toLowerCase().replace(/ /g, '-')}`,
     }));
   }
 }
@@ -57,7 +55,7 @@ export function Header() {
     new HeaderOptions('Arts', [
       { name: 'On Campus' },
       { name: 'Off Campus' },
-      { name: 'Arts Features' },
+      { name: 'Arts Features', link: 'features' },
       { name: 'Movies' },
       { name: 'Music' },
       { name: 'Television' },
@@ -80,7 +78,7 @@ export function Header() {
       { name: 'City Columns', link: 'column' },
       { name: 'Business' },
       { name: 'Politics' },
-      { name: 'Newton Override Election' },
+      { name: 'Newton Override Election', link: 'override-election'},
     ]),
     new HeaderOptions('Magazine', [
       { name: 'Homemade on the Heights', link: 'homemade' },
@@ -105,8 +103,9 @@ export function Header() {
         />
       </Link>
       <div
-        className="flex h-[2.5em] w-[calc(90%-64px)] items-center justify-between gap-8 
-                            border-b border-t-2 border-black px-8"
+        className="flex h-[2.5em] w-[calc(90%-64px)] 
+                   items-center justify-between gap-8 
+                   border-b border-t-2 border-black px-8"
       >
         {navItems.map((item, index) => (
           <>
@@ -115,9 +114,10 @@ export function Header() {
                 <Link href={`/${item.link}`}>{item.name}</Link>
                 {item.dropdownOptions.length > 0 && (
                   <div
-                    className="absolute z-50 hidden w-max grid-cols-[fit-content(200px)_fit-content(200px)] 
-                                                gap-x-5 rounded
-                                                border border-gray-300 bg-white p-2 font-normal shadow-md group-hover:grid"
+                    className="absolute z-50 hidden w-max 
+                               grid-cols-[fit-content(200px)_fit-content(200px)] 
+                               gap-x-5 rounded border border-gray-300 bg-white 
+                               p-2 font-normal shadow-md group-hover:grid"
                   >
                     {item.dropdownOptions.map((option, index) => (
                       <Link key={index} href={option.link as string}>
