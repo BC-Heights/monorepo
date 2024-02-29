@@ -78,7 +78,7 @@ export function Header() {
       { name: 'City Columns', link: 'column' },
       { name: 'Business' },
       { name: 'Politics' },
-      { name: 'Newton Override Election', link: 'override-election'},
+      { name: 'Newton Override Election', link: 'override-election' },
     ]),
     new HeaderOptions('Magazine', [
       { name: 'Homemade on the Heights', link: 'homemade' },
