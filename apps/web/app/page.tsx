@@ -14,81 +14,78 @@ import './global.css';
 export default function Index() {
   return (
     <div className="flex justify-center">
-      <div className="w-full flex flex-col">
+      <div className="flex w-full flex-col">
         <Suspense fallback={<MainLoading />}>
           <MainCard />
         </Suspense>
-        <div className="w-[calc(90%-64px)] border-t my-4 px-8 self-center" />
-        <div className="flex items-start self-center flex-wrap flex-row mt-4 mb-0 w-[90%]">
-          <div className="w-1/4 px-8 sticky top-0">
-            <TopicCard
-              category="Features"
-              topicComponents={Array<TopicComponentProps>(2).fill({
-                type: 'big',
-                imgSize: 'large',
-                showExcerpt: false,
-                showCategory: false,
-              })}
-            ></TopicCard>
-          </div>
+        <div className="my-4 w-[calc(90%-64px)] self-center border-t px-8" />
+        <div className="mb-0 mt-4 flex w-[90%] flex-row flex-wrap items-start self-center">
+          <TopicCard
+            className="sticky top-0 w-1/4 px-8"
+            category={{ name: 'Magazine', slug: 'features', url: 'magazine' }}
+            topicComponents={Array<TopicComponentProps>(2).fill({
+              type: 'big',
+              imgSize: 'large',
+              showExcerpt: false,
+              showCategory: false,
+            })}
+          ></TopicCard>
           <VerticalLine />
           <div className="w-[74%]">
-            <div className=" flex flex-row">
-              <div className="w-[50%] px-8">
-                <TopicCard
-                  category="News"
-                  topicComponents={[
-                    {
-                      type: 'big',
-                      imgSize: 'large',
-                      showCategory: false,
-                      showExcerpt: true,
-                    },
-                    {
-                      type: 'styled',
-                      imgSize: 'large',
-                      showCategory: false,
-                      showExcerpt: false,
-                    },
-                    {
-                      type: 'styled',
-                      imgSize: 'large',
-                      showCategory: false,
-                      showExcerpt: false,
-                    },
-                  ]}
-                />
-              </div>
+            <div className="flex flex-row">
+              <TopicCard
+                className="w-[50%] px-8"
+                category={{ name: 'News', slug: 'news', url: 'news' }}
+                topicComponents={[
+                  {
+                    type: 'big',
+                    imgSize: 'large',
+                    showCategory: false,
+                    showExcerpt: true,
+                  },
+                  {
+                    type: 'styled',
+                    imgSize: 'large',
+                    showCategory: false,
+                    showExcerpt: false,
+                  },
+                  {
+                    type: 'styled',
+                    imgSize: 'large',
+                    showCategory: false,
+                    showExcerpt: false,
+                  },
+                ]}
+              />
               <VerticalLine />
-              <div className="w-[50%] px-8">
-                <TopicCard
-                  category="Sports"
-                  topicComponents={[
-                    {
-                      type: 'big',
-                      imgSize: 'large',
-                      showCategory: false,
-                      showExcerpt: true,
-                    },
-                    {
-                      type: 'styled',
-                      imgSize: 'large',
-                      showCategory: false,
-                      showExcerpt: false,
-                    },
-                    {
-                      type: 'styled',
-                      imgSize: 'large',
-                      showCategory: false,
-                      showExcerpt: false,
-                    },
-                  ]}
-                />
-              </div>
+              <TopicCard
+                className="w-[50%] px-8"
+                category={{name: 'Sports', slug: 'sports', url: 'sports' }}
+                topicComponents={[
+                  {
+                    type: 'big',
+                    imgSize: 'large',
+                    showCategory: false,
+                    showExcerpt: true,
+                  },
+                  {
+                    type: 'styled',
+                    imgSize: 'large',
+                    showCategory: false,
+                    showExcerpt: false,
+                  },
+                  {
+                    type: 'styled',
+                    imgSize: 'large',
+                    showCategory: false,
+                    showExcerpt: false,
+                  },
+                ]}
+              />
             </div>
-            <div className="w-[calc(100%-64px)] border-t my-4 mx-8" />
+            <div className="mx-8 my-4 w-[calc(100%-64px)] border-t" />
             <Spotify />
-            <div className="w-[calc(100%-64px)] border-t my-4 mx-8" />
+            <div className="mx-8 my-4 w-[calc(100%-64px)] border-t" />
             <div className="w-full px-8">
               <ArtsCard category="Arts" />
             </div>
