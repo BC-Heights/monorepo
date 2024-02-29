@@ -22,7 +22,7 @@ export default function Index() {
         <div className="mb-0 mt-4 flex w-[90%] flex-row flex-wrap items-start self-center">
           <TopicCard
             className="sticky top-0 w-1/4 px-8"
-            category="Features"
+            category={{ name: 'Magazine', slug: 'features', url: 'magazine' }}
             topicComponents={Array<TopicComponentProps>(2).fill({
               type: 'big',
               imgSize: 'large',
@@ -35,7 +35,7 @@ export default function Index() {
             <div className="flex flex-row">
               <TopicCard
                 className="w-[50%] px-8"
-                category="News"
+                category={{ name: 'News', slug: 'news', url: 'news' }}
                 topicComponents={[
                   {
                     type: 'big',
@@ -60,7 +60,7 @@ export default function Index() {
               <VerticalLine />
               <TopicCard
                 className="w-[50%] px-8"
-                category="Sports"
+                category={{name: 'Sports', slug: 'sports', url: 'sports' }}
                 topicComponents={[
                   {
                     type: 'big',

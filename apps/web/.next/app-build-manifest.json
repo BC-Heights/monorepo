@@ -33,6 +33,18 @@
       "static/chunks/main-app.js",
       "static/css/app/page.css",
       "static/chunks/app/page.js"
+    ],
+    "/arts/on-campus/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/arts/on-campus/page.css",
+      "static/chunks/app/arts/on-campus/page.js"
+    ],
+    "/arts/column/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/arts/column/page.css",
+      "static/chunks/app/arts/column/page.js"
     ]
   }
 }
