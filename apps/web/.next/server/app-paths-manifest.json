@@ -1,3 +1,6 @@
 {
+  "/sports/athletics-news/page": "app/sports/athletics-news/page.js",
+  "/sports/fall/page": "app/sports/fall/page.js",
+  "/[...slug]/page": "app/[...slug]/page.js",
   "/page": "app/page.js"
 }

@@ -1,4 +1,6 @@
 import styles from './components.module.css';
+export{ NextArrow, PrevArrow} from './carousel-arrow';
+
 export { MainLoading, TopicLoading } from './loading'; 
 export { default as Footer } from './footer';
 export { default as Header } from './header';
@@ -9,6 +11,8 @@ export { AuthorName, Category } from './tags';
 export { default as TopicComponent } from './topic-component';
 export type { TopicComponentProps } from './topic-component';
 export { default as EEdition } from './e-edition';
+export { default as Wheel } from './wheel';
+export { default as Arrow } from './carousel-arrow';
 
 /* eslint-disable-next-line */
 export interface ComponentsProps {}

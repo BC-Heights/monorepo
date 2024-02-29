@@ -17,38 +17,41 @@ export function multiMediaRegex(
       }[]
     | undefined
 ): string {
-  //fancy regex magic to remove all the vc stuff
   const regex =
     /\[vc_row\]|\[vc_column\]|\[vc_column_text\]|\[\/vc_column_text\]|\[\/vc_column\]|\[\/vc_row\]/g;
   html = html.replace(regex, '');
   const imageIdRegex =
-    /\[vc_single_image image=&#8221;(\d+)&#8243; img_size=&#8221;full&#8221;\]/;
+    /\[vc_single_image image=&#8221;(\d+)&#8243; img_size=&#8221;full&#8221;\]/g;
   let match = html.match(imageIdRegex);
 
-  if (match !== null) {
-    const imageItemId = Number(match[1]);
-    const imageItem = images?.find((item) => item.databaseId === imageItemId);
-    const imageUrl = imageItem?.sourceUrl;
+  console.log(match, 'match')
 
-    if (imageUrl) {
-      html = html.replace(
-        match[0],
-        `<img src="${imageUrl}" alt="No Image Found" width="100%" height="auto" />`
+  if (match !== undefined && match !== null) {
+    console.log(match.length)
+    for (let i = 0; i < match.length; i++) {
+      const imageItemId = Number(
+        match[i].match(/image=&#8221;(\d+)&#8243;/)?.[1]
       );
-    } else {
-      html = html.replace(
-        match[0],
-        `<img src="urmom.png" alt="No Image Found" width="100%" height="auto" />`
-      );
+      const imageItem = images?.find((item) => item.databaseId === imageItemId);
+      const imageUrl = imageItem?.sourceUrl;
+
+      if (imageUrl) {
+        html = html.replace(
+          match[i],
+          `<img src="${imageUrl}" alt="No Image Found" width="100%" height="auto" />`
+        );
+      } else {
+        html = html.replace(
+          match[i],
+          `<img src="urmom.png" alt="No Image Found" width="100%" height="auto" />`
+        );
+      }
     }
-
     match = html.match(imageIdRegex);
   }
 
   return html;
 }
-
-// add gallery styler
 
 export const postOptions: HTMLReactParserOptions = {
   replace: (domNode) => {

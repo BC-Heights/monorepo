@@ -5,6 +5,7 @@ export { default as BigCard } from './big-card';
 export { default as SmallCard } from './small-card';
 export { default as SubTopicCard } from './subtopic-card';
 export { default as TopicCard } from './topic-card';
+export { default as ArtsCard } from './arts-card';
 
 /* eslint-disable-next-line */
 export interface CardsProps {

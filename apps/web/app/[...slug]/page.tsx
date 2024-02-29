@@ -9,6 +9,7 @@ import { GetPostBySlug } from '@the-heights/graphql';
 import { AuthorName } from '@the-heights/components';
 import ImageCarousel from './imageCarousel';
 
+
 export interface PageProps {}
 
 export const generateMetadata = async ({
@@ -44,7 +45,6 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
 
   if (post?.content) {
     post.content = multiMediaRegex(post.content, post.attachedMedia?.nodes);
-
     postHTML = parse(post.content, postOptions) || <div>No Post Found</div>;
 
     return (
@@ -55,19 +55,19 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
               {post.categories?.nodes
                 ?.map((cat) => cat.name?.toLowerCase())
                 .includes('gallery') ? (
-                <div>
-                  <ImageCarousel images={post.attachedMedia?.nodes} />
-                </div>
+                <ImageCarousel images={post.attachedMedia?.nodes} />
               ) : (
-                <Image
-                  src={
-                    post.featuredImage?.node?.sourceUrl ||
-                    '/images/placeholder.png'
-                  }
-                  alt={post.featuredImage?.node?.caption || 'No Image Found'}
-                  fill={true}
-                  priority={true}
-                />
+                <div className="h-[440px]">
+                  <Image
+                    src={
+                      post.featuredImage?.node?.sourceUrl ||
+                      '/images/placeholder.png'
+                    }
+                    alt={post.featuredImage?.node?.caption || 'No Image Found'}
+                    fill={true}
+                    priority={true}
+                  />
+                </div>
               )}
             </div>
             <h1 className="text-4xl text-center mx-0 my-4">{post.title}</h1>

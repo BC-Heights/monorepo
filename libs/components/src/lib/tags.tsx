@@ -46,9 +46,11 @@ export function Category(props: { post: PostFragment; showCategory: boolean }) {
   const category = filterCategories(
     post.categories?.nodes?.map((cat) => cat?.name)
   );
+
+  const catName: string = category[0] ? category[0].toLowerCase() : '';
   return (
     <Link
-      href={`/${category[0].toLowerCase()}`}
+      href={`/${catName}`}
       className={`text-[#98002E] font-bold hover:underline ${
         showCategory ? '' : 'hidden'
       }`}
