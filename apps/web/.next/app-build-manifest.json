@@ -1,5 +1,11 @@
 {
   "pages": {
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
+    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -11,11 +17,11 @@
       "static/chunks/main-app.js",
       "static/chunks/app/not-found.js"
     ],
-    "/arts/page": [
+    "/magazine/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/arts/page.css",
-      "static/chunks/app/arts/page.js"
+      "static/css/app/magazine/page.css",
+      "static/chunks/app/magazine/page.js"
     ],
     "/[...slug]/page": [
       "static/chunks/webpack.js",
@@ -28,23 +34,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/[...slug]/loading.js"
     ],
-    "/page": [
+    "/author/[slug]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/page.css",
-      "static/chunks/app/page.js"
+      "static/chunks/app/author/[slug]/page.js"
     ],
-    "/arts/on-campus/page": [
+    "/author/[slug]/loading": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/arts/on-campus/page.css",
-      "static/chunks/app/arts/on-campus/page.js"
-    ],
-    "/arts/column/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/arts/column/page.css",
-      "static/chunks/app/arts/column/page.js"
+      "static/chunks/app/author/[slug]/loading.js"
     ]
   }
 }
