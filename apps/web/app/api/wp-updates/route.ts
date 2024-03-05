@@ -38,5 +38,5 @@ export async function POST(req: AxiomRequest) {
     }
   }
 
-  return NextResponse;
+  return NextResponse.json({ status: 'ok' });
 }
