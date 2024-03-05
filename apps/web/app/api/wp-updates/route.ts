@@ -1,8 +1,10 @@
 import { NextResponse } from 'next/server';
 import { revalidatePath, revalidateTag } from 'next/cache';
-import { withAxiom, AxiomRequest } from 'next-axiom';
+import { AxiomRequest, withAxiom } from 'next-axiom';
 
-export const POST = withAxiom(async (req: AxiomRequest) => {
+export const runtime = 'edge'
+
+export const POST = withAxiom( async (req: AxiomRequest) => {
   const data = await req.json();
   if (!data) {
     return NextResponse.error();
@@ -40,3 +42,5 @@ export const POST = withAxiom(async (req: AxiomRequest) => {
 
   return NextResponse;
 });
+
+
