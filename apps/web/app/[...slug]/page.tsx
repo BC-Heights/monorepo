@@ -41,7 +41,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   const { postBy: post } = await GetPostBySlug({
     slug: params.slug[params.slug.length - 1],
   });
-  let postHTML;
+  let postHTML: string | JSX.Element | JSX.Element[];
 
   if (post?.content) {
     post.content = multiMediaRegex(post.content, post.attachedMedia?.nodes);
