@@ -1,22 +1,20 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { revalidatePath, revalidateTag } from 'next/cache';
-import { AxiomRequest } from 'next-axiom';
 
-export async function POST(req: AxiomRequest) {
+export async function POST(req: NextRequest) {
   const data = await req.json();
   if (!data) {
     return NextResponse.error();
   }
 
-  const log = req.log.with({ scope: 'wp-webhooks' });
-  log.debug('Received data:', data);
+  console.log('Received data:', data);
 
   if (data.taxonomies.category) {
     const cats = Object.keys(data.taxonomies.category).map(
       (key) => data.taxonomies.category[key].name,
     );
     cats.forEach((cat) => revalidateTag(cat));
-    log.debug('Revalidated categories:', cats);
+    console.log('Revalidated categories:', cats);
   }
 
   if (data.post_permalink) {
@@ -28,7 +26,7 @@ export async function POST(req: AxiomRequest) {
           'monorepo-chi-seven.vercel.app',
         ),
       );
-      log.debug('Revalidated post:', {
+      console.log('Revalidated post:', {
         url: post_permalink.replace(
           'www.bcheights.com',
           'monorepo-chi-seven.vercel.app',

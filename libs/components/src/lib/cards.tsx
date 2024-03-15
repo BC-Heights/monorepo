@@ -8,13 +8,30 @@ export { default as TopicCard } from './topic-card';
 export { default as ArtsCard } from './arts-card';
 
 /* eslint-disable-next-line */
-export interface CardsProps {
+export interface CardsProps extends Partial<DefaultOptions> {
   post: PostFragment;
   imgSize: string;
   imgW: number;
   imgH: number;
-  priority?: boolean;
 }
+
+export interface DefaultOptions {
+  priority: boolean;
+  showExcerpt: boolean;
+  showCategory: boolean;
+  options: StyledCardOptions | BigCardOptions | SmallCardOptions;
+}
+
+export interface BigCardOptions {
+}
+
+export interface SmallCardOptions {
+}
+
+export type StyledCardOptions = {
+  reverse: boolean;
+  textWrap: boolean;
+} ;
 
 export function Cards(props: CardsProps) {
   return (

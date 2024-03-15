@@ -41,7 +41,7 @@ export function AuthorName(post: PostFragment) {
   );
 }
 
-export function Category(props: { post: PostFragment; showCategory: boolean }) {
+export function Category(props: { post: PostFragment; showCategory: boolean | undefined }) {
   const { post, showCategory } = props;
   const category = filterCategories(
     post.categories?.nodes?.map((cat) => cat?.name)

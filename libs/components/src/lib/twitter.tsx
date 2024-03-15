@@ -1,16 +1,22 @@
 "use client"
 
-import React from 'react';
 import { TwitterTimelineEmbed } from 'react-twitter-embed' 
 
+export interface TwitterProps {
+  className?: string;
+  height?: string;
+}
 
-export const Twitter: React.FC = () => {
+
+export function Twitter({ className,height }: TwitterProps) {
+  const defaultHeight = '600px';
   return (
-    <div>
+    <div className={className}>
       <TwitterTimelineEmbed
         sourceType="profile"
         screenName="bcheights"
-        options={{height: '600px'}}
+        options={{height: height? height: defaultHeight}}
+        placeholder={<p>Loading...</p>}
         />
     </div>
   );

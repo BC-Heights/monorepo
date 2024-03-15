@@ -1,25 +1,18 @@
 import { PostFragment } from '@the-heights/graphql';
-import { BigCard, SmallCard, StyledCard } from './cards';
+import { BigCard, SmallCard, StyledCard, DefaultOptions } from './cards';
 
-export interface TopicComponentProps {
+export interface TopicComponentProps extends Partial<DefaultOptions> {
   type: 'big' | 'small' | 'styled';
   imgSize: 'large' | 'medium' | 'small';
-  priority?: boolean;
-  showExcerpt: boolean;
-  showCategory: boolean;
 }
 
-export default function TopicComponent(props: TopicComponentProps & { post: PostFragment }) {
-  const { type, ...otherProps } = props;
+export default function TopicComponent(
+  props: TopicComponentProps & { post: PostFragment },
+) {
+  const { type, options, ...otherProps } = props;
   switch (type) {
     case 'big':
-      return (
-        <BigCard
-          imgW={638}
-          imgH={349.89}
-          {...otherProps}
-        />
-      );
+      return <BigCard imgW={638} imgH={349.89} {...otherProps} />;
     case 'small':
       return (
         <SmallCard
@@ -30,11 +23,7 @@ export default function TopicComponent(props: TopicComponentProps & { post: Post
       );
     case 'styled':
       return (
-        <StyledCard
-          imgW={638}
-          imgH={349.89}
-          {...otherProps}
-        />
+        <StyledCard imgW={638} imgH={349.89} {...options} {...otherProps} />
       );
     default:
       return null;

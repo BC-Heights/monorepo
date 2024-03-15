@@ -5,10 +5,7 @@ import { CardsProps } from './cards';
 import { AuthorName, Category } from './tags';
 
 /* eslint-disable-next-line */
-export interface BigCardProps extends CardsProps {
-  showExcerpt: boolean;
-  showCategory: boolean;
-}
+export interface BigCardProps extends CardsProps {}
 
 export default function BigCard(props: BigCardProps) {
   const { post, showExcerpt, showCategory } = props;
