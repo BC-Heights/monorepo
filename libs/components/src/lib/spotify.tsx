@@ -1,6 +1,10 @@
-export default function Spotify() {
+export interface SpotifyProps {
+  className?: string;
+}
+
+export default function Spotify({ className }: SpotifyProps) {
   return (
-    <div className="flex flex-col w-full px-8">
+    <div className={className? className: ""}>
       <iframe
         title="Podcast Embed"
         className=""

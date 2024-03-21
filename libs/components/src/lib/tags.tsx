@@ -20,7 +20,7 @@ export function AuthorName(post: PostFragment) {
   }
 
   return (
-    <div className="text-[#b59410] italic font-bold">
+    <span className="text-[#b59410] italic font-bold">
       {molonguiAuthors.map((author, index) => {
         return (
           <>
@@ -37,7 +37,7 @@ export function AuthorName(post: PostFragment) {
           </>
         );
       })}
-    </div>
+    </span>
   );
 }
 

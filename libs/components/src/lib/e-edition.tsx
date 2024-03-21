@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function EEdition() {
   return (
-    <div className="flex w-full flex-row gap-4 pb-4 md:flex-col md:pl-8">
+    <div className="flex w-full flex-row gap-4 pb-4 md:flex-col">
       <div className="w-1/2 md:w-full">
         <div className="p-t-[max(60%, 326px)] relative h-[270px] w-full">
           <iframe

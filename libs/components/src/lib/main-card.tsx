@@ -15,7 +15,7 @@ export default async function MainCard() {
 
   return (
     <div className="mb-0 mt-4 flex w-full flex-wrap justify-center lg:flex-row">
-      <div className="w-full lg:w-[44.44%] lg:pr-8">
+      <div className="w-full lg:w-[calc(44.44%-64px)]">
         <BigCard
           post={firstPost!}
           imgSize="large"
@@ -26,11 +26,9 @@ export default async function MainCard() {
           showExcerpt
         ></BigCard>
       </div>
-      <div className="hidden lg:flex lg:w-0">
-        <div className="hidden w-0 border-r border-[#eee] lg:flex lg:self-stretch" />
-      </div>
-      <div className="flex w-full flex-col-reverse justify-center md:flex-row lg:w-[55.55%]">
-        <div className="w-full py-0 md:pr-8 lg:w-2/3 lg:pl-8">
+      <div className="mx-8 hidden border-r border-[#eee] lg:flex lg:self-stretch" />
+      <div className="flex w-full flex-col-reverse justify-center md:flex-row lg:w-[calc(55.55%-64px)]">
+        <div className="w-full py-0 lg:w-2/3">
           {posts?.nodes
             .slice(1)
             .map((post, index) => (
@@ -47,7 +45,7 @@ export default async function MainCard() {
             ))}
         </div>
         <div className="hidden md:flex">
-          <VerticalLine />
+          <VerticalLine className="mx-8"/>
         </div>
         <div className="flex w-full place-content-between md:w-1/3">
           <EEdition />
