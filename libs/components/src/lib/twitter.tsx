@@ -9,7 +9,7 @@ export interface TwitterProps {
 
 
 export function Twitter({ className,height }: TwitterProps) {
-  const defaultHeight = '600px';
+  const defaultHeight = '1000px';
   return (
     <div className={className}>
       <TwitterTimelineEmbed

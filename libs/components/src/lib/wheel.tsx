@@ -8,17 +8,15 @@ import 'slick-carousel/slick/slick-theme.css';
 
 import {NextArrow, PrevArrow} from './carousel-arrow';
 
-import { PostFragment } from '@the-heights/graphql';
-import BigCard from './big-card';
 
 export interface WheelProps {
-  posts: PostFragment[];
-  dynamicHeight?: boolean;
+  children: React.ReactNode;
+  settings: Settings;
 }
 
 
 
-export default function Wheel({ posts, dynamicHeight }: WheelProps) {
+export default function Wheel({ children, settings }: WheelProps) {
   const threshold = 80;
 
   const sliderRef = useRef<Slider>(null);
@@ -60,57 +58,11 @@ export default function Wheel({ posts, dynamicHeight }: WheelProps) {
     };
   }, [deltaX]);
 
-  const settings: Settings = {
-    arrows: false,
-    infinite: true,
-    speed: 750,
-    className: 'center',
-    centerMode: true,
-    centerPadding: '200px',
-    slidesToShow: 1,
-    adaptiveHeight: dynamicHeight,
-    dots: true,
-    cssEase: 'ease-in-out',
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          centerPadding: '100px'
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          centerPadding: '50px'
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          centerPadding: '0px'
-        }
-      }
-    ]
-  };
 
   return (
     <div className="slider-container relative">
       <Slider ref={sliderRef} {...settings}>
-        {posts?.map((post, index) => {
-          return (
-            <div className="px-0 md:px-8">
-              <BigCard
-                post={post}
-                key={index}
-                imgSize="large"
-                imgW={800}
-                imgH={440}
-                showCategory={false}
-                showExcerpt={true}
-              />
-            </div>
-          );
-        })}
+        {children}
       </Slider>
       <PrevArrow action={previous} />
       <NextArrow action={next} />

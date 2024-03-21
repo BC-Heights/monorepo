@@ -20,7 +20,7 @@ export default async function ArtsCard(props: ArtsCardProps) {
       <div className="flex flex-row items-start gap-4">
         <h1 className="text-2xl font-bold text-[#98002E]">{props.category}</h1>
       </div>
-      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
         {posts?.nodes.map((post, index) => (
           <div key={index} className="relative">
             <Link href={`/${formatHrefDate(post.date!)}/${post.slug!}`}>
